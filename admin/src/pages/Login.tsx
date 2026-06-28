@@ -99,6 +99,8 @@ const styles: Record<string, React.CSSProperties> = {
   },
   form: { display: 'flex', flexDirection: 'column', gap: 12 },
   input: {
+    width: '100%',
+    boxSizing: 'border-box',
     padding: '14px 16px',
     background: 'rgba(255,255,255,0.06)',
     border: '1px solid rgba(31,138,140,0.3)',
