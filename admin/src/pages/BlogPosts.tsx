@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { DefaultEditor } from 'react-simple-wysiwyg'
 import { supabaseAdmin } from '../lib/supabase'
 
@@ -29,7 +29,9 @@ export default function BlogPosts() {
   const [editing, setEditing] = useState<string | null>(null)
   const [view, setView] = useState<'list' | 'editor' | 'categories'>('list')
   const [saving, setSaving] = useState(false)
+  const [uploading, setUploading] = useState(false)
   const [msg, setMsg] = useState('')
+  const fileRef = useRef<HTMLInputElement>(null)
   const [newCat, setNewCat] = useState('')
   const [editingCat, setEditingCat] = useState<{ id: string; name: string } | null>(null)
 
@@ -111,6 +113,18 @@ export default function BlogPosts() {
     loadCategories()
   }
 
+  async function handleImageUpload(file: File) {
+    if (!file) return
+    setUploading(true)
+    const ext = file.name.split('.').pop()
+    const path = `${Date.now()}.${ext}`
+    const { error } = await supabaseAdmin.storage.from('blog-images').upload(path, file, { upsert: true })
+    if (error) { setMsg('Upload failed: ' + error.message); setUploading(false); return }
+    const { data } = supabaseAdmin.storage.from('blog-images').getPublicUrl(path)
+    setForm(f => ({ ...f, hero_image_url: data.publicUrl }))
+    setUploading(false)
+  }
+
   function getCatName(id: string | null) {
     return categories.find(c => c.id === id)?.name ?? ''
   }
@@ -185,9 +199,17 @@ export default function BlogPosts() {
             {categories.map(cat => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
           </select>
 
-          <label style={styles.label}>Hero Image URL</label>
-          <input style={styles.input} value={form.hero_image_url} onChange={e => setForm(f => ({ ...f, hero_image_url: e.target.value }))} placeholder="https://…" />
-          {form.hero_image_url && <img src={form.hero_image_url} alt="" style={styles.preview} />}
+          <label style={styles.label}>Hero Image</label>
+          <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={e => { const f = e.target.files?.[0]; if (f) handleImageUpload(f) }} />
+          <button style={styles.btnGhost} onClick={() => fileRef.current?.click()} disabled={uploading}>
+            {uploading ? 'Uploading…' : '↑ Upload Image'}
+          </button>
+          {form.hero_image_url && (
+            <>
+              <img src={form.hero_image_url} alt="" style={styles.preview} />
+              <button style={{ ...styles.btnSmall, color: '#FF6B35', marginTop: 4 }} onClick={() => setForm(f => ({ ...f, hero_image_url: '' }))}>Remove</button>
+            </>
+          )}
 
           <label style={styles.label}>SEO Description</label>
           <textarea style={{ ...styles.input, height: 80 }} value={form.seo_description} onChange={e => setForm(f => ({ ...f, seo_description: e.target.value }))} placeholder="155 characters max for Google…" maxLength={155} />
