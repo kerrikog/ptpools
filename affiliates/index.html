@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affiliate Program | PT Pools</title>
+  <meta name="description" content="Partner with PT Pools and earn $75 for every TheraTank backer you refer. Built for physical therapists, fitness creators, and aquatic therapy advocates.">
+  <link rel="canonical" href="https://ptpools.us/affiliates">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #09244D; --navy-dark: #061830; --teal: #1F8A8C; --orange: #FF6B35; --white: #ffffff; --muted: rgba(255,255,255,0.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    .site-header { padding: 20px 60px; display: flex; align-items: center; gap: 40px; background: rgba(6,24,48,0.97); border-bottom: 1px solid rgba(31,138,140,0.15); position: sticky; top: 0; z-index: 100; }
+    .site-header img { height: 60px; }
+    nav { display: flex; align-items: center; gap: 28px; flex: 1; }
+    nav a { color: rgba(255,255,255,0.65); font-size: 14px; text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+    nav a:hover { color: #fff; }
+    .nav-cta { margin-left: auto; padding: 9px 20px; background: var(--orange); color: #fff !important; border-radius: 8px; font-weight: 600; font-size: 13px; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 120px 60px 100px;
+      text-align: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 0%, rgba(31,138,140,0.18) 0%, transparent 60%),
+                  linear-gradient(160deg, #061830 0%, #08213f 50%, #071e3d 100%);
+    }
+    .hero-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(31,138,140,0.07) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(31,138,140,0.12); border: 1px solid rgba(31,138,140,0.35); color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 30px; margin-bottom: 32px; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; text-transform: uppercase; line-height: 1.05; letter-spacing: 1px; margin-bottom: 24px; }
+    .hero h1 span { color: var(--teal); }
+    .hero-sub { font-size: 1.15rem; color: var(--muted); line-height: 1.8; max-width: 620px; margin: 0 auto 48px; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { padding: 16px 40px; background: var(--orange); color: #fff; text-decoration: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; }
+    .btn-primary:hover { background: #e85c28; }
+    .btn-ghost { padding: 16px 40px; background: none; color: #fff; text-decoration: none; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: border-color 0.2s; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
+
+    /* COMMISSION STRIP */
+    .commission-strip { background: var(--teal); padding: 28px 60px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .commission-stat { text-align: center; }
+    .commission-stat .val { font-family: 'Oswald', sans-serif; font-size: 2.4rem; font-weight: 700; color: #fff; line-height: 1; }
+    .commission-stat .lbl { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-top: 4px; }
+    .strip-divider { width: 1px; height: 48px; background: rgba(255,255,255,0.25); }
+
+    /* INSPIRATION */
+    .inspiration { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+    .section-title span { color: var(--teal); }
+    .section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 580px; margin-bottom: 64px; }
+
+    .inspo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .inspo-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(31,138,140,0.15); border-radius: 20px; padding: 40px 32px; transition: border-color 0.2s, transform 0.2s; }
+    .inspo-card:hover { border-color: rgba(31,138,140,0.4); transform: translateY(-4px); }
+    .inspo-icon { width: 56px; height: 56px; background: rgba(31,138,140,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .inspo-icon svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .inspo-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
+    .inspo-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
+
+    /* HOW IT WORKS */
+    .how-it-works { padding: 100px 60px; background: rgba(255,255,255,0.02); }
+    .how-inner { max-width: 1200px; margin: 0 auto; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(31,138,140,0.4), transparent); pointer-events: none; }
+    .step { text-align: center; padding: 0 16px; }
+    .step-num { width: 72px; height: 72px; background: rgba(31,138,140,0.1); border: 2px solid rgba(31,138,140,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--teal); }
+    .step h4 { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .step p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+    /* WHO IT'S FOR */
+    .who { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+    .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+    .who-chip { background: rgba(255,255,255,0.04); border: 1px solid rgba(31,138,140,0.2); border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 14px; }
+    .who-chip svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .who-chip span { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+    /* WHAT YOU GET */
+    .what-you-get { padding: 100px 60px; background: rgba(31,138,140,0.05); border-top: 1px solid rgba(31,138,140,0.1); border-bottom: 1px solid rgba(31,138,140,0.1); }
+    .what-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .what-list { display: flex; flex-direction: column; gap: 24px; margin-top: 48px; }
+    .what-item { display: flex; gap: 18px; align-items: flex-start; }
+    .what-item-icon { width: 44px; height: 44px; background: rgba(255,107,53,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .what-item-icon svg { width: 22px; height: 22px; stroke: var(--orange); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .what-item h4 { font-weight: 600; font-size: 15px; margin-bottom: 4px; color: #fff; }
+    .what-item p { color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .what-visual { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.2); border-radius: 20px; padding: 40px; }
+    .what-visual .big-num { font-family: 'Oswald', sans-serif; font-size: 5rem; font-weight: 700; color: var(--orange); line-height: 1; }
+    .what-visual .big-lbl { font-size: 14px; color: var(--muted); margin-top: 8px; margin-bottom: 32px; }
+    .what-visual .teal-line { width: 60px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 24px; }
+    .what-visual p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.8; }
+
+    /* CTA */
+    .cta-section { padding: 120px 60px; text-align: center; background: radial-gradient(ellipse at 50% 100%, rgba(31,138,140,0.15) 0%, transparent 60%); }
+    .cta-section h2 { font-family: 'Oswald', sans-serif; font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+    .cta-section h2 span { color: var(--teal); }
+    .cta-section p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 520px; margin: 0 auto 48px; }
+
+    /* FOOTER */
+    .site-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
+    .site-footer img { height: 60px; opacity: 0.7; }
+    .site-footer p { color: rgba(255,255,255,0.2); font-size: 12px; }
+
+    @media (max-width: 1000px) {
+      .inspo-grid, .steps, .who-grid { grid-template-columns: repeat(2, 1fr); }
+      .what-inner { grid-template-columns: 1fr; gap: 40px; }
+      .steps::before { display: none; }
+    }
+    @media (max-width: 640px) {
+      .site-header, .hero, .inspiration, .how-it-works, .who, .what-you-get, .cta-section, .site-footer { padding-left: 24px; padding-right: 24px; }
+      .inspo-grid, .steps, .who-grid { grid-template-columns: 1fr; }
+      .commission-strip { gap: 32px; }
+      .strip-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/affiliates" style="color:#fff">Affiliates</a>
+      <a href="/#notify" class="nav-cta">Get Notified</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Affiliate Program
+    </div>
+    <h1>Help Bring Aquatic Therapy<br><span>to Every Backyard</span></h1>
+    <p class="hero-sub">Partner with PT Pools and earn $75 flat for every TheraTank backer you refer. No caps. No cuts. Just a mission worth sharing — and real money for helping us get there.</p>
+    <div class="hero-actions">
+      <a href="/affiliates/apply" class="btn-primary">Apply to Partner</a>
+      <a href="#how-it-works" class="btn-ghost">See How It Works</a>
+    </div>
+  </section>
+
+  <!-- COMMISSION STRIP -->
+  <div class="commission-strip">
+    <div class="commission-stat">
+      <div class="val">$75</div>
+      <div class="lbl">Per Confirmed Backer</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="commission-stat">
+      <div class="val">0%</div>
+      <div class="lbl">Revenue Cut — Ever</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="commission-stat">
+      <div class="val">Flat</div>
+      <div class="lbl">Rate. Always.</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="commission-stat">
+      <div class="val">∞</div>
+      <div class="lbl">No Referral Cap</div>
+    </div>
+  </div>
+
+  <!-- INSPIRATION -->
+  <section class="inspiration">
+    <div class="section-tag">Why It Matters</div>
+    <h2 class="section-title">Help Your Clients<br><span>Get in the Water</span></h2>
+    <p class="section-sub">Aquatic therapy works. The research is clear. The problem has always been access. TheraTank changes that — and you can be the one who helps make it happen.</p>
+
+    <div class="inspo-grid">
+      <div class="inspo-card">
+        <div class="inspo-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Real Impact for Real People</h3>
+        <p>Your audience trusts you. When you point them toward something that genuinely helps them move without pain, recover faster, or stay active longer — that's not a sale. That's a service.</p>
+      </div>
+      <div class="inspo-card">
+        <div class="inspo-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Aquatic Therapy, Finally Accessible</h3>
+        <p>Commercial therapy pools cost $10,000–$50,000. TheraTank brings the same therapeutic water depth home for a fraction of that. Help us put it in backyards where it belongs.</p>
+      </div>
+      <div class="inspo-card">
+        <div class="inspo-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>A Community Worth Building</h3>
+        <p>Physical therapists, aqua fitness coaches, arthritis advocates, injury recovery creators — we're building a program for people who actually live this mission. Not just anyone with a link.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section style="padding: 100px 60px; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(31,138,140,0.08);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div class="section-tag">Why TheraTank Sells Itself</div>
+      <h2 class="section-title">A Product Your Audience<br><span>Will Actually Thank You For</span></h2>
+      <p class="section-sub">This isn't a sponsor read. It's a genuine solution to a problem your audience has been dealing with for years.</p>
+      <div class="inspo-grid">
+        <div class="inspo-card">
+          <div class="inspo-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <h3>Deepest Home Pool Available</h3>
+          <p>59" drop-stitch walls. 54" of usable water depth. No other backyard pool comes close. Standing chest-deep in your own yard isn't just comfort — it's therapeutic range.</p>
+        </div>
+        <div class="inspo-card">
+          <div class="inspo-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Rigid, Durable Drop-Stitch Walls</h3>
+          <p>Drop-stitch construction means the walls are virtually solid when inflated — no flex, no collapse, no steel frame to wrestle. Sets up solo in minutes and packs away when you're done.</p>
+        </div>
+        <div class="inspo-card">
+          <div class="inspo-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Best Value in the Category</h3>
+          <p>Commercial therapy pools: $10K–$50K+. Steel frame above-ground pools: too shallow at 48". TheraTank: $749 early bird, includes pump, filter, and chlorine dispenser. Nothing else competes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="how-inner">
+      <div class="section-tag">The Process</div>
+      <h2 class="section-title">Simple. <span>Transparent.</span> Fair.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Apply</h4>
+          <p>Tell us about yourself, your audience, and your niche. We review every application personally — follower count isn't everything.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Get Approved</h4>
+          <p>We'll reach out with your invite to set up your affiliate account and customize your landing page — or just get a clean redirect link.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Share Your Link</h4>
+          <p>Your unique link. Your brand. Your audience. When they back TheraTank on Kickstarter through your link, it's tracked automatically.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>Get Paid</h4>
+          <p>$75 per confirmed backer, paid via PayPal or check after the Kickstarter campaign closes. No percentages. No fine print.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who">
+    <div class="section-tag">Who We're Looking For</div>
+    <h2 class="section-title">Niche Over Numbers.<br><span>Always.</span></h2>
+    <p class="section-sub">A physical therapist with 2,000 engaged followers is worth more to us than a lifestyle influencer with 200,000. If your audience cares about movement, recovery, or healthy aging — we want to talk.</p>
+    <div class="who-grid">
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <span>Physical Therapists & PT Clinics</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+        <span>Aqua Fitness Instructors</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Arthritis & Joint Health Advocates</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <span>Fitness & Wellness Creators</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Injury Recovery Specialists</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Healthy Aging & Senior Wellness</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        <span>Health & Lifestyle Bloggers</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span>Sports Medicine Professionals</span>
+      </div>
+      <div class="who-chip">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Podcast Hosts in Health & Wellness</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="what-you-get">
+    <div class="what-inner">
+      <div>
+        <div class="section-tag">What's In It For You</div>
+        <h2 class="section-title">More Than<br><span>Just a Link</span></h2>
+        <div class="what-list">
+          <div class="what-item">
+            <div class="what-item-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <h4>Your Own Branded Landing Page</h4>
+              <p>Optional but powerful. Your photo, your words, your endorsement — PT Pools template. Your audience lands somewhere that feels personal, not generic.</p>
+            </div>
+          </div>
+          <div class="what-item">
+            <div class="what-item-icon">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div>
+              <h4>Real-Time Stats Dashboard</h4>
+              <p>See your clicks, landing page views, and confirmed backers in one place. Always know how your link is performing.</p>
+            </div>
+          </div>
+          <div class="what-item">
+            <div class="what-item-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <h4>$75 Flat Per Backer. No Caps.</h4>
+              <p>Refer 1 backer or 100 — the rate never changes. No sliding scales, no percentage cuts, no gotchas.</p>
+            </div>
+          </div>
+          <div class="what-item">
+            <div class="what-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.86a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            </div>
+            <div>
+              <h4>Direct Relationship</h4>
+              <p>You're not dealing with a platform. You're dealing with us — the founders. Questions get answered. Payouts go out on time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="what-visual">
+        <div class="big-num">$75</div>
+        <div class="big-lbl">per confirmed backer</div>
+        <div class="teal-line"></div>
+        <p>TheraTank backs at $749–$899. At $75 flat commission, you keep 8–10% of every sale you drive — with zero platform fees taken out of your cut.</p>
+        <br>
+        <p style="color: rgba(255,255,255,0.4); font-size: 13px;">10 backers = $750 &nbsp;·&nbsp; 25 backers = $1,875 &nbsp;·&nbsp; 50 backers = $3,750</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to Help Get<br><span>People Moving?</span></h2>
+    <p>Applications take about 3 minutes. We review everything personally and get back to you within a few days.</p>
+    <a href="/affiliates/apply" class="btn-primary">Apply to Partner With Us</a>
+  </section>
+
+  <footer class="site-footer">
+    <img src="/assets/images/logo-dark.png" alt="PT Pools">
+    <p>&copy; 2026 PT Pools. TheraTank is a trademark of PT Pools.</p>
+  </footer>
+
+</body>
+</html>
