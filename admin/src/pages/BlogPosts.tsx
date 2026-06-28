@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { DefaultEditor } from 'react-simple-wysiwyg'
 import { supabaseAdmin } from '../lib/supabase'
 
 interface Post {
@@ -171,8 +172,10 @@ export default function BlogPosts() {
           <label style={styles.label}>Slug <span style={styles.hint}>(auto-generated, editable)</span></label>
           <input style={styles.input} value={form.slug} onChange={e => setForm(f => ({ ...f, slug: e.target.value }))} placeholder="url-friendly-slug" />
 
-          <label style={styles.label}>Body <span style={styles.hint}>(HTML allowed)</span></label>
-          <textarea style={{ ...styles.input, ...styles.textarea }} value={form.body} onChange={e => setForm(f => ({ ...f, body: e.target.value }))} placeholder="Write your post here…" />
+          <label style={styles.label}>Body</label>
+          <div style={styles.editorWrap}>
+            <DefaultEditor value={form.body} onChange={e => setForm(f => ({ ...f, body: e.target.value }))} />
+          </div>
         </div>
 
         <div style={styles.editorSide}>
@@ -253,6 +256,7 @@ const styles: Record<string, React.CSSProperties> = {
   hint: { color: 'rgba(255,255,255,0.35)', textTransform: 'none', letterSpacing: 0, fontSize: 11 },
   input: { width: '100%', padding: '12px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(31,138,140,0.25)', borderRadius: 8, color: '#fff', fontSize: 14, fontFamily: 'Inter, sans-serif', outline: 'none', boxSizing: 'border-box' },
   textarea: { minHeight: 400, resize: 'vertical' },
+  editorWrap: { border: '1px solid rgba(31,138,140,0.25)', borderRadius: 8, overflow: 'hidden', background: '#fff', minHeight: 400 },
   preview: { width: '100%', borderRadius: 8, marginTop: 4 },
   charCount: { color: 'rgba(255,255,255,0.3)', fontSize: 11, textAlign: 'right', marginTop: -8 },
   toggleRow: { display: 'flex', alignItems: 'center', cursor: 'pointer', color: '#fff', fontSize: 14 },
