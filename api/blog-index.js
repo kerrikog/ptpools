@@ -128,7 +128,6 @@ function renderIndex(posts) {
               <div class="card-hover-overlay"><span>Read Article</span></div>
             </div>
             <div class="card-body">
-              <div class="card-tag">Aquatic Therapy</div>
               <div class="card-title">${esc(post.title)}</div>
               ${post.seo_description ? `<div class="card-desc">${esc(post.seo_description)}</div>` : ''}
               <div class="card-link">Read Article <span>→</span></div>
