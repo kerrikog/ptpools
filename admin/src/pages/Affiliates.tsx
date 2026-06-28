@@ -165,7 +165,7 @@ export default function Affiliates() {
                 {(a.platforms ?? []).length === 0 && <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: 13 }}>No platforms listed.</p>}
                 <div style={styles.platformList}>
                   {(a.platforms ?? []).map((p, i) => {
-                    const url = p.type === 'Social Media' ? getSocialUrl(p.handle, p.handle) : getPlatformUrl(p.type, p.handle)
+                    const url = getSocialUrl(p.handle, p.type) ?? getPlatformUrl(p.type, p.handle)
                     return (
                       <div key={i} style={styles.platformChip}>
                         <span style={styles.platformType}>{p.type}</span>
@@ -207,7 +207,7 @@ const styles: Record<string, React.CSSProperties> = {
   input: { width: '100%', padding: '12px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(31,138,140,0.25)', borderRadius: 8, color: '#fff', fontSize: 14, fontFamily: 'Inter, sans-serif', outline: 'none', boxSizing: 'border-box' },
   list: { display: 'flex', flexDirection: 'column', gap: 12 },
   card: { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(31,138,140,0.12)', borderRadius: 10, overflow: 'hidden' },
-  cardTop: { display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', padding: '16px 20px', gap: 16 },
+  cardTop: { display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', padding: '20px 28px', gap: 20 },
   info: { flex: 1 },
   name: { color: '#fff', fontSize: 15, fontWeight: 600, marginBottom: 4, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
   meta: { color: 'rgba(255,255,255,0.4)', fontSize: 13, marginBottom: 4 },
@@ -216,13 +216,13 @@ const styles: Record<string, React.CSSProperties> = {
   statusChip: { fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 20, textTransform: 'uppercase', letterSpacing: 0.5 },
   payoutChip: { fontSize: 11, background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.4)', padding: '2px 8px', borderRadius: 20 },
   actions: { display: 'flex', gap: 8, flexShrink: 0, flexWrap: 'wrap' },
-  expandedWrap: { borderTop: '1px solid rgba(31,138,140,0.12)', padding: '16px 20px', background: 'rgba(0,0,0,0.15)' },
-  expandedTitle: { color: 'rgba(255,255,255,0.5)', fontSize: 11, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 12 },
-  platformList: { display: 'flex', flexDirection: 'column', gap: 8 },
-  platformChip: { display: 'flex', alignItems: 'center', gap: 12, background: 'rgba(255,255,255,0.04)', borderRadius: 8, padding: '8px 14px' },
-  platformType: { fontSize: 11, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1, width: 120, flexShrink: 0 },
-  platformHandle: { fontSize: 14, color: '#1F8A8C', textDecoration: 'none', flex: 1 },
-  platformCount: { fontSize: 13, color: 'rgba(255,255,255,0.5)', flexShrink: 0 },
+  expandedWrap: { borderTop: '1px solid rgba(31,138,140,0.12)', padding: '24px 28px', background: 'rgba(0,0,0,0.15)' },
+  expandedTitle: { color: 'rgba(255,255,255,0.4)', fontSize: 11, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 16 },
+  platformList: { display: 'flex', flexDirection: 'column', gap: 10 },
+  platformChip: { display: 'flex', alignItems: 'center', gap: 16, background: 'rgba(255,255,255,0.05)', borderRadius: 10, padding: '14px 18px' },
+  platformType: { fontSize: 12, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1.5, width: 140, flexShrink: 0 },
+  platformHandle: { fontSize: 15, color: '#1F8A8C', textDecoration: 'none', flex: 1 },
+  platformCount: { fontSize: 14, color: 'rgba(255,255,255,0.6)', flexShrink: 0, fontWeight: 600 },
   btnPrimary: { padding: '8px 16px', background: '#1F8A8C', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, cursor: 'pointer', fontSize: 13, fontFamily: 'Inter, sans-serif' },
   btnGhost: { padding: '8px 14px', background: 'none', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.7)', borderRadius: 8, cursor: 'pointer', fontSize: 13, fontFamily: 'Inter, sans-serif' },
   btnSmall: { padding: '6px 12px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontFamily: 'Inter, sans-serif' },
