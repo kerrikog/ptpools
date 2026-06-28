@@ -104,7 +104,6 @@ function renderPost(post) {
     <article>
       ${post.hero_image_url ? `<img class="hero-img" src="${esc(post.hero_image_url)}" alt="${esc(post.title)}">` : ''}
       <h1 class="post-title">${esc(post.title)}</h1>
-      <div class="post-date">${formatDate(post.published_at)}</div>
       <div class="post-body">${post.body}</div>
 
       <div class="cta-box">

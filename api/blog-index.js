@@ -68,9 +68,10 @@ function renderIndex(posts) {
     .card-no-img { width: 100%; height: 100%; background: linear-gradient(135deg, #0d2d5c, #1F8A8C22); display: flex; align-items: center; justify-content: center; }
     .card-no-img svg { opacity: 0.15; }
 
-    .card-date { position: absolute; bottom: 14px; left: 14px; background: rgba(6,24,48,0.92); padding: 8px 12px; line-height: 1; text-align: center; }
-    .card-date .day { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; display: block; }
-    .card-date .month { font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-top: 2px; border-top: 2px solid var(--orange); padding-top: 4px; }
+    .card-badge { position: absolute; top: 14px; left: 14px; background: var(--teal); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; }
+    .card-hover-overlay { position: absolute; inset: 0; background: rgba(6,24,48,0.55); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.25s; }
+    .card-hover-overlay span { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff; border-bottom: 2px solid var(--orange); padding-bottom: 4px; }
+    .post-card:hover .card-hover-overlay { opacity: 1; }
 
     .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
     .card-tag { font-size: 12px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 1.5px; }
@@ -117,19 +118,14 @@ function renderIndex(posts) {
     ? `<div class="empty">No articles yet — check back soon.</div>`
     : `<div class="post-grid">
         ${posts.map(post => {
-          const d = new Date(post.published_at)
-          const day = d.getDate()
-          const month = d.toLocaleDateString('en-US', { month: 'short' })
           return `
           <a class="post-card" href="/blog/${esc(post.slug)}">
             <div class="card-img-wrap">
               ${post.hero_image_url
                 ? `<img src="${esc(post.hero_image_url)}" alt="${esc(post.title)}" loading="lazy">`
                 : `<div class="card-no-img"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>`}
-              <div class="card-date">
-                <span class="day">${day}</span>
-                <span class="month">${month}</span>
-              </div>
+              <div class="card-badge">Aquatic Therapy</div>
+              <div class="card-hover-overlay"><span>Read Article</span></div>
             </div>
             <div class="card-body">
               <div class="card-tag">Aquatic Therapy</div>
