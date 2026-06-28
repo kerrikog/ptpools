@@ -139,9 +139,10 @@ export default function Affiliates() {
                 <div style={styles.name}>
                   {a.name}
                   <span style={{ ...styles.statusChip, ...statusColor(a.status) }}>{a.status}</span>
-                  {a.payout_method && <span style={styles.payoutChip}>{a.payout_method}{a.paypal_email ? ` — ${a.paypal_email}` : ''}</span>}
                 </div>
-                <div style={styles.meta}><a href={`mailto:${a.email}`} style={styles.emailLink}>{a.email}</a> · /ref/{a.code}</div>
+                <div style={styles.meta}><a href={`mailto:${a.email}`} style={styles.emailLink}>{a.email}</a></div>
+                <div style={styles.meta}>Referral link: <strong style={{ color: '#fff' }}>ptpools.us/ref/{a.code}</strong></div>
+                {a.payout_method && <div style={styles.meta}>Payout: {a.payout_method}{a.paypal_email ? ` — ${a.paypal_email}` : ''}</div>}
                 {a.niche && <div style={styles.niche}>"{a.niche}"</div>}
               </div>
               <div style={styles.actions}>
