@@ -19,7 +19,7 @@ export default function Login() {
   return (
     <div style={styles.page}>
       <div style={styles.card}>
-        <div style={styles.logo}>PT Pools</div>
+        <img src="/logo.png" alt="PT Pools" style={styles.logoImg} />
         <div style={styles.subtitle}>Admin Panel</div>
         <form onSubmit={handleLogin} style={styles.form}>
           <input
@@ -65,15 +65,12 @@ const styles: Record<string, React.CSSProperties> = {
     width: '100%',
     maxWidth: 380,
   },
-  logo: {
-    fontFamily: "'Oswald', sans-serif",
-    fontSize: 32,
-    fontWeight: 700,
-    color: '#ffffff',
-    textAlign: 'center',
-    letterSpacing: 2,
-    textTransform: 'uppercase',
-    marginBottom: 4,
+  logoImg: {
+    display: 'block',
+    height: 100,
+    width: 'auto',
+    margin: '0 auto 8px',
+    filter: 'drop-shadow(0 0 20px rgba(31,138,140,0.4))',
   },
   subtitle: {
     fontSize: 12,
