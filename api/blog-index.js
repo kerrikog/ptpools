@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       return
     }
     const response = await fetch(
-      `${SUPABASE_URL}/rest/v1/blog_posts?published=eq.true&select=title,slug,seo_description,hero_image_url,published_at&order=published_at.desc`,
+      `${SUPABASE_URL}/rest/v1/blog_posts?published=eq.true&select=title,slug,seo_description,hero_image_url,published_at,categories(name)&order=published_at.desc`,
       { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
     )
     const data = await response.json()
@@ -124,7 +124,7 @@ function renderIndex(posts) {
               ${post.hero_image_url
                 ? `<img src="${esc(post.hero_image_url)}" alt="${esc(post.title)}" loading="lazy">`
                 : `<div class="card-no-img"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>`}
-              <div class="card-badge">Aquatic Therapy</div>
+              ${post.categories?.name ? `<div class="card-badge">${esc(post.categories.name)}</div>` : ''}
               <div class="card-hover-overlay"><span>Read Article</span></div>
             </div>
             <div class="card-body">
