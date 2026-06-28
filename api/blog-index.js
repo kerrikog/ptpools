@@ -11,8 +11,18 @@ export default async function handler(req, res) {
       `${SUPABASE_URL}/rest/v1/blog_posts?published=eq.true&select=title,slug,seo_description,hero_image_url,published_at&order=published_at.desc`,
       { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
     )
-    const data = await response.json()
-    const posts = Array.isArray(data) ? data : []
+    const raw = await response.text()
+    if (req.query.debug === '1') {
+      res.status(200).send(`Status: ${response.status}<br>Body: <pre>${raw}</pre>`)
+      return
+    }
+    let data
+    try { data = JSON.parse(raw) } catch(e) { res.status(500).send(`JSON parse error: ${raw}`); return }
+    if (!Array.isArray(data)) {
+      res.status(500).send(`Supabase error: ${JSON.stringify(data)}`)
+      return
+    }
+    const posts = data
 
     res.setHeader('Content-Type', 'text/html')
     res.send(renderIndex(posts))
