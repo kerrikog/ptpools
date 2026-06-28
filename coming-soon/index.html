@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheraTank — Inflatable Aquatic Therapy Pool for Home Rehabilitation &amp; Exercise | PT Pools</title>
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="apple-touch-icon" href="../assets/images/logo.png">
+    <meta name="description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable drop-stitch construction, fits almost any yard. Join the Kickstarter launch for the best price.">
+    <link rel="canonical" href="https://ptpools.us/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="TheraTank — Inflatable Aquatic Therapy Pool for Home Rehabilitation &amp; Exercise">
+    <meta property="og:description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable, fits almost any yard. Coming soon on Kickstarter.">
+    <!-- TODO: swap render for real product photo once sample photos are ready — real photo converts significantly better on social shares -->
+    <meta property="og:image" content="https://ptpools.us/assets/images/theratank-render.png">
+    <meta property="og:url" content="https://ptpools.us/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PT Pools">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TheraTank — Inflatable Aquatic Therapy Pool for Home Rehabilitation &amp; Exercise">
+    <meta name="twitter:description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable, fits almost any yard. Coming soon on Kickstarter.">
+    <!-- TODO: swap render for real product photo (same as og:image above) -->
+    <meta name="twitter:image" content="https://ptpools.us/assets/images/theratank-render.png">
+
+    <!-- Structured Data: Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "TheraTank",
+      "description": "A 10-foot round drop-stitch inflatable aquatic therapy pool with 59\" wall height and 54\" usable water depth. Designed for aqua aerobics, rehabilitation, injury recovery, arthritis relief, and low-impact fitness. Sets up solo with included electric air pump. Compact enough for most residential backyards.",
+      "brand": {
+        "@type": "Brand",
+        "name": "PT Pools"
+      },
+      "image": "https://ptpools.us/assets/images/theratank-render.png",
+      "url": "https://ptpools.us/",
+      "offers": {
+        "@type": "Offer",
+        "price": "749.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/PreOrder",
+        "url": "https://ptpools.us/",
+        "priceValidUntil": "2026-12-31"
+      }
+    }
+    </script>
+
+    <!-- Preload hero image — biggest LCP win -->
+    <link rel="preload" as="image" href="../assets/images/theratank-render.webp" type="image/webp">
+    <!-- Fonts load after render — no blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
+    <style>
+        :root {
+            --navy: #09244D;
+            --navy-dark: #061830;
+            --navy-mid: #0d2d5c;
+            --teal: #1F8A8C;
+            --orange: #FF6B35;
+            --white: #ffffff;
+            --text-muted: rgba(255,255,255,0.55);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy-dark);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: relative;
+            z-index: 10;
+            padding: 30px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(6, 24, 48, 0.97);
+            backdrop-filter: blur(12px);
+        }
+        .logo img { height: 110px; width: auto; }
+        .nav-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            opacity: 0.85;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 133px);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 72% 38%, rgba(38, 192, 205, 0.15) 0%, transparent 52%),
+                radial-gradient(ellipse at 10% 90%, rgba(38, 192, 205, 0.06) 0%, transparent 50%),
+                linear-gradient(140deg, #061830 0%, #08213f 30%, #0d2d5c 60%, #071e3d 100%);
+        }
+
+        /* Dot grid overlay */
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(38,192,205,0.07) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none;
+        }
+
+        /* Glow orbs */
+        .hero-glow-top {
+            position: absolute;
+            top: -180px;
+            right: -100px;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(38,192,205,0.11) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero-glow-bottom {
+            position: absolute;
+            bottom: -180px;
+            left: 20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(9,36,77,0.7) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Bottom wave shape */
+        .hero-wave {
+            position: absolute;
+            bottom: -2px;
+            left: 0; right: 0;
+            z-index: 2;
+            line-height: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            padding: 100px 80px 160px;
+        }
+
+        .hero-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-rows: auto auto;
+            column-gap: 100px;
+            row-gap: 40px;
+        }
+
+        /* Left col — text only */
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        /* Right col spans both rows on desktop */
+        .hero-right {
+            grid-column: 2;
+            grid-row: 1 / 3;
+            align-self: center;
+        }
+
+        /* Email box — below text, above nothing, left col row 2 */
+        .hero-form {
+            grid-column: 1;
+            grid-row: 2;
+            align-self: start;
+            margin-bottom: 60px;
+        }
+
+        /* KS badge */
+        .ks-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 10px 22px;
+            border-radius: 30px;
+            margin-bottom: 38px;
+            width: fit-content;
+        }
+        .ks-badge .dot {
+            width: 8px; height: 8px;
+            background: var(--orange);
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--orange); }
+            50% { opacity: 0.3; box-shadow: none; }
+        }
+
+        /* Headline */
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+            font-weight: 700;
+            line-height: 1.08;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+        .hero h1 .accent {
+            color: var(--teal);
+            font-size: 0.62em;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        /* Sub-label — proper case, NOT uppercase */
+        .hero h1 .block {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.38em;
+            font-weight: 500;
+            letter-spacing: 3.5px;
+            color: var(--teal);
+            margin-bottom: 12px;
+            text-transform: none;
+            opacity: 0.88;
+        }
+
+        /* Subline */
+        .hero .subline {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+
+        .industry-note {
+            margin-top: 16px;
+            font-size: 0.88rem;
+            color: var(--teal);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .built-for {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.55);
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        /* Teal divider */
+        .teal-divider {
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), transparent);
+            margin-bottom: 40px;
+            border-radius: 2px;
+        }
+
+        /* ── EMAIL BOX ── */
+        .email-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(38, 192, 205, 0.25);
+            border-radius: 20px;
+            padding: 44px;
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+        .email-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--teal), transparent);
+        }
+        .email-box h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .email-box p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 28px;
+            line-height: 1.65;
+        }
+
+        /* ── SIGNUP FORM ── */
+        .signup-form { display: flex; flex-direction: column; gap: 12px; }
+
+        .signup-form .field-wrap { position: relative; }
+
+        .signup-form input[type="email"] {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(38, 192, 205, 0.35);
+            border-radius: 12px;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .signup-form input[type="email"]::placeholder {
+            color: rgba(255,255,255,0.35);
+        }
+        .signup-form input[type="email"]:focus {
+            border-color: var(--teal);
+            background: rgba(38,192,205,0.08);
+        }
+
+        .signup-form .btn-notify {
+            width: 100%;
+            padding: 16px 24px;
+            background: var(--orange);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .signup-form .btn-notify:hover { background: #e85c28; }
+        .signup-form .btn-notify:active { transform: scale(0.98); }
+
+        .signup-form .form-fine {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.28);
+            text-align: center;
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+        }
+
+        .signup-success {
+            color: var(--teal);
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.6;
+            text-align: center;
+            padding: 24px 0 8px;
+        }
+
+        /* ── RIGHT COL — specs visual ── */
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* grid placement handled above */
+        }
+
+        .specs-visual {
+            width: 100%;
+            max-width: 460px;
+            position: relative;
+        }
+
+        /* Glow behind specs — desktop off, mobile subtle */
+        .specs-visual::before { display: none; }
+
+        .product-mockup {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-mockup img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            filter: drop-shadow(0 20px 60px rgba(38, 192, 205, 0.25));
+        }
+
+        .product-label {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(38,192,205,0.15);
+        }
+        .product-label .model {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+        .product-label .brand {
+            font-size: 0.82rem;
+            color: var(--teal);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            opacity: 0.85;
+        }
+
+        /* Specs grid */
+        .specs-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .spec-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(38,192,205,0.18);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .spec-card:hover {
+            border-color: rgba(38,192,205,0.45);
+            background: rgba(38,192,205,0.06);
+        }
+        .spec-card .spec-val {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .spec-card .spec-lbl {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.82);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.4;
+        }
+        .spec-card .spec-sub {
+            display: block;
+            font-size: 0.6rem;
+            color: var(--orange);
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Launch price card — orange accent */
+        .spec-card.featured {
+            border-color: rgba(255, 107, 53, 0.35);
+            background: rgba(255, 107, 53, 0.07);
+        }
+        .spec-card.featured:hover {
+            border-color: rgba(255, 107, 53, 0.6);
+            background: rgba(255, 107, 53, 0.1);
+        }
+        .spec-card.featured .spec-val {
+            color: var(--orange);
+        }
+
+
+        /* ── FOOTER ── */
+        .site-footer {
+            background: var(--navy-dark);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 28px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-footer .footer-logo img { height: 80px; opacity: 0.85; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 22px; }
+        .footer-email a {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 0;
+            display: inline-block;
+        }
+        .footer-copy {
+            color: rgba(255,255,255,0.2);
+            font-size: 0.72rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                row-gap: 24px;
+                column-gap: 0;
+            }
+            .hero-left  { grid-column: 1; grid-row: auto; order: 1; }
+            .hero-right { grid-column: 1; grid-row: auto; order: 2; }
+            .hero-form  { grid-column: 1; grid-row: auto; order: 3; }
+            .specs-visual { max-width: 400px; }
+            .hero-content { padding: 72px 40px; }
+            .site-header { padding: 24px 40px; }
+            .specs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+            .spec-card {
+                padding: 12px 8px;
+                border-radius: 10px;
+            }
+            .spec-card .spec-val {
+                font-size: 1.3rem;
+                margin-bottom: 4px;
+            }
+            .spec-card .spec-lbl {
+                font-size: 0.65rem;
+                letter-spacing: 1px;
+            }
+            .spec-solo { display: none; }
+            .specs-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 12px; }
+            .spec-card { padding: 22px 12px; }
+            .spec-card .spec-val { font-size: 2.2rem; margin-bottom: 6px; display: inline-block; transform: scaleY(1.3); transform-origin: center; }
+            .spec-card .spec-sub { font-size: 0.62rem; }
+        }
+        @media (max-width: 576px) {
+            .site-header { padding: 18px 20px; }
+            .nav-tagline { font-size: 10px; letter-spacing: 1px; line-height: 1.6; text-align: right; }
+            .tagline-break { display: block; }
+            .hero-content { padding: 48px 20px; }
+            .email-box { padding: 28px 22px; }
+            .site-footer { padding: 20px; flex-direction: column; gap: 16px; text-align: center; }
+            .footer-right { align-items: center; }
+            .footer-email a { font-size: 1rem; padding: 10px 20px; background: rgba(38,192,205,0.08); border-radius: 8px; border: 1px solid rgba(38,192,205,0.2); }
+            .specs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+            .spec-card {
+                padding: 10px 6px;
+                border-radius: 10px;
+            }
+            .spec-card .spec-val {
+                font-size: 1.1rem;
+                margin-bottom: 4px;
+            }
+            .spec-card .spec-lbl {
+                font-size: 0.55rem;
+                letter-spacing: 0.5px;
+            }
+            .product-label .model { font-size: 1.6rem; }
+            .product-label { margin-bottom: 16px; padding-bottom: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header" role="banner" aria-label="PT Pools">
+        <div class="logo">
+            <img src="../assets/images/logo-dark.png" alt="PT Pools home" />
+        </div>
+        <div class="nav-tagline" aria-label="Physical Therapy. Pool Therapy. PT Pools."><span class="tagline-break">Physical Therapy.</span><span class="tagline-break">Pool Therapy.</span><span class="tagline-break">PT Pools.</span></div>
+    </header>
+
+
+    <!-- Header wave -->
+    <div style="line-height:0; margin-top:-1px; background:rgba(6,24,48,0.97);">
+        <svg viewBox="0 0 1440 30" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:30px;display:block;">
+            <path d="M0,15 C480,30 960,0 1440,15" stroke="rgba(38,192,205,0.3)" stroke-width="1.5" fill="none"/>
+        </svg>
+    </div>
+
+    <!-- HERO -->
+    <main id="main-content">
+    <section class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-glow-top"></div>
+        <div class="hero-glow-bottom"></div>
+
+        <div class="hero-content">
+            <div class="hero-inner">
+
+                <!-- LEFT -->
+                <div class="hero-left">
+
+                    <div class="ks-badge">
+                        <span class="dot"></span>
+                        Coming Soon &nbsp;&rarr;&nbsp; Kickstarter
+                    </div>
+
+                    <h1>
+                        <span class="block">The TheraTank by PT Pools</span>
+                        Aquatic therapy<br>for every body —<br><span class="accent">and almost every yard.</span>
+                    </h1>
+
+                    <div class="teal-divider"></div>
+
+                    <p class="subline">
+                        <span style="white-space:nowrap">Aqua Aerobics</span> &nbsp;|&nbsp;
+                        <span style="white-space:nowrap">Rehabilitation</span> &nbsp;|&nbsp;
+                        <span style="white-space:nowrap">Injury Recovery</span> &nbsp;|&nbsp;
+                        <span style="white-space:nowrap">Arthritis</span> &nbsp;|&nbsp;
+                        <span style="white-space:nowrap">Athletic Training</span> &nbsp;|&nbsp;
+                        <span style="white-space:nowrap">No Impact Fitness</span>
+                    </p>
+
+                    <p class="built-for">Built for pain-free movement.</p>
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="hero-right">
+                    <div class="specs-visual">
+
+                        <div class="product-mockup">
+                            <picture>
+                                <source srcset="../assets/images/theratank-render.webp" type="image/webp">
+                                <img src="../assets/images/theratank-render.png" alt="TheraTank by PT Pools" fetchpriority="high" loading="eager" />
+                            </picture>
+                        </div>
+
+                        <div class="product-label">
+                            <div class="model">TheraTank</div>
+                            <div class="brand">by PT Pools</div>
+                        </div>
+
+                        <div class="specs-grid">
+                            <div class="spec-card">
+                                <span class="spec-val">59"</span>
+                                <span class="spec-lbl">Wall Height<br>(1.5M)</span>
+                                <span class="spec-sub">54" usable water depth</span>
+                            </div>
+                            <div class="spec-card">
+                                <span class="spec-val">~10ft</span>
+                                <span class="spec-lbl">Round / Fits<br>Most Yards</span>
+                                <span class="spec-sub">3M (9'10") footprint</span>
+                            </div>
+                            <div class="spec-card featured">
+                                <span class="spec-val">$749</span>
+                                <span class="spec-lbl">Early Bird<br>Launch Price</span>
+                                <span class="spec-sub">*first 50 backers</span>
+                            </div>
+                            <div class="spec-card spec-solo">
+                                <span class="spec-val">Inflatable</span>
+                                <span class="spec-lbl">Electric Air Pump<br>Included</span>
+                                <span class="spec-sub">Sets up solo</span>
+                            </div>
+                        </div>
+
+                        <p class="industry-note">54" water depth. Drop stitch inflatable. Sets up solo. Fits almost any yard.</p>
+
+                    </div>
+                </div>
+
+                <!-- EMAIL FORM -->
+                <div class="hero-form">
+                    <div class="email-box">
+                        <h3>Be First in Line</h3>
+                        <p>Early Kickstarter backers get the best price.<br>Get notified when we launch.</p>
+                        <div class="ml-subscribe-form ml-subscribe-form-41259136">
+                            <div class="row-form">
+                                <form class="signup-form" action="https://assets.mailerlite.com/jsonp/2345369/forms/187374732799116571/subscribe" method="post">
+                                    <div class="field-wrap">
+                                        <input type="email" name="fields[email]" placeholder="your@email.com" required autocomplete="email" aria-label="Email address" />
+                                    </div>
+                                    <button type="submit" class="btn-notify">Notify Me at Launch</button>
+                                    <p class="form-fine">No spam. Unsubscribe anytime.</p>
+                                    <input type="hidden" name="ml-submit" value="1">
+                                    <input type="hidden" name="anticsrf" value="true">
+                                </form>
+                            </div>
+                            <div class="row-success" style="display:none">
+                                <p class="signup-success">You're on the list! We'll reach out the moment we launch on Kickstarter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Wave bottom -->
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:60px;">
+                <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#061830"/>
+            </svg>
+        </div>
+    </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="../assets/images/logo-dark.png" alt="PT Pools" />
+        </div>
+        <div class="footer-right">
+            <div class="footer-email"><a href="mailto:hello@ptpools.us">hello@ptpools.us</a></div>
+            <div class="footer-copy">&copy; 2026 PT Pools. TheraTank is a trademark of PT Pools.</div>
+        </div>
+    </footer>
+
+    <script>
+        function ml_webform_success_41259136() {
+            var $ = ml_jQuery || jQuery;
+            $('.ml-subscribe-form-41259136 .row-success').show();
+            $('.ml-subscribe-form-41259136 .row-form').hide();
+        }
+    </script>
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35484c46d781b" type="text/javascript"></script>
+    <script>fetch("https://assets.mailerlite.com/jsonp/2345369/forms/187374732799116571/takel")</script>
+</body>
+</html>

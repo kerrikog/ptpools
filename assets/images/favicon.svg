@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="47" r="46" fill="none" stroke="#09244D" stroke-width="5"/>
+  <text x="50" y="38" font-family="Arial Black, sans-serif" font-weight="900" font-size="30" fill="#09244D" text-anchor="middle" dominant-baseline="middle">PT</text>
+  <text x="50" y="56" font-family="Arial, sans-serif" font-weight="700" font-size="12" fill="#09244D" text-anchor="middle" letter-spacing="2">POOLS</text>
+  <path d="M14,70 Q32,62 50,70 Q68,78 86,70" stroke="#1F8A8C" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M14,78 Q32,70 50,78 Q68,86 86,78" stroke="#09244D" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>
