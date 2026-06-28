@@ -66,11 +66,13 @@ const styles: Record<string, React.CSSProperties> = {
     maxWidth: 380,
   },
   logo: {
-    fontFamily: 'Georgia, serif',
-    fontSize: 28,
+    fontFamily: "'Oswald', sans-serif",
+    fontSize: 32,
     fontWeight: 700,
     color: '#ffffff',
     textAlign: 'center',
+    letterSpacing: 2,
+    textTransform: 'uppercase',
     marginBottom: 4,
   },
   subtitle: {
