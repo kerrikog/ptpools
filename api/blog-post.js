@@ -2,22 +2,28 @@ const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY
 
 export default async function handler(req, res) {
-  const { slug } = req.query
+  try {
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      res.status(500).send('Missing environment variables: SUPABASE_URL or SUPABASE_ANON_KEY')
+      return
+    }
+    const { slug } = req.query
+    if (!slug) { res.status(400).send('Missing slug'); return }
 
-  const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/blog_posts?slug=eq.${encodeURIComponent(slug)}&published=eq.true&select=*`,
-    { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
-  )
-  const posts = await response.json()
-  const post = posts[0]
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/blog_posts?slug=eq.${encodeURIComponent(slug)}&published=eq.true&select=*`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    )
+    const data = await response.json()
+    const post = Array.isArray(data) ? data[0] : null
 
-  if (!post) {
-    res.status(404).send(html404())
-    return
+    if (!post) { res.status(404).send(html404()); return }
+
+    res.setHeader('Content-Type', 'text/html')
+    res.send(renderPost(post))
+  } catch (err) {
+    res.status(500).send(`Error: ${err.message}`)
   }
-
-  res.setHeader('Content-Type', 'text/html')
-  res.send(renderPost(post))
 }
 
 function renderPost(post) {

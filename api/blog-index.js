@@ -2,14 +2,23 @@ const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY
 
 export default async function handler(req, res) {
-  const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/blog_posts?published=eq.true&select=title,slug,seo_description,hero_image_url,published_at&order=published_at.desc`,
-    { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
-  )
-  const posts = await response.json()
+  try {
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      res.status(500).send('Missing environment variables: SUPABASE_URL or SUPABASE_ANON_KEY')
+      return
+    }
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/blog_posts?published=eq.true&select=title,slug,seo_description,hero_image_url,published_at&order=published_at.desc`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    )
+    const data = await response.json()
+    const posts = Array.isArray(data) ? data : []
 
-  res.setHeader('Content-Type', 'text/html')
-  res.send(renderIndex(posts))
+    res.setHeader('Content-Type', 'text/html')
+    res.send(renderIndex(posts))
+  } catch (err) {
+    res.status(500).send(`Error: ${err.message}`)
+  }
 }
 
 function renderIndex(posts) {
