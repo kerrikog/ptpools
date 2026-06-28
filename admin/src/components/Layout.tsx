@@ -21,8 +21,8 @@ export default function Layout({ children, page, onNavigate }: Props) {
     <div style={styles.shell}>
       <aside style={styles.sidebar}>
         <div style={styles.sidebarTop}>
-          <div style={styles.brand}>PT Pools</div>
-          <div style={styles.brandSub}>Admin</div>
+          <img src="/logo.png" alt="PT Pools" style={{ width: 80, height: 'auto', display: 'block', margin: '0 auto 12px' }} />
+          <div style={styles.brandSub}>Admin Panel</div>
         </div>
         <nav style={styles.nav}>
           <button
