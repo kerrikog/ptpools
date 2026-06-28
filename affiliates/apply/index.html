@@ -140,7 +140,7 @@
         <div class="field">
           <label>Preferred Vanity Handle</label>
           <span class="note">This becomes ptpools.us/ref/yourhandle — we'll confirm availability on approval.</span>
-          <input type="text" id="requested_handle" placeholder="e.g. markfitmotivation">
+          <input type="text" id="requested_handle" placeholder="e.g. aquarecovery">
         </div>
       </div>
 
@@ -180,18 +180,21 @@
 
     const CHANNEL_TYPES = ['Social Media', 'Website / Blog', 'Email Newsletter', 'Podcast', 'Other']
     const SOCIAL_PLATFORMS = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'X / Twitter', 'Pinterest', 'LinkedIn']
+    const inputStyle = 'padding:13px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;width:100%;'
+    const selectStyle = 'padding:13px 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;width:100%;'
 
     function addPlatformRow(data = {}) {
       const rows = document.getElementById('platform-rows')
-      const idx = rows.children.length
       const div = document.createElement('div')
       div.className = 'platform-row'
+      div.style.cssText = 'display:grid;grid-template-columns:160px 1fr 1fr 36px;gap:10px;align-items:center;'
       div.innerHTML = `
-        <select class="channel-type" onchange="updateRow(this)" style="padding:13px 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;">
+        <select class="channel-type" onchange="updateRow(this)" style="${selectStyle}">
           ${CHANNEL_TYPES.map(t => `<option value="${t}" ${data.type === t ? 'selected' : ''}>${t}</option>`).join('')}
         </select>
-        <input class="handle-input" type="text" placeholder="${getHandlePlaceholder(data.type || 'Social Media')}" value="${data.handle || ''}" style="padding:13px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;">
-        <input class="count-input" type="text" placeholder="Followers / Size" value="${data.count || ''}" style="padding:13px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;">
+        <div class="platform-sub-wrap"></div>
+        <input class="handle-input" type="text" placeholder="@handle or profile name" value="${data.handle || ''}" style="${inputStyle}">
+        <input class="count-input" type="text" placeholder="Followers" value="${data.count || ''}" style="${inputStyle}">
         <button type="button" class="remove-btn" onclick="this.parentElement.remove()">✕</button>
       `
       rows.appendChild(div)
@@ -199,18 +202,28 @@
     }
 
     function updateRow(sel) {
-      const row = sel.parentElement
+      const row = sel.closest('.platform-row')
       const type = sel.value
+      const subWrap = row.querySelector('.platform-sub-wrap')
       const handleInput = row.querySelector('.handle-input')
-      handleInput.placeholder = getHandlePlaceholder(type)
-    }
+      const countInput = row.querySelector('.count-input')
 
-    function getHandlePlaceholder(type) {
-      if (type === 'Social Media') return '@handle or profile name'
-      if (type === 'Website / Blog') return 'https://yoursite.com'
-      if (type === 'Email Newsletter') return 'Newsletter name (optional)'
-      if (type === 'Podcast') return 'Show name + link'
-      return 'Describe your channel'
+      // Update grid columns based on type
+      if (type === 'Social Media') {
+        row.style.gridTemplateColumns = '160px 140px 1fr 120px 36px'
+        subWrap.innerHTML = `<select class="social-platform" style="${selectStyle}">${SOCIAL_PLATFORMS.map(p => `<option>${p}</option>`).join('')}</select>`
+        handleInput.placeholder = '@handle'
+        countInput.placeholder = 'Followers'
+      } else {
+        row.style.gridTemplateColumns = '160px 0px 1fr 150px 36px'
+        subWrap.innerHTML = ''
+        subWrap.style.display = 'none'
+        if (type === 'Website / Blog') { handleInput.placeholder = 'https://yoursite.com'; countInput.placeholder = 'Monthly Visits' }
+        else if (type === 'Email Newsletter') { handleInput.placeholder = 'Newsletter name (optional)'; countInput.placeholder = 'Subscribers' }
+        else if (type === 'Podcast') { handleInput.placeholder = 'Show name or link'; countInput.placeholder = 'Monthly Listeners' }
+        else { handleInput.placeholder = 'Describe your channel'; countInput.placeholder = 'Reach / Size' }
+        subWrap.style.display = ''
+      }
     }
 
     // Payout toggle
@@ -230,11 +243,15 @@
       if (!name || !email || !niche) { errEl.textContent = 'Please fill in your name, email, and niche.'; return }
 
       const rows = document.querySelectorAll('.platform-row')
-      const platforms = Array.from(rows).map(row => ({
-        type: row.querySelector('.channel-type').value,
-        handle: row.querySelector('.handle-input').value.trim(),
-        count: row.querySelector('.count-input').value.trim(),
-      })).filter(p => p.handle)
+      const platforms = Array.from(rows).map(row => {
+        const type = row.querySelector('.channel-type').value
+        const socialPlatform = row.querySelector('.social-platform')
+        return {
+          type: type === 'Social Media' && socialPlatform ? socialPlatform.value : type,
+          handle: row.querySelector('.handle-input').value.trim(),
+          count: row.querySelector('.count-input').value.trim(),
+        }
+      }).filter(p => p.handle)
 
       const payout = document.querySelector('input[name="payout"]:checked').value
       const paypalEmail = document.getElementById('paypal-email').value.trim()
