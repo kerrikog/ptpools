@@ -120,7 +120,7 @@ const styles: Record<string, React.CSSProperties> = {
     cursor: 'pointer',
     letterSpacing: 0.5,
   },
-  passwordWrap: { position: 'relative' },
+  passwordWrap: { position: 'relative', width: '100%' },
   eyeBtn: {
     position: 'absolute',
     right: 12,
