@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply to Partner | PT Pools Affiliate Program</title>
+  <meta name="description" content="Apply to become a PT Pools affiliate partner and earn $75 per sale.">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #09244D; --navy-dark: #061830; --teal: #1F8A8C; --orange: #FF6B35; --white: #ffffff; --muted: rgba(255,255,255,0.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: var(--white); }
+
+    .site-header { padding: 20px 60px; display: flex; align-items: center; gap: 40px; background: rgba(6,24,48,0.97); border-bottom: 1px solid rgba(31,138,140,0.15); }
+    .site-header img { height: 60px; }
+    nav { display: flex; align-items: center; gap: 28px; flex: 1; }
+    nav a { color: rgba(255,255,255,0.65); font-size: 14px; text-decoration: none; }
+    nav a:hover { color: #fff; }
+    .nav-cta { margin-left: auto; padding: 9px 20px; background: var(--orange); color: #fff !important; border-radius: 8px; font-weight: 600; font-size: 13px; }
+
+    .page-wrap { max-width: 760px; margin: 60px auto 100px; padding: 0 24px; }
+
+    .page-title { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
+    .page-title span { color: var(--teal); }
+    .page-sub { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 48px; }
+
+    .form-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.2); border-radius: 20px; padding: 48px; }
+    .form-card::before { content: ''; display: block; height: 3px; background: linear-gradient(90deg, var(--teal), transparent); margin: -48px -48px 40px; border-radius: 20px 20px 0 0; }
+
+    .form-section { margin-bottom: 36px; }
+    .form-section-title { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(31,138,140,0.15); }
+
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .field label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.3px; }
+    .field .note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: -2px; }
+    .field input, .field select, .field textarea {
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(31,138,140,0.25);
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal); background: rgba(31,138,140,0.07); }
+    .field select option { background: #09244D; }
+    .field textarea { resize: vertical; min-height: 100px; }
+
+    /* Platform rows */
+    .platform-rows { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+    .platform-row { display: grid; grid-template-columns: 180px 1fr 130px 36px; gap: 10px; align-items: center; }
+    .platform-row select, .platform-row input { margin: 0; }
+    .remove-btn { width: 36px; height: 36px; background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25); border-radius: 8px; color: var(--orange); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .remove-btn:hover { background: rgba(255,107,53,0.2); }
+    .add-platform-btn { display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px dashed rgba(31,138,140,0.35); color: var(--teal); padding: 10px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-family: 'Inter', sans-serif; transition: border-color 0.2s; }
+    .add-platform-btn:hover { border-color: var(--teal); }
+    .platform-note { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 8px; }
+
+    /* Payout toggle */
+    .payout-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .payout-option { position: relative; }
+    .payout-option input[type="radio"] { position: absolute; opacity: 0; }
+    .payout-option label { display: block; padding: 14px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(31,138,140,0.2); border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 500; text-align: center; transition: all 0.2s; }
+    .payout-option input:checked + label { background: rgba(31,138,140,0.15); border-color: var(--teal); color: var(--teal); }
+
+    .submit-btn { width: 100%; padding: 16px; background: var(--orange); color: #fff; border: none; border-radius: 12px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+    .submit-btn:hover { background: #e85c28; }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .form-fine { font-size: 12px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 16px; line-height: 1.6; }
+    .error-msg { color: var(--orange); font-size: 13px; margin-top: 12px; text-align: center; }
+
+    .success-wrap { text-align: center; padding: 60px 40px; }
+    .success-wrap h2 { font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 16px; }
+    .success-wrap h2 span { color: var(--teal); }
+    .success-wrap p { color: var(--muted); line-height: 1.8; max-width: 440px; margin: 0 auto; }
+
+    .site-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
+    .site-footer img { height: 60px; opacity: 0.7; }
+    .site-footer p { color: rgba(255,255,255,0.2); font-size: 12px; }
+
+    @media (max-width: 640px) {
+      .site-header { padding: 16px 20px; }
+      .form-card { padding: 28px 20px; }
+      .platform-row { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+      .platform-row .count-input { grid-column: 1; }
+      .platform-row .remove-btn { grid-column: 2; justify-self: end; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/affiliates">Affiliates</a>
+    </nav>
+  </header>
+
+  <div class="page-wrap">
+    <h1 class="page-title">Partner <span>Application</span></h1>
+    <p class="page-sub">Tell us a bit about yourself and your audience. We review every application personally and get back to you within a few days.</p>
+
+    <div class="form-card" id="form-card">
+
+      <div class="form-section">
+        <div class="form-section-title">About You</div>
+        <div class="field">
+          <label>Full Name *</label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label>Email Address *</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label>Your Niche — in your own words *</label>
+          <span class="note">Tell us about your audience and what you create or do.</span>
+          <textarea id="niche" placeholder="e.g. I'm a licensed aquatic physical therapist who creates content for post-surgery recovery patients…"></textarea>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Your Reach</div>
+        <div class="platform-rows" id="platform-rows"></div>
+        <button type="button" class="add-platform-btn" onclick="addPlatformRow()">+ Add a Platform or Channel</button>
+        <p class="platform-note">* Low follower counts don't exclude you from consideration — niche fit matters more than size.</p>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Your Link</div>
+        <div class="field">
+          <label>Preferred Vanity Handle</label>
+          <span class="note">This becomes ptpools.us/ref/yourhandle — we'll confirm availability on approval.</span>
+          <input type="text" id="requested_handle" placeholder="e.g. markfitmotivation">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Payout Preference</div>
+        <div class="payout-toggle">
+          <div class="payout-option">
+            <input type="radio" name="payout" id="payout-paypal" value="paypal" checked>
+            <label for="payout-paypal">PayPal</label>
+          </div>
+          <div class="payout-option">
+            <input type="radio" name="payout" id="payout-check" value="check">
+            <label for="payout-check">Check</label>
+          </div>
+        </div>
+        <div class="field" id="paypal-field" style="margin-top:12px">
+          <label>PayPal Email</label>
+          <input type="email" id="paypal-email" placeholder="your@paypal.com">
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Submit Application</button>
+      <p class="form-fine">We review every application personally. You'll hear from us within a few days.</p>
+      <p class="error-msg" id="error-msg"></p>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <img src="/assets/images/logo-dark.png" alt="PT Pools">
+    <p>&copy; 2026 PT Pools. TheraTank is a trademark of PT Pools.</p>
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inplanp6eHZvdHJxeHJmbmR1emRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NTMyMTYsImV4cCI6MjA5ODIyOTIxNn0.U1urD2sXPMzr7GnXQMO8hA5J7bZ7MMGTSji8Kp-xi2s'
+
+    const CHANNEL_TYPES = ['Social Media', 'Website / Blog', 'Email Newsletter', 'Podcast', 'Other']
+    const SOCIAL_PLATFORMS = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'X / Twitter', 'Pinterest', 'LinkedIn']
+
+    function addPlatformRow(data = {}) {
+      const rows = document.getElementById('platform-rows')
+      const idx = rows.children.length
+      const div = document.createElement('div')
+      div.className = 'platform-row'
+      div.innerHTML = `
+        <select class="channel-type" onchange="updateRow(this)" style="padding:13px 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;">
+          ${CHANNEL_TYPES.map(t => `<option value="${t}" ${data.type === t ? 'selected' : ''}>${t}</option>`).join('')}
+        </select>
+        <input class="handle-input" type="text" placeholder="${getHandlePlaceholder(data.type || 'Social Media')}" value="${data.handle || ''}" style="padding:13px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;">
+        <input class="count-input" type="text" placeholder="Followers / Size" value="${data.count || ''}" style="padding:13px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(31,138,140,0.25);border-radius:10px;color:#fff;font-family:Inter,sans-serif;font-size:13px;outline:none;">
+        <button type="button" class="remove-btn" onclick="this.parentElement.remove()">✕</button>
+      `
+      rows.appendChild(div)
+      updateRow(div.querySelector('.channel-type'))
+    }
+
+    function updateRow(sel) {
+      const row = sel.parentElement
+      const type = sel.value
+      const handleInput = row.querySelector('.handle-input')
+      handleInput.placeholder = getHandlePlaceholder(type)
+    }
+
+    function getHandlePlaceholder(type) {
+      if (type === 'Social Media') return '@handle or profile name'
+      if (type === 'Website / Blog') return 'https://yoursite.com'
+      if (type === 'Email Newsletter') return 'Newsletter name (optional)'
+      if (type === 'Podcast') return 'Show name + link'
+      return 'Describe your channel'
+    }
+
+    // Payout toggle
+    document.querySelectorAll('input[name="payout"]').forEach(r => {
+      r.addEventListener('change', () => {
+        document.getElementById('paypal-field').style.display = r.value === 'paypal' ? 'flex' : 'none'
+      })
+    })
+
+    async function handleSubmit() {
+      const name = document.getElementById('name').value.trim()
+      const email = document.getElementById('email').value.trim()
+      const niche = document.getElementById('niche').value.trim()
+      const errEl = document.getElementById('error-msg')
+      errEl.textContent = ''
+
+      if (!name || !email || !niche) { errEl.textContent = 'Please fill in your name, email, and niche.'; return }
+
+      const rows = document.querySelectorAll('.platform-row')
+      const platforms = Array.from(rows).map(row => ({
+        type: row.querySelector('.channel-type').value,
+        handle: row.querySelector('.handle-input').value.trim(),
+        count: row.querySelector('.count-input').value.trim(),
+      })).filter(p => p.handle)
+
+      const payout = document.querySelector('input[name="payout"]:checked').value
+      const paypalEmail = document.getElementById('paypal-email').value.trim()
+      const requestedHandle = document.getElementById('requested_handle').value.trim()
+        .toLowerCase().replace(/[^a-z0-9]/g, '')
+
+      const btn = document.getElementById('submit-btn')
+      btn.disabled = true
+      btn.textContent = 'Submitting…'
+
+      const payload = {
+        name, email, niche,
+        platforms,
+        requested_handle: requestedHandle || null,
+        payout_method: payout,
+        paypal_email: payout === 'paypal' ? paypalEmail : null,
+        status: 'pending',
+        code: requestedHandle || Math.random().toString(36).slice(2,8),
+      }
+
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/affiliates`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      })
+
+      if (res.ok) {
+        document.getElementById('form-card').innerHTML = `
+          <div class="success-wrap">
+            <h2>You're <span>In the Queue</span></h2>
+            <p>Thanks ${name} — we review every application personally and will be in touch within a few days. Keep an eye on ${email}.</p>
+          </div>`
+      } else {
+        const err = await res.json()
+        errEl.textContent = err.message?.includes('unique') ? 'That email has already applied.' : 'Something went wrong — please try again.'
+        btn.disabled = false
+        btn.textContent = 'Submit Application'
+      }
+    }
+
+    // Start with one row
+    addPlatformRow()
+  </script>
+</body>
+</html>

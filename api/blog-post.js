@@ -32,6 +32,7 @@ function renderPost(post) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
   <title>${esc(post.title)} | PT Pools Blog</title>
   <meta name="description" content="${esc(post.seo_description || '')}">
   <meta property="og:title" content="${esc(post.title)}">

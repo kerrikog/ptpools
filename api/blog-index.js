@@ -29,6 +29,7 @@ function renderIndex(posts) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
   <title>Blog | PT Pools</title>
   <meta name="description" content="Aquatic therapy tips, exercises, and recovery guides from PT Pools.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
