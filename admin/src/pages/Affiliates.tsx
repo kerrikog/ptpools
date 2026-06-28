@@ -178,7 +178,7 @@ export default function Affiliates() {
                     )
                   })}
                 </div>
-                {a.requested_handle && <div style={{ marginTop: 12, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>Requested handle: <strong style={{ color: '#fff' }}>{a.requested_handle}</strong></div>}
+                {a.requested_handle && <div style={{ marginTop: 16, fontSize: 16, color: 'rgba(255,255,255,0.4)' }}>Requested handle: <strong style={{ color: '#fff', fontSize: 18 }}>{a.requested_handle}</strong></div>}
               </div>
             )}
           </div>
@@ -217,13 +217,13 @@ const styles: Record<string, React.CSSProperties> = {
   statusChip: { fontSize: 12, fontWeight: 700, padding: '4px 12px', borderRadius: 20, textTransform: 'uppercase', letterSpacing: 0.5 },
   payoutChip: { fontSize: 12, background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.4)', padding: '4px 12px', borderRadius: 20 },
   actions: { display: 'flex', gap: 10, flexShrink: 0, flexWrap: 'wrap', alignItems: 'flex-start' },
-  expandedWrap: { borderTop: '1px solid rgba(31,138,140,0.12)', padding: '28px 32px', background: 'rgba(0,0,0,0.15)' },
-  expandedTitle: { color: 'rgba(255,255,255,0.4)', fontSize: 12, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 20 },
-  platformList: { display: 'flex', flexDirection: 'column', gap: 12 },
-  platformChip: { display: 'flex', alignItems: 'center', gap: 20, background: 'rgba(255,255,255,0.05)', borderRadius: 12, padding: '18px 22px' },
-  platformType: { fontSize: 13, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 1.5, width: 160, flexShrink: 0 },
-  platformHandle: { fontSize: 17, color: '#1F8A8C', textDecoration: 'none', flex: 1 },
-  platformCount: { fontSize: 16, color: 'rgba(255,255,255,0.7)', flexShrink: 0, fontWeight: 600 },
+  expandedWrap: { borderTop: '1px solid rgba(31,138,140,0.15)', padding: '36px 40px', background: 'rgba(0,0,0,0.2)' },
+  expandedTitle: { color: 'rgba(255,255,255,0.4)', fontSize: 13, letterSpacing: 2.5, textTransform: 'uppercase', marginBottom: 24 },
+  platformList: { display: 'flex', flexDirection: 'column', gap: 14 },
+  platformChip: { display: 'flex', alignItems: 'center', gap: 24, background: 'rgba(255,255,255,0.06)', borderRadius: 14, padding: '22px 28px' },
+  platformType: { fontSize: 14, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: 2, width: 180, flexShrink: 0 },
+  platformHandle: { fontSize: 20, color: '#1F8A8C', textDecoration: 'none', flex: 1 },
+  platformCount: { fontSize: 20, color: 'rgba(255,255,255,0.8)', flexShrink: 0, fontWeight: 700 },
   btnPrimary: { padding: '10px 20px', background: '#1F8A8C', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, cursor: 'pointer', fontSize: 15, fontFamily: 'Inter, sans-serif' },
   btnGhost: { padding: '10px 18px', background: 'none', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.7)', borderRadius: 8, cursor: 'pointer', fontSize: 15, fontFamily: 'Inter, sans-serif' },
   btnSmall: { padding: '8px 16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)', borderRadius: 8, cursor: 'pointer', fontSize: 14, fontFamily: 'Inter, sans-serif' },
