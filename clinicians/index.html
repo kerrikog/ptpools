@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Referral Program | TheraTank by PT Pools</title>
+  <meta name="description" content="Refer your patients to TheraTank — a therapeutic-depth home hydrotherapy pool for aquatic therapy at home. Register as a referring clinician.">
+  <link rel="canonical" href="https://ptpools.us/clinicians">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #09244D; --navy-dark: #061830; --teal: #1F8A8C; --orange: #FF6B35; --white: #ffffff; --muted: rgba(255,255,255,0.55); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
+
+    .site-header { padding: 20px 60px; display: flex; align-items: center; gap: 40px; background: rgba(6,24,48,0.97); border-bottom: 1px solid rgba(31,138,140,0.15); position: sticky; top: 0; z-index: 100; }
+    .site-header img { height: 60px; }
+    nav { display: flex; align-items: center; gap: 28px; flex: 1; }
+    nav a { color: rgba(255,255,255,0.65); font-size: 14px; text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+    nav a:hover { color: #fff; }
+    .nav-cta { margin-left: auto; padding: 9px 20px; background: var(--orange); color: #fff !important; border-radius: 8px; font-weight: 600; font-size: 13px; }
+
+    .hero {
+      position: relative;
+      padding: 120px 60px 100px;
+      text-align: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 0%, rgba(31,138,140,0.14) 0%, transparent 60%),
+                  linear-gradient(160deg, #061830 0%, #08213f 50%, #071e3d 100%);
+    }
+    .hero-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(31,138,140,0.06) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(31,138,140,0.12); border: 1px solid rgba(31,138,140,0.35); color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 30px; margin-bottom: 32px; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; text-transform: uppercase; line-height: 1.05; letter-spacing: 1px; margin-bottom: 24px; }
+    .hero h1 span { color: var(--teal); }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); line-height: 1.85; max-width: 640px; margin: 0 auto 48px; }
+    .btn-primary { padding: 16px 40px; background: var(--teal); color: #fff; text-decoration: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; display: inline-block; cursor: pointer; border: none; }
+    .btn-primary:hover { background: #1a7678; }
+
+    .stats-strip { background: var(--teal); padding: 28px 60px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-item .val { font-family: 'Oswald', sans-serif; font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1; }
+    .stat-item .lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-top: 5px; }
+    .strip-divider { width: 1px; height: 44px; background: rgba(255,255,255,0.25); }
+
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+    .section-title span { color: var(--teal); }
+    .section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 600px; margin-bottom: 56px; }
+
+    /* CLINICAL CASES */
+    .clinical-section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .case-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(31,138,140,0.15); border-radius: 20px; padding: 36px 28px; transition: border-color 0.2s, transform 0.2s; }
+    .case-card:hover { border-color: rgba(31,138,140,0.4); transform: translateY(-3px); }
+    .case-icon { width: 52px; height: 52px; background: rgba(31,138,140,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .case-icon svg { width: 26px; height: 26px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .case-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
+    .case-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+
+    /* HOW IT WORKS */
+    .how-section { padding: 100px 60px; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(31,138,140,0.08); }
+    .how-inner { max-width: 1200px; margin: 0 auto; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(31,138,140,0.4), transparent); pointer-events: none; }
+    .step { text-align: center; padding: 0 12px; }
+    .step-num { width: 72px; height: 72px; background: rgba(31,138,140,0.1); border: 2px solid rgba(31,138,140,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--teal); }
+    .step h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .step p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+
+    /* WHAT PATIENTS RECEIVE */
+    .receive-section { padding: 100px 60px; }
+    .receive-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .receive-list { margin-top: 40px; display: flex; flex-direction: column; gap: 22px; }
+    .receive-item { display: flex; gap: 16px; align-items: flex-start; }
+    .receive-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 7px; }
+    .receive-item div h4 { font-weight: 600; font-size: 15px; color: #fff; margin-bottom: 4px; }
+    .receive-item div p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .specs-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.2); border-radius: 20px; padding: 36px; }
+    .spec-card-title { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); margin-bottom: 20px; }
+    .spec-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-label { font-size: 13px; color: rgba(255,255,255,0.45); }
+    .spec-val { font-size: 13px; font-weight: 600; color: #fff; text-align: right; }
+
+    /* EARN */
+    .earn-section { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
+    .earn-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .earn-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.2); border-radius: 20px; padding: 36px; }
+    .earn-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .earn-label { font-size: 13px; color: rgba(255,255,255,0.45); }
+    .earn-val { font-size: 14px; font-weight: 600; color: #fff; }
+
+    /* FORM */
+    .form-section { padding: 100px 60px; }
+    .form-inner { max-width: 760px; margin: 0 auto; }
+    .form-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.2); border-radius: 20px; padding: 48px; }
+    .form-card::before { content: ''; display: block; height: 3px; background: linear-gradient(90deg, var(--teal), transparent); margin: -48px -48px 40px; border-radius: 20px 20px 0 0; }
+    .form-group-title { font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(31,138,140,0.15); }
+    .form-group { margin-bottom: 36px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .field label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); }
+    .field .note { font-size: 11px; color: rgba(255,255,255,0.35); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field input, .field select, .field textarea {
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(31,138,140,0.25);
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal); background: rgba(31,138,140,0.07); }
+    .field select option { background: #09244D; }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .submit-btn { width: 100%; padding: 18px; background: var(--teal); color: #fff; border: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+    .submit-btn:hover { background: #1a7678; }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .form-note { font-size: 12px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 16px; line-height: 1.7; }
+    .error-msg { color: #FF6B35; font-size: 13px; margin-top: 10px; display: none; }
+    .success-msg { display: none; text-align: center; padding: 48px 24px; }
+    .success-msg h3 { font-family: 'Oswald', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; color: var(--teal); }
+    .success-msg p { color: var(--muted); font-size: 1rem; line-height: 1.8; }
+
+    .site-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
+    .site-footer img { height: 60px; opacity: 0.7; }
+    .site-footer p { color: rgba(255,255,255,0.2); font-size: 12px; }
+
+    @media (max-width: 1000px) {
+      .case-grid, .steps { grid-template-columns: repeat(2, 1fr); }
+      .receive-inner, .earn-inner { grid-template-columns: 1fr; gap: 48px; }
+      .steps::before { display: none; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .site-header { padding: 16px 24px; }
+      nav a:not(.nav-cta) { display: none; }
+      .hero, .clinical-section, .how-section, .receive-section, .earn-section, .form-section { padding-left: 24px; padding-right: 24px; }
+      .case-grid, .steps { grid-template-columns: 1fr; }
+      .stats-strip { gap: 28px; padding: 28px 24px; }
+      .strip-divider { display: none; }
+      .form-card { padding: 32px 24px; }
+      .form-card::before { margin: -32px -24px 32px; }
+      .site-footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/affiliates">Affiliates</a>
+      <a href="/clinicians" style="color:#fff">Clinicians</a>
+      <a href="/#notify" class="nav-cta">Get Notified</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Clinician Referral Program
+    </div>
+    <h1>Help Your Patients<br><span>Break the Pain Cycle</span></h1>
+    <p class="hero-sub">You know how it goes. Pain stops movement. Less movement means more pain. More pain means less compliance. And patients who stop moving between visits don't get better — they come back to you worse.<br><br>Aquatic therapy breaks that cycle. Chest-deep water offloads up to 75% of body weight, giving patients a place to move that doesn't hurt — between visits, every day, at home. What you start in the clinic keeps going. TheraTank ships directly to their door. Setup takes under 30 minutes. Your protocol doesn't stop when they leave your office.</p>
+    <a href="#register" class="btn-primary">Register as a Referring Clinician</a>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="val">$75</div>
+      <div class="lbl">Flat Referral Fee</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="stat-item">
+      <div class="val">59"</div>
+      <div class="lbl">Wall Height — 54" Water Depth</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="stat-item">
+      <div class="val">Ships</div>
+      <div class="lbl">Direct to Patient</div>
+    </div>
+  </div>
+
+  <section class="clinical-section">
+    <p class="section-tag">Clinical Applications</p>
+    <h2 class="section-title">Patients Who <span>Benefit Most</span></h2>
+    <p class="section-sub">The science is clear. Here are just some of the research-backed benefits of aquatic therapy across the conditions you see every day.</p>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <h3>Chronic Back Pain & Spinal Conditions</h3>
+        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Patients with chronic low back pain were 6.6x more likely to achieve meaningful pain relief with aquatic therapy than standard physical therapy — and results held at 12 months. Disability reduction: 46.4% vs. 7%.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Peng et al. (2022), JAMA Network Open</span></p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Obesity & Weight-Bearing Limitations</h3>
+        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Submerged to chest depth, the body offloads approximately 75% of its weight — reducing joint load to a level that makes sustained cardiovascular exercise possible for patients who cannot tolerate land-based activity.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">ATRI / AEA Aquatic Therapy Clinical Guidelines</span></p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Chronic Pain & Fibromyalgia</h3>
+        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Fibromyalgia patients who completed aquatic therapy reported half the pain of those who did land-based therapy — even six weeks after treatment ended. Pain scores: 2.7 vs. 5.5.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Rivas Neira et al. (2024), Physiotherapy</span></p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Post-Surgical Recovery</h3>
+        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">A study of 160 post-orthopedic surgery patients found water-based exercise produced significant improvements in pain, mood, and quality of life — researchers concluded it is "an appropriate alternative strategy for post-orthopaedic surgical recovery."<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Maccarone et al. (2022), Int. J. Biometeorology</span></p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Neurological Rehabilitation</h3>
+        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Aquatic therapy produced significantly better outcomes in pain, balance, and gait than dry-land therapy for chronic stroke patients — across multiple clinical measures.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Pérez-de la Cruz (2020), Int. J. Environmental Research & Public Health</span></p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Athletic Injury Recovery</h3>
+        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Deep water training allows patients recovering from ACL tears, rotator cuff injuries, and stress fractures to maintain cardiovascular conditioning and muscle engagement while completely offloading healing tissue — zero ground impact.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Established sports medicine protocol</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <div class="how-inner">
+      <p class="section-tag">Referral Process</p>
+      <h2 class="section-title">How the <span>Referral Works</span></h2>
+      <p class="section-sub">You send an email. We handle everything else. Your patient is in the water within days.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>You Register</h4>
+          <p>Complete the clinician registration below. We'll add you to our referring provider directory and send you patient-facing resources.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>You Refer</h4>
+          <p>Share your referral link or a printed card with patients who would benefit from continued aquatic therapy at home.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Patient Orders</h4>
+          <p>The patient purchases TheraTank through your referral link. Ships directly to their home.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>They Start at Home</h4>
+          <p>TheraTank ships directly to the patient. Setup takes under 30 minutes. They continue their protocol between clinic visits, from home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="receive-section">
+    <div class="receive-inner">
+      <div>
+        <p class="section-tag">What Patients Receive</p>
+        <h2 class="section-title">The Complete <span>TheraTank Kit</span></h2>
+        <p class="section-sub" style="margin-bottom:0">Everything they need in one box. No additional purchases required to get started.</p>
+        <div class="receive-list">
+          <div class="receive-item">
+            <div class="receive-dot"></div>
+            <div>
+              <h4>TheraTank Inflatable Pool</h4>
+              <p>Marine-grade drop stitch PVC — the same construction used in inflatable boats. 59" walls are rigid enough for wall work and resistance exercises. No liner, no flex.</p>
+            </div>
+          </div>
+          <div class="receive-item">
+            <div class="receive-dot"></div>
+            <div>
+              <h4>High-Pressure Electric Air Pump</h4>
+              <p>Inflates in under 10 minutes. Patients operate it independently without assistance.</p>
+            </div>
+          </div>
+          <div class="receive-item">
+            <div class="receive-dot"></div>
+            <div>
+              <h4>800 GPH Filter with Built-In Chlorinator</h4>
+              <p>Integrated filter and chlorine tablet dispenser keeps water clean between sessions. No professional maintenance, no service contracts — standard tablets from any hardware store.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="specs-card">
+          <div class="spec-card-title">Clinical Specifications</div>
+          <div class="spec-row"><span class="spec-label">Wall Height</span><span class="spec-val">59" (1.5M)</span></div>
+          <div class="spec-row"><span class="spec-label">Water Depth</span><span class="spec-val">54"</span></div>
+          <div class="spec-row"><span class="spec-label">Diameter</span><span class="spec-val">3M (~10 ft)</span></div>
+          <div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">~2,600 gallons</span></div>
+          <div class="spec-row"><span class="spec-label">Construction</span><span class="spec-val">Marine-grade drop stitch PVC</span></div>
+          <div class="spec-row"><span class="spec-label">Setup Time</span><span class="spec-val">Under 30 minutes</span></div>
+
+          <div class="spec-row"><span class="spec-label">Setup</span><span class="spec-val">Solo, no contractor needed</span></div>
+          <div class="spec-row"><span class="spec-label">Starting Price</span><span class="spec-val">$749</span></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="earn-section">
+    <div class="earn-inner">
+      <div class="earn-text">
+        <p class="section-tag">We Make It Easy</p>
+        <h2 class="section-title">Refer in<br><span>Under a Minute</span></h2>
+        <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:500px">After you register, your clinician portal has three done-for-you assets — each one pre-populated with your clinic name and referral code. Refer to one patient after a visit, or blast it to your entire clientele in a pre-prepared newsletter blast. Your patients get a one-of-a-kind therapy tool that works at home. And you get a healthier patient.</p>
+      </div>
+      <div class="earn-card">
+        <div class="spec-card-title" style="font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--teal);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(31,138,140,0.15);">What you get when you register</div>
+        <div class="earn-row">
+          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;One-off referral email</span>
+          <span style="color:var(--muted);font-size:12px;">Copy, paste, send</span>
+        </div>
+        <div class="earn-row">
+          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;Newsletter blast</span>
+          <span style="color:var(--muted);font-size:12px;">Ready for your patient list</span>
+        </div>
+        <div class="earn-row">
+          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;Full blog article</span>
+          <span style="color:var(--muted);font-size:12px;">Publish on your site</span>
+        </div>
+        <div class="earn-row" style="border-bottom:none;">
+          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;$75 per referral, paid to PayPal</span>
+          <span style="color:var(--muted);font-size:12px;">No cap, no minimum</span>
+        </div>
+        <p style="color:#fff;font-size:13px;margin-top:20px;line-height:1.6;border-top:1px solid rgba(31,138,140,0.2);padding-top:20px;">All assets pre-populated with your clinic name and referral code. <strong>Nothing to write.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="register">
+    <div class="form-inner">
+      <p class="section-tag">Clinician Registration</p>
+      <h2 class="section-title">Join the <span>Referral Network</span></h2>
+      <p class="section-sub" style="margin-bottom:48px">Takes two minutes. We'll follow up with your referral link and patient-ready materials — everything you need to start recommending TheraTank with confidence. No quotas, no ongoing commitment. Finally a product you can refer where you don't have to do anything but send an email.</p>
+
+      <div class="form-card">
+        <div id="form-body">
+          <div class="form-group">
+            <div class="form-group-title">About You</div>
+            <div class="two-col">
+              <div class="field">
+                <label>Full Name *</label>
+                <input type="text" id="name" placeholder="Dr. Jane Smith">
+              </div>
+              <div class="field">
+                <label>Credentials *</label>
+                <select id="credentials">
+                  <option value="">Select credentials</option>
+                  <option>DPT / PT</option>
+                  <option>MD</option>
+                  <option>DO</option>
+                  <option>OT / OTR</option>
+                  <option>COTA</option>
+                  <option>ATC</option>
+                  <option>CSCS</option>
+                  <option>RN / NP</option>
+                  <option>PA</option>
+                  <option>DC (Chiropractor)</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="two-col">
+              <div class="field">
+                <label>Specialty *</label>
+                <select id="specialty">
+                  <option value="">Select specialty</option>
+                  <option>Physical Therapy</option>
+                  <option>Physiatry / PM&R</option>
+                  <option>Orthopedic Surgery</option>
+                  <option>Sports Medicine</option>
+                  <option>Occupational Therapy</option>
+                  <option>Neurology</option>
+                  <option>Rheumatology</option>
+                  <option>Primary Care / Family Medicine</option>
+                  <option>Chiropractic</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>State *</label>
+                <select id="state">
+                  <option value="">Select state</option>
+                  <option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option>
+                  <option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option>
+                  <option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option>
+                  <option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option>
+                  <option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option>
+                  <option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option>
+                  <option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option>
+                  <option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+                  <option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option>
+                  <option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-group-title">Your Practice</div>
+            <div class="field">
+              <label>Practice / Clinic Name *</label>
+              <input type="text" id="practice_name" placeholder="Smith Physical Therapy & Rehab">
+            </div>
+            <div class="field">
+              <label>Email Address *</label>
+              <input type="email" id="email" placeholder="you@yourpractice.com">
+            </div>
+            <div class="field">
+              <label>PayPal Email <span class="note">(for referral fee payouts)</span></label>
+              <input type="email" id="paypal_email" placeholder="paypal@youremail.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-group-title">Additional Context</div>
+            <div class="field">
+              <label>Patient Population <span class="note">(optional)</span></label>
+              <span class="note" style="margin-bottom:6px">Describe the patients you typically work with — helps us send you relevant materials.</span>
+              <textarea id="patient_focus" placeholder="e.g. Primarily post-surgical orthopedic patients, outpatient setting, 50–75 age range"></textarea>
+            </div>
+            <div class="field">
+              <label>How did you hear about TheraTank?</label>
+              <select id="referral_source">
+                <option value="">Select one</option>
+                <option>Colleague referral</option>
+                <option>Google search</option>
+                <option>Social media</option>
+                <option>Conference or CEU event</option>
+                <option>Patient mentioned it</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="error-msg" id="error-msg"></p>
+          <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Register as a Referring Clinician</button>
+          <p class="form-note">Your information is used solely to set up your referral access. We do not share clinician data with third parties.</p>
+        </div>
+
+        <div class="success-msg" id="success-msg">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#1F8A8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 24px;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>You're Registered</h3>
+          <p>We'll be in touch within 2 business days with your referral link and everything you need to get started. Your patients are going to feel this.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <img src="/assets/images/logo-dark.png" alt="PT Pools">
+    <p>© 2026 PT Pools. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inplanp6eHZvdHJxeHJmbmR1emRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NTMyMTYsImV4cCI6MjA5ODIyOTIxNn0.U1urD2sXPMzr7GnXQMO8hA5J7bZ7MMGTSji8Kp-xi2s'
+
+    async function handleSubmit() {
+      const btn = document.getElementById('submit-btn')
+      const errEl = document.getElementById('error-msg')
+      errEl.style.display = 'none'
+      errEl.textContent = ''
+
+      const name = document.getElementById('name').value.trim()
+      const credentials = document.getElementById('credentials').value
+      const specialty = document.getElementById('specialty').value
+      const state = document.getElementById('state').value
+      const practice_name = document.getElementById('practice_name').value.trim()
+      const email = document.getElementById('email').value.trim()
+      const patient_focus = document.getElementById('patient_focus').value.trim()
+      const referral_source = document.getElementById('referral_source').value
+      const paypal_email = document.getElementById('paypal_email').value.trim()
+
+      if (!name || !credentials || !specialty || !state || !practice_name || !email) {
+        errEl.textContent = 'Please fill in all required fields.'
+        errEl.style.display = 'block'
+        return
+      }
+
+      btn.disabled = true
+      btn.textContent = 'Submitting…'
+
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/clinician_referrals`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ name, credentials, specialty, state, practice_name, email, paypal_email, patient_focus, referral_source, status: 'pending' })
+      })
+
+      if (res.ok) {
+        fetch('/api/mailerlite', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name, group_id: '191723154647811757' })
+        }).catch(() => {})
+        document.getElementById('form-body').style.display = 'none'
+        document.getElementById('success-msg').style.display = 'block'
+      } else {
+        const err = await res.json().catch(() => ({}))
+        errEl.textContent = err.message ?? 'Something went wrong. Please try again.'
+        errEl.style.display = 'block'
+        btn.disabled = false
+        btn.textContent = 'Register as a Referring Clinician'
+      }
+    }
+  </script>
+
+</body>
+</html>

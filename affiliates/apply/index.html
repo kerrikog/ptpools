@@ -284,6 +284,11 @@
       })
 
       if (res.ok) {
+        fetch('/api/mailerlite', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name, group_id: '191723158045197796' })
+        }).catch(() => {})
         document.getElementById('form-card').innerHTML = `
           <div class="success-wrap">
             <h2>You're <span>In the Queue</span></h2>
