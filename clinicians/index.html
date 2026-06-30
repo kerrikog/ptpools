@@ -7,6 +7,7 @@
   <meta name="description" content="Refer your patients to TheraTank — a therapeutic-depth home hydrotherapy pool for aquatic therapy at home. Register as a referring clinician.">
   <link rel="canonical" href="https://ptpools.us/clinicians">
   <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="stylesheet" href="/assets/global.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -101,7 +102,6 @@
     .form-group { margin-bottom: 36px; }
     .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
     .field label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); }
-    .field .note { font-size: 11px; color: rgba(255,255,255,0.35); }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .field input, .field select, .field textarea {
       padding: 13px 16px;
@@ -121,7 +121,7 @@
     .submit-btn { width: 100%; padding: 18px; background: var(--teal); color: #fff; border: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
     .submit-btn:hover { background: #1a7678; }
     .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .form-note { font-size: 12px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 16px; line-height: 1.7; }
+    .form-note { text-align: center; margin-top: 16px; }
     .error-msg { color: #FF6B35; font-size: 13px; margin-top: 10px; display: none; }
     .success-msg { display: none; text-align: center; padding: 48px 24px; }
     .success-msg h3 { font-family: 'Oswald', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; color: var(--teal); }
@@ -354,7 +354,7 @@
     <div class="form-inner">
       <p class="section-tag">Clinician Registration</p>
       <h2 class="section-title">Join the <span>Referral Network</span></h2>
-      <p class="section-sub" style="margin-bottom:48px">Takes two minutes. We'll follow up with your referral link and patient-ready materials — everything you need to start recommending TheraTank with confidence. No quotas, no ongoing commitment. Finally a product you can refer where you don't have to do anything but send an email.</p>
+      <p class="section-sub" style="margin-bottom:48px">We make it easy for you to refer in under a minute. No quotas, no ongoing commitment. Finally a product you can refer where you don't have to do anything but send an email.</p>
 
       <div class="form-card">
         <div id="form-body">
@@ -367,7 +367,7 @@
               </div>
               <div class="field">
                 <label>Credentials *</label>
-                <select id="credentials">
+                <select id="credentials" onchange="toggleOther('credentials', 'credentials-other')">
                   <option value="">Select credentials</option>
                   <option>DPT / PT</option>
                   <option>MD</option>
@@ -381,12 +381,12 @@
                   <option>DC (Chiropractor)</option>
                   <option>Other</option>
                 </select>
+                <input type="text" id="credentials-other" placeholder="Please specify" style="display:none;margin-top:8px;">
               </div>
             </div>
-            <div class="two-col">
-              <div class="field">
+            <div class="field">
                 <label>Specialty *</label>
-                <select id="specialty">
+                <select id="specialty" onchange="toggleOther('specialty', 'specialty-other')">
                   <option value="">Select specialty</option>
                   <option>Physical Therapy</option>
                   <option>Physiatry / PM&R</option>
@@ -399,23 +399,7 @@
                   <option>Chiropractic</option>
                   <option>Other</option>
                 </select>
-              </div>
-              <div class="field">
-                <label>State *</label>
-                <select id="state">
-                  <option value="">Select state</option>
-                  <option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option>
-                  <option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option>
-                  <option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option>
-                  <option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option>
-                  <option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option>
-                  <option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option>
-                  <option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option>
-                  <option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option>
-                  <option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option>
-                  <option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option>
-                </select>
-              </div>
+                <input type="text" id="specialty-other" placeholder="Please specify" style="display:none;margin-top:8px;">
             </div>
           </div>
 
@@ -444,7 +428,7 @@
             </div>
             <div class="field">
               <label>How did you hear about TheraTank?</label>
-              <select id="referral_source">
+              <select id="referral_source" onchange="toggleOther('referral_source', 'referral_source-other')">
                 <option value="">Select one</option>
                 <option>Colleague referral</option>
                 <option>Google search</option>
@@ -453,6 +437,7 @@
                 <option>Patient mentioned it</option>
                 <option>Other</option>
               </select>
+              <input type="text" id="referral_source-other" placeholder="Please specify" style="display:none;margin-top:8px;">
             </div>
           </div>
 
@@ -476,6 +461,13 @@
   </footer>
 
   <script>
+    function toggleOther(selectId, inputId) {
+      const sel = document.getElementById(selectId)
+      const inp = document.getElementById(inputId)
+      inp.style.display = sel.value === 'Other' ? 'block' : 'none'
+      if (sel.value !== 'Other') inp.value = ''
+    }
+
     const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inplanp6eHZvdHJxeHJmbmR1emRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NTMyMTYsImV4cCI6MjA5ODIyOTIxNn0.U1urD2sXPMzr7GnXQMO8hA5J7bZ7MMGTSji8Kp-xi2s'
 
@@ -486,16 +478,18 @@
       errEl.textContent = ''
 
       const name = document.getElementById('name').value.trim()
-      const credentials = document.getElementById('credentials').value
-      const specialty = document.getElementById('specialty').value
-      const state = document.getElementById('state').value
+      const credentialsRaw = document.getElementById('credentials').value
+      const credentials = credentialsRaw === 'Other' ? document.getElementById('credentials-other').value.trim() : credentialsRaw
+      const specialtyRaw = document.getElementById('specialty').value
+      const specialty = specialtyRaw === 'Other' ? document.getElementById('specialty-other').value.trim() : specialtyRaw
       const practice_name = document.getElementById('practice_name').value.trim()
       const email = document.getElementById('email').value.trim()
       const patient_focus = document.getElementById('patient_focus').value.trim()
-      const referral_source = document.getElementById('referral_source').value
+      const referralRaw = document.getElementById('referral_source').value
+      const referral_source = referralRaw === 'Other' ? document.getElementById('referral_source-other').value.trim() : referralRaw
       const paypal_email = document.getElementById('paypal_email').value.trim()
 
-      if (!name || !credentials || !specialty || !state || !practice_name || !email) {
+      if (!name || !credentials || !specialty || !practice_name || !email) {
         errEl.textContent = 'Please fill in all required fields.'
         errEl.style.display = 'block'
         return
@@ -512,7 +506,7 @@
           'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ name, credentials, specialty, state, practice_name, email, paypal_email, patient_focus, referral_source, status: 'pending' })
+        body: JSON.stringify({ name, credentials, specialty, practice_name, email, paypal_email, patient_focus, referral_source, status: 'pending' })
       })
 
       if (res.ok) {

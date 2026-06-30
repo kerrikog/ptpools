@@ -6,6 +6,7 @@
   <title>Apply to Partner | PT Pools Affiliate Program</title>
   <meta name="description" content="Apply to become a PT Pools affiliate partner and earn $75 per sale.">
   <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="stylesheet" href="/assets/global.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +36,7 @@
 
     .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
     .field label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.3px; }
-    .field .note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: -2px; }
+    .field .note { margin-top: -2px; }
     .field input, .field select, .field textarea {
       padding: 13px 16px;
       background: rgba(255,255,255,0.06);
@@ -60,20 +61,15 @@
     .remove-btn:hover { background: rgba(255,107,53,0.2); }
     .add-platform-btn { display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px dashed rgba(31,138,140,0.35); color: var(--teal); padding: 10px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-family: 'Inter', sans-serif; transition: border-color 0.2s; }
     .add-platform-btn:hover { border-color: var(--teal); }
-    .platform-note { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 8px; }
+    .platform-note { margin-top: 8px; }
 
     /* Payout toggle */
-    .payout-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .payout-option { position: relative; }
-    .payout-option input[type="radio"] { position: absolute; opacity: 0; }
-    .payout-option label { display: block; padding: 14px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(31,138,140,0.2); border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 500; text-align: center; transition: all 0.2s; }
-    .payout-option input:checked + label { background: rgba(31,138,140,0.15); border-color: var(--teal); color: var(--teal); }
 
     .submit-btn { width: 100%; padding: 16px; background: var(--orange); color: #fff; border: none; border-radius: 12px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
     .submit-btn:hover { background: #e85c28; }
     .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-    .form-fine { font-size: 12px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 16px; line-height: 1.6; }
+    .form-fine { text-align: center; margin-top: 16px; }
     .error-msg { color: var(--orange); font-size: 13px; margin-top: 12px; text-align: center; }
 
     .success-wrap { text-align: center; padding: 60px 40px; }
@@ -145,18 +141,8 @@
       </div>
 
       <div class="form-section">
-        <div class="form-section-title">Payout Preference</div>
-        <div class="payout-toggle">
-          <div class="payout-option">
-            <input type="radio" name="payout" id="payout-paypal" value="paypal" checked>
-            <label for="payout-paypal">PayPal</label>
-          </div>
-          <div class="payout-option">
-            <input type="radio" name="payout" id="payout-check" value="check">
-            <label for="payout-check">Check</label>
-          </div>
-        </div>
-        <div class="field" id="paypal-field" style="margin-top:12px">
+        <div class="form-section-title">Payout</div>
+        <div class="field">
           <label>PayPal Email</label>
           <input type="email" id="paypal-email" placeholder="your@paypal.com">
         </div>
@@ -226,12 +212,6 @@
       }
     }
 
-    // Payout toggle
-    document.querySelectorAll('input[name="payout"]').forEach(r => {
-      r.addEventListener('change', () => {
-        document.getElementById('paypal-field').style.display = r.value === 'paypal' ? 'flex' : 'none'
-      })
-    })
 
     async function handleSubmit() {
       const name = document.getElementById('name').value.trim()
@@ -253,7 +233,6 @@
         }
       }).filter(p => p.handle)
 
-      const payout = document.querySelector('input[name="payout"]:checked').value
       const paypalEmail = document.getElementById('paypal-email').value.trim()
       const requestedHandle = document.getElementById('requested_handle').value.trim()
         .toLowerCase().replace(/[^a-z0-9]/g, '')
@@ -266,8 +245,8 @@
         name, email, niche,
         platforms,
         requested_handle: requestedHandle || null,
-        payout_method: payout,
-        paypal_email: payout === 'paypal' ? paypalEmail : null,
+        payout_method: 'paypal',
+        paypal_email: paypalEmail || null,
         status: 'pending',
         code: requestedHandle || Math.random().toString(36).slice(2,8),
       }
