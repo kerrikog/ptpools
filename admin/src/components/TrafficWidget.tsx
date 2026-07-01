@@ -3,16 +3,13 @@ import { useEffect, useState } from 'react'
 interface ChannelRow {
   channel: string
   sessions: number
-  pageviews: number
-  newUsers: number
 }
 
-const ANALYTICS_URL = import.meta.env.VITE_SITE_URL
-  ? `${import.meta.env.VITE_SITE_URL}/api/analytics`
-  : 'https://ptpools.us/api/analytics'
+const ANALYTICS_URL = 'https://ptpools.us/api/analytics'
 
 export default function TrafficWidget() {
   const [data, setData] = useState<ChannelRow[]>([])
+  const [totals, setTotals] = useState({ sessions: 0, pageviews: 0, newUsers: 0 })
   const [range, setRange] = useState<'7d' | '30d'>('7d')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -27,23 +24,21 @@ export default function TrafficWidget() {
         const rows: ChannelRow[] = (json.rows ?? []).map((row: any) => ({
           channel: row.dimensionValues[0].value,
           sessions: parseInt(row.metricValues[0].value),
-          pageviews: parseInt(row.metricValues[1].value),
-          newUsers: parseInt(row.metricValues[2].value),
         }))
+        const sessions = rows.reduce((s, r) => s + r.sessions, 0)
+        const pageviews = (json.rows ?? []).reduce((s: number, r: any) => s + parseInt(r.metricValues[1].value), 0)
+        const newUsers = (json.rows ?? []).reduce((s: number, r: any) => s + parseInt(r.metricValues[2].value), 0)
         setData(rows)
+        setTotals({ sessions, pageviews, newUsers })
         setLoading(false)
       })
       .catch(() => { setError('Could not load analytics.'); setLoading(false) })
   }, [range])
 
-  const totalSessions = data.reduce((s, r) => s + r.sessions, 0)
-  const totalPageviews = data.reduce((s, r) => s + r.pageviews, 0)
-  const totalNew = data.reduce((s, r) => s + r.newUsers, 0)
-
   return (
-    <div style={s.card}>
+    <div style={s.wrap}>
       <div style={s.header}>
-        <div style={s.title}>Traffic</div>
+        <div style={s.sectionLabel}>Traffic</div>
         <div style={s.tabs}>
           <button style={s.tab(range === '7d')} onClick={() => setRange('7d')}>7 days</button>
           <button style={s.tab(range === '30d')} onClick={() => setRange('30d')}>30 days</button>
@@ -55,36 +50,46 @@ export default function TrafficWidget() {
 
       {!loading && !error && (
         <>
-          <div style={s.totals}>
-            <div style={s.total}>
-              <div style={s.totalNum}>{totalSessions.toLocaleString()}</div>
-              <div style={s.totalLabel}>Sessions</div>
+          {/* Metric cards */}
+          <div style={s.cardsRow}>
+            <div style={s.metricCard}>
+              <div style={s.metricNum}>{totals.sessions.toLocaleString()}</div>
+              <div style={s.metricLabel}>Sessions</div>
             </div>
-            <div style={s.total}>
-              <div style={s.totalNum}>{totalPageviews.toLocaleString()}</div>
-              <div style={s.totalLabel}>Page Views</div>
+            <div style={s.metricCard}>
+              <div style={s.metricNum}>{totals.pageviews.toLocaleString()}</div>
+              <div style={s.metricLabel}>Page Views</div>
             </div>
-            <div style={s.total}>
-              <div style={s.totalNum}>{totalNew.toLocaleString()}</div>
-              <div style={s.totalLabel}>New Users</div>
+            <div style={s.metricCard}>
+              <div style={s.metricNum}>{totals.newUsers.toLocaleString()}</div>
+              <div style={s.metricLabel}>New Users</div>
+            </div>
+            <div style={s.metricCard}>
+              <div style={s.metricNum}>{data[0]?.channel ?? '—'}</div>
+              <div style={s.metricLabel}>Top Source</div>
             </div>
           </div>
 
-          <div style={s.tableWrap}>
-            <div style={s.tableHead}>
-              <span>Source</span>
-              <span>Sessions</span>
-              <span>Views</span>
+          {/* Source breakdown */}
+          {data.length > 0 && (
+            <div style={s.sources}>
+              {data.map(row => {
+                const pct = totals.sessions > 0 ? Math.round((row.sessions / totals.sessions) * 100) : 0
+                return (
+                  <div key={row.channel} style={s.sourceRow}>
+                    <span style={s.sourceName}>{row.channel}</span>
+                    <div style={s.barWrap}>
+                      <div style={{ ...s.bar, width: `${pct}%` }} />
+                    </div>
+                    <span style={s.sourcePct}>{pct}%</span>
+                    <span style={s.sourceNum}>{row.sessions.toLocaleString()}</span>
+                  </div>
+                )
+              })}
             </div>
-            {data.length === 0 && <div style={s.state}>No data yet — check back after 48 hours.</div>}
-            {data.map(row => (
-              <div key={row.channel} style={s.tableRow}>
-                <span style={s.channel}>{row.channel}</span>
-                <span>{row.sessions.toLocaleString()}</span>
-                <span>{row.pageviews.toLocaleString()}</span>
-              </div>
-            ))}
-          </div>
+          )}
+
+          {data.length === 0 && <div style={s.state}>No data yet — check back in 48 hours.</div>}
         </>
       )}
     </div>
@@ -92,9 +97,9 @@ export default function TrafficWidget() {
 }
 
 const s: Record<string, any> = {
-  card: { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 14, padding: '24px 28px', marginTop: 24 },
-  header: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 },
-  title: { color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', fontFamily: 'Inter, sans-serif' },
+  wrap: { marginBottom: 32 },
+  header: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 },
+  sectionLabel: { color: 'rgba(255,255,255,0.4)', fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', fontFamily: 'Inter, sans-serif' },
   tabs: { display: 'flex', gap: 6 },
   tab: (active: boolean) => ({
     padding: '5px 12px', borderRadius: 6, fontSize: 12, fontFamily: 'Inter, sans-serif', cursor: 'pointer',
@@ -102,13 +107,21 @@ const s: Record<string, any> = {
     border: active ? '1px solid rgba(31,138,140,0.4)' : '1px solid rgba(255,255,255,0.1)',
     color: active ? '#1F8A8C' : 'rgba(255,255,255,0.4)',
   }),
-  totals: { display: 'flex', gap: 24, marginBottom: 20 },
-  total: {},
-  totalNum: { fontSize: 24, fontWeight: 700, color: '#fff', fontFamily: 'Inter, sans-serif' },
-  totalLabel: { fontSize: 11, color: 'rgba(255,255,255,0.4)', fontFamily: 'Inter, sans-serif', marginTop: 2 },
-  tableWrap: { display: 'flex', flexDirection: 'column', gap: 2 },
-  tableHead: { display: 'grid', gridTemplateColumns: '1fr 80px 80px', padding: '6px 10px', fontSize: 11, color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter, sans-serif', letterSpacing: 1 },
-  tableRow: { display: 'grid', gridTemplateColumns: '1fr 80px 80px', padding: '10px 10px', fontSize: 13, color: 'rgba(255,255,255,0.7)', fontFamily: 'Inter, sans-serif', background: 'rgba(255,255,255,0.03)', borderRadius: 6 },
-  channel: { color: '#fff', fontWeight: 500 },
-  state: { color: 'rgba(255,255,255,0.35)', fontSize: 13, fontFamily: 'Inter, sans-serif', padding: '16px 0' },
+  cardsRow: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 24 },
+  metricCard: {
+    background: 'rgba(255,255,255,0.04)',
+    border: '1px solid rgba(255,255,255,0.1)',
+    borderRadius: 12,
+    padding: '20px 24px',
+  },
+  metricNum: { fontSize: 28, fontWeight: 700, color: '#1F8A8C', fontFamily: 'Inter, sans-serif', marginBottom: 4 },
+  metricLabel: { fontSize: 12, color: 'rgba(255,255,255,0.45)', fontFamily: 'Inter, sans-serif' },
+  sources: { display: 'flex', flexDirection: 'column', gap: 10 },
+  sourceRow: { display: 'grid', gridTemplateColumns: '160px 1fr 40px 60px', alignItems: 'center', gap: 12 },
+  sourceName: { fontSize: 13, color: 'rgba(255,255,255,0.7)', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+  barWrap: { background: 'rgba(255,255,255,0.06)', borderRadius: 4, height: 6, overflow: 'hidden' },
+  bar: { height: '100%', background: '#1F8A8C', borderRadius: 4, transition: 'width 0.4s ease' },
+  sourcePct: { fontSize: 12, color: 'rgba(255,255,255,0.4)', fontFamily: 'Inter, sans-serif', textAlign: 'right' as const },
+  sourceNum: { fontSize: 12, color: 'rgba(255,255,255,0.6)', fontFamily: 'Inter, sans-serif', textAlign: 'right' as const },
+  state: { color: 'rgba(255,255,255,0.35)', fontSize: 13, fontFamily: 'Inter, sans-serif', padding: '8px 0' },
 }
