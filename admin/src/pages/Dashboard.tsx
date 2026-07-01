@@ -6,6 +6,7 @@ type Phase = 'kickstarter' | 'shopify'
 export default function Dashboard() {
   const [phase, setPhase] = useState<Phase>('kickstarter')
   const [affiliateCount, setAffiliateCount] = useState<{ approved: number; pending: number }>({ approved: 0, pending: 0 })
+  const [clinicianCount, setClinicianCount] = useState<{ approved: number; pending: number }>({ approved: 0, pending: 0 })
   const [loading, setLoading] = useState(true)
   const [showConfirm, setShowConfirm] = useState(false)
   const [bulkConfirmed, setBulkConfirmed] = useState(false)
@@ -13,16 +14,19 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function load() {
-      const [settingsRes, approvedRes, pendingRes] = await Promise.all([
+      const [settingsRes, affApproved, affPending, clinApproved, clinPending] = await Promise.all([
         supabase.from('settings').select('key, value'),
         supabase.from('affiliates').select('id', { count: 'exact', head: true }).eq('status', 'approved'),
         supabase.from('affiliates').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
+        supabase.from('clinician_referrals').select('id', { count: 'exact', head: true }).eq('status', 'approved'),
+        supabase.from('clinician_referrals').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
       ])
       if (settingsRes.data) {
         const s = Object.fromEntries(settingsRes.data.map((r: any) => [r.key, r.value]))
         if (s.campaign_phase) setPhase(s.campaign_phase as Phase)
       }
-      setAffiliateCount({ approved: approvedRes.count ?? 0, pending: pendingRes.count ?? 0 })
+      setAffiliateCount({ approved: affApproved.count ?? 0, pending: affPending.count ?? 0 })
+      setClinicianCount({ approved: clinApproved.count ?? 0, pending: clinPending.count ?? 0 })
       setLoading(false)
     }
     load()
@@ -54,7 +58,15 @@ export default function Dashboard() {
         </div>
         <div style={{ ...s.statCard, ...(affiliateCount.pending > 0 ? s.statCardAlert : {}) }}>
           <div style={{ ...s.statNum, color: affiliateCount.pending > 0 ? '#FF6B35' : '#1F8A8C' }}>{affiliateCount.pending}</div>
-          <div style={s.statLabel}>Pending Review</div>
+          <div style={s.statLabel}>Affiliates Pending</div>
+        </div>
+        <div style={s.statCard}>
+          <div style={s.statNum}>{clinicianCount.approved}</div>
+          <div style={s.statLabel}>Approved Clinicians</div>
+        </div>
+        <div style={{ ...s.statCard, ...(clinicianCount.pending > 0 ? s.statCardAlert : {}) }}>
+          <div style={{ ...s.statNum, color: clinicianCount.pending > 0 ? '#FF6B35' : '#1F8A8C' }}>{clinicianCount.pending}</div>
+          <div style={s.statLabel}>Clinicians Pending</div>
         </div>
       </div>
 
