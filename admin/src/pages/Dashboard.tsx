@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import TrafficWidget from '../components/TrafficWidget'
 
 type Phase = 'kickstarter' | 'shopify'
 
@@ -69,6 +70,8 @@ export default function Dashboard() {
           <div style={s.statLabel}>Clinicians Pending</div>
         </div>
       </div>
+
+      <TrafficWidget />
 
       {/* Phase switch */}
       <div style={s.card}>
