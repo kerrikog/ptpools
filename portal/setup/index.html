@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Up Your Account | PT Pools</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="stylesheet" href="/assets/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #09244D;
+      --navy-dark: #061830;
+      --teal: #1F8A8C;
+      --orange: #FF6B35;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+    .logo { margin-bottom: 40px; }
+    .logo img { height: 36px; }
+    .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; width: 100%; max-width: 420px; }
+    h1 { font-family: 'Oswald', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+    .sub { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.6; margin-bottom: 32px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    label { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.8); }
+    input[type="password"] { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 15px; font-family: 'Inter', sans-serif; width: 100%; outline: none; transition: border-color 0.2s; }
+    input[type="password"]:focus { border-color: var(--teal); }
+    .btn { display: block; width: 100%; padding: 14px; background: var(--orange); color: #fff; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+    .btn:hover { background: #e85c28; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .error { color: #ff6b6b; font-size: 13px; margin-top: 12px; min-height: 18px; }
+    .success { color: #4ecdc4; font-size: 14px; margin-top: 12px; line-height: 1.5; }
+    .req { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <a href="/"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
+  </div>
+
+  <div class="card">
+    <h1>Set Up Your Account</h1>
+    <p class="sub">Create a password to access your PT Pools partner portal.</p>
+
+    <div id="setup-form">
+      <div class="field">
+        <label>New Password</label>
+        <input type="password" id="password" placeholder="At least 8 characters">
+        <span class="req">Minimum 8 characters</span>
+      </div>
+      <div class="field">
+        <label>Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Repeat password">
+      </div>
+      <button class="btn" onclick="handleSetup()">Create Password & Enter Portal</button>
+      <p class="error" id="error-msg"></p>
+    </div>
+
+    <div id="success-msg" style="display:none">
+      <p class="success">Password set! Redirecting you to your portal...</p>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inplanp6eHZvdHJxeHJmbmR1emRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NTMyMTYsImV4cCI6MjA5ODIyOTIxNn0.U1urD2sXPMzr7GnXQMO8hA5J7bZ7MMGTSji8Kp-xi2s'
+
+    // Extract token from URL hash on page load
+    let accessToken = null
+    let refreshToken = null
+
+    window.addEventListener('load', () => {
+      const hash = window.location.hash
+      const params = new URLSearchParams(hash.replace('#', '?'))
+      accessToken = params.get('access_token')
+      refreshToken = params.get('refresh_token')
+      const type = params.get('type')
+
+      if (!accessToken || type !== 'invite') {
+        document.getElementById('error-msg').textContent = 'Invalid or expired invite link. Please contact us at hello@ptpools.us.'
+        document.querySelector('.btn').disabled = true
+      }
+    })
+
+    async function handleSetup() {
+      const password = document.getElementById('password').value
+      const confirm = document.getElementById('confirm-password').value
+      const errEl = document.getElementById('error-msg')
+      errEl.textContent = ''
+
+      if (password.length < 8) { errEl.textContent = 'Password must be at least 8 characters.'; return }
+      if (password !== confirm) { errEl.textContent = 'Passwords do not match.'; return }
+
+      const btn = document.querySelector('.btn')
+      btn.disabled = true
+      btn.textContent = 'Setting up...'
+
+      // Set the session first using the invite tokens
+      const sessionRes = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY },
+        body: JSON.stringify({ refresh_token: refreshToken })
+      })
+      const session = await sessionRes.json()
+
+      if (!session.access_token) {
+        errEl.textContent = 'Session expired. Please request a new invite link.'
+        btn.disabled = false
+        btn.textContent = 'Create Password & Enter Portal'
+        return
+      }
+
+      // Update password
+      const updateRes = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({ password })
+      })
+
+      if (!updateRes.ok) {
+        errEl.textContent = 'Something went wrong. Please try again or contact hello@ptpools.us.'
+        btn.disabled = false
+        btn.textContent = 'Create Password & Enter Portal'
+        return
+      }
+
+      // Store session for portal use
+      localStorage.setItem('sb_access_token', session.access_token)
+      localStorage.setItem('sb_refresh_token', session.refresh_token)
+
+      document.getElementById('setup-form').style.display = 'none'
+      document.getElementById('success-msg').style.display = 'block'
+      setTimeout(() => { window.location.href = '/portal' }, 1500)
+    }
+  </script>
+
+</body>
+</html>

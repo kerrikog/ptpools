@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Portal | PT Pools</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="stylesheet" href="/assets/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #09244D;
+      --navy-dark: #061830;
+      --teal: #1F8A8C;
+      --orange: #FF6B35;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: #fff; min-height: 100vh; }
+
+    /* Nav */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    nav img { height: 32px; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .welcome { font-size: 14px; color: rgba(255,255,255,0.6); }
+    .sign-out { font-size: 13px; color: rgba(255,255,255,0.4); background: none; border: none; cursor: pointer; font-family: 'Inter', sans-serif; text-decoration: underline; }
+    .sign-out:hover { color: rgba(255,255,255,0.7); }
+
+    /* Loading */
+    #loading { display: flex; align-items: center; justify-content: center; min-height: 60vh; font-size: 15px; color: rgba(255,255,255,0.4); }
+
+    /* Dashboard */
+    #dashboard { display: none; max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+    .page-title { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+    .page-sub { color: rgba(255,255,255,0.55); font-size: 15px; margin-bottom: 40px; }
+
+    /* Referral link card */
+    .ref-card { background: rgba(31,138,140,0.12); border: 1px solid rgba(31,138,140,0.3); border-radius: 14px; padding: 24px 28px; margin-bottom: 36px; }
+    .ref-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .ref-url { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 16px; word-break: break-all; }
+    .ref-note { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+    .copy-link-btn { background: var(--teal); color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .copy-link-btn:hover { background: #178082; }
+
+    /* Asset cards */
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .asset-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; margin-bottom: 20px; overflow: hidden; }
+    .asset-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .asset-title { font-weight: 600; font-size: 15px; }
+    .asset-meta { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .asset-actions { display: flex; gap: 10px; }
+    .btn-copy { background: var(--orange); color: #fff; border: none; border-radius: 8px; padding: 9px 18px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+    .btn-copy:hover { background: #e85c28; }
+    .btn-copy.copied { background: #2a9d8f; }
+    .btn-toggle { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 9px 18px; font-family: 'Inter', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .btn-toggle:hover { background: rgba(255,255,255,0.12); }
+    .asset-preview { display: none; padding: 24px; background: rgba(0,0,0,0.2); }
+    .asset-preview.open { display: block; }
+    .preview-box { background: #fff; color: #222; border-radius: 8px; padding: 28px; font-size: 14px; line-height: 1.7; max-height: 400px; overflow-y: auto; }
+    .preview-box h2 { font-family: 'Oswald', sans-serif; color: var(--navy); margin-bottom: 12px; }
+    .preview-box p { margin-bottom: 12px; }
+    .preview-box a { color: var(--teal); }
+    .preview-hint { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
+    <div class="nav-right">
+      <span class="welcome" id="welcome-name"></span>
+      <button class="sign-out" onclick="signOut()">Sign out</button>
+    </div>
+  </nav>
+
+  <div id="loading">Loading your portal...</div>
+
+  <div id="dashboard">
+    <p class="page-title">Your Partner Portal</p>
+    <p class="page-sub" id="page-sub"></p>
+
+    <!-- Referral link -->
+    <div class="ref-card">
+      <div class="ref-label">Your Referral Link</div>
+      <div class="ref-url" id="ref-url"></div>
+      <div class="ref-note">Share this link anywhere — social posts, emails, your website, after appointments. Every sale that comes through it earns you $75.</div>
+      <button class="copy-link-btn" onclick="copyRefLink()">Copy Link</button>
+    </div>
+
+    <!-- Assets -->
+    <div class="section-label">Your Ready-to-Use Content</div>
+
+    <!-- Email newsletter blast -->
+    <div class="asset-card" id="card-blast">
+      <div class="asset-header">
+        <div>
+          <div class="asset-title">Email Newsletter Blast</div>
+          <div class="asset-meta">Copy the HTML and paste into Mailchimp, Klaviyo, ConvertKit, or any email platform</div>
+        </div>
+        <div class="asset-actions">
+          <button class="btn-toggle" onclick="togglePreview('blast')">Preview</button>
+          <button class="btn-copy" onclick="copyAsset('blast')">Copy HTML</button>
+        </div>
+      </div>
+      <div class="asset-preview" id="preview-blast">
+        <div class="preview-box" id="html-blast"></div>
+        <p class="preview-hint">This is a preview. Use "Copy HTML" to get the full email code.</p>
+      </div>
+    </div>
+
+    <!-- Blog post / caption -->
+    <div class="asset-card" id="card-blog">
+      <div class="asset-header">
+        <div>
+          <div class="asset-title">Blog Post / Caption Template</div>
+          <div class="asset-meta">Ready to publish on your blog, newsletter, or use as a social caption</div>
+        </div>
+        <div class="asset-actions">
+          <button class="btn-toggle" onclick="togglePreview('blog')">Preview</button>
+          <button class="btn-copy" onclick="copyAsset('blog')">Copy Text</button>
+        </div>
+      </div>
+      <div class="asset-preview" id="preview-blog">
+        <div class="preview-box" id="html-blog"></div>
+        <p class="preview-hint">Plain text — paste directly into your blog editor or social scheduler.</p>
+      </div>
+    </div>
+
+    <!-- Clinician only: one-off patient email -->
+    <div class="asset-card" id="card-patient" style="display:none">
+      <div class="asset-header">
+        <div>
+          <div class="asset-title">Patient Referral Email</div>
+          <div class="asset-meta">Send this to a patient after their appointment — your referral link is already inside</div>
+        </div>
+        <div class="asset-actions">
+          <button class="btn-toggle" onclick="togglePreview('patient')">Preview</button>
+          <button class="btn-copy" onclick="copyAsset('patient')">Copy HTML</button>
+        </div>
+      </div>
+      <div class="asset-preview" id="preview-patient">
+        <div class="preview-box" id="html-patient"></div>
+        <p class="preview-hint">Copy the HTML and paste into your email client or patient communication tool.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inplanp6eHZvdHJxeHJmbmR1emRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NTMyMTYsImV4cCI6MjA5ODIyOTIxNn0.U1urD2sXPMzr7GnXQMO8hA5J7bZ7MMGTSji8Kp-xi2s'
+
+    let userProfile = null
+    let assets = {}
+
+    async function getSession() {
+      const token = localStorage.getItem('sb_access_token')
+      if (!token) return null
+      const res = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+        headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${token}` }
+      })
+      if (!res.ok) return null
+      return await res.json()
+    }
+
+    async function loadProfile(email, token) {
+      // Check affiliates table first
+      const affRes = await fetch(`${SUPABASE_URL}/rest/v1/affiliates?email=eq.${encodeURIComponent(email)}&select=name,handle,status`, {
+        headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' }
+      })
+      const affData = await affRes.json()
+      if (affData.length > 0) return { ...affData[0], type: 'affiliate' }
+
+      // Check clinician_referrals table
+      const clinRes = await fetch(`${SUPABASE_URL}/rest/v1/clinician_referrals?email=eq.${encodeURIComponent(email)}&select=name,credentials,status`, {
+        headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' }
+      })
+      const clinData = await clinRes.json()
+      if (clinData.length > 0) return { ...clinData[0], type: 'clinician' }
+
+      return null
+    }
+
+    function buildRefUrl(profile) {
+      if (profile.type === 'affiliate') return `https://ptpools.us/ref/${profile.handle}`
+      // Clinicians: derive a code from their name until a handle field is added
+      const code = profile.name.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16)
+      return `https://ptpools.us/ref/${code}`
+    }
+
+    function buildAssets(profile, refUrl) {
+      const firstName = profile.name.split(' ')[0]
+
+      // ── EMAIL NEWSLETTER BLAST ─────────────────────────────────────────────
+      // PLACEHOLDER: swap the body content below with copy from Desktop
+      const blastHtml = `<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#f4f4f4;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 20px;">
+    <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:8px;overflow:hidden;max-width:600px;">
+      <tr><td style="background:#09244D;padding:32px;text-align:center;">
+        <img src="https://ptpools.us/assets/images/logo-dark.png" alt="PT Pools" height="36">
+      </td></tr>
+      <tr><td style="padding:40px 40px 24px;">
+        <h1 style="font-family:Georgia,serif;color:#09244D;font-size:26px;margin:0 0 16px;">
+          <!-- PLACEHOLDER: Email subject/headline goes here -->
+          Have You Heard About TheraTank?
+        </h1>
+        <p style="color:#444;font-size:15px;line-height:1.7;margin:0 0 16px;">
+          <!-- PLACEHOLDER: Opening paragraph goes here -->
+          I wanted to share something I've been recommending lately — a home aquatic therapy pool that actually works for real rehab and recovery. It's called TheraTank, and it's unlike any pool I've seen at this price point.
+        </p>
+        <p style="color:#444;font-size:15px;line-height:1.7;margin:0 0 16px;">
+          <!-- PLACEHOLDER: Body paragraph goes here -->
+          Most above-ground pools top out at 48–52 inches of water. TheraTank hits 54 inches of usable depth — enough to exercise fully submerged to the chest and shoulder. That's the difference between wading and actually doing aquatic therapy at home.
+        </p>
+        <p style="color:#444;font-size:15px;line-height:1.7;margin:0 0 32px;">
+          <!-- PLACEHOLDER: CTA paragraph goes here -->
+          They're launching on Kickstarter soon — early backers get the best pricing they'll ever offer.
+        </p>
+        <a href="${refUrl}" style="display:inline-block;background:#FF6B35;color:#fff;text-decoration:none;padding:14px 32px;border-radius:6px;font-weight:bold;font-size:15px;">
+          Learn More &amp; Back on Kickstarter
+        </a>
+      </td></tr>
+      <tr><td style="padding:24px 40px 40px;border-top:1px solid #eee;">
+        <p style="color:#999;font-size:12px;line-height:1.6;margin:0;">
+          You're receiving this because you subscribed to updates from ${firstName}.
+          <!-- PLACEHOLDER: Add your unsubscribe link here -->
+        </p>
+      </td></tr>
+    </table>
+  </td></tr></table>
+</body>
+</html>`
+
+      // ── BLOG POST / CAPTION ────────────────────────────────────────────────
+      // PLACEHOLDER: swap the body content below with copy from Desktop
+      const blogText = `<!-- PLACEHOLDER: Blog post / caption copy goes here -->
+
+The Home Pool That's Actually Built for Recovery
+
+If you've been following me for a while, you know I talk about movement and recovery a lot. So when I came across TheraTank, I had to share it.
+
+Most above-ground pools are designed for summer fun — they're 48 to 52 inches deep, which doesn't cut it for real aquatic therapy. TheraTank is different. It's a drop-stitch inflatable pool that reaches 54 inches of usable water depth. That means you can exercise fully submerged to your chest or shoulder — the kind of depth that actually offloads your joints and lets you move without pain.
+
+It sets up solo with an included electric air pump, fits in most backyards, and comes with filtration built in. No installation, no contractor, no $30,000 therapy pool bill.
+
+They're launching on Kickstarter soon, and early backers get the lowest price they'll ever offer.
+
+Check it out here: ${refUrl}
+
+(Full disclosure: I earn a referral fee if you buy through my link — but I only share things I'd genuinely recommend.)`
+
+      // ── ONE-OFF PATIENT REFERRAL (clinicians only) ─────────────────────────
+      // PLACEHOLDER: swap the body content below with copy from Desktop
+      const patientHtml = `<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#f4f4f4;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 20px;">
+    <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:8px;overflow:hidden;max-width:600px;">
+      <tr><td style="background:#09244D;padding:32px;text-align:center;">
+        <img src="https://ptpools.us/assets/images/logo-dark.png" alt="PT Pools" height="36">
+      </td></tr>
+      <tr><td style="padding:40px 40px 24px;">
+        <h1 style="font-family:Georgia,serif;color:#09244D;font-size:24px;margin:0 0 16px;">
+          <!-- PLACEHOLDER: Clinician referral subject/headline goes here -->
+          A Resource I Wanted to Share With You
+        </h1>
+        <p style="color:#444;font-size:15px;line-height:1.7;margin:0 0 16px;">
+          <!-- PLACEHOLDER: Opening — from the clinician to the patient -->
+          Following up on our appointment — I wanted to send you information about something that may help you continue your progress between visits.
+        </p>
+        <p style="color:#444;font-size:15px;line-height:1.7;margin:0 0 16px;">
+          <!-- PLACEHOLDER: Product description paragraph -->
+          TheraTank is a home aquatic therapy pool with genuine therapeutic water depth — 54 inches, enough to fully offload your joints while you exercise standing. It's an inflatable drop-stitch pool that sets up in most backyards without any installation.
+        </p>
+        <p style="color:#444;font-size:15px;line-height:1.7;margin:0 0 32px;">
+          <!-- PLACEHOLDER: CTA / closing paragraph -->
+          They're currently taking pre-orders through Kickstarter at the lowest price they'll ever offer. I registered as a referring clinician — if you order through the link below, I receive a small referral fee at no additional cost to you.
+        </p>
+        <a href="${refUrl}" style="display:inline-block;background:#FF6B35;color:#fff;text-decoration:none;padding:14px 32px;border-radius:6px;font-weight:bold;font-size:15px;">
+          Learn More About TheraTank
+        </a>
+      </td></tr>
+      <tr><td style="padding:24px 40px 40px;border-top:1px solid #eee;">
+        <p style="color:#999;font-size:12px;line-height:1.6;margin:0;">
+          <!-- PLACEHOLDER: Clinician name/practice signature -->
+          Warm regards,<br>${profile.name}${profile.credentials ? ', ' + profile.credentials : ''}
+        </p>
+      </td></tr>
+    </table>
+  </td></tr></table>
+</body>
+</html>`
+
+      return { blastHtml, blogText, patientHtml }
+    }
+
+    function togglePreview(key) {
+      const el = document.getElementById(`preview-${key}`)
+      const btn = el.previousElementSibling.querySelector('.btn-toggle')
+      const isOpen = el.classList.contains('open')
+      el.classList.toggle('open', !isOpen)
+      btn.textContent = isOpen ? 'Preview' : 'Hide'
+    }
+
+    function copyRefLink() {
+      const url = document.getElementById('ref-url').textContent
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.querySelector('.copy-link-btn')
+        btn.textContent = 'Copied!'
+        setTimeout(() => btn.textContent = 'Copy Link', 2000)
+      })
+    }
+
+    function copyAsset(key) {
+      const content = key === 'blog' ? assets.blogText : (key === 'blast' ? assets.blastHtml : assets.patientHtml)
+      navigator.clipboard.writeText(content).then(() => {
+        const btn = document.querySelector(`#card-${key} .btn-copy`)
+        btn.textContent = 'Copied!'
+        btn.classList.add('copied')
+        setTimeout(() => { btn.textContent = key === 'blog' ? 'Copy Text' : 'Copy HTML'; btn.classList.remove('copied') }, 2000)
+      })
+    }
+
+    function signOut() {
+      localStorage.removeItem('sb_access_token')
+      localStorage.removeItem('sb_refresh_token')
+      window.location.href = '/'
+    }
+
+    async function init() {
+      const session = await getSession()
+      if (!session) { window.location.href = '/portal/setup'; return }
+
+      const token = localStorage.getItem('sb_access_token')
+      const profile = await loadProfile(session.email, token)
+
+      if (!profile) {
+        document.getElementById('loading').textContent = 'Account not found. Contact hello@ptpools.us.'
+        return
+      }
+
+      userProfile = profile
+      const refUrl = buildRefUrl(profile)
+      assets = buildAssets(profile, refUrl)
+
+      // Populate UI
+      document.getElementById('welcome-name').textContent = profile.name
+      document.getElementById('ref-url').textContent = refUrl
+      document.getElementById('page-sub').textContent = profile.type === 'clinician'
+        ? `Welcome back, ${profile.name.split(' ')[0]}. Your referral assets are ready to use.`
+        : `Welcome back, ${profile.name.split(' ')[0]}. Your affiliate assets are ready to use.`
+
+      // Render previews
+      document.getElementById('html-blast').innerHTML = assets.blastHtml
+      document.getElementById('html-blog').textContent = assets.blogText
+
+      // Show patient email card for clinicians only
+      if (profile.type === 'clinician') {
+        document.getElementById('card-patient').style.display = 'block'
+        document.getElementById('html-patient').innerHTML = assets.patientHtml
+      }
+
+      document.getElementById('loading').style.display = 'none'
+      document.getElementById('dashboard').style.display = 'block'
+    }
+
+    init()
+  </script>
+
+</body>
+</html>
