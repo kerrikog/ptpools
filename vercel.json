@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/ref/:handle", "destination": "/api/ref?handle=:handle" },
     { "source": "/blog/:slug", "destination": "/api/blog-post?slug=:slug" },
     { "source": "/blog", "destination": "/api/blog-index" }
   ]

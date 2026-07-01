@@ -5,14 +5,15 @@ import Login from './pages/Login'
 import Layout from './components/Layout'
 import BlogPosts from './pages/BlogPosts'
 import Affiliates from './pages/Affiliates'
+import Dashboard from './pages/Dashboard'
 
-type Page = 'blog' | 'affiliates'
+type Page = 'dashboard' | 'blog' | 'affiliates'
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
   const [isAdmin, setIsAdmin] = useState(false)
   const [checking, setChecking] = useState(true)
-  const [page, setPage] = useState<Page>('blog')
+  const [page, setPage] = useState<Page>('dashboard')
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -40,6 +41,7 @@ export default function App() {
 
   return (
     <Layout page={page} onNavigate={setPage}>
+      {page === 'dashboard' && <Dashboard />}
       {page === 'blog' && <BlogPosts />}
       {page === 'affiliates' && <Affiliates />}
     </Layout>

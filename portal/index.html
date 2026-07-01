@@ -31,6 +31,20 @@
     /* Loading */
     #loading { display: flex; align-items: center; justify-content: center; min-height: 60vh; font-size: 15px; color: rgba(255,255,255,0.4); }
 
+    /* Login form */
+    #login { display: none; align-items: center; justify-content: center; min-height: 80vh; padding: 40px 20px; }
+    .login-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; width: 100%; max-width: 400px; }
+    .login-card h1 { font-family: 'Oswald', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+    .login-card .sub { color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 28px; line-height: 1.5; }
+    .login-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .login-field label { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.8); }
+    .login-field input { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 15px; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+    .login-field input:focus { border-color: var(--teal); }
+    .login-btn { display: block; width: 100%; padding: 14px; background: var(--orange); color: #fff; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 8px; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+    .login-btn:hover { background: #e85c28; }
+    .login-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .login-error { color: #ff6b6b; font-size: 13px; margin-top: 10px; min-height: 18px; }
+
     /* Dashboard */
     #dashboard { display: none; max-width: 860px; margin: 0 auto; padding: 48px 24px; }
     .page-title { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
@@ -77,6 +91,23 @@
 
   <div id="loading">Loading your portal...</div>
 
+  <div id="login">
+    <div class="login-card">
+      <h1>Partner Login</h1>
+      <p class="sub">Sign in to access your referral assets and templates.</p>
+      <div class="login-field">
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="you@example.com">
+      </div>
+      <div class="login-field">
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="Your password" onkeydown="if(event.key==='Enter')handleLogin()">
+      </div>
+      <button class="login-btn" onclick="handleLogin()">Sign In</button>
+      <p class="login-error" id="login-error"></p>
+    </div>
+  </div>
+
   <div id="dashboard">
     <p class="page-title">Your Partner Portal</p>
     <p class="page-sub" id="page-sub"></p>
@@ -114,12 +145,12 @@
     <div class="asset-card" id="card-blog">
       <div class="asset-header">
         <div>
-          <div class="asset-title">Blog Post / Caption Template</div>
-          <div class="asset-meta">Ready to publish on your blog, newsletter, or use as a social caption</div>
+          <div class="asset-title">Blog Post Template</div>
+          <div class="asset-meta">Copy the HTML and paste into your blog's HTML/code editor</div>
         </div>
         <div class="asset-actions">
           <button class="btn-toggle" onclick="togglePreview('blog')">Preview</button>
-          <button class="btn-copy" onclick="copyAsset('blog')">Copy Text</button>
+          <button class="btn-copy" onclick="copyAsset('blog')">Copy HTML</button>
         </div>
       </div>
       <div class="asset-preview" id="preview-blog">
@@ -238,21 +269,29 @@
 
       // ── BLOG POST / CAPTION ────────────────────────────────────────────────
       // PLACEHOLDER: swap the body content below with copy from Desktop
-      const blogText = `<!-- PLACEHOLDER: Blog post / caption copy goes here -->
+      const blogText = `<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Georgia,serif;max-width:680px;margin:0 auto;padding:40px 20px;color:#222;line-height:1.8;">
+  <!-- PLACEHOLDER: Blog post copy goes here -->
+  <h1 style="font-family:Arial,sans-serif;color:#09244D;font-size:28px;margin-bottom:8px;">The Home Pool That's Actually Built for Recovery</h1>
+  <p style="color:#888;font-size:13px;margin-bottom:32px;"><!-- PLACEHOLDER: Author name and date --></p>
 
-The Home Pool That's Actually Built for Recovery
+  <!-- PLACEHOLDER: Swap for real hero product photo when available -->
+  <img src="https://ptpools.us/assets/images/theratank-render.png" alt="TheraTank by PT Pools" style="width:100%;border-radius:8px;margin-bottom:28px;">
 
-If you've been following me for a while, you know I talk about movement and recovery a lot. So when I came across TheraTank, I had to share it.
+  <p>If you've been following me for a while, you know I talk about movement and recovery a lot. So when I came across TheraTank, I had to share it.</p>
+  <p>Most above-ground pools are designed for summer fun — they're 48 to 52 inches deep, which doesn't cut it for real aquatic therapy. TheraTank is different. It's a drop-stitch inflatable pool that reaches 54 inches of usable water depth. That means you can exercise fully submerged to your chest or shoulder — the kind of depth that actually offloads your joints and lets you move without pain.</p>
 
-Most above-ground pools are designed for summer fun — they're 48 to 52 inches deep, which doesn't cut it for real aquatic therapy. TheraTank is different. It's a drop-stitch inflatable pool that reaches 54 inches of usable water depth. That means you can exercise fully submerged to your chest or shoulder — the kind of depth that actually offloads your joints and lets you move without pain.
+  <!-- PLACEHOLDER: Swap for real in-use / lifestyle photo when available -->
+  <img src="https://ptpools.us/assets/dropstitch-tech.jpg" alt="TheraTank drop stitch construction" style="width:100%;border-radius:8px;margin:24px 0;">
 
-It sets up solo with an included electric air pump, fits in most backyards, and comes with filtration built in. No installation, no contractor, no $30,000 therapy pool bill.
-
-They're launching on Kickstarter soon, and early backers get the lowest price they'll ever offer.
-
-Check it out here: ${refUrl}
-
-(Full disclosure: I earn a referral fee if you buy through my link — but I only share things I'd genuinely recommend.)`
+  <p>It sets up solo with an included electric air pump, fits in most backyards, and comes with filtration built in. No installation, no contractor, no $30,000 therapy pool bill.</p>
+  <p>They're launching on Kickstarter soon, and early backers get the lowest price they'll ever offer.</p>
+  <p><a href="${refUrl}" style="color:#1F8A8C;font-weight:bold;">Check it out here →</a></p>
+  <p style="font-size:13px;color:#888;margin-top:32px;border-top:1px solid #eee;padding-top:16px;">Full disclosure: I earn a referral fee if you buy through my link — but I only share things I'd genuinely recommend.</p>
+</body>
+</html>`
 
       // ── ONE-OFF PATIENT REFERRAL (clinicians only) ─────────────────────────
       // PLACEHOLDER: swap the body content below with copy from Desktop
@@ -323,7 +362,7 @@ Check it out here: ${refUrl}
         const btn = document.querySelector(`#card-${key} .btn-copy`)
         btn.textContent = 'Copied!'
         btn.classList.add('copied')
-        setTimeout(() => { btn.textContent = key === 'blog' ? 'Copy Text' : 'Copy HTML'; btn.classList.remove('copied') }, 2000)
+        setTimeout(() => { btn.textContent = 'Copy HTML'; btn.classList.remove('copied') }, 2000)
       })
     }
 
@@ -333,12 +372,69 @@ Check it out here: ${refUrl}
       window.location.href = '/'
     }
 
+    async function handleLogin() {
+      const email = document.getElementById('login-email').value.trim()
+      const password = document.getElementById('login-password').value
+      const errEl = document.getElementById('login-error')
+      const btn = document.querySelector('.login-btn')
+      errEl.textContent = ''
+      if (!email || !password) { errEl.textContent = 'Please enter your email and password.'; return }
+      btn.disabled = true
+      btn.textContent = 'Signing in...'
+
+      const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY },
+        body: JSON.stringify({ email, password })
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        errEl.textContent = 'Incorrect email or password.'
+        btn.disabled = false
+        btn.textContent = 'Sign In'
+        return
+      }
+
+      localStorage.setItem('sb_access_token', data.access_token)
+      localStorage.setItem('sb_refresh_token', data.refresh_token)
+      document.getElementById('login').style.display = 'none'
+      document.getElementById('loading').style.display = 'flex'
+      loadDashboard(data.user.email, data.access_token)
+    }
+
     async function init() {
+      // Preview mode — bypass auth with mock data
+      if (new URLSearchParams(window.location.search).get('preview') !== null) {
+        const mockProfile = { name: 'Jane Smith', handle: 'janesmith', type: 'clinician', credentials: 'DPT' }
+        const refUrl = buildRefUrl(mockProfile)
+        assets = buildAssets(mockProfile, refUrl)
+        userProfile = mockProfile
+        document.getElementById('welcome-name').textContent = mockProfile.name
+        document.getElementById('ref-url').textContent = refUrl
+        document.getElementById('page-sub').textContent = `Welcome back, Jane. Your referral assets are ready to use.`
+        document.getElementById('html-blast').innerHTML = assets.blastHtml
+        document.getElementById('html-blog').innerHTML = assets.blogText
+        document.getElementById('card-patient').style.display = 'block'
+        document.getElementById('html-patient').innerHTML = assets.patientHtml
+        document.getElementById('loading').style.display = 'none'
+        document.getElementById('dashboard').style.display = 'block'
+        return
+      }
+
       const session = await getSession()
-      if (!session) { window.location.href = '/portal/setup'; return }
+      if (!session) {
+        document.getElementById('loading').style.display = 'none'
+        document.getElementById('login').style.display = 'flex'
+        return
+      }
 
       const token = localStorage.getItem('sb_access_token')
-      const profile = await loadProfile(session.email, token)
+      loadDashboard(session.email, token)
+    }
+
+    async function loadDashboard(email, token) {
+      const profile = await loadProfile(email, token)
 
       if (!profile) {
         document.getElementById('loading').textContent = 'Account not found. Contact hello@ptpools.us.'
@@ -349,18 +445,15 @@ Check it out here: ${refUrl}
       const refUrl = buildRefUrl(profile)
       assets = buildAssets(profile, refUrl)
 
-      // Populate UI
       document.getElementById('welcome-name').textContent = profile.name
       document.getElementById('ref-url').textContent = refUrl
       document.getElementById('page-sub').textContent = profile.type === 'clinician'
         ? `Welcome back, ${profile.name.split(' ')[0]}. Your referral assets are ready to use.`
         : `Welcome back, ${profile.name.split(' ')[0]}. Your affiliate assets are ready to use.`
 
-      // Render previews
       document.getElementById('html-blast').innerHTML = assets.blastHtml
-      document.getElementById('html-blog').textContent = assets.blogText
+      document.getElementById('html-blog').innerHTML = assets.blogText
 
-      // Show patient email card for clinicians only
       if (profile.type === 'clinician') {
         document.getElementById('card-patient').style.display = 'block'
         document.getElementById('html-patient').innerHTML = assets.patientHtml
