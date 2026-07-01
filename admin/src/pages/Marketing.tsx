@@ -7,7 +7,7 @@ const CLICKS_URL = 'https://ptpools.us/api/affiliate-clicks'
 interface ClickRow { handle: string; clicks: number }
 
 export default function Marketing() {
-  const [emailStats, setEmailStats] = useState<{ clinicians: number; affiliates: number } | null>(null)
+  const [emailStats, setEmailStats] = useState<{ total: number; clinicians: number; affiliates: number } | null>(null)
   const [emailLoading, setEmailLoading] = useState(true)
   const [emailError, setEmailError] = useState('')
   const [leaderboardOpen, setLeaderboardOpen] = useState(false)
@@ -41,8 +41,6 @@ export default function Marketing() {
       .catch(() => { setEmailError('Could not load email stats.'); setEmailLoading(false) })
   }, [])
 
-  const total = emailStats ? emailStats.clinicians + emailStats.affiliates : 0
-
   function emailNum(n: number) {
     return emailLoading ? '—' : emailError ? '—' : n.toLocaleString()
   }
@@ -55,8 +53,12 @@ export default function Marketing() {
       <div style={s.sectionLabel}>Email List</div>
       <div style={s.cardsRow}>
         <div style={s.card}>
-          <div style={s.cardNum}>{emailNum(total)}</div>
-          <div style={s.cardLabel}>Total Subscribers</div>
+          <div style={s.cardNum}>{emailNum(emailStats?.total ?? 0)}</div>
+          <div style={s.cardLabel}>Main List</div>
+        </div>
+        <div style={s.card}>
+          <div style={s.cardNum}>{emailNum((emailStats?.clinicians ?? 0) + (emailStats?.affiliates ?? 0))}</div>
+          <div style={s.cardLabel}>Partners Total</div>
         </div>
         <div style={s.card}>
           <div style={s.cardNum}>{emailNum(emailStats?.clinicians ?? 0)}</div>
@@ -119,7 +121,7 @@ export default function Marketing() {
 const s: Record<string, any> = {
   title: { color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: 24, fontWeight: 700, marginBottom: 28 },
   sectionLabel: { color: 'rgba(255,255,255,0.4)', fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', fontFamily: 'Inter, sans-serif', marginBottom: 14 },
-  cardsRow: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 36 },
+  cardsRow: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 36 },
   card: {
     background: 'rgba(255,255,255,0.04)',
     border: '1px solid rgba(255,255,255,0.1)',

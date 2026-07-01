@@ -3,10 +3,12 @@ import { GoogleAuth } from 'google-auth-library'
 const PROPERTY_ID = '543849436'
 
 export default async function handler(req, res) {
-  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' })
-
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
+  if (req.method === 'OPTIONS') return res.status(200).end()
+  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' })
 
   const serviceAccount = JSON.parse(process.env.GA_SERVICE_ACCOUNT)
 
@@ -46,7 +48,7 @@ export default async function handler(req, res) {
   }
 
   const data = await gaRes.json()
-  const rows = (data.rows ?? []).map((row) => ({
+  const rows = (data.rows ?? []).map((row: any) => ({
     handle: row.dimensionValues[0].value,
     clicks: parseInt(row.metricValues[0].value),
   }))
