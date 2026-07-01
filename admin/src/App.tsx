@@ -6,8 +6,9 @@ import Layout from './components/Layout'
 import BlogPosts from './pages/BlogPosts'
 import Affiliates from './pages/Affiliates'
 import Dashboard from './pages/Dashboard'
+import Settings from './pages/Settings'
 
-type Page = 'dashboard' | 'blog' | 'affiliates'
+type Page = 'dashboard' | 'blog' | 'affiliates' | 'settings'
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
@@ -44,6 +45,7 @@ export default function App() {
       {page === 'dashboard' && <Dashboard />}
       {page === 'blog' && <BlogPosts />}
       {page === 'affiliates' && <Affiliates />}
+      {page === 'settings' && <Settings />}
     </Layout>
   )
 }

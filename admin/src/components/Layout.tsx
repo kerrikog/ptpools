@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 
-type Page = 'dashboard' | 'blog' | 'affiliates'
+type Page = 'dashboard' | 'blog' | 'affiliates' | 'settings'
 
 interface Props {
   children: React.ReactNode
@@ -42,6 +42,12 @@ export default function Layout({ children, page, onNavigate }: Props) {
             onClick={() => onNavigate('blog')}
           >
             Blog Posts
+          </button>
+          <button
+            style={{ ...styles.navItem, ...(page === 'settings' ? styles.navActive : {}) }}
+            onClick={() => onNavigate('settings')}
+          >
+            Settings
           </button>
         </nav>
         <button style={styles.signOut} onClick={handleSignOut} disabled={signingOut}>

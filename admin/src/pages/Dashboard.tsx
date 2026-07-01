@@ -5,12 +5,11 @@ type Phase = 'kickstarter' | 'shopify'
 
 export default function Dashboard() {
   const [phase, setPhase] = useState<Phase>('kickstarter')
-  const [ksUrl, setKsUrl] = useState('https://www.kickstarter.com/projects/ptpools/theratank')
-  const [shopifyUrl, setShopifyUrl] = useState('https://ptpools.us/discount/')
-  const [saving, setSaving] = useState(false)
-  const [saved, setSaved] = useState(false)
   const [affiliateCount, setAffiliateCount] = useState<{ approved: number; pending: number }>({ approved: 0, pending: 0 })
   const [loading, setLoading] = useState(true)
+  const [showConfirm, setShowConfirm] = useState(false)
+  const [bulkConfirmed, setBulkConfirmed] = useState(false)
+  const [switching, setSwitching] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -22,31 +21,26 @@ export default function Dashboard() {
       if (settingsRes.data) {
         const s = Object.fromEntries(settingsRes.data.map((r: any) => [r.key, r.value]))
         if (s.campaign_phase) setPhase(s.campaign_phase as Phase)
-        if (s.ks_campaign_url) setKsUrl(s.ks_campaign_url)
-        if (s.shopify_url) setShopifyUrl(s.shopify_url)
       }
-      setAffiliateCount({
-        approved: approvedRes.count ?? 0,
-        pending: pendingRes.count ?? 0,
-      })
+      setAffiliateCount({ approved: approvedRes.count ?? 0, pending: pendingRes.count ?? 0 })
       setLoading(false)
     }
     load()
   }, [])
 
-  async function save() {
-    setSaving(true)
-    await Promise.all([
-      supabase.from('settings').upsert({ key: 'campaign_phase', value: phase }),
-      supabase.from('settings').upsert({ key: 'ks_campaign_url', value: ksUrl }),
-      supabase.from('settings').upsert({ key: 'shopify_url', value: shopifyUrl }),
-    ])
-    setSaving(false)
-    setSaved(true)
-    setTimeout(() => setSaved(false), 2500)
+  async function confirmSwitch() {
+    setSwitching(true)
+    const newPhase: Phase = phase === 'kickstarter' ? 'shopify' : 'kickstarter'
+    await supabase.from('settings').upsert({ key: 'campaign_phase', value: newPhase })
+    setPhase(newPhase)
+    setSwitching(false)
+    setShowConfirm(false)
+    setBulkConfirmed(false)
   }
 
   if (loading) return <div style={s.loading}>Loading...</div>
+
+  const switchingTo: Phase = phase === 'kickstarter' ? 'shopify' : 'kickstarter'
 
   return (
     <div>
@@ -58,65 +52,66 @@ export default function Dashboard() {
           <div style={s.statNum}>{affiliateCount.approved}</div>
           <div style={s.statLabel}>Approved Affiliates</div>
         </div>
-        <div style={s.statCard}>
-          <div style={{ ...s.statNum, color: '#FF6B35' }}>{affiliateCount.pending}</div>
+        <div style={{ ...s.statCard, ...(affiliateCount.pending > 0 ? s.statCardAlert : {}) }}>
+          <div style={{ ...s.statNum, color: affiliateCount.pending > 0 ? '#FF6B35' : '#1F8A8C' }}>{affiliateCount.pending}</div>
           <div style={s.statLabel}>Pending Review</div>
         </div>
       </div>
 
       {/* Phase switch */}
       <div style={s.card}>
-        <div style={s.cardHeader}>
-          <div>
-            <div style={s.cardTitle}>Campaign Phase</div>
-            <div style={s.cardSub}>Flipping this switch updates every affiliate redirect link instantly.</div>
+        <div style={s.cardTitle}>Campaign Mode</div>
+        <div style={s.phaseDisplay}>
+          <div style={s.phaseCurrent(phase)}>
+            {phase === 'kickstarter' ? '🟠 Kickstarter Mode' : '🟢 Shopify Mode'}
           </div>
-          <div style={s.badge(phase)}>
-            {phase === 'kickstarter' ? 'Kickstarter Mode' : 'Shopify Mode'}
-          </div>
-        </div>
-
-        <div style={s.toggleRow}>
-          <button
-            style={s.phaseBtn(phase === 'kickstarter')}
-            onClick={() => setPhase('kickstarter')}
-          >
-            Kickstarter
-          </button>
-          <button
-            style={s.phaseBtn(phase === 'shopify')}
-            onClick={() => setPhase('shopify')}
-          >
-            Shopify
+          <button style={s.switchBtn} onClick={() => setShowConfirm(true)}>
+            Switch to {switchingTo === 'shopify' ? 'Shopify' : 'Kickstarter'}
           </button>
         </div>
-
-        <div style={s.field}>
-          <label style={s.label}>Kickstarter Campaign URL</label>
-          <input
-            style={s.input}
-            value={ksUrl}
-            onChange={e => setKsUrl(e.target.value)}
-            placeholder="https://www.kickstarter.com/projects/ptpools/theratank"
-          />
-          <span style={s.hint}>Affiliate links become: {ksUrl}?ref=[handle]</span>
+        <div style={s.phaseDesc}>
+          {phase === 'kickstarter'
+            ? 'All affiliate links are currently pointing to your Kickstarter campaign.'
+            : 'All affiliate links are currently pointing to Shopify discount codes.'}
         </div>
-
-        <div style={s.field}>
-          <label style={s.label}>Shopify Discount Base URL</label>
-          <input
-            style={s.input}
-            value={shopifyUrl}
-            onChange={e => setShopifyUrl(e.target.value)}
-            placeholder="https://ptpools.us/discount/"
-          />
-          <span style={s.hint}>Affiliate links become: {shopifyUrl}[HANDLE]</span>
-        </div>
-
-        <button style={s.saveBtn} onClick={save} disabled={saving}>
-          {saving ? 'Saving...' : saved ? '✓ Saved' : 'Save Settings'}
-        </button>
       </div>
+
+      {/* Confirmation modal */}
+      {showConfirm && (
+        <div style={s.overlay}>
+          <div style={s.modal}>
+            <h2 style={s.modalTitle}>Switch to {switchingTo === 'shopify' ? 'Shopify' : 'Kickstarter'} Mode?</h2>
+            <p style={s.modalBody}>
+              {switchingTo === 'shopify'
+                ? `This will immediately redirect every affiliate link (ptpools.us/ref/[handle]) to their individual Shopify discount code URL. Anyone clicking an affiliate link after this switch will land on Shopify — not Kickstarter.`
+                : `This will immediately redirect every affiliate link back to the Kickstarter campaign. Anyone clicking an affiliate link after this switch will land on Kickstarter — not Shopify.`}
+            </p>
+            {switchingTo === 'shopify' && (
+              <label style={s.checkLabel}>
+                <input
+                  type="checkbox"
+                  checked={bulkConfirmed}
+                  onChange={e => setBulkConfirmed(e.target.checked)}
+                  style={{ marginRight: 10, width: 16, height: 16 }}
+                />
+                I have bulk created all affiliate discount codes in Shopify. If you haven't done this yet, cancel and ask your coder to run the bulk creation first.
+              </label>
+            )}
+            <div style={s.modalActions}>
+              <button style={s.cancelBtn} onClick={() => { setShowConfirm(false); setBulkConfirmed(false) }}>
+                Cancel
+              </button>
+              <button
+                style={s.confirmBtn(switchingTo === 'shopify' && !bulkConfirmed)}
+                onClick={confirmSwitch}
+                disabled={switching || (switchingTo === 'shopify' && !bulkConfirmed)}
+              >
+                {switching ? 'Switching...' : `Yes, Switch to ${switchingTo === 'shopify' ? 'Shopify' : 'Kickstarter'}`}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -132,64 +127,68 @@ const s: Record<string, any> = {
     padding: '20px 28px',
     minWidth: 140,
   },
+  statCardAlert: { borderColor: 'rgba(255,107,53,0.3)' },
   statNum: { fontSize: 32, fontWeight: 700, color: '#1F8A8C', fontFamily: 'Inter, sans-serif' },
-  statLabel: { fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 4, fontFamily: 'Inter, sans-serif', letterSpacing: 0.5 },
+  statLabel: { fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 4, fontFamily: 'Inter, sans-serif' },
   card: {
     background: 'rgba(255,255,255,0.04)',
     border: '1px solid rgba(255,255,255,0.1)',
     borderRadius: 14,
     padding: '28px 32px',
   },
-  cardHeader: { display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 24 },
-  cardTitle: { color: '#fff', fontSize: 16, fontWeight: 600, fontFamily: 'Inter, sans-serif', marginBottom: 4 },
-  cardSub: { color: 'rgba(255,255,255,0.5)', fontSize: 13, fontFamily: 'Inter, sans-serif' },
-  badge: (phase: Phase) => ({
-    background: phase === 'kickstarter' ? 'rgba(255,107,53,0.15)' : 'rgba(31,138,140,0.15)',
+  cardTitle: { color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', fontFamily: 'Inter, sans-serif', marginBottom: 16 },
+  phaseDisplay: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
+  phaseCurrent: (phase: Phase) => ({
+    fontSize: 18,
+    fontWeight: 700,
+    fontFamily: 'Inter, sans-serif',
     color: phase === 'kickstarter' ? '#FF6B35' : '#1F8A8C',
-    border: `1px solid ${phase === 'kickstarter' ? 'rgba(255,107,53,0.3)' : 'rgba(31,138,140,0.3)'}`,
-    borderRadius: 20,
-    padding: '4px 12px',
-    fontSize: 12,
-    fontWeight: 600,
-    fontFamily: 'Inter, sans-serif',
-    whiteSpace: 'nowrap' as const,
   }),
-  toggleRow: { display: 'flex', gap: 10, marginBottom: 24 },
-  phaseBtn: (active: boolean) => ({
-    padding: '10px 24px',
-    borderRadius: 8,
-    border: active ? '1px solid #1F8A8C' : '1px solid rgba(255,255,255,0.15)',
-    background: active ? 'rgba(31,138,140,0.2)' : 'rgba(255,255,255,0.05)',
-    color: active ? '#1F8A8C' : 'rgba(255,255,255,0.5)',
-    fontFamily: 'Inter, sans-serif',
-    fontSize: 14,
-    fontWeight: active ? 600 : 400,
-    cursor: 'pointer',
-    transition: 'all 0.15s',
-  }),
-  field: { display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 20 },
-  label: { color: 'rgba(255,255,255,0.7)', fontSize: 13, fontWeight: 500, fontFamily: 'Inter, sans-serif' },
-  input: {
-    background: 'rgba(255,255,255,0.06)',
+  switchBtn: {
+    padding: '9px 20px',
+    background: 'rgba(255,255,255,0.07)',
     border: '1px solid rgba(255,255,255,0.15)',
     borderRadius: 8,
-    padding: '10px 14px',
-    color: '#fff',
-    fontSize: 14,
+    color: 'rgba(255,255,255,0.7)',
     fontFamily: 'Inter, sans-serif',
-    outline: 'none',
-  },
-  hint: { fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Inter, sans-serif' },
-  saveBtn: {
-    marginTop: 8,
-    padding: '11px 28px',
-    background: '#1F8A8C',
-    color: '#fff',
-    border: 'none',
-    borderRadius: 8,
-    fontSize: 14,
-    fontWeight: 600,
-    fontFamily: 'Inter, sans-serif',
+    fontSize: 13,
+    fontWeight: 500,
     cursor: 'pointer',
   },
+  phaseDesc: { color: 'rgba(255,255,255,0.45)', fontSize: 13, fontFamily: 'Inter, sans-serif' },
+  overlay: {
+    position: 'fixed', inset: 0,
+    background: 'rgba(0,0,0,0.7)',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    zIndex: 100,
+  },
+  modal: {
+    background: '#0d2545',
+    border: '1px solid rgba(255,255,255,0.12)',
+    borderRadius: 16,
+    padding: '36px 40px',
+    maxWidth: 500,
+    width: '90%',
+  },
+  modalTitle: { color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 700, marginBottom: 16 },
+  modalBody: { color: 'rgba(255,255,255,0.65)', fontFamily: 'Inter, sans-serif', fontSize: 14, lineHeight: 1.7, marginBottom: 24 },
+  checkLabel: {
+    display: 'flex', alignItems: 'flex-start',
+    color: 'rgba(255,255,255,0.8)', fontFamily: 'Inter, sans-serif', fontSize: 14, lineHeight: 1.6,
+    marginBottom: 28, cursor: 'pointer',
+  },
+  modalActions: { display: 'flex', gap: 12, justifyContent: 'flex-end' },
+  cancelBtn: {
+    padding: '10px 20px', background: 'none',
+    border: '1px solid rgba(255,255,255,0.15)', borderRadius: 8,
+    color: 'rgba(255,255,255,0.6)', fontFamily: 'Inter, sans-serif', fontSize: 14, cursor: 'pointer',
+  },
+  confirmBtn: (disabled: boolean) => ({
+    padding: '10px 24px',
+    background: disabled ? 'rgba(255,107,53,0.3)' : '#FF6B35',
+    border: 'none', borderRadius: 8,
+    color: disabled ? 'rgba(255,255,255,0.4)' : '#fff',
+    fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 600,
+    cursor: disabled ? 'not-allowed' : 'pointer',
+  }),
 }
