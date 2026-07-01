@@ -1,5 +1,6 @@
 const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY
+const GA_MEASUREMENT_ID = 'G-WDSPLBG7K4'
 
 export default async function handler(req, res) {
   const handle = req.query.handle?.toLowerCase()
@@ -29,6 +30,23 @@ export default async function handler(req, res) {
   const destination = phase === 'kickstarter'
     ? `${ksUrl}?ref=${handle}`
     : `${shopifyUrl}${handle.toUpperCase()}`
+
+  // Fire GA4 event — fire-and-forget so it never delays the redirect
+  const secret = process.env.GA_MEASUREMENT_SECRET
+  if (secret) {
+    const clientId = req.headers['x-forwarded-for']?.split(',')[0].trim() ?? 'server'
+    fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${secret}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        client_id: clientId,
+        events: [{
+          name: 'affiliate_click',
+          params: { handle, phase }
+        }]
+      })
+    }).catch(() => {})
+  }
 
   res.setHeader('Cache-Control', 'no-store')
   return res.redirect(302, destination)

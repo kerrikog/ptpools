@@ -8,8 +8,9 @@ import Affiliates from './pages/Affiliates'
 import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import Clinicians from './pages/Clinicians'
+import Marketing from './pages/Marketing'
 
-type Page = 'dashboard' | 'blog' | 'affiliates' | 'clinicians' | 'settings'
+type Page = 'dashboard' | 'marketing' | 'blog' | 'affiliates' | 'clinicians' | 'settings'
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
@@ -44,6 +45,7 @@ export default function App() {
   return (
     <Layout page={page} onNavigate={setPage}>
       {page === 'dashboard' && <Dashboard />}
+      {page === 'marketing' && <Marketing />}
       {page === 'blog' && <BlogPosts />}
       {page === 'affiliates' && <Affiliates />}
       {page === 'clinicians' && <Clinicians />}

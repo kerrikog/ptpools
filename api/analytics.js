@@ -5,6 +5,9 @@ const PROPERTY_ID = '543849436'
 export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' })
 
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
+
   const serviceAccount = JSON.parse(process.env.GA_SERVICE_ACCOUNT)
 
   const auth = new GoogleAuth({
@@ -22,9 +25,11 @@ export default async function handler(req, res) {
     metrics: [
       { name: 'sessions' },
       { name: 'screenPageViews' },
-      { name: 'newUsers' },
+      { name: 'bounceRate' },
+      { name: 'averageSessionDuration' },
     ],
     dimensions: [{ name: 'sessionDefaultChannelGroup' }],
+    metricAggregations: ['TOTAL'],
     orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
     limit: 8,
   }

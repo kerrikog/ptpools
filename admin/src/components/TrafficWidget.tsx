@@ -5,11 +5,24 @@ interface ChannelRow {
   sessions: number
 }
 
+interface Totals {
+  sessions: number
+  pageviews: number
+  bounceRate: number
+  avgDuration: number
+}
+
 const ANALYTICS_URL = 'https://ptpools.us/api/analytics'
+
+function fmtDuration(secs: number) {
+  const m = Math.floor(secs / 60)
+  const s = Math.round(secs % 60)
+  return m > 0 ? `${m}m ${s}s` : `${s}s`
+}
 
 export default function TrafficWidget() {
   const [data, setData] = useState<ChannelRow[]>([])
-  const [totals, setTotals] = useState({ sessions: 0, pageviews: 0, newUsers: 0 })
+  const [totals, setTotals] = useState<Totals>({ sessions: 0, pageviews: 0, bounceRate: 0, avgDuration: 0 })
   const [range, setRange] = useState<'7d' | '30d'>('7d')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -21,15 +34,20 @@ export default function TrafficWidget() {
       .then(r => r.json())
       .then(json => {
         if (json.error) { setError(json.error); setLoading(false); return }
+
         const rows: ChannelRow[] = (json.rows ?? []).map((row: any) => ({
           channel: row.dimensionValues[0].value,
           sessions: parseInt(row.metricValues[0].value),
         }))
-        const sessions = rows.reduce((s, r) => s + r.sessions, 0)
-        const pageviews = (json.rows ?? []).reduce((s: number, r: any) => s + parseInt(r.metricValues[1].value), 0)
-        const newUsers = (json.rows ?? []).reduce((s: number, r: any) => s + parseInt(r.metricValues[2].value), 0)
+
+        const totalsRow = json.totals?.[0]
+        setTotals({
+          sessions: totalsRow ? parseInt(totalsRow.metricValues[0].value) : 0,
+          pageviews: totalsRow ? parseInt(totalsRow.metricValues[1].value) : 0,
+          bounceRate: totalsRow ? parseFloat(totalsRow.metricValues[2].value) : 0,
+          avgDuration: totalsRow ? parseFloat(totalsRow.metricValues[3].value) : 0,
+        })
         setData(rows)
-        setTotals({ sessions, pageviews, newUsers })
         setLoading(false)
       })
       .catch(() => { setError('Could not load analytics.'); setLoading(false) })
@@ -50,27 +68,25 @@ export default function TrafficWidget() {
 
       {!loading && !error && (
         <>
-          {/* Metric cards */}
           <div style={s.cardsRow}>
-            <div style={s.metricCard}>
-              <div style={s.metricNum}>{totals.sessions.toLocaleString()}</div>
-              <div style={s.metricLabel}>Sessions</div>
-            </div>
             <div style={s.metricCard}>
               <div style={s.metricNum}>{totals.pageviews.toLocaleString()}</div>
               <div style={s.metricLabel}>Page Views</div>
             </div>
             <div style={s.metricCard}>
-              <div style={s.metricNum}>{totals.newUsers.toLocaleString()}</div>
-              <div style={s.metricLabel}>New Users</div>
+              <div style={s.metricNum}>{totals.sessions.toLocaleString()}</div>
+              <div style={s.metricLabel}>Sessions</div>
             </div>
             <div style={s.metricCard}>
-              <div style={s.metricNum}>{data[0]?.channel ?? '—'}</div>
-              <div style={s.metricLabel}>Top Source</div>
+              <div style={s.metricNum}>{Math.round(totals.bounceRate * 100)}%</div>
+              <div style={s.metricLabel}>Bounce Rate</div>
+            </div>
+            <div style={s.metricCard}>
+              <div style={s.metricNum}>{fmtDuration(totals.avgDuration)}</div>
+              <div style={s.metricLabel}>Avg. Time on Site</div>
             </div>
           </div>
 
-          {/* Source breakdown */}
           {data.length > 0 && (
             <div style={s.sources}>
               {data.map(row => {
