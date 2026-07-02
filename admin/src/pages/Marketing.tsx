@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import TrafficWidget from '../components/TrafficWidget'
 
-const ML_STATS_URL = 'https://ptpools.us/api/mailerlite-stats'
-const CLICKS_URL = 'https://ptpools.us/api/affiliate-clicks'
+// Must use www — the apex domain 308-redirects to www, and redirects strip CORS headers
+const ML_STATS_URL = 'https://www.ptpools.us/api/mailerlite-stats'
+const CLICKS_URL = 'https://www.ptpools.us/api/affiliate-clicks'
 
 interface ClickRow { handle: string; clicks: number }
 

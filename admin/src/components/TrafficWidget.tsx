@@ -12,7 +12,8 @@ interface Totals {
   avgDuration: number
 }
 
-const ANALYTICS_URL = 'https://ptpools.us/api/analytics'
+// Must use www — the apex domain 308-redirects to www, and redirects strip CORS headers
+const ANALYTICS_URL = 'https://www.ptpools.us/api/analytics'
 
 function fmtDuration(secs: number) {
   const m = Math.floor(secs / 60)
