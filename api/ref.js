@@ -5,7 +5,7 @@ const GA_MEASUREMENT_ID = 'G-WDSPLBG7K4'
 export default async function handler(req, res) {
   const handle = req.query.handle?.toLowerCase()
 
-  if (!handle) return res.status(400).send('Missing handle')
+  if (!handle || !/^[a-z0-9]{1,32}$/.test(handle)) return res.status(400).send('Invalid handle')
 
   // Look up affiliate and settings in parallel
   const [affiliateRes, settingsRes] = await Promise.all([

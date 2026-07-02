@@ -271,11 +271,9 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, name, group_id: '191723158045197796' })
         }).catch(() => {})
-        document.getElementById('form-card').innerHTML = `
-          <div class="success-wrap">
-            <h2>You're <span>In the Queue</span></h2>
-            <p>Thanks ${name} — we review every application personally and will be in touch within a few days. Keep an eye on ${email}.</p>
-          </div>`
+        const successEl = document.getElementById('form-card')
+        successEl.innerHTML = '<div class="success-wrap"><h2>You\'re <span>In the Queue</span></h2><p class="msg"></p></div>'
+        successEl.querySelector('.msg').textContent = `Thanks ${name} — we review every application personally and will be in touch within a few days. Keep an eye on ${email}.`
       } else {
         const err = await res.json()
         errEl.textContent = err.message?.includes('unique') ? 'That email has already applied.' : 'Something went wrong — please try again.'

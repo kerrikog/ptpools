@@ -224,8 +224,12 @@
       return `https://ptpools.us/ref/${code}`
     }
 
+    function esc(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')
+    }
+
     function buildAssets(profile, refUrl) {
-      const firstName = profile.name.split(' ')[0]
+      const firstName = esc(profile.name.split(' ')[0])
 
       // ── EMAIL NEWSLETTER BLAST ─────────────────────────────────────────────
       // PLACEHOLDER: swap the body content below with copy from Desktop
@@ -331,7 +335,7 @@
       <tr><td style="padding:24px 40px 40px;border-top:1px solid #eee;">
         <p style="color:#999;font-size:12px;line-height:1.6;margin:0;">
           <!-- PLACEHOLDER: Clinician name/practice signature -->
-          Warm regards,<br>${profile.name}${profile.credentials ? ', ' + profile.credentials : ''}
+          Warm regards,<br>${esc(profile.name)}${profile.credentials ? ', ' + esc(profile.credentials) : ''}
         </p>
       </td></tr>
     </table>

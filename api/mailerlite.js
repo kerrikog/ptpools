@@ -5,8 +5,9 @@ export default async function handler(req, res) {
 
   const { email, name, group_id } = req.body
 
-  if (!email || !group_id) {
-    return res.status(400).json({ error: 'Missing email or group_id' })
+  const ALLOWED_GROUPS = ['191723154647811757', '191723158045197796']
+  if (!email || !group_id || !ALLOWED_GROUPS.includes(group_id)) {
+    return res.status(400).json({ error: 'Missing or invalid fields' })
   }
 
   const apiKey = process.env.MAILERLITE_API_KEY
