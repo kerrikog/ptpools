@@ -5,6 +5,7 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDSPLBG7K4"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WDSPLBG7K4');</script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcvoEEtAAAAAJAeODQhyC_2t-vrpYoMA0UCtflX"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply to Partner | PT Pools Affiliate Program</title>
   <meta name="description" content="Apply to become a PT Pools affiliate partner and earn $75 per sale.">
@@ -243,6 +244,19 @@
       const btn = document.getElementById('submit-btn')
       btn.disabled = true
       btn.textContent = 'Submitting…'
+
+      const rcToken = await grecaptcha.execute('6LcvoEEtAAAAAJAeODQhyC_2t-vrpYoMA0UCtflX', { action: 'submit' })
+      const rcRes = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: rcToken })
+      })
+      if (!rcRes.ok) {
+        errEl.textContent = 'Security check failed. Please try again.'
+        btn.disabled = false
+        btn.textContent = 'Submit Application'
+        return
+      }
 
       const payload = {
         name, email, niche,
