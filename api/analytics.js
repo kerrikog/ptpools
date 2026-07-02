@@ -1,13 +1,10 @@
 import { GoogleAuth } from 'google-auth-library'
+import { handleCors } from './_cors.js'
 
 const PROPERTY_ID = '543849436'
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
-
-  if (req.method === 'OPTIONS') return res.status(200).end()
+  if (handleCors(req, res)) return
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' })
 
   const serviceAccount = JSON.parse(process.env.GA_SERVICE_ACCOUNT)
