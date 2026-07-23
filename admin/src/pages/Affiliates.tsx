@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import { supabaseAdmin } from '../lib/supabase'
 
+// Cross-domain call to the main site's serverless function (this admin app is a
+// separate Vercel deployment) — see api/_cors.js for the allowed-origins list and
+// api/mailerlite.js for what this actually does.
+const MAILERLITE_URL = 'https://www.ptpools.us/api/mailerlite'
+const MAILERLITE_GROUP_AFFILIATES = '191723158045197796'
+
 interface Platform {
   type: string
   handle: string
@@ -75,7 +81,29 @@ export default function Affiliates() {
     const finalCode = codeOverride.trim().toLowerCase().replace(/[^a-z0-9]/g, '') || selected.requested_handle || selected.code
     setActivating(true)
     setMsg('')
+
+    // `code` needs to be checked against BOTH affiliates and clinician_referrals:
+    // a `unique` constraint only guards against duplicates within one table, so
+    // without this, an affiliate and a clinician could silently end up with the
+    // same code, making ptpools.us/ref/<code> ambiguous.
+    const [{ data: affiliateClash }, { data: clinicianClash }] = await Promise.all([
+      supabaseAdmin.from('affiliates').select('id').eq('code', finalCode).neq('id', selected.id),
+      supabaseAdmin.from('clinician_referrals').select('id').eq('code', finalCode),
+    ])
+    if ((affiliateClash && affiliateClash.length > 0) || (clinicianClash && clinicianClash.length > 0)) {
+      setMsg('That code is already taken — try another.')
+      setActivating(false)
+      return
+    }
+
     await supabaseAdmin.from('affiliates').update({ status: 'active', ks_referral_url: ksUrl, code: finalCode }).eq('id', selected.id)
+    // Add to MailerLite's Affiliates group now that they're actually active —
+    // not done at application time, so pending applicants don't get emailed yet.
+    fetch(MAILERLITE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: selected.email, name: selected.name, group_id: MAILERLITE_GROUP_AFFILIATES })
+    }).catch(() => {})
     await loadAffiliates()
     setSelected(null)
     setKsUrl('')

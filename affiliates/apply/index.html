@@ -139,8 +139,9 @@
         <div class="form-section-title">Your Link</div>
         <div class="field">
           <label>Preferred Vanity Handle</label>
-          <span class="note">This becomes ptpools.us/ref/yourhandle — we'll confirm availability on approval.</span>
-          <input type="text" id="requested_handle" placeholder="e.g. aquarecovery">
+          <span class="note">This becomes ptpools.us/ref/yourhandle.</span>
+          <input type="text" id="requested_handle" placeholder="e.g. aquarecovery" autocomplete="off">
+          <span id="handle_status" style="font-size: 13px; min-height: 18px;"></span>
         </div>
       </div>
 
@@ -167,6 +168,47 @@
   <script>
     const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inplanp6eHZvdHJxeHJmbmR1emRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NTMyMTYsImV4cCI6MjA5ODIyOTIxNn0.U1urD2sXPMzr7GnXQMO8hA5J7bZ7MMGTSji8Kp-xi2s'
+
+    // Live handle-availability check, debounced. Checks BOTH `affiliates` and
+    // `clinician_referrals` — a code can live in either table, and this is the
+    // only thing standing between "picked at signup" and "collides with someone
+    // at approval time, admin has to go back and ask them to redo it." Sets
+    // `handleAvailable` to true/false/null (empty/unchecked) so handleSubmit can
+    // block on a known-taken handle without re-querying.
+    let handleAvailable = null
+    let handleCheckTimer = null
+    const handleStatusEl = () => document.getElementById('handle_status')
+
+    function sanitizeHandle(v) {
+      return v.trim().toLowerCase().replace(/[^a-z0-9]/g, '')
+    }
+
+    async function checkHandleAvailability(raw) {
+      const value = sanitizeHandle(raw)
+      const statusEl = handleStatusEl()
+      if (!value) { handleAvailable = null; statusEl.textContent = ''; return }
+
+      statusEl.style.color = 'rgba(255,255,255,0.4)'
+      statusEl.textContent = 'Checking…'
+
+      const headers = { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
+      const [affRes, clinRes] = await Promise.all([
+        fetch(`${SUPABASE_URL}/rest/v1/affiliates?code=eq.${value}&select=id`, { headers }),
+        fetch(`${SUPABASE_URL}/rest/v1/clinician_referrals?code=eq.${value}&select=id`, { headers }),
+      ])
+      const [affData, clinData] = await Promise.all([affRes.json(), clinRes.json()])
+      const taken = (affData.length ?? 0) > 0 || (clinData.length ?? 0) > 0
+
+      handleAvailable = !taken
+      statusEl.style.color = taken ? 'var(--orange)' : 'var(--teal)'
+      statusEl.textContent = taken ? '✕ Already taken — try another' : '✓ Available'
+    }
+
+    document.getElementById('requested_handle').addEventListener('input', (e) => {
+      clearTimeout(handleCheckTimer)
+      handleAvailable = null
+      handleCheckTimer = setTimeout(() => checkHandleAvailability(e.target.value), 450)
+    })
 
     const CHANNEL_TYPES = ['Social Media', 'Website / Blog', 'Email Newsletter', 'Podcast', 'Other']
     const SOCIAL_PLATFORMS = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'X / Twitter', 'Pinterest', 'LinkedIn']
@@ -226,6 +268,16 @@
 
       if (!name || !email || !niche) { errEl.textContent = 'Please fill in your name, email, and niche.'; return }
 
+      // Force a fresh, synchronous check right before submit — don't trust the
+      // debounced background check alone, in case they typed and hit submit
+      // faster than the 450ms debounce fired.
+      clearTimeout(handleCheckTimer)
+      const handleValue = document.getElementById('requested_handle').value.trim()
+      if (handleValue) {
+        await checkHandleAvailability(handleValue)
+        if (handleAvailable === false) { errEl.textContent = 'Your requested handle is already taken — please choose another.'; return }
+      }
+
       const rows = document.querySelectorAll('.platform-row')
       const platforms = Array.from(rows).map(row => {
         const type = row.querySelector('.channel-type').value
@@ -280,11 +332,9 @@
       })
 
       if (res.ok) {
-        fetch('/api/mailerlite', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, name, group_id: '191723158045197796' })
-        }).catch(() => {})
+        // Not added to MailerLite's Affiliates group here — that happens once an
+        // admin activates the application (admin/src/pages/Affiliates.tsx), so
+        // pending applicants don't get emailed as if they're already active.
         const successEl = document.getElementById('form-card')
         successEl.innerHTML = '<div class="success-wrap"><h2>You\'re <span>In the Queue</span></h2><p class="msg"></p></div>'
         successEl.querySelector('.msg').textContent = `Thanks ${name} — we review every application personally and will be in touch within a few days. Keep an eye on ${email}.`

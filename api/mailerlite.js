@@ -1,5 +1,17 @@
 import { handleCors } from './_cors.js'
 
+// Adds someone to a MailerLite list segment (Clinicians or Affiliates group) — this
+// is NOT the customer-facing referral tracking path. That's the separate homepage
+// signup forms in index.html, which POST directly to MailerLite's own hosted form
+// endpoint and carry a `fields[affiliate_code]` value set by the ref-tracking script
+// near the bottom of that file.
+//
+// This endpoint is called from the admin panel (admin/src/pages/Affiliates.tsx and
+// Clinicians.tsx) once an application is approved/activated — not at application
+// time — so people aren't emailed as affiliates/clinicians until you've actually
+// approved them. Allowed origins for that cross-domain call are in api/_cors.js.
+//
+// Group IDs: 191723154647811757 = Clinicians, 191723158045197796 = Affiliates.
 export default async function handler(req, res) {
   if (handleCors(req, res)) return
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
