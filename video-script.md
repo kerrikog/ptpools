@@ -110,3 +110,9 @@
 - Underwater comparison (competitor waist deep vs TheraTank chest deep) is a standalone social post
 - Shoot multiple takes of each clip, minimum 3 options per shot
 - Natural sound under VO where possible (water sounds, pump, etc.)
+
+---
+
+## B-ROLL LIST (in progress — adding to this as we go, not ready to build the script around it yet)
+- Someone at a gym lifting weights, hurting
+- Someone on the couch, in pain, not wanting to get off

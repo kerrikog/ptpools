@@ -513,6 +513,71 @@
         }
 
 
+        /* ── BENEFITS ACCORDION ── */
+        .benefits-accordion { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: start; }
+        @media (max-width: 768px) { .benefits-accordion { grid-template-columns: 1fr; } }
+        .benefit-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(31,138,140,0.2);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .benefit-item[open] {
+            border-color: rgba(31,138,140,0.5);
+            background: rgba(31,138,140,0.05);
+        }
+        .benefit-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            cursor: pointer;
+            list-style: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .benefit-header::-webkit-details-marker { display: none; }
+        .benefit-header:hover { background: rgba(31,138,140,0.06); }
+        .benefit-icon { font-size: 1.4rem; flex-shrink: 0; width: 28px; text-align: center; }
+        .benefit-info { flex: 1; min-width: 0; }
+        .benefit-title {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        .benefit-blurb {
+            display: block;
+            font-size: 0.83rem;
+            color: rgba(255,255,255,0.48);
+            line-height: 1.4;
+        }
+        .benefit-chevron {
+            color: rgba(31,138,140,0.6);
+            font-size: 0.85rem;
+            transition: transform 0.22s ease;
+            flex-shrink: 0;
+            margin-left: 4px;
+        }
+        .benefit-item[open] .benefit-chevron { transform: rotate(180deg); }
+        .benefit-body {
+            padding: 4px 24px 22px 68px;
+            color: rgba(255,255,255,0.72);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.94rem;
+            line-height: 1.78;
+            border-top: 1px solid rgba(31,138,140,0.12);
+        }
+        @media (max-width: 576px) {
+            .benefit-badge { display: none; }
+            .benefit-body { padding: 12px 18px 20px; }
+        }
+
         /* ── FOOTER ── */
         .site-footer {
             background: var(--navy-dark);
@@ -718,6 +783,7 @@
                                     <p class="form-fine">No spam. Unsubscribe anytime.</p>
                                     <input type="hidden" name="ml-submit" value="1">
                                     <input type="hidden" name="anticsrf" value="true">
+                                    <input type="hidden" name="fields[affiliate_code]" value="organic">
                                 </form>
                             </div>
                             <div class="row-success" style="display:none">
@@ -818,6 +884,140 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- WHY WATER WORKS DIFFERENTLY -->
+    <section style="padding:100px 60px;background:#071e3d;">
+        <div style="max-width:860px;margin:0 auto;">
+            <p style="font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:16px;text-align:center;">The Science</p>
+            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#fff;margin-bottom:16px;text-align:center;">Why Water Works <span style="color:#1F8A8C;">Differently</span></h2>
+            <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.55);margin:0 auto 48px;text-align:center;">10 physics-based effects exclusive to water — impossible to replicate on land.</p>
+
+            <div class="benefits-accordion">
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">🛟</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Gravitational Offloading (Buoyancy)</span>
+                            <span class="benefit-blurb">At chest depth, ~75% of body weight is removed from joints and spinal discs</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">At chest depth, buoyancy counteracts approximately 75% of your body weight — removing gravitational compression from joints, spinal discs, and connective tissue during exercise. This is what makes aquatic exercise possible for people who cannot exercise on land without pain. It is physically impossible to replicate outside of water.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">💧</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Continuous Lymphatic Pumping</span>
+                            <span class="benefit-blurb">Reduces swelling and inflammation continuously — in three dimensions</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Hydrostatic pressure acts like a full-body compression garment — actively squeezing interstitial fluids out of limbs to reduce swelling and inflammation. Unlike compression socks or sleeves, this effect is three-dimensional and continuous.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">❤️</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Enhanced Venous Return</span>
+                            <span class="benefit-blurb">Water pressure forces blood back to your heart more efficiently</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Water pressure forces pooled blood from your lower extremities back to the heart, increasing stroke volume and cardiovascular efficiency. Your heart works smarter, not harder.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">📉</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Lowered Training Heart Rate</span>
+                            <span class="benefit-blurb">Train harder for longer — your heart rate runs 10–15 BPM lower</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Because blood returns to the heart more efficiently in water, your heart rate runs 10–15 BPM lower than during the identical effort on land — letting you train harder for longer without overtaxing your cardiovascular system.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">💪</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Concentric-Only Training</span>
+                            <span class="benefit-blurb">No DOMS — fluid drag replaces gravity, eliminating the micro-tear phase</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Fluid drag replaces gravity as resistance. This eliminates eccentric (lengthening) muscle contractions — the phase responsible for micro-tears and delayed-onset muscle soreness (DOMS). Aquatic exercise lets you work hard and wake up ready.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">⚖️</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Balanced Agonist / Antagonist Work</span>
+                            <span class="benefit-blurb">Opposing muscle pairs engage simultaneously — more symmetrical strength</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Water pushes back in every direction. That means opposing muscle pairs — biceps and triceps, quads and hamstrings — are engaged simultaneously. The result is more symmetrical strength development than most land-based training allows.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">🔬</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Thicker Fiber Hypertrophy</span>
+                            <span class="benefit-blurb">Dense, functional strength gains with less recovery demand</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Concentric-focused resistance builds muscle volume by increasing fiber thickness (myofibrillar hypertrophy) rather than fiber length. This means functional, dense strength gains with less recovery demand.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">🫁</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Pulmonary Conditioning</span>
+                            <span class="benefit-blurb">Respiratory muscles work up to 60% harder — improving lung strength uniquely</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Hydrostatic pressure compresses the chest, forcing your respiratory muscles to work up to 60% harder just to expand your lungs. Regular aquatic exercise measurably improves respiratory muscle strength — a unique benefit unavailable on any treadmill.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">🌡️</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Accelerated Heat Dissipation</span>
+                            <span class="benefit-blurb">Water conducts heat 25× faster than air — safer training in heat</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">Water conducts heat 25× faster than air. Your core temperature stays lower during aquatic exercise, dramatically reducing sweat-induced dehydration and heat exhaustion risk — especially valuable for older adults and those with chronic illness.</div>
+                </details>
+
+                <details class="benefit-item">
+                    <summary class="benefit-header">
+                        <span class="benefit-icon">🔥</span>
+                        <span class="benefit-info">
+                            <span class="benefit-title">Thermodynamic Calorie Boost</span>
+                            <span class="benefit-blurb">Your metabolism burns more calories to maintain core temperature while exercising</span>
+                        </span>
+                        <span class="benefit-chevron">▼</span>
+                    </summary>
+                    <div class="benefit-body">When water temperature is slightly below body temperature, your metabolism works harder to maintain core heat while exercising. The result: more calories burned per session compared to the same effort performed on land.</div>
+                </details>
+
+            </div>
+
         </div>
     </section>
 
@@ -971,6 +1171,7 @@
                         <p class="form-fine">No spam. Unsubscribe anytime.</p>
                         <input type="hidden" name="ml-submit" value="1">
                         <input type="hidden" name="anticsrf" value="true">
+                        <input type="hidden" name="fields[affiliate_code]" value="organic">
                     </form>
                 </div>
                 <div class="row-success" style="display:none">
@@ -1005,7 +1206,6 @@
                 </a>
             </div>
             <div style="display:flex;gap:24px;margin-bottom:8px;">
-                <a href="/blog" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">Blog</a>
                 <a href="/affiliates" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">Affiliate Program</a>
                 <a href="/clinicians" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">Clinician Referral Program</a>
                 <a href="mailto:hello@ptpools.us" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">hello@ptpools.us</a>
@@ -1014,6 +1214,42 @@
         </div>
     </footer>
 
+    <!-- Affiliate/referral attribution for the "Notify Me at Launch" signup forms below.
+         Someone arrives via ptpools.us?ref=<handle> (that redirect + handle lookup lives
+         in api/ref.js). This script reads that ?ref= value, remembers it in localStorage
+         under ptpools_ref (so it survives even if they sign up days later, not just on
+         first visit), and writes it into the hidden `fields[affiliate_code]` input on
+         every MailerLite signup form on this page — both on page load and again right
+         before submit, in case the form was already in the DOM before the ref was read.
+         Falls back to "organic" if there's no ref code. These forms POST straight to
+         MailerLite's own hosted endpoint, not through our own backend, so this is the
+         only place this attribution happens — there's no server-side equivalent. -->
+    <script>
+        (function() {
+            var ref = new URLSearchParams(window.location.search).get('ref');
+            if (ref && /^[a-zA-Z0-9]{1,32}$/.test(ref) && !localStorage.getItem('ptpools_ref')) {
+                localStorage.setItem('ptpools_ref', ref.toLowerCase());
+            }
+            function applyRef() {
+                var code = localStorage.getItem('ptpools_ref') || 'organic';
+                document.querySelectorAll('input[name="fields[affiliate_code]"]').forEach(function(el) {
+                    el.value = code;
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', applyRef);
+            } else {
+                applyRef();
+            }
+            document.addEventListener('submit', function(e) {
+                if (e.target && e.target.action && e.target.action.includes('mailerlite')) {
+                    var code = localStorage.getItem('ptpools_ref') || 'organic';
+                    var el = e.target.querySelector('input[name="fields[affiliate_code]"]');
+                    if (el) el.value = code;
+                }
+            }, true);
+        })();
+    </script>
     <script>
         function ml_webform_success_41259136() {
             var $ = ml_jQuery || jQuery;

@@ -1,14 +1,32 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 
-type Phase = 'kickstarter' | 'shopify'
+type Phase = 'prelaunch' | 'kickstarter' | 'shopify'
+
+const PHASE_CONFIG: Record<Phase, { label: string; color: string; desc: string }> = {
+  prelaunch: {
+    label: 'Pre-Launch',
+    color: '#7CB9E8',
+    desc: 'Affiliate links point to ptpools.us — capturing email signups and recording the referring affiliate code. This is the starting phase.',
+  },
+  kickstarter: {
+    label: 'Kickstarter',
+    color: '#FF6B35',
+    desc: 'All affiliate links point to your Kickstarter campaign with the affiliate ref code in the URL.',
+  },
+  shopify: {
+    label: 'Shopify',
+    color: '#1F8A8C',
+    desc: 'All affiliate links point to individual Shopify discount code URLs.',
+  },
+}
 
 export default function Dashboard() {
-  const [phase, setPhase] = useState<Phase>('kickstarter')
+  const [phase, setPhase] = useState<Phase>('prelaunch')
   const [affiliateCount, setAffiliateCount] = useState<{ approved: number; pending: number }>({ approved: 0, pending: 0 })
   const [clinicianCount, setClinicianCount] = useState<{ approved: number; pending: number }>({ approved: 0, pending: 0 })
   const [loading, setLoading] = useState(true)
-  const [showConfirm, setShowConfirm] = useState(false)
+  const [targetPhase, setTargetPhase] = useState<Phase | null>(null)
   const [bulkConfirmed, setBulkConfirmed] = useState(false)
   const [switching, setSwitching] = useState(false)
 
@@ -16,7 +34,7 @@ export default function Dashboard() {
     async function load() {
       const [settingsRes, affApproved, affPending, clinApproved, clinPending] = await Promise.all([
         supabase.from('settings').select('key, value'),
-        supabase.from('affiliates').select('id', { count: 'exact', head: true }).eq('status', 'approved'),
+        supabase.from('affiliates').select('id', { count: 'exact', head: true }).eq('status', 'active'),
         supabase.from('affiliates').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
         supabase.from('clinician_referrals').select('id', { count: 'exact', head: true }).eq('status', 'approved'),
         supabase.from('clinician_referrals').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
@@ -33,18 +51,26 @@ export default function Dashboard() {
   }, [])
 
   async function confirmSwitch() {
+    if (!targetPhase) return
     setSwitching(true)
-    const newPhase: Phase = phase === 'kickstarter' ? 'shopify' : 'kickstarter'
-    await supabase.from('settings').upsert({ key: 'campaign_phase', value: newPhase })
-    setPhase(newPhase)
+    await supabase.from('settings').upsert({ key: 'campaign_phase', value: targetPhase })
+    setPhase(targetPhase)
     setSwitching(false)
-    setShowConfirm(false)
+    setTargetPhase(null)
     setBulkConfirmed(false)
   }
 
   if (loading) return <div style={s.loading}>Loading...</div>
 
-  const switchingTo: Phase = phase === 'kickstarter' ? 'shopify' : 'kickstarter'
+  function getModalBody(target: Phase): string {
+    if (target === 'prelaunch') {
+      return `This will immediately redirect every affiliate link (ptpools.us/ref/[handle]) back to the ptpools.us signup page with the affiliate's ref code. Use this only if you need to pause the campaign and resume pre-launch list building.`
+    }
+    if (target === 'kickstarter') {
+      return `This will immediately redirect every affiliate link (ptpools.us/ref/[handle]) to your Kickstarter campaign with the affiliate's ref code. Anyone clicking an affiliate link after this switch will land on Kickstarter.`
+    }
+    return `This will immediately redirect every affiliate link (ptpools.us/ref/[handle]) to their individual Shopify discount code URL. Anyone clicking an affiliate link after this switch will land on Shopify — not Kickstarter.`
+  }
 
   return (
     <div>
@@ -73,32 +99,33 @@ export default function Dashboard() {
       {/* Phase switch */}
       <div style={s.card}>
         <div style={s.cardTitle}>Campaign Mode</div>
-        <div style={s.phaseDisplay}>
-          <div style={s.phaseCurrent(phase)}>
-            {phase === 'kickstarter' ? '🟠 Kickstarter Mode' : '🟢 Shopify Mode'}
-          </div>
-          <button style={s.switchBtn} onClick={() => setShowConfirm(true)}>
-            Switch to {switchingTo === 'shopify' ? 'Shopify' : 'Kickstarter'}
-          </button>
+        <div style={s.segmented}>
+          {(['prelaunch', 'kickstarter', 'shopify'] as Phase[]).map((p) => {
+            const cfg = PHASE_CONFIG[p]
+            const isActive = phase === p
+            return (
+              <button
+                key={p}
+                style={s.segBtn(isActive, cfg.color)}
+                onClick={() => { if (!isActive) { setTargetPhase(p); setBulkConfirmed(false) } }}
+                disabled={isActive}
+              >
+                <span style={s.segBtnLabel(isActive, cfg.color)}>{cfg.label}</span>
+                {isActive && <span style={s.segBtnBadge(cfg.color)}>● Active</span>}
+              </button>
+            )
+          })}
         </div>
-        <div style={s.phaseDesc}>
-          {phase === 'kickstarter'
-            ? 'All affiliate links are currently pointing to your Kickstarter campaign.'
-            : 'All affiliate links are currently pointing to Shopify discount codes.'}
-        </div>
+        <div style={s.phaseDesc}>{PHASE_CONFIG[phase].desc}</div>
       </div>
 
       {/* Confirmation modal */}
-      {showConfirm && (
+      {targetPhase && (
         <div style={s.overlay}>
           <div style={s.modal}>
-            <h2 style={s.modalTitle}>Switch to {switchingTo === 'shopify' ? 'Shopify' : 'Kickstarter'} Mode?</h2>
-            <p style={s.modalBody}>
-              {switchingTo === 'shopify'
-                ? `This will immediately redirect every affiliate link (ptpools.us/ref/[handle]) to their individual Shopify discount code URL. Anyone clicking an affiliate link after this switch will land on Shopify — not Kickstarter.`
-                : `This will immediately redirect every affiliate link back to the Kickstarter campaign. Anyone clicking an affiliate link after this switch will land on Kickstarter — not Shopify.`}
-            </p>
-            {switchingTo === 'shopify' && (
+            <h2 style={s.modalTitle}>Switch to {PHASE_CONFIG[targetPhase].label} Mode?</h2>
+            <p style={s.modalBody}>{getModalBody(targetPhase)}</p>
+            {targetPhase === 'shopify' && (
               <label style={s.checkLabel}>
                 <input
                   type="checkbox"
@@ -110,15 +137,15 @@ export default function Dashboard() {
               </label>
             )}
             <div style={s.modalActions}>
-              <button style={s.cancelBtn} onClick={() => { setShowConfirm(false); setBulkConfirmed(false) }}>
+              <button style={s.cancelBtn} onClick={() => { setTargetPhase(null); setBulkConfirmed(false) }}>
                 Cancel
               </button>
               <button
-                style={s.confirmBtn(switchingTo === 'shopify' && !bulkConfirmed)}
+                style={s.confirmBtn(targetPhase === 'shopify' && !bulkConfirmed, PHASE_CONFIG[targetPhase].color)}
                 onClick={confirmSwitch}
-                disabled={switching || (switchingTo === 'shopify' && !bulkConfirmed)}
+                disabled={switching || (targetPhase === 'shopify' && !bulkConfirmed)}
               >
-                {switching ? 'Switching...' : `Yes, Switch to ${switchingTo === 'shopify' ? 'Shopify' : 'Kickstarter'}`}
+                {switching ? 'Switching...' : `Yes, Switch to ${PHASE_CONFIG[targetPhase].label}`}
               </button>
             </div>
           </div>
@@ -149,25 +176,34 @@ const s: Record<string, any> = {
     padding: '28px 32px',
   },
   cardTitle: { color: 'rgba(255,255,255,0.5)', fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', fontFamily: 'Inter, sans-serif', marginBottom: 16 },
-  phaseDisplay: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
-  phaseCurrent: (phase: Phase) => ({
-    fontSize: 18,
-    fontWeight: 700,
-    fontFamily: 'Inter, sans-serif',
-    color: phase === 'kickstarter' ? '#FF6B35' : '#1F8A8C',
+  segmented: { display: 'flex', gap: 10, marginBottom: 16 },
+  segBtn: (isActive: boolean, color: string) => ({
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column' as const,
+    alignItems: 'center',
+    gap: 5,
+    padding: '16px 12px',
+    background: isActive ? `${color}1A` : 'rgba(255,255,255,0.04)',
+    border: `1px solid ${isActive ? color : 'rgba(255,255,255,0.1)'}`,
+    borderRadius: 10,
+    cursor: isActive ? 'default' : 'pointer',
+    transition: 'all 0.15s ease',
   }),
-  switchBtn: {
-    padding: '9px 20px',
-    background: 'rgba(255,255,255,0.07)',
-    border: '1px solid rgba(255,255,255,0.15)',
-    borderRadius: 8,
-    color: 'rgba(255,255,255,0.7)',
+  segBtnLabel: (isActive: boolean, color: string) => ({
     fontFamily: 'Inter, sans-serif',
-    fontSize: 13,
-    fontWeight: 500,
-    cursor: 'pointer',
-  },
-  phaseDesc: { color: 'rgba(255,255,255,0.45)', fontSize: 13, fontFamily: 'Inter, sans-serif' },
+    fontSize: 14,
+    fontWeight: 600,
+    color: isActive ? color : 'rgba(255,255,255,0.5)',
+  }),
+  segBtnBadge: (color: string) => ({
+    fontFamily: 'Inter, sans-serif',
+    fontSize: 11,
+    fontWeight: 700,
+    color,
+    letterSpacing: 0.5,
+  }),
+  phaseDesc: { color: 'rgba(255,255,255,0.45)', fontSize: 13, fontFamily: 'Inter, sans-serif', lineHeight: 1.6 },
   overlay: {
     position: 'fixed', inset: 0,
     background: 'rgba(0,0,0,0.7)',
@@ -195,11 +231,11 @@ const s: Record<string, any> = {
     border: '1px solid rgba(255,255,255,0.15)', borderRadius: 8,
     color: 'rgba(255,255,255,0.6)', fontFamily: 'Inter, sans-serif', fontSize: 14, cursor: 'pointer',
   },
-  confirmBtn: (disabled: boolean) => ({
+  confirmBtn: (disabled: boolean, color: string) => ({
     padding: '10px 24px',
-    background: disabled ? 'rgba(255,107,53,0.3)' : '#FF6B35',
+    background: disabled ? 'rgba(255,255,255,0.08)' : color,
     border: 'none', borderRadius: 8,
-    color: disabled ? 'rgba(255,255,255,0.4)' : '#fff',
+    color: disabled ? 'rgba(255,255,255,0.3)' : '#fff',
     fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 600,
     cursor: disabled ? 'not-allowed' : 'pointer',
   }),

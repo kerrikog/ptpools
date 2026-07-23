@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 
 export default function Settings() {
+  const [prelaunchUrl, setPrelaunchUrl] = useState('')
   const [ksUrl, setKsUrl] = useState('')
   const [shopifyUrl, setShopifyUrl] = useState('')
   const [loading, setLoading] = useState(true)
@@ -12,6 +13,7 @@ export default function Settings() {
     supabase.from('settings').select('key, value').then(({ data }) => {
       if (data) {
         const s = Object.fromEntries(data.map((r: any) => [r.key, r.value]))
+        setPrelaunchUrl(s.prelaunch_url ?? '')
         setKsUrl(s.ks_campaign_url ?? '')
         setShopifyUrl(s.shopify_url ?? '')
       }
@@ -22,6 +24,7 @@ export default function Settings() {
   async function save() {
     setSaving(true)
     await Promise.all([
+      supabase.from('settings').upsert({ key: 'prelaunch_url', value: prelaunchUrl }),
       supabase.from('settings').upsert({ key: 'ks_campaign_url', value: ksUrl }),
       supabase.from('settings').upsert({ key: 'shopify_url', value: shopifyUrl }),
     ])
@@ -41,7 +44,18 @@ export default function Settings() {
         <p style={s.cardDesc}>These URLs determine where affiliate links point in each campaign mode. Update these before switching modes.</p>
 
         <div style={s.field}>
-          <label style={s.label}>Kickstarter Campaign URL</label>
+          <label style={s.label}>Pre-Launch URL <span style={s.phase}>Phase 1</span></label>
+          <input
+            style={s.input}
+            value={prelaunchUrl}
+            onChange={e => setPrelaunchUrl(e.target.value)}
+            placeholder="https://ptpools.us"
+          />
+          <span style={s.hint}>Affiliate links in Pre-Launch mode become: {prelaunchUrl || 'https://ptpools.us'}?ref=[handle]</span>
+        </div>
+
+        <div style={s.field}>
+          <label style={s.label}>Kickstarter Campaign URL <span style={s.phase}>Phase 2</span></label>
           <input
             style={s.input}
             value={ksUrl}
@@ -52,7 +66,7 @@ export default function Settings() {
         </div>
 
         <div style={s.field}>
-          <label style={s.label}>Shopify Discount Base URL</label>
+          <label style={s.label}>Shopify Discount Base URL <span style={s.phase}>Phase 3</span></label>
           <input
             style={s.input}
             value={shopifyUrl}
@@ -80,5 +94,6 @@ const s: Record<string, any> = {
   label: { color: 'rgba(255,255,255,0.7)', fontSize: 13, fontWeight: 500, fontFamily: 'Inter, sans-serif' },
   input: { background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 8, padding: '10px 14px', color: '#fff', fontSize: 14, fontFamily: 'Inter, sans-serif', outline: 'none' },
   hint: { fontSize: 12, color: 'rgba(255,255,255,0.35)', fontFamily: 'Inter, sans-serif' },
+  phase: { fontSize: 10, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.3)', marginLeft: 8 },
   saveBtn: { padding: '10px 24px', background: '#1F8A8C', color: '#fff', border: 'none', borderRadius: 8, fontSize: 14, fontWeight: 600, fontFamily: 'Inter, sans-serif', cursor: 'pointer' },
 }
