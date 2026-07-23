@@ -1,5 +1,8 @@
 {
   "rewrites": [
     { "source": "/ref/:handle", "destination": "/api/ref?handle=:handle" }
+  ],
+  "crons": [
+    { "path": "/api/keepalive", "schedule": "0 9 * * *" }
   ]
 }
