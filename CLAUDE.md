@@ -35,6 +35,8 @@ The scheduled task "ptpools-daily-brief" (8am cron) has been disabled in favor o
 - **Do NOT use "virtually," "almost," or other softening language** when the fact stands on its own.
 - **Do NOT fabricate information, shot descriptions, copy, or details** that weren't discussed. If you don't know, ask.
 - **Do NOT build files or documents without first discussing structure.** Kerri has to read everything you produce — don't create extra work.
+- **Do NOT install packages, scaffold projects, run npm installs, or write project files without explicit, direct permission first.** A stated future intention ("I'd like to set up X") is NOT permission to act now — wait for an actual go-ahead. If a task hits a technical obstacle (permissions error, wrong environment, etc.), stop and report it plainly. Never fabricate or hand-write an approximation of what a real tool/scaffolder would have produced instead of actually running it or asking what to do.
+- **npm install / package installs must never be run from Claude's sandbox for anything in Kerri's local project folders.** Her folders are mounted from her own Mac (Apple Silicon) — installing in the Linux sandbox produces broken native binaries that don't work on her machine. Real installs happen in Terminal on her actual computer, same as the local server pattern.
 - **Always say 59" walls providing 54"+ of usable water depth.** Lead with 59" first, always include "providing."
 - **"workout" is one word** when used in the context of exercise.
 - **"pain-free" is never buffered.** No "virtually" or "almost" before it.

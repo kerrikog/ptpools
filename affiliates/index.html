@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDSPLBG7K4"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WDSPLBG7K4');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affiliate Program | PT Pools</title>
-  <meta name="description" content="Partner with PT Pools and earn $75 for every TheraTank sale you drive. Built for physical therapists, fitness creators, and aquatic therapy advocates.">
+  <meta name="description" content="Partner with PT Pools and earn $100 for every TheraTank sale you drive. Built for physical therapists, fitness creators, and aquatic therapy advocates.">
   <link rel="canonical" href="https://ptpools.us/affiliates">
   <link rel="icon" type="image/png" href="/assets/images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --navy: #09244D; --navy-dark: #061830; --teal: #1F8A8C; --orange: #FF6B35; --white: #ffffff; --muted: rgba(255,255,255,0.55); }
+    :root { --navy: #09244D; --navy-dark: #061830; --teal: #2A9D9F; --orange: #FF6B35; --white: #ffffff; --muted: rgba(255,255,255,0.82); }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
 
@@ -24,7 +25,7 @@
     nav { display: flex; align-items: center; gap: 28px; flex: 1; }
     nav a { color: rgba(255,255,255,0.65); font-size: 14px; text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
     nav a:hover { color: #fff; }
-    .nav-cta { margin-left: auto; padding: 9px 20px; background: var(--orange); color: #fff !important; border-radius: 8px; font-weight: 600; font-size: 13px; }
+    .nav-cta { margin-left: auto; padding: 9px 20px; background: var(--orange); color: #0B2A55 !important; border-radius: 8px; font-weight: 600; font-size: 13px; }
 
     /* HERO */
     .hero {
@@ -41,16 +42,22 @@
     .hero h1 span { color: var(--teal); }
     .hero-sub { font-size: 1.15rem; color: var(--muted); line-height: 1.8; max-width: 620px; margin: 0 auto 48px; }
     .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { padding: 16px 40px; background: var(--orange); color: #fff; text-decoration: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; }
-    .btn-primary:hover { background: #e85c28; }
+    .hero-photo { order: -1; }
+    .hero-grid { position: relative; max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; text-align: left; }
+    .hero-grid .hero-sub { margin-left: 0; margin-right: 0; }
+    .hero-grid .hero-actions { justify-content: flex-start; }
+    .hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1500 / 1116; object-fit: cover; object-position: right center; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; } .hero-grid .hero-sub { margin-left: auto; margin-right: auto; } .hero-grid .hero-actions { justify-content: center; } }
+    .btn-primary { padding: 16px 40px; background: var(--orange); color: #0B2A55; text-decoration: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; }
+    .btn-primary:hover { background: #FF8455; }
     .btn-ghost { padding: 16px 40px; background: none; color: #fff; text-decoration: none; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: border-color 0.2s; }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
 
     /* COMMISSION STRIP */
-    .commission-strip { background: var(--teal); padding: 28px 60px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .commission-strip { background: #2A9D9F; padding: 28px 60px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
     .commission-stat { text-align: center; }
     .commission-stat .val { font-family: 'Oswald', sans-serif; font-size: 2.4rem; font-weight: 700; color: #fff; line-height: 1; }
-    .commission-stat .lbl { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-top: 4px; }
+    .commission-stat .lbl { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-top: 4px; }
     .strip-divider { width: 1px; height: 48px; background: rgba(255,255,255,0.25); }
 
     /* INSPIRATION */
@@ -60,10 +67,18 @@
     .section-title span { color: var(--teal); }
     .section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 580px; margin-bottom: 64px; }
 
+    .inspo-head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-bottom: 56px; }
+    .inspo-head .section-sub { margin-bottom: 0; }
+    .inspo-head-rev { grid-template-columns: 1.1fr 1fr; }
+    .inspo-head-rev .inspo-photo img { box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+    @media (max-width: 900px) { .inspo-head-rev { grid-template-columns: 1fr; } .inspo-head-rev .inspo-photo { order: 2; } }
+    .inspo-photo img { display: block; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 18px 44px rgba(11,42,85,0.18); }
+    .hero-grid h1 { font-size: clamp(2.4rem, 4.2vw, 3.9rem); }
+    @media (max-width: 900px) { .inspo-head { grid-template-columns: 1fr; gap: 32px; } }
     .inspo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .inspo-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(31,138,140,0.15); border-radius: 20px; padding: 40px 32px; transition: border-color 0.2s, transform 0.2s; }
     .inspo-card:hover { border-color: rgba(31,138,140,0.4); transform: translateY(-4px); }
-    .inspo-icon { width: 56px; height: 56px; background: rgba(31,138,140,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .inspo-icon { width: 56px; height: 56px; background: rgba(255,107,53,0.12); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
     .inspo-icon svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .inspo-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
     .inspo-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
@@ -75,7 +90,7 @@
     .steps::before { content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(31,138,140,0.4), transparent); pointer-events: none; }
     .step { text-align: center; padding: 0 16px; }
     .step-num { width: 72px; height: 72px; background: rgba(31,138,140,0.1); border: 2px solid rgba(31,138,140,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--teal); }
-    .step h4 { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .step h3 { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
     .step p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
 
     /* WHO IT'S FOR */
@@ -92,7 +107,7 @@
     .what-item { display: flex; gap: 18px; align-items: flex-start; }
     .what-item-icon { width: 44px; height: 44px; background: rgba(255,107,53,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .what-item-icon svg { width: 22px; height: 22px; stroke: var(--orange); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .what-item h4 { font-weight: 600; font-size: 15px; margin-bottom: 4px; color: #fff; }
+    .what-item h3 { font-weight: 600; font-size: 15px; margin-bottom: 4px; color: #fff; }
     .what-item p { color: var(--muted); font-size: 13px; line-height: 1.65; }
     .what-visual { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.2); border-radius: 20px; padding: 40px; }
     .what-visual .big-num { font-family: 'Oswald', sans-serif; font-size: 5rem; font-weight: 700; color: var(--orange); line-height: 1; }
@@ -122,23 +137,122 @@
       .commission-strip { gap: 32px; }
       .strip-divider { display: none; }
     }
+
+    /* light sections */
+    .lt .section-tag { color: #136B6D; }
+    .lt .section-title, .lt h2 { color: #0B2A55; }
+    .lt .section-title span { color: #136B6D; }
+    .lt .section-sub, .lt p { color: rgba(11,42,85,0.82); }
+    .lt .inspo-card, .lt .what-visual { background: #ffffff; border-color: rgba(19,107,109,0.22); box-shadow: 0 10px 30px rgba(11,42,85,0.06); }
+    .lt .inspo-card h3, .lt .step h4, .lt .step h3, .lt .what-item h3 { color: #0B2A55; }
+    .lt .inspo-icon, .lt .what-item-icon { background: rgba(19,107,109,0.1); }
+    .lt .inspo-icon { background: rgba(255,107,53,0.14) !important; }
+    .lt .inspo-icon svg { stroke: #E8541F; }
+    .lt .step-num { background: #ffffff; border-color: #136B6D; color: #136B6D; }
+    .lt .what-visual .big-lbl { color: rgba(11,42,85,0.7); }
+    .lt .what-visual .big-num { color: #0B2A55; }
+    .lt .what-item-icon svg { stroke: #C2410C; }
+    .lt .teal-line { background: #136B6D; }
+    .who-chip span { color: #fff; }
+    .site-footer p { color: rgba(255,255,255,0.75) !important; font-size: 14px !important; }
+    .section-tag { font-size: 16px !important; }
+    .hero-badge { font-size: 13px !important; }
+    .hero-badge { color: #4FC3C5 !important; }
+    .inspo-icon svg { stroke: #FF6B35 !important; width: 30px !important; height: 30px !important; }
+    .lt .inspo-icon svg { stroke: #E8541F !important; }
+    .what-visual { position: relative; overflow: hidden; }
+    .what-visual > *:not(.bill-rain) { position: relative; z-index: 1; }
+    .bill-rain { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .bill { position: absolute; top: -60px; width: 64px; height: 30px; opacity: 0; animation: billFall var(--d) linear var(--delay) forwards; }
+    .bill svg { width: 100%; height: 100%; display: block; animation: billSway calc(var(--d) / 2) ease-in-out var(--delay) 2 alternate; }
+    @keyframes billFall { 0% { transform: translateY(0) rotate(var(--r0)); opacity: 0; } 8% { opacity: .55; } 85% { opacity: .55; } 100% { transform: translateY(620px) rotate(var(--r1)); opacity: 0; } }
+    @keyframes billSway { from { transform: translateX(-14px) rotateY(0deg); } to { transform: translateX(14px) rotateY(55deg); } }
+    @media (prefers-reduced-motion: reduce) { .bill-rain { display: none; } }
+    .commission-stat .lbl { color: #061830 !important; font-weight: 700 !important; margin-top: 10px !important; }
+    .commission-stat .val { line-height: 1.1 !important; }
+    .lt .what-visual { background: transparent !important; border: none !important; box-shadow: none !important; padding: 20px 0 !important; text-align: center; min-height: 460px; display: flex; flex-direction: column; justify-content: center; }
+    .lt .what-visual .big-num { font-size: clamp(7rem, 13vw, 11rem) !important; line-height: 0.9; color: #0B2A55; }
+    .lt .what-visual .big-lbl { font-family: 'Oswald', sans-serif; font-size: 1.6rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #136B6D !important; margin-top: 10px; }
+    .lt .what-visual .teal-line { margin: 0 auto 24px; }
+    .lt .what-visual p { font-size: 1.1rem; }
+    .what-item h3 { font-size: 1.2rem !important; font-weight: 700 !important; }
+    .what-item p { font-size: 1.02rem !important; line-height: 1.65 !important; }
+    .what-item-icon { width: 52px !important; height: 52px !important; }
+    .what-item-icon svg { width: 26px !important; height: 26px !important; }
+    /* APPLICATION */
+    .apply-section { background: #ffffff; padding: 100px 60px; color: #0B2A55; }
+    .apply-inner { max-width: 760px; margin: 0 auto; }
+    .apply-section .section-tag { color: #136B6D; }
+    .apply-section .section-title { color: #0B2A55; }
+    .apply-section .section-title span { color: #136B6D; }
+    .apply-section .section-sub { color: rgba(11,42,85,0.82); margin-bottom: 40px; }
+    .apply-section .form-card { background: #F4F9FA; border: 1px solid rgba(19,107,109,0.25); border-radius: 20px; padding: 48px; box-shadow: 0 10px 30px rgba(11,42,85,0.08); }
+    .apply-section .form-card::before { content: ''; display: block; height: 3px; background: linear-gradient(90deg, #136B6D, transparent); margin: -48px -48px 40px; border-radius: 20px 20px 0 0; }
+    .ap-section { margin-bottom: 36px; }
+    .apply-section .form-section-title { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #136B6D; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(19,107,109,0.2); }
+    .apply-section .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .apply-section .field label { font-size: 14px; font-weight: 600; color: #0B2A55; }
+    .apply-section .note, .apply-section .platform-note, .apply-section .form-fine { font-size: 13px; color: rgba(11,42,85,0.75); }
+    .apply-section .field input, .apply-section .field textarea { padding: 13px 16px; background: #ffffff; border: 1px solid rgba(19,107,109,0.4); border-radius: 10px; color: #0B2A55; font-family: 'Inter', sans-serif; font-size: 15px; outline: none; width: 100%; }
+    .apply-section .field input::placeholder, .apply-section .field textarea::placeholder, .apply-section .platform-row input::placeholder { color: rgba(11,42,85,0.5); }
+    .apply-section .field input:focus, .apply-section .field textarea:focus { border-color: #136B6D; }
+    .apply-section .field textarea { resize: vertical; min-height: 100px; }
+    .apply-section select option { background: #fff; color: #0B2A55; }
+    .platform-rows { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+    .remove-btn { width: 36px; height: 36px; background: rgba(255,107,53,0.12); border: 1px solid rgba(255,107,53,0.4); border-radius: 8px; color: #C2410C; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+    .add-platform-btn { display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px dashed #136B6D; color: #136B6D; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; }
+    .platform-note { margin-top: 8px; }
+    .submit-btn { width: 100%; padding: 16px; background: var(--orange); color: #0B2A55; border: none; border-radius: 12px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; margin-top: 8px; }
+    .submit-btn:hover { background: #FF8455; }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-fine { text-align: center; margin-top: 16px; }
+    .error-msg { color: #C2410C; font-size: 14px; margin-top: 12px; text-align: center; }
+    .success-wrap { text-align: center; padding: 40px 20px; }
+    .success-wrap h2 { font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 16px; color: #0B2A55; }
+    .success-wrap h2 span { color: #136B6D; }
+    .success-wrap p { color: rgba(11,42,85,0.8); line-height: 1.8; max-width: 440px; margin: 0 auto; }
+    @media (max-width: 640px) { .apply-section { padding: 70px 20px; } .apply-section .form-card { padding: 28px 18px; } .apply-section .form-card::before { margin: -28px -18px 28px; } .platform-row { grid-template-columns: 1fr 1fr !important; } }
+    .cta-section { padding: 100px 60px 90px !important; }
+    .cta-section h2 { margin-bottom: 0 !important; }
+    html { scroll-behavior: smooth; }
+    #apply { scroll-margin-top: 110px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    .who-grid { gap: 18px !important; }
+    .who-chip { background: linear-gradient(160deg, rgba(42,157,159,0.16), rgba(255,255,255,0.03)) !important; border: 1px solid rgba(42,157,159,0.35) !important; border-radius: 16px !important; padding: 22px 22px !important; gap: 18px !important; transition: transform .2s, border-color .2s, background .2s; }
+    .who-chip:hover { transform: translateY(-3px); border-color: #FF6B35 !important; }
+    .who-ico { width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px; background: rgba(255,107,53,0.14); display: flex; align-items: center; justify-content: center; }
+    .who-chip .who-ico svg { width: 28px !important; height: 28px !important; stroke: #FF6B35 !important; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .who-chip .who-lbl { font-family: 'Oswald', sans-serif; font-size: 1.12rem !important; font-weight: 600 !important; text-transform: uppercase; letter-spacing: 0.6px; color: #fff !important; line-height: 1.25; }
+    .cta-section { background: #061830 !important; }
+    .cta-section h2 span { color: #FF6B35 !important; }
+    .lt .what-you-get { background: transparent !important; border: none !important; }
+    .lt .how-it-works { background: transparent !important; }
+    .skip-link { position: absolute; left: -9999px; top: 8px; z-index: 1000; background: #FF6B35; color: #0B2A55; padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .skip-link:focus { left: 16px; }
+      @media (max-width: 700px) { .site-header { flex-wrap: wrap; gap: 12px; padding: 14px 20px !important; } .site-header img { height: 44px; } nav { flex-wrap: wrap; gap: 12px 18px; } .nav-cta { margin-left: 0 !important; } }
   </style>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcvoEEtAAAAAJAeODQhyC_2t-vrpYoMA0UCtflX"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header class="site-header">
     <a href="/"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
-    <nav>
+    <button class="sub-menu-btn" id="sub-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sub-nav"><span></span><span></span><span></span></button>
+    <nav id="sub-nav">
       <a href="/">Home</a>
-      <a href="/blog">Blog</a>
       <a href="/affiliates" style="color:#fff">Affiliates</a>
-      <a href="/#notify" class="nav-cta">Get Notified</a>
+      <a href="/clinicians">Clinicians</a>
+      <a href="mailto:hello@ptpools.us">Contact</a>
     </nav>
   </header>
 
   <!-- HERO -->
+  <main id="main-content">
   <section class="hero">
     <div class="hero-pattern"></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
     <div class="hero-badge">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       Affiliate Program
@@ -146,33 +260,43 @@
     <h1>Help Bring Aquatic Therapy<br><span>to Every Backyard</span></h1>
     <p class="hero-sub">TheraTank is the first therapy pool built for real homes at a real price — and we're looking for people who want to help get it into the hands of the people who need it most. If your audience is living with pain, recovering from injury, or just trying to keep moving — they've been waiting for this.</p>
     <div class="hero-actions">
-      <a href="/affiliates/apply" class="btn-primary">Apply to Partner</a>
+      <a href="#apply" class="btn-primary">Apply to Partner</a>
+    </div>
+      </div>
+      <div class="hero-photo"><picture><source srcset="/assets/images/vision-backyard.webp" type="image/webp"><img src="/assets/images/vision-backyard.jpg" alt="TheraTank in a tropical backyard on a brick paver patio, with a man in a navy rash guard leaning against the pool wall, which comes up to his shoulders." width="2000" height="1116"></picture></div>
     </div>
   </section>
 
   <!-- COMMISSION STRIP -->
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#2A9D9F;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#071e3d"/></svg></div>
   <div class="commission-strip">
     <div class="commission-stat">
-      <div class="val">$75</div>
-      <div class="lbl">Per Sale</div>
+      <div class="val">$100</div>
+      <div class="lbl">Flat Rate Per Sale</div>
     </div>
     <div class="strip-divider"></div>
     <div class="commission-stat">
-      <div class="val">Flat</div>
-      <div class="lbl">Rate. Always.</div>
+      <div class="val">Monthly</div>
+      <div class="lbl">Every Sale Paid via PayPal</div>
     </div>
     <div class="strip-divider"></div>
     <div class="commission-stat">
-      <div class="val">∞</div>
-      <div class="lbl">No Referral Cap</div>
+      <div class="val">Forever</div>
+      <div class="lbl">Your Link Never Expires</div>
     </div>
   </div>
 
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#E6F5F6;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#2A9D9F"/></svg></div>
   <!-- INSPIRATION -->
-  <section class="inspiration">
+  <div class="lt" style="background:#E6F5F6;"><section class="inspiration">
+    <div class="inspo-head">
+      <div>
     <div class="section-tag">Why It Matters</div>
     <h2 class="section-title">Help Your Clients<br><span>Get in the Water</span></h2>
     <p class="section-sub">Aquatic therapy works. The research is clear. The problem has always been access. TheraTank changes that — and you can be the one who helps make it happen.</p>
+      </div>
+      <div class="inspo-photo"><picture><source srcset="/assets/images/vision-pool.webp?v=2" type="image/webp"><img src="/assets/images/vision-pool.jpg?v=2" alt="Split above-and-below-water view inside TheraTank: an older Black woman with short grey hair stands chest-deep in tree pose, palms together, eyes closed, sunlight rippling across the teal liner." loading="lazy" width="1800" height="1200"></picture></div>
+    </div>
 
     <div class="inspo-grid">
       <div class="inspo-card">
@@ -184,46 +308,46 @@
       </div>
       <div class="inspo-card">
         <div class="inspo-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M8 15c1.3 0 1.3-1 2.7-1s1.3 1 2.6 1 1.3-1 2.7-1"/></svg>
         </div>
         <h3>Aquatic Therapy, Finally Accessible</h3>
         <p>Even with units costing up to $50,000, your clients have never been able to access true therapeutic depth water therapy at home — until now. The deepest water available at an accessible price and a size that actually fits real life.</p>
       </div>
       <div class="inspo-card">
         <div class="inspo-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/><path d="M8.5 11l1.8 1.8 3.4-3.6"/></svg>
         </div>
         <h3>We're Selective for a Reason</h3>
-        <p>We'd rather have 50 partners who genuinely believe in this than 5,000 who are just chasing a commission. If aquatic therapy, pain management, or functional movement is your world — this program was built for you.</p>
+        <p>We're looking for partners who already care about this work and whose audiences trust them to recommend what actually helps. If aquatic therapy, pain management, or functional movement is your world, this program was built for you.</p>
       </div>
     </div>
-  </section>
+  </section></div>
 
   <!-- DIFFERENTIATORS -->
-  <section style="padding: 100px 60px; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(31,138,140,0.08);">
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#061830;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#E6F5F6"/></svg></div>
+  <section style="padding: 100px 60px; background: #061830;">
     <div style="max-width: 1200px; margin: 0 auto;">
+      <div class="inspo-head inspo-head-rev">
+        <div class="inspo-photo"><picture><source srcset="/assets/images/vision-garage.webp?v=3" type="image/webp"><img src="/assets/images/vision-garage.jpg?v=3" alt="TheraTank set up inside a two-car garage beside storage shelves, with a woman in a teal tank top and knee brace standing next to it; the pool wall reaches her shoulders." loading="lazy" width="2000" height="1116"></picture></div>
+        <div>
       <div class="section-tag">Why TheraTank Sells Itself</div>
       <h2 class="section-title">A Product Your Audience<br><span>Will Actually Thank You For</span></h2>
       <p class="section-sub">This isn't just another brand deal. TheraTank is a genuine solution to a problem your audience has been living with for years — and your recommendation will actually mean something.</p>
+        </div>
+      </div>
       <div class="inspo-grid">
         <div class="inspo-card">
-          <div class="inspo-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
-          </div>
+          <div class="inspo-icon"><svg viewBox="0 0 24 24"><path d="M2 8c2 0 2-1.5 4-1.5S8 8 10 8s2-1.5 4-1.5S16 8 18 8s2-1.5 4-1.5"/><line x1="12" y1="11" x2="12" y2="21"/><polyline points="8.5 17.5 12 21 15.5 17.5"/></svg></div>
           <h3>Deepest Home Pool Available</h3>
           <p>59" drop-stitch walls. 54" of usable water depth. Most pools advertise wall height — not actual water depth. No other home pool gets you to chest depth.</p>
         </div>
         <div class="inspo-card">
-          <div class="inspo-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
+          <div class="inspo-icon"><svg viewBox="0 0 24 24"><line x1="3" y1="4" x2="21" y2="4"/><line x1="3" y1="20" x2="21" y2="20"/><line x1="6" y1="4" x2="10" y2="20"/><line x1="10" y1="4" x2="6" y2="20"/><line x1="14" y1="4" x2="18" y2="20"/><line x1="18" y1="4" x2="14" y2="20"/></svg></div>
           <h3>Rigid, Durable Drop-Stitch Walls</h3>
           <p>Drop-stitch construction means the walls are virtually solid when inflated — no flex, no collapse, no steel frame to wrestle. Sets up solo in minutes and packs away when you're done.</p>
         </div>
         <div class="inspo-card">
-          <div class="inspo-icon">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
+          <div class="inspo-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
           <h3>A Product That Didn't Exist Until Now</h3>
           <p>Nothing like this has ever existed at this footprint, this depth, this price. Truly one of a kind — and built to be accessible in every way.</p>
         </div>
@@ -232,82 +356,85 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="how-it-works" id="how-it-works">
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#E6F5F6;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#061830"/></svg></div>
+  <div class="lt" style="background:#E6F5F6;"><section class="how-it-works" id="how-it-works">
     <div class="how-inner">
       <div class="section-tag">The Process</div>
       <h2 class="section-title">Simple. <span>Transparent.</span> Fair.</h2>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h4>Apply</h4>
+          <h3>Apply</h3>
           <p>Tell us about yourself, your audience, and your niche. We review every application personally — follower count isn't everything.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h4>Get Approved</h4>
+          <h3>Get Approved</h3>
           <p>We'll reach out with your invite to set up your affiliate account and customize your landing page — or just get a clean redirect link.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h4>Share Your Link</h4>
-          <p>Your unique link. Your brand. Your audience. When they back TheraTank on Kickstarter through your link, it's tracked automatically.</p>
+          <h3>Share Your Link</h3>
+          <p>Your unique link. Your brand. Your audience. When they preorder TheraTank through your link, it's tracked automatically.</p>
         </div>
         <div class="step">
           <div class="step-num">4</div>
-          <h4>Get Paid</h4>
-          <p>$75 per sale, paid via PayPal after the campaign closes. No percentages. No fine print.</p>
+          <h3>Get Paid</h3>
+          <p>$100 per sale, paid monthly via PayPal. A single transaction qualifies for payment.</p>
         </div>
       </div>
     </div>
-  </section>
+  </section></div>
 
   <!-- WHO IT'S FOR -->
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#061830;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#E6F5F6"/></svg></div>
   <section class="who">
     <div class="section-tag">Who We're Looking For</div>
     <h2 class="section-title">Niche Over Numbers.<br><span>Always.</span></h2>
     <p class="section-sub">An aquatic PT with 2K engaged followers brings just as much to this partnership as a lifestyle influencer with 200K. Niche fit matters as much as follower count. If your audience cares about movement, recovery, or getting in the water — you belong here.</p>
     <div class="who-grid">
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        <span>Physical Therapists & PT Clinics</span>
+        <span class="who-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v3a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/><path d="M5 3h2M13 3h2"/></svg></span>
+        <span class="who-lbl">Physical Therapists & PT Clinics</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
-        <span>Aqua Fitness Instructors</span>
+        <span class="who-ico" aria-hidden="true"><img src="/assets/images/icon-aqua.png" alt="" width="32" height="32" style="display:block;width:32px;height:32px;"></span>
+        <span class="who-lbl">Aqua Fitness Instructors</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        <span>Arthritis & Joint Health Advocates</span>
+        <span class="who-ico" aria-hidden="true"><img src="/assets/images/icon-joint.png" alt="" width="30" height="30" style="display:block;width:30px;height:30px;"></span>
+        <span class="who-lbl">Arthritis & Joint Health Advocates</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-        <span>Fitness & Wellness Creators</span>
+        <span class="who-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></span>
+        <span class="who-lbl">Fitness & Wellness Creators</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <span>Injury Recovery Specialists</span>
+        <span class="who-ico" aria-hidden="true"><img src="/assets/images/icon-bandage.png" alt="" width="30" height="30" style="display:block;width:30px;height:30px;"></span>
+        <span class="who-lbl">Injury Recovery Specialists</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span>Healthy Aging & Senior Wellness</span>
+        <span class="who-ico" aria-hidden="true"><img src="/assets/images/icon-aging.png" alt="" width="30" height="30" style="display:block;width:30px;height:30px;"></span>
+        <span class="who-lbl">Healthy Aging & Senior Wellness</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-        <span>Health & Lifestyle Bloggers</span>
+        <span class="who-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
+        <span class="who-lbl">Health & Lifestyle Bloggers</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        <span>Chiropractors & Sports Medicine</span>
+        <span class="who-ico" aria-hidden="true"><img src="/assets/images/icon-spine.png" alt="" width="30" height="30" style="display:block;width:30px;height:30px;"></span>
+        <span class="who-lbl">Chiropractors & Sports Medicine</span>
       </div>
       <div class="who-chip">
-        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <span>Podcast Hosts in Health & Wellness</span>
+        <span class="who-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v4M8 22h8"/></svg></span>
+        <span class="who-lbl">Podcast Hosts in Health & Wellness</span>
       </div>
     </div>
   </section>
 
   <!-- WHAT YOU GET -->
-  <section class="what-you-get">
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#E6F5F6;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#061830"/></svg></div>
+  <div class="lt" style="background:#E6F5F6;"><section class="what-you-get">
     <div class="what-inner">
       <div>
         <div class="section-tag">What's In It For You</div>
@@ -315,28 +442,10 @@
         <div class="what-list">
           <div class="what-item">
             <div class="what-item-icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <div>
-              <h4>Your Own Branded Landing Page</h4>
-              <p>Optional but powerful. Your photo, your words, your endorsement — PT Pools template. Your audience lands somewhere that feels personal, not generic.</p>
-            </div>
-          </div>
-          <div class="what-item">
-            <div class="what-item-icon">
-              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            </div>
-            <div>
-              <h4>Real-Time Stats Dashboard</h4>
-              <p>See your clicks, landing page views, and confirmed sales in one place. Always know how your link is performing.</p>
-            </div>
-          </div>
-          <div class="what-item">
-            <div class="what-item-icon">
               <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
             <div>
-              <h4>$75 Flat Per Sale. No Caps.</h4>
+              <h3>$100 Flat Per Sale</h3>
               <p>Refer 1 sale or 100 — the rate never changes. No sliding scales, no percentage cuts, no gotchas.</p>
             </div>
           </div>
@@ -345,17 +454,17 @@
               <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.86a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
             </div>
             <div>
-              <h4>Direct Relationship</h4>
+              <h3>Direct Relationship</h3>
               <p>You're not dealing with a platform. You're dealing with us — the founders. Questions get answered. Payouts go out on time.</p>
             </div>
           </div>
           <div class="what-item">
             <div class="what-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg>
             </div>
             <div>
-              <h4>Your Link Lives Beyond Kickstarter</h4>
-              <p>Your affiliate link doesn't expire when the campaign ends. It follows us into our permanent store — so content you create today keeps earning long after launch day.</p>
+              <h3>Your Link Never Expires</h3>
+              <p>Your affiliate link works from preorders through our permanent store, so content you create today keeps earning long after launch day.</p>
             </div>
           </div>
           <div class="what-item">
@@ -363,34 +472,322 @@
               <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </div>
             <div>
-              <h4>Done-For-You Content Assets</h4>
+              <h3>Done-For-You Content Assets</h3>
               <p>A ready-to-send email, a newsletter blast, and a full blog article — all pre-populated with your name and affiliate code. Nothing to write. Just share.</p>
             </div>
           </div>
         </div>
       </div>
       <div class="what-visual">
-        <div class="big-num">$75</div>
+        <div class="bill-rain" aria-hidden="true"></div>
+        <div class="big-num">$100</div>
         <div class="big-lbl">per sale</div>
         <div class="teal-line"></div>
-        <p>TheraTank backs at $749–$899. At $75 flat per sale, every referral puts real money in your pocket.</p>
+        <p>A single transaction qualifies for payment.</p>
         <br>
-        <p style="color: rgba(255,255,255,0.4); font-size: 13px;">10 sales = $750 &nbsp;&nbsp;·&nbsp;&nbsp; 25 sales = $1,875 &nbsp;&nbsp;·&nbsp;&nbsp; 50 sales = $3,750</p>
+        <p style="color: rgba(11,42,85,0.75); font-size: 15px; font-weight: 600;">10 sales = $1,000 &nbsp;&nbsp;·&nbsp;&nbsp; 25 sales = $2,500 &nbsp;&nbsp;·&nbsp;&nbsp; 50 sales = $5,000</p>
       </div>
     </div>
-  </section>
+  </section></div>
 
   <!-- CTA -->
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#061830;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#E6F5F6"/></svg></div>
   <section class="cta-section">
     <h2>Ready to Help Get<br><span>People Moving?</span></h2>
-    <p>Applications take about 3 minutes. We review everything personally and get back to you within a few days.</p>
-    <a href="/affiliates/apply" class="btn-primary">Apply to Partner With Us</a>
   </section>
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#ffffff;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#061830"/></svg></div>
+  <section class="apply-section" id="apply">
+    <div class="apply-inner">
+      <div class="section-tag">Partner Application</div>
+      <h2 class="section-title">Apply to <span>Partner With Us</span></h2>
+      <p class="section-sub">Applications take about 3 minutes. We review everything personally and get back to you within a few days.</p>
+      <div class="form-card" id="form-card">
+
+      <div class="ap-section">
+        <h3 class="form-section-title">About You</h3>
+        <div class="field">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="niche">Your Niche — in your own words *</label>
+          <span class="note">Tell us about your audience and what you create or do.</span>
+          <textarea id="niche" placeholder="e.g. I'm a licensed aquatic physical therapist who creates content for post-surgery recovery patients…"></textarea>
+        </div>
+      </div>
+
+      <div class="ap-section">
+        <h3 class="form-section-title">Your Reach</h3>
+        <div class="platform-rows" id="platform-rows"></div>
+        <button type="button" class="add-platform-btn" onclick="addPlatformRow()">+ Add a Platform or Channel</button>
+        <p class="platform-note">* Low follower counts don't exclude you from consideration — niche fit matters more than size.</p>
+      </div>
+
+      <div class="ap-section">
+        <h3 class="form-section-title">Your Link</h3>
+        <div class="field">
+          <label for="requested_handle">Preferred Vanity Handle</label>
+          <span class="note">This becomes ptpools.us/ref/yourhandle.</span>
+          <input type="text" id="requested_handle" placeholder="e.g. aquarecovery" autocomplete="off">
+          <span id="handle_status" style="font-size: 13px; min-height: 18px;"></span>
+        </div>
+      </div>
+
+      <div class="ap-section">
+        <h3 class="form-section-title">Payout</h3>
+        <div class="field">
+          <label for="paypal-email">PayPal Email</label>
+          <input type="email" id="paypal-email" placeholder="your@paypal.com">
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Submit Application</button>
+      <p class="form-fine">We review every application personally. You'll hear from us within a few days.</p>
+      <p class="error-msg" id="error-msg"></p>
+
+    </div>
+    </div>
+  </section>
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#061830;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#ffffff"/></svg></div>
+
+
+  </main>
 
   <footer class="site-footer">
     <img src="/assets/images/logo-dark.png" alt="PT Pools">
-    <p>&copy; 2026 PT Pools. TheraTank is a trademark of PT Pools.</p>
+    <p>&copy; 2026 PT Pools.</p>
   </footer>
 
+
+<script>
+(function(){
+  var card=document.querySelector('.what-visual'); if(!card) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var rain=card.querySelector('.bill-rain');
+  var bill='<svg viewBox="0 0 64 30"><rect x="1" y="1" width="62" height="28" rx="3" fill="#7FB77E" stroke="#3E7C46" stroke-width="1.5"/><rect x="5" y="5" width="54" height="20" rx="2" fill="none" stroke="#3E7C46" stroke-width="0.8"/><circle cx="32" cy="15" r="7" fill="#A9D3A0" stroke="#3E7C46" stroke-width="0.8"/><text x="32" y="18.5" font-family="Oswald,Arial,sans-serif" font-size="9" font-weight="700" text-anchor="middle" fill="#2F5F35">$</text><text x="11" y="12" font-family="Oswald,Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2F5F35">100</text><text x="53" y="25" font-family="Oswald,Arial,sans-serif" font-size="6.5" font-weight="700" text-anchor="end" fill="#2F5F35">100</text></svg>';
+  function drop(){
+    rain.innerHTML='';
+    for(var i=0;i<11;i++){
+      var b=document.createElement('div'); b.className='bill';
+      b.style.left=(Math.random()*92)+'%';
+      b.style.setProperty('--d',(2.6+Math.random()*1.4).toFixed(2)+'s');
+      b.style.setProperty('--delay',(Math.random()*1.2).toFixed(2)+'s');
+      b.style.setProperty('--r0',(Math.random()*60-30).toFixed(0)+'deg');
+      b.style.setProperty('--r1',(Math.random()*120-60).toFixed(0)+'deg');
+      b.innerHTML=bill; rain.appendChild(b);
+    }
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){drop();io.unobserve(card);}});},{threshold:0.5});
+    io.observe(card);
+  } else drop();
+  card.addEventListener('mouseenter',function(){ if(!rain.querySelector('.bill')||rain.dataset.busy) return; rain.dataset.busy=1; drop(); setTimeout(function(){delete rain.dataset.busy;},4500); });
+})();
+</script>
+<script>
+    const SUPABASE_URL = 'https://zejzzxvotrqxrfnduzdc.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inplanp6eHZvdHJxeHJmbmR1emRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NTMyMTYsImV4cCI6MjA5ODIyOTIxNn0.U1urD2sXPMzr7GnXQMO8hA5J7bZ7MMGTSji8Kp-xi2s'
+
+    // Live handle-availability check, debounced. Checks BOTH `affiliates` and
+    // `clinician_referrals` — a code can live in either table, and this is the
+    // only thing standing between "picked at signup" and "collides with someone
+    // at approval time, admin has to go back and ask them to redo it." Sets
+    // `handleAvailable` to true/false/null (empty/unchecked) so handleSubmit can
+    // block on a known-taken handle without re-querying.
+    let handleAvailable = null
+    let handleCheckTimer = null
+    const handleStatusEl = () => document.getElementById('handle_status')
+
+    function sanitizeHandle(v) {
+      return v.trim().toLowerCase().replace(/[^a-z0-9]/g, '')
+    }
+
+    async function checkHandleAvailability(raw) {
+      const value = sanitizeHandle(raw)
+      const statusEl = handleStatusEl()
+      if (!value) { handleAvailable = null; statusEl.textContent = ''; return }
+
+      statusEl.style.color = 'rgba(255,255,255,0.4)'
+      statusEl.textContent = 'Checking…'
+
+      const headers = { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
+      const [affRes, clinRes] = await Promise.all([
+        fetch(`${SUPABASE_URL}/rest/v1/affiliates?code=eq.${value}&select=id`, { headers }),
+        fetch(`${SUPABASE_URL}/rest/v1/clinician_referrals?code=eq.${value}&select=id`, { headers }),
+      ])
+      const [affData, clinData] = await Promise.all([affRes.json(), clinRes.json()])
+      const taken = (affData.length ?? 0) > 0 || (clinData.length ?? 0) > 0
+
+      handleAvailable = !taken
+      statusEl.style.color = taken ? 'var(--orange)' : 'var(--teal)'
+      statusEl.textContent = taken ? '✕ Already taken — try another' : '✓ Available'
+    }
+
+    document.getElementById('requested_handle').addEventListener('input', (e) => {
+      clearTimeout(handleCheckTimer)
+      handleAvailable = null
+      handleCheckTimer = setTimeout(() => checkHandleAvailability(e.target.value), 450)
+    })
+
+    const CHANNEL_TYPES = ['Social Media', 'Website / Blog', 'Email Newsletter', 'Podcast', 'Other']
+    const SOCIAL_PLATFORMS = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'X / Twitter', 'Pinterest', 'LinkedIn']
+    const inputStyle = 'padding:13px 14px;background:#ffffff;border:1px solid rgba(19,107,109,0.4);border-radius:10px;color:#0B2A55;font-family:Inter,sans-serif;font-size:13px;outline:none;width:100%;'
+    const selectStyle = 'padding:13px 12px;background:#ffffff;border:1px solid rgba(19,107,109,0.4);border-radius:10px;color:#0B2A55;font-family:Inter,sans-serif;font-size:13px;outline:none;width:100%;'
+
+    function addPlatformRow(data = {}) {
+      const rows = document.getElementById('platform-rows')
+      const div = document.createElement('div')
+      div.className = 'platform-row'
+      div.style.cssText = 'display:grid;grid-template-columns:160px 1fr 1fr 36px;gap:10px;align-items:center;'
+      div.innerHTML = `
+        <select class="channel-type" aria-label="Channel type" onchange="updateRow(this)" style="${selectStyle}">
+          ${CHANNEL_TYPES.map(t => `<option value="${t}" ${data.type === t ? 'selected' : ''}>${t}</option>`).join('')}
+        </select>
+        <div class="platform-sub-wrap"></div>
+        <input class="handle-input" aria-label="Handle, link, or name" type="text" placeholder="@handle or profile name" value="${data.handle || ''}" style="${inputStyle}">
+        <input class="count-input" aria-label="Audience size" type="text" placeholder="Followers" value="${data.count || ''}" style="${inputStyle}">
+        <button type="button" class="remove-btn" aria-label="Remove this channel" onclick="this.parentElement.remove()">✕</button>
+      `
+      rows.appendChild(div)
+      updateRow(div.querySelector('.channel-type'))
+    }
+
+    function updateRow(sel) {
+      const row = sel.closest('.platform-row')
+      const type = sel.value
+      const subWrap = row.querySelector('.platform-sub-wrap')
+      const handleInput = row.querySelector('.handle-input')
+      const countInput = row.querySelector('.count-input')
+
+      // Update grid columns based on type
+      if (type === 'Social Media') {
+        row.style.gridTemplateColumns = '160px 140px 1fr 120px 36px'
+        subWrap.innerHTML = `<select class="social-platform" aria-label="Social platform" style="${selectStyle}">${SOCIAL_PLATFORMS.map(p => `<option>${p}</option>`).join('')}</select>`
+        handleInput.placeholder = '@handle'
+        countInput.placeholder = 'Followers'
+      } else {
+        row.style.gridTemplateColumns = '160px 0px 1fr 150px 36px'
+        subWrap.innerHTML = ''
+        subWrap.style.display = 'none'
+        if (type === 'Website / Blog') { handleInput.placeholder = 'https://yoursite.com'; countInput.placeholder = 'Monthly Visits' }
+        else if (type === 'Email Newsletter') { handleInput.placeholder = 'Newsletter name (optional)'; countInput.placeholder = 'Subscribers' }
+        else if (type === 'Podcast') { handleInput.placeholder = 'Show name or link'; countInput.placeholder = 'Monthly Listeners' }
+        else { handleInput.placeholder = 'Describe your channel'; countInput.placeholder = 'Reach / Size' }
+        subWrap.style.display = ''
+      }
+    }
+
+
+    async function handleSubmit() {
+      const name = document.getElementById('name').value.trim()
+      const email = document.getElementById('email').value.trim()
+      const niche = document.getElementById('niche').value.trim()
+      const errEl = document.getElementById('error-msg')
+      errEl.textContent = ''
+
+      if (!name || !email || !niche) { errEl.textContent = 'Please fill in your name, email, and niche.'; return }
+
+      // Force a fresh, synchronous check right before submit — don't trust the
+      // debounced background check alone, in case they typed and hit submit
+      // faster than the 450ms debounce fired.
+      clearTimeout(handleCheckTimer)
+      const handleValue = document.getElementById('requested_handle').value.trim()
+      if (handleValue) {
+        await checkHandleAvailability(handleValue)
+        if (handleAvailable === false) { errEl.textContent = 'Your requested handle is already taken — please choose another.'; return }
+      }
+
+      const rows = document.querySelectorAll('.platform-row')
+      const platforms = Array.from(rows).map(row => {
+        const type = row.querySelector('.channel-type').value
+        const socialPlatform = row.querySelector('.social-platform')
+        return {
+          type: type === 'Social Media' && socialPlatform ? socialPlatform.value : type,
+          handle: row.querySelector('.handle-input').value.trim(),
+          count: row.querySelector('.count-input').value.trim(),
+        }
+      }).filter(p => p.handle)
+
+      const paypalEmail = document.getElementById('paypal-email').value.trim()
+      const requestedHandle = document.getElementById('requested_handle').value.trim()
+        .toLowerCase().replace(/[^a-z0-9]/g, '')
+
+      const btn = document.getElementById('submit-btn')
+      btn.disabled = true
+      btn.textContent = 'Submitting…'
+
+      const rcToken = await grecaptcha.execute('6LcvoEEtAAAAAJAeODQhyC_2t-vrpYoMA0UCtflX', { action: 'submit' })
+      const rcRes = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: rcToken })
+      })
+      if (!rcRes.ok) {
+        errEl.textContent = 'Security check failed. Please try again.'
+        btn.disabled = false
+        btn.textContent = 'Submit Application'
+        return
+      }
+
+      const payload = {
+        name, email, niche,
+        platforms,
+        requested_handle: requestedHandle || null,
+        payout_method: 'paypal',
+        paypal_email: paypalEmail || null,
+        status: 'pending',
+        code: requestedHandle || Math.random().toString(36).slice(2,8),
+      }
+
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/affiliates`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      })
+
+      if (res.ok) {
+        // Not added to MailerLite's Affiliates group here — that happens once an
+        // admin activates the application (admin/src/pages/Affiliates.tsx), so
+        // pending applicants don't get emailed as if they're already active.
+        const successEl = document.getElementById('form-card')
+        successEl.innerHTML = '<div class="success-wrap"><h2>You\'re <span>In the Queue</span></h2><p class="msg"></p></div>'
+        successEl.querySelector('.msg').textContent = `Thanks ${name} — we review every application personally and will be in touch within a few days. Keep an eye on ${email}.`
+      } else {
+        const err = await res.json()
+        errEl.textContent = err.message?.includes('unique') ? 'That email has already applied.' : 'Something went wrong — please try again.'
+        btn.disabled = false
+        btn.textContent = 'Submit Application'
+      }
+    }
+
+    // Start with one row
+    addPlatformRow()
+  </script>
+<style>
+.sub-menu-btn { display: none; background: none; border: 0; cursor: pointer; padding: 6px; margin-left: auto; flex-direction: column; gap: 5px; }
+.sub-menu-btn span { display: block; width: 26px; height: 2px; background: #2A9D9F; border-radius: 2px; }
+@media (max-width: 760px) {
+  .site-header { flex-wrap: nowrap !important; position: sticky; justify-content: space-between !important; }
+  .sub-menu-btn { display: flex; }
+  #sub-nav { display: none !important; position: absolute; top: 100%; right: 16px; flex-direction: column; align-items: stretch; gap: 0 !important; min-width: 220px; background: rgba(6,24,48,0.98); border: 1px solid rgba(42,157,159,0.3); border-radius: 12px; padding: 8px 0; z-index: 200; }
+  #sub-nav.open { display: flex !important; }
+  #sub-nav a { display: block !important; padding: 12px 20px; font-size: 15px; }
+}
+</style>
+<script>
+(function(){var b=document.getElementById('sub-menu-btn'),n=document.getElementById('sub-nav');if(!b||!n)return;
+b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');});
+document.addEventListener('click',function(e){if(!n.contains(e.target)){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Open menu');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus();}});})();
+</script>
 </body>
 </html>

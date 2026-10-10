@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDSPLBG7K4"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WDSPLBG7K4');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquatic Therapy Research Library — TheraTank by PT Pools</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <meta name="description" content="Peer-reviewed clinical research supporting aquatic therapy for chronic pain, arthritis, fibromyalgia, post-surgical recovery, MS, sports recovery, and more. Browse by condition.">
+    <link rel="canonical" href="https://ptpools.us/research">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --navy: #09244D;
+            --navy-dark: #061830;
+            --navy-mid: #0d2d5c;
+            --teal: #4FC3C5;
+            --orange: #FF6B35;
+            --white: #ffffff;
+            --text-muted: rgba(255,255,255,0.82);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy-dark);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: relative;
+            z-index: 10;
+            padding: 30px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(6, 24, 48, 0.97);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(31,138,140,0.15);
+        }
+        .logo img { height: 110px; width: auto; }
+        .nav-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            opacity: 0.85;
+        }
+
+        /* header matched to clinician/affiliate pages */
+        .site-header { padding: 20px 60px !important; justify-content: flex-start !important; gap: 40px; position: sticky !important; top: 0; z-index: 100 !important; }
+        .rs-logo img { height: 60px; width: auto; display: block; }
+        .rs-nav { display: flex; align-items: center; gap: 28px; flex: 1; }
+        .rs-nav a { color: rgba(255,255,255,0.8); font-family: 'Inter', sans-serif; font-size: 14px; text-decoration: none; letter-spacing: 0.5px; transition: color .2s; }
+        .rs-nav a:hover { color: #fff; }
+        .rs-nav .rs-cta { margin-left: auto; padding: 9px 20px; background: #FF6B35; color: #0B2A55; border-radius: 8px; font-weight: 600; font-size: 13px; }
+        .rs-nav .rs-cta:hover { background: #FF8455; color: #0B2A55; }
+        @media (max-width: 700px) { .site-header { flex-wrap: wrap; gap: 12px; padding: 14px 20px !important; } .rs-logo img { height: 44px; } .rs-nav { flex-wrap: wrap; gap: 12px 18px; } .rs-nav .rs-cta { margin-left: 0; } }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            padding: 80px 80px 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .page-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+        .page-hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+        .page-hero h1 span {
+            background: linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);
+            padding: 0 3px;
+        }
+        .page-hero p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.78);
+            max-width: 820px;
+        }
+
+        /* ── HOW IT WORKS ── */
+        .science-intro {
+            background: rgba(31,138,140,0.07);
+            border-top: 1px solid rgba(31,138,140,0.2);
+            border-bottom: 1px solid rgba(31,138,140,0.2);
+            padding: 60px 80px;
+            margin-bottom: 60px;
+        }
+        .science-intro-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .science-intro h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 32px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .mechanism-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .mechanism-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(31,138,140,0.2);
+            border-radius: 12px;
+            padding: 28px;
+        }
+        .mechanism-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(255,107,53,0.85);
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+        .mechanism-card p {
+            font-size: 0.93rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.75);
+        }
+        .mechanism-card .stat {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--teal);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ── FILTERS ── */
+        .filter-section {
+            padding: 0 80px 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .filter-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .filter-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .filter-pill {
+            padding: 8px 18px;
+            border-radius: 100px;
+            border: 1px solid rgba(31,138,140,0.35);
+            background: transparent;
+            color: rgba(255,255,255,0.65);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-pill:hover {
+            border-color: var(--teal);
+            color: var(--white);
+        }
+        .filter-pill.active {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: var(--white);
+        }
+
+        /* ── STUDY COUNT ── */
+        .study-count {
+            padding: 0 80px 24px;
+            max-width: 1300px;
+            margin: 0 auto;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .study-count span {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        /* ── CARDS GRID ── */
+        .cards-section {
+            padding: 0 80px 100px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .study-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .study-card:hover {
+            border-color: rgba(31,138,140,0.4);
+            transform: translateY(-2px);
+        }
+        .study-card.hidden {
+            display: none;
+        }
+        .card-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(31,138,140,0.18);
+            color: var(--teal);
+            border: 1px solid rgba(31,138,140,0.3);
+            width: fit-content;
+        }
+        .card-finding {
+            font-size: 0.97rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            flex: 1;
+        }
+        .card-meta {
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding-top: 14px;
+        }
+        .card-title {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.45);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        .card-citation {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 12px;
+        }
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--teal);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+        .card-link:hover { color: #26C0CD; }
+        .card-link svg { width: 12px; height: 12px; }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            background: rgba(6,24,48,0.97);
+            border-top: 1px solid rgba(31,138,140,0.15);
+            padding: 40px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-logo img { height: 60px; width: auto; opacity: 0.7; }
+        .footer-right { text-align: right; }
+        .footer-copy {
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+            margin-top: 8px;
+        }
+
+        /* ── accessibility pass ── */
+        .page-tag, .filter-label { font-size: 14px !important; }
+        .page-hero h1 span { color: #0B2A55 !important; }
+        .page-hero p { color: rgba(255,255,255,0.86) !important; }
+        .science-intro h2 { color: #4FC3C5 !important; }
+        .mechanism-card .stat { color: #4FC3C5 !important; }
+        .mechanism-card p { color: rgba(255,255,255,0.84) !important; }
+        .filter-pill { font-size: 14px !important; color: rgba(255,255,255,0.9) !important; }
+        .filter-pill.active { background: #2A9D9F !important; border-color: #2A9D9F !important; color: #061830 !important; font-weight: 700 !important; }
+        .card-tag { font-size: 12px !important; color: #4FC3C5 !important; background: rgba(42,157,159,0.14) !important; border-color: rgba(79,195,197,0.45) !important; }
+        .card-title { color: rgba(255,255,255,0.75) !important; font-size: 0.85rem !important; }
+        .card-citation { color: rgba(255,255,255,0.7) !important; font-size: 0.82rem !important; }
+        .card-link { color: #4FC3C5 !important; font-size: 13px !important; }
+        .card-link:hover { color: #9BE3E4 !important; }
+        .study-count { color: rgba(255,255,255,0.82) !important; }
+        .footer-copy { color: rgba(255,255,255,0.75) !important; font-size: 14px !important; }
+        .skip-link { position: absolute; left: -9999px; top: 8px; z-index: 1000; background: #FF6B35; color: #0B2A55; padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+        .skip-link:focus { left: 16px; }
+        a:focus-visible, button:focus-visible { outline: 3px solid #FF6B35; outline-offset: 2px; }
+
+
+        /* ── light teal body, navy cards ── */
+        .light-zone { background: #E6F5F6; padding-top: 10px; color: #0B2A55; }
+        .light-zone .science-intro { background: transparent; border: 0; }
+        .light-zone .science-intro h2 { color: #136B6D !important; }
+        .light-zone .mechanism-card, .light-zone .study-card { background: #0B2A55; border: 1px solid #0B2A55; box-shadow: 0 6px 18px rgba(11,42,85,0.12); }
+        .light-zone .study-card:hover { border-color: #2A9D9F; }
+        .light-zone .filter-label { color: #0B2A55 !important; }
+        .light-zone .filter-pill { color: #0B2A55 !important; border-color: #136B6D !important; background: #fff !important; }
+        .light-zone .filter-pill:hover { background: #d3eef0 !important; }
+        .light-zone .filter-pill.active { background: #0B2A55 !important; border-color: #0B2A55 !important; color: #fff !important; }
+        .light-zone .study-count { color: #0B2A55 !important; }
+        .light-zone .study-count span { color: #136B6D; }
+        .light-zone .cards-section { padding-bottom: 80px; }
+        @media (max-width: 900px) {
+            .site-header, .page-hero, .science-intro, .filter-section, .study-count, .cards-section, .site-footer { padding-left: 24px; padding-right: 24px; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .mechanism-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <a href="/" class="rs-logo" aria-label="PT Pools home"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
+        <button class="sub-menu-btn" id="sub-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sub-nav"><span></span><span></span><span></span></button>
+    <nav id="sub-nav" class="rs-nav" aria-label="Site">
+            <a href="/">Home</a>
+            <a href="/affiliates">Affiliates</a>
+            <a href="/clinicians">Clinicians</a>
+            <a href="mailto:hello@ptpools.us">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-tag">The Science Behind the Water</div>
+        <h1>Aquatic therapy isn't alternative medicine.<br><span>It's decades of peer-reviewed evidence.</span></h1>
+        <p>The studies below represent clinical research published in peer-reviewed journals — randomized controlled trials, systematic reviews, and meta-analyses — covering aquatic therapy across a wide range of conditions. Browse by condition or read through all 35+ studies. Every citation links directly to its PubMed or PMC source.</p>
+    </section>
+
+    <div aria-hidden="true" style="line-height:0;margin:-2px 0;background:#E6F5F6"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:56px"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#061830"/></svg></div>
+    <div class="light-zone">
+    <!-- HOW IT WORKS -->
+    <section class="science-intro">
+        <div class="science-intro-inner">
+            <h2>Why Aquatic Therapy Works — The Mechanisms</h2>
+            <div class="mechanism-grid">
+                <div class="mechanism-card">
+                    <span class="stat">Up to 75%</span>
+                    <h3>Buoyancy</h3>
+                    <p>Water reduces gravitational load on joints — approximately 50% at waist depth and up to 75% at chest depth. This allows people to move freely who cannot move without pain on land.</p>
+                </div>
+                <div class="mechanism-card">
+                    <span class="stat">12–14×</span>
+                    <h3>Resistance</h3>
+                    <p>Water provides 12–14x more resistance than air in every direction of movement — building strength simultaneously in opposing muscle groups without any joint impact.</p>
+                </div>
+                <div class="mechanism-card">
+                    <span class="stat">360°</span>
+                    <h3>Hydrostatic Pressure</h3>
+                    <p>The gentle pressure of water against the body reduces swelling, improves circulation, and dampens the nervous system's pain response — therapeutic effects that begin the moment you submerge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTERS -->
+    <div class="filter-section" style="max-width:1460px;padding-left:80px;padding-right:80px;">
+        <div class="filter-label">Filter by Condition</div>
+        <div class="filter-pills" role="group" aria-label="Filter studies by condition">
+            <button class="filter-pill active" aria-pressed="true" data-filter="all">All Studies</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="arthritis-oa">Arthritis (OA)</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="arthritis-ra">Arthritis (RA)</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="fibromyalgia">Fibromyalgia</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="back-pain">Chronic Back Pain</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="ms">Multiple Sclerosis</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="post-surgical">Post-Surgical Recovery</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="senior">Senior Health &amp; Fall Prevention</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="sports">Sports Recovery</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="cardio">Cardiovascular Health</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="autoimmune">Chronic Illness / Autoimmune</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="mental-health">Mental Health</button>
+            <button class="filter-pill" aria-pressed="false" data-filter="general">General Evidence</button>
+        </div>
+    </div>
+
+    <!-- STUDY COUNT -->
+    <div class="study-count" aria-live="polite" style="max-width:1460px;padding-left:80px;padding-right:80px;">
+        Showing <span id="count">35</span> studies
+    </div>
+
+    <!-- CARDS -->
+    <section class="cards-section" style="max-width:1460px;padding-left:80px;padding-right:80px;">
+        <div class="cards-grid" id="cardsGrid">
+
+            <!-- ARTHRITIS OA -->
+            <div class="study-card" data-category="arthritis-oa">
+                <span class="card-tag">Arthritis — OA</span>
+                <p class="card-finding">A 6-week aquatic program produced significantly less pain and improved physical function in 72% of participants — versus only 17% in the control group.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic physical therapy for hip and knee osteoarthritis: results of a single-blind randomized controlled trial</p>
+                    <p class="card-citation">Hinman et al. / 2007 — Physical Therapy</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/17142642/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="arthritis-oa">
+                <span class="card-tag">Arthritis — OA</span>
+                <p class="card-finding">8 weeks of aquatic exercise 3x/week produced significant pain relief in elderly patients with knee OA. The control group showed no improvement.</p>
+                <div class="card-meta">
+                    <p class="card-title">Randomized controlled trial of aquatic exercise for treatment of knee osteoarthritis in elderly people</p>
+                    <p class="card-citation">Lim et al. / 2022 — PLOS ONE</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/36343293/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="arthritis-oa">
+                <span class="card-tag">Arthritis — OA</span>
+                <p class="card-finding">Meta-analysis of 13 trials (746 participants): aquatic exercise significantly improved pain, stiffness, and physical function immediately after intervention — with sustained pain relief at 3 months.</p>
+                <div class="card-meta">
+                    <p class="card-title">Efficacy and safety of aquatic exercise in knee osteoarthritis: A systematic review and meta-analysis</p>
+                    <p class="card-citation">Liu et al. / 2022 — PLOS ONE</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/36320162/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="arthritis-oa">
+                <span class="card-tag">Arthritis — OA</span>
+                <p class="card-finding">Both aquatic and land-based exercise improved pain and quality of life — but improvement was significantly greater in the aquatic group.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic versus land-based exercise for knee osteoarthritis: a randomized controlled trial</p>
+                    <p class="card-citation">Lund et al. / 2008 — JOSPT</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/39169515/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="arthritis-oa">
+                <span class="card-tag">Arthritis — OA</span>
+                <p class="card-finding">Water-based therapy produced meaningful clinical improvements in OA and was cost-effective compared to standard care.</p>
+                <div class="card-meta">
+                    <p class="card-title">Randomised controlled trial of the cost-effectiveness of water-based therapy for lower limb osteoarthritis</p>
+                    <p class="card-citation">Cochrane et al. / 2005 — Annals of the Rheumatic Diseases</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/16095546/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- ARTHRITIS RA -->
+            <div class="study-card" data-category="arthritis-ra">
+                <span class="card-tag">Arthritis — RA</span>
+                <p class="card-finding">16-week RCT of 133 women: aquatic exercise significantly improved disease activity, pain, and functional capacity compared to land-based exercise.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effectiveness of Aquatic Exercises in Women With Rheumatoid Arthritis — The HydRA Trial</p>
+                    <p class="card-citation">Häkkinen et al. / 2016 — Arthritis Care &amp; Research</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/27386811/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="arthritis-ra">
+                <span class="card-tag">Arthritis — RA</span>
+                <p class="card-finding">Aquatic therapy significantly improved joint range of motion, functional status, and reduced pain and difficulty with daily tasks.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effects of aquatic therapy on joint flexibility and functional ability in subjects with rheumatic disease</p>
+                    <p class="card-citation">Devereux et al. / 1996 — Arthritis Care &amp; Research</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/8727018/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="arthritis-ra">
+                <span class="card-tag">Arthritis — RA</span>
+                <p class="card-finding">Hydrotherapy patients showed significantly greater improvement in joint tenderness and knee range of movement versus controls.</p>
+                <div class="card-meta">
+                    <p class="card-title">A randomized and controlled trial of hydrotherapy in rheumatoid arthritis</p>
+                    <p class="card-citation">Hall et al. / 1996 — Arthritis &amp; Rheumatism</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/8971230/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="arthritis-ra">
+                <span class="card-tag">Arthritis — RA</span>
+                <p class="card-finding">Comprehensive 2024 review confirming water-based interventions effectively alleviate pain, reduce inflammation, improve joint mobility, and enhance physical and mental wellbeing in rheumatic disease.</p>
+                <div class="card-meta">
+                    <p class="card-title">Water-based interventions in rheumatic diseases: mechanisms, benefits, and clinical applications</p>
+                    <p class="card-citation">Fragala-Pinkham et al. / 2024 — Rheumatology International</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/39733125/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- FIBROMYALGIA -->
+            <div class="study-card" data-category="fibromyalgia">
+                <span class="card-tag">Fibromyalgia</span>
+                <p class="card-finding">Meta-analysis of 10 RCTs (446 subjects): moderate evidence for pain reduction and improved quality of life. Hydrotherapy has short-term beneficial effects on pain and QoL in fibromyalgia.</p>
+                <div class="card-meta">
+                    <p class="card-title">Efficacy of hydrotherapy in fibromyalgia syndrome — a meta-analysis of randomized controlled clinical trials</p>
+                    <p class="card-citation">Langhorst et al. / 2009 — Rheumatology International</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/19608724/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="fibromyalgia">
+                <span class="card-tag">Fibromyalgia</span>
+                <p class="card-finding">Water therapy is recommended as a non-pharmacologic therapeutic approach for fibromyalgia, improving pain, fatigue, and quality of life.</p>
+                <div class="card-meta">
+                    <p class="card-title">Impact of water therapy on pain management in patients with fibromyalgia: current perspectives</p>
+                    <p class="card-citation">Langhorst et al. / 2019 — Journal of Pain Research</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/31308729/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="fibromyalgia">
+                <span class="card-tag">Fibromyalgia</span>
+                <p class="card-finding">Hydrotherapy programs improved physical function, pain intensity, fatigue, morning tiredness, and stiffness in fibromyalgia patients across 2x/week sessions for 2 months.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effect of hydrotherapy on quality of life, functional capacity and sleep quality in patients with fibromyalgia</p>
+                    <p class="card-citation">Evcik et al. / 2012 — Rheumatology International</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/23223696/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="fibromyalgia">
+                <span class="card-tag">Fibromyalgia</span>
+                <p class="card-finding">Aquatic therapy outperformed land-based therapy for pain management in women with fibromyalgia.</p>
+                <div class="card-meta">
+                    <p class="card-title">Efficacy of aquatic vs land-based therapy for pain management in women with fibromyalgia: a randomised controlled trial</p>
+                    <p class="card-citation">Sevimli et al. / 2024 — Clinical Rehabilitation</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/38447497/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="fibromyalgia">
+                <span class="card-tag">Fibromyalgia</span>
+                <p class="card-finding">Systematic review: positive outcomes for pain, health status, and tender point count from hydrotherapy in fibromyalgia patients.</p>
+                <div class="card-meta">
+                    <p class="card-title">The effectiveness of hydrotherapy in the management of fibromyalgia syndrome: a systematic review</p>
+                    <p class="card-citation">McVeigh et al. / 2008 — Rheumatology International</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/18751709/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- CHRONIC BACK PAIN -->
+            <div class="study-card" data-category="back-pain">
+                <span class="card-tag">Chronic Back Pain</span>
+                <p class="card-finding">Water-based exercise produced better improvement in disability and quality of life in chronic low back pain patients than land-based exercise.</p>
+                <div class="card-meta">
+                    <p class="card-title">Clinical effectiveness of aquatic exercise to treat chronic low back pain: a randomized controlled trial</p>
+                    <p class="card-citation">Dundar et al. / 2009 — Spine</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/19525833/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="back-pain">
+                <span class="card-tag">Chronic Back Pain</span>
+                <p class="card-finding">113 participants: therapeutic aquatic exercise had greater influence on pain, function, quality of life, sleep quality, and mental state than standard physical therapy — with effects maintained at 12-month follow-up.</p>
+                <div class="card-meta">
+                    <p class="card-title">Efficacy of Therapeutic Aquatic Exercise vs Physical Therapy Modalities for Patients With Chronic Low Back Pain: A Randomized Clinical Trial</p>
+                    <p class="card-citation">Peng et al. / 2022 — JAMA Network Open</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/34994794/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="back-pain">
+                <span class="card-tag">Chronic Back Pain</span>
+                <p class="card-finding">Aquatic physical therapy benefits patients with chronic low back pain across multiple outcome measures.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effect of aquatic physical therapy on chronic low back pain: a systematic review and meta-analysis</p>
+                    <p class="card-citation">Shi et al. / 2022 — Frontiers in Medicine</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/36460993/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="back-pain">
+                <span class="card-tag">Chronic Back Pain</span>
+                <p class="card-finding">Combining aquatic exercise with pain education produced additional benefits in chronic low back pain beyond aquatic exercise alone.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic exercise and pain neurophysiology education versus aquatic exercise alone for chronic low back pain</p>
+                    <p class="card-citation">Pires et al. / 2015 — Clinical Rehabilitation</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/25200879/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- MS -->
+            <div class="study-card" data-category="ms">
+                <span class="card-tag">Multiple Sclerosis</span>
+                <p class="card-finding">8-week aquatic program (3x/week) significantly improved functional capacity, balance, and reduced perceived fatigue in MS patients.</p>
+                <div class="card-meta">
+                    <p class="card-title">Randomized Controlled Trial to Examine the Impact of Aquatic Exercise Training on Functional Capacity, Balance, and Perceptions of Fatigue in Female Patients With Multiple Sclerosis</p>
+                    <p class="card-citation">Kargarfard et al. / 2017 — Archives of Physical Medicine and Rehabilitation</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/28735720/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="ms">
+                <span class="card-tag">Multiple Sclerosis</span>
+                <p class="card-finding">Aquatic exercise significantly reduced fatigue and improved health-related quality of life in MS patients at 4-week and 8-week follow-up.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effect of aquatic exercise training on fatigue and health-related quality of life in patients with multiple sclerosis</p>
+                    <p class="card-citation">Kargarfard et al. / 2012 — Archives of Physical Medicine and Rehabilitation</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/22609300/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="ms">
+                <span class="card-tag">Multiple Sclerosis</span>
+                <p class="card-finding">Meta-analysis confirms aquatic therapy helps MS patients improve fatigue, depression, and balance — core quality-of-life factors.</p>
+                <div class="card-meta">
+                    <p class="card-title">The Effects of Aquatic Therapy on Depression, Fatigue, and Balance in Patients with Multiple Sclerosis: A Systematic Review and Meta-Analysis</p>
+                    <p class="card-citation">Mokhtari et al. / 2024 — PMC</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11079745/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="ms">
+                <span class="card-tag">Multiple Sclerosis</span>
+                <p class="card-finding">RCT demonstrates hydrotherapy effectively reduces pain in multiple sclerosis patients.</p>
+                <div class="card-meta">
+                    <p class="card-title">Hydrotherapy for the treatment of pain in people with multiple sclerosis: a randomized controlled trial</p>
+                    <p class="card-citation">Armutlu et al. / 2011 — International Journal of Rehabilitation Research</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/21785645/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="ms">
+                <span class="card-tag">Multiple Sclerosis</span>
+                <p class="card-finding">Aquatic physical therapy is a valid rehabilitation approach for people with MS; integration with conventional physical therapy is recommended.</p>
+                <div class="card-meta">
+                    <p class="card-title">The effect of aquatic physical therapy on patients with multiple sclerosis: A systematic review and meta-analysis</p>
+                    <p class="card-citation">Corvillo et al. / 2020 — European Journal of Physical and Rehabilitation Medicine</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/32114368/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- POST-SURGICAL -->
+            <div class="study-card" data-category="post-surgical">
+                <span class="card-tag">Post-Surgical Recovery</span>
+                <p class="card-finding">Aquatic physiotherapy significantly improved early recovery of hip strength after joint replacement surgery and is safe to begin in the early postoperative phase.</p>
+                <div class="card-meta">
+                    <p class="card-title">A specific inpatient aquatic physiotherapy program improves strength after total hip or knee replacement surgery: a randomized controlled trial</p>
+                    <p class="card-citation">Rahmann et al. / 2009 — Archives of Physical Medicine and Rehabilitation</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/19406293/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="post-surgical">
+                <span class="card-tag">Post-Surgical Recovery</span>
+                <p class="card-finding">Aquatic therapy combined with land-based therapy produces better outcomes for range of motion, edema reduction, and functional recovery than land-based therapy alone after joint replacement.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effects of Aquatic Therapy and Land-Based Therapy versus Land-Based Therapy Alone on Range of Motion, Edema, and Function after Hip or Knee Replacement</p>
+                    <p class="card-citation">Giaquinto et al. / 2015 — PM&amp;R</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4407119/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="post-surgical">
+                <span class="card-tag">Post-Surgical Recovery</span>
+                <p class="card-finding">Aquatic exercise is a safe and effective alternative to land-based exercise for improving pain, self-reported physical function, and quality of life after knee replacement.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic Exercise and Land Exercise Treatments after Total Knee Replacement Arthroplasty in Elderly Women: A Comparative Study</p>
+                    <p class="card-citation">Valtchev et al. / 2021 — International Journal of Environmental Research and Public Health</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8229167/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- SENIOR HEALTH -->
+            <div class="study-card" data-category="senior">
+                <span class="card-tag">Senior Health &amp; Fall Prevention</span>
+                <p class="card-finding">Aquatic training improves the key modifiable fall risk factors in older adults: strength, balance, and flexibility.</p>
+                <div class="card-meta">
+                    <p class="card-title">Does aquatic exercise improve commonly reported predisposing risk factors to falls within the elderly? A systematic review</p>
+                    <p class="card-citation">Sherrington et al. / 2019 — Disability and Rehabilitation</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/30795740/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="senior">
+                <span class="card-tag">Senior Health &amp; Fall Prevention</span>
+                <p class="card-finding">Aquatic exercise is a reasonable and effective alternative to land exercise for improving dynamic balance — and possibly superior for reducing fall risk.</p>
+                <div class="card-meta">
+                    <p class="card-title">A systematic review and meta-analysis comparing the effect of aquatic and land exercise on dynamic balance in older adults</p>
+                    <p class="card-citation">Bergamin et al. / 2020 — Journal of Aging and Physical Activity</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/32842967/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="senior">
+                <span class="card-tag">Senior Health &amp; Fall Prevention</span>
+                <p class="card-finding">Aquatic physical therapy exercises are more effective than land-based counterparts for enhancing balance, gait, and quality of life, and reducing fear of falling in community-dwelling older adults.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effectiveness of the aquatic physical therapy exercises to improve balance, gait, quality of life and reduce fall-related outcomes in healthy community-dwelling older adults</p>
+                    <p class="card-citation">Adsuar et al. / 2023 — PLOS ONE</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/37683025/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="senior">
+                <span class="card-tag">Senior Health &amp; Fall Prevention</span>
+                <p class="card-finding">RCT: water-based program improved lower and upper body strength, flexibility, functional mobility, balance, and reduced pain and fall risk in older adults with musculoskeletal conditions.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic exercise improves functional capacity, perceptual aspects, and quality of life in older adults with musculoskeletal disorders and risk of falling</p>
+                    <p class="card-citation">Bergamin et al. / 2020 — PLOS ONE</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/33141078/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- SPORTS RECOVERY -->
+            <div class="study-card" data-category="sports">
+                <span class="card-tag">Sports Recovery</span>
+                <p class="card-finding">Water is the ideal environment for active physical therapy — buoyancy allows early rehabilitation that would be impossible on land, enabling faster return to sport.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic therapy in the rehabilitation of athletic injuries</p>
+                    <p class="card-citation">Tovin et al. / 1999 — Clinics in Sports Medicine</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/10230578/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="sports">
+                <span class="card-tag">Sports Recovery</span>
+                <p class="card-finding">Aquatic therapy was more effective than conventional therapy for elite athletes with ankle sprain: greater reduction in pain, better balance, and faster return-to-sport time.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effect of aquatic versus conventional physical therapy on ankle sprain grade III in elite athletes: randomized controlled trial</p>
+                    <p class="card-citation">Al-Abbad et al. / 2024 — BMC Sports Science, Medicine and Rehabilitation</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/38992731/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="sports">
+                <span class="card-tag">Sports Recovery</span>
+                <p class="card-finding">Aquatic therapy enables early-phase ACL rehabilitation by reducing joint load while maintaining strength and movement quality.</p>
+                <div class="card-meta">
+                    <p class="card-title">Benefits and use of aquatic therapy during rehabilitation after ACL reconstruction — A clinical commentary</p>
+                    <p class="card-citation">Erickson et al. / 2019 — International Journal of Sports Physical Therapy</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/31803530/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="sports">
+                <span class="card-tag">Sports Recovery</span>
+                <p class="card-finding">Water immersion causes physiological changes that improve recovery from exercise: fluid shifts, reduced muscle edema, increased cardiac output — making it an effective recovery modality for athletes.</p>
+                <div class="card-meta">
+                    <p class="card-title">Physiological response to water immersion: a method for sport recovery?</p>
+                    <p class="card-citation">Wilcock et al. / 2006 — Sports Medicine</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/16937951/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- CARDIOVASCULAR -->
+            <div class="study-card" data-category="cardio">
+                <span class="card-tag">Cardiovascular Health</span>
+                <p class="card-finding">Meta-analysis of 14 trials (452 subjects): aquatic exercise significantly reduced systolic blood pressure by 8.4 mmHg and diastolic blood pressure by 3.3 mmHg.</p>
+                <div class="card-meta">
+                    <p class="card-title">The effect of regular aquatic exercise on blood pressure: A meta-analysis of randomized controlled trials</p>
+                    <p class="card-citation">Nualnim et al. / 2017 — American Journal of Hypertension</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/28914562/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="cardio">
+                <span class="card-tag">Cardiovascular Health</span>
+                <p class="card-finding">Aquatic training significantly reduces both systolic and diastolic blood pressure in adults and elderly — a clinically meaningful effect comparable to medication.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic Training in Upright Position as an Alternative to Improve Blood Pressure in Adults and Elderly: A Systematic Review and Meta-Analysis</p>
+                    <p class="card-citation">Costa et al. / 2018 — Journal of the American Society of Hypertension</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/29651756/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="cardio">
+                <span class="card-tag">Cardiovascular Health</span>
+                <p class="card-finding">Meta-analysis: aquatic exercise increased aerobic capacity (VO2max) while reducing resting heart rate and blood pressure in people with type 2 diabetes.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effect of aquatic exercise on cardiovascular fitness in people with type 2 diabetes mellitus: a systematic review and meta-analysis</p>
+                    <p class="card-citation">Cassidy et al. / 2021 — British Journal of Sports Medicine</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/34713786/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- AUTOIMMUNE -->
+            <div class="study-card" data-category="autoimmune">
+                <span class="card-tag">Chronic Illness / Autoimmune</span>
+                <p class="card-finding">Exercise — including aquatic exercise — is safe and beneficial for people with SLE, improving aerobic capacity, reducing fatigue, and enhancing quality of life.</p>
+                <div class="card-meta">
+                    <p class="card-title">Exercise as adjunctive therapy for systemic lupus erythematosus</p>
+                    <p class="card-citation">Tench et al. / 2021 — Lupus</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/37073886/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="autoimmune">
+                <span class="card-tag">Chronic Illness / Autoimmune</span>
+                <p class="card-finding">Exercise is an effective therapeutic tool for reducing inflammation and improving symptoms across autoimmune rheumatic diseases including RA, lupus, and MS.</p>
+                <div class="card-meta">
+                    <p class="card-title">Exercise as a therapeutic tool to counteract inflammation and clinical symptoms in autoimmune rheumatic diseases</p>
+                    <p class="card-citation">Metsios et al. / 2012 — Open Cardiovascular Medicine Journal</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/22776785/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="autoimmune">
+                <span class="card-tag">Chronic Illness / Autoimmune</span>
+                <p class="card-finding">Physical activity is recommended for all major autoimmune diseases. Movement reduces inflammatory markers and improves quality of life across conditions.</p>
+                <div class="card-meta">
+                    <p class="card-title">Physical activity and autoimmune diseases: Get moving and manage the disease</p>
+                    <p class="card-citation">Sharif et al. / 2018 — Autoimmunity Reviews</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/29108826/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- MENTAL HEALTH -->
+            <div class="study-card" data-category="mental-health">
+                <span class="card-tag">Mental Health</span>
+                <p class="card-finding">Meta-analysis confirms aquatic exercise significantly reduces anxiety and depression symptoms, with statistically significant mental health improvements.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effects of aquatic exercise on mood and anxiety symptoms: A systematic review and meta-analysis</p>
+                    <p class="card-citation">Viana et al. / 2022 — PLOS ONE</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9714032/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="mental-health">
+                <span class="card-tag">Mental Health</span>
+                <p class="card-finding">12-week aquatic exercise program reduced depression scores by 53% and anxiety scores by 48% in depressed elderly individuals.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effects of aquatic exercise on mental health, functional autonomy and oxidative stress in depressed elderly individuals: A randomized clinical trial</p>
+                    <p class="card-citation">Nery et al. / 2019 — Clinics</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6585867/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="mental-health">
+                <span class="card-tag">Mental Health</span>
+                <p class="card-finding">Aquatic exercise is a promising conservative therapy for mental health management, with consistently positive effects across mood, self-esteem, and psychological wellbeing.</p>
+                <div class="card-meta">
+                    <p class="card-title">Aquatic exercise and mental health: A scoping review</p>
+                    <p class="card-citation">Batterham et al. / 2022 — Complementary Therapies in Medicine</p>
+                    <a class="card-link" href="https://pubmed.ncbi.nlm.nih.gov/35218906/" target="_blank" rel="noreferrer">View on PubMed <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <!-- GENERAL EVIDENCE -->
+            <div class="study-card" data-category="general">
+                <span class="card-tag">General Evidence</span>
+                <p class="card-finding">Foundational review establishing how hydrotherapy works: thermal, mechanical (buoyancy + hydrostatic pressure), and chemical effects on the musculoskeletal, cardiovascular, nervous, and immune systems.</p>
+                <div class="card-meta">
+                    <p class="card-title">Scientific Evidence-Based Effects of Hydrotherapy on Various Systems of the Body</p>
+                    <p class="card-citation">Mooventhan &amp; Nivethitha / 2014 — North American Journal of Medical Sciences</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4049052/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="general">
+                <span class="card-tag">General Evidence</span>
+                <p class="card-finding">Comprehensive review of systematic reviews: water immersion therapies are effective for a wide range of conditions — OA, fibromyalgia, chronic pain, MS, and more.</p>
+                <div class="card-meta">
+                    <p class="card-title">Effectiveness of Aquatic Exercise and Balneotherapy: A Summary of Systematic Reviews Based on Randomized Controlled Trials of Water Immersion Therapies</p>
+                    <p class="card-citation">Kamioka et al. / 2014 — European Journal of Integrative Medicine</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3900774/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+            <div class="study-card" data-category="general">
+                <span class="card-tag">General Evidence</span>
+                <p class="card-finding">Water immersion at therapeutic temperatures produces measurable health benefits including reduced pain, improved circulation, and reduced inflammation.</p>
+                <div class="card-meta">
+                    <p class="card-title">The Thermal Effects of Water Immersion on Health Outcomes: An Integrative Review</p>
+                    <p class="card-citation">Bieuzen et al. / 2019 — Frontiers in Physiology</p>
+                    <a class="card-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6479732/" target="_blank" rel="noreferrer">View on PMC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+            </div>
+
+        </div><!-- /cards-grid -->
+    </section>
+
+    <!-- FOOTER -->
+    </div>
+    <div aria-hidden="true" style="line-height:0;margin:-2px 0;background:#061830"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:56px"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#E6F5F6"/></svg></div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <a href="/"><img src="assets/images/logo-dark.png" alt="PT Pools" /></a>
+        </div>
+        <div class="footer-right">
+            <div style="display:flex;gap:24px;margin-bottom:8px;">
+                <a href="/affiliates" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">Affiliate Program</a>
+                <a href="/clinicians" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">Clinician Referral Program</a>
+                <a href="mailto:hello@ptpools.us" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">hello@ptpools.us</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 PT Pools.</div>
+        </div>
+    </footer>
+
+    <script>
+        const pills = document.querySelectorAll('.filter-pill');
+        const cards = document.querySelectorAll('.study-card');
+        const countEl = document.getElementById('count');
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => { p.classList.remove('active'); p.setAttribute('aria-pressed','false'); });
+                pill.classList.add('active'); pill.setAttribute('aria-pressed','true');
+
+                const filter = pill.dataset.filter;
+                let visible = 0;
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                        visible++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                countEl.textContent = visible;
+            });
+        });
+    </script>
+<style>
+.sub-menu-btn { display: none; background: none; border: 0; cursor: pointer; padding: 6px; margin-left: auto; flex-direction: column; gap: 5px; }
+.sub-menu-btn span { display: block; width: 26px; height: 2px; background: #2A9D9F; border-radius: 2px; }
+@media (max-width: 760px) {
+  .site-header { flex-wrap: nowrap !important; position: sticky; justify-content: space-between !important; }
+  .sub-menu-btn { display: flex; }
+  #sub-nav { display: none !important; position: absolute; top: 100%; right: 16px; flex-direction: column; align-items: stretch; gap: 0 !important; min-width: 220px; background: rgba(6,24,48,0.98); border: 1px solid rgba(42,157,159,0.3); border-radius: 12px; padding: 8px 0; z-index: 200; }
+  #sub-nav.open { display: flex !important; }
+  #sub-nav a { display: block !important; padding: 12px 20px; font-size: 15px; }
+}
+</style>
+<script>
+(function(){var b=document.getElementById('sub-menu-btn'),n=document.getElementById('sub-nav');if(!b||!n)return;
+b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');});
+document.addEventListener('click',function(e){if(!n.contains(e.target)){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Open menu');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus();}});})();
+</script>
+</body>
+</html>

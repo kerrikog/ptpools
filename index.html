@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDSPLBG7K4"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WDSPLBG7K4');</script>
@@ -9,12 +10,12 @@
     <title>TheraTank — Inflatable Aquatic Therapy Pool for Home Rehabilitation &amp; Exercise | PT Pools</title>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="apple-touch-icon" href="assets/images/logo.png">
-    <meta name="description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable drop-stitch construction, fits almost any yard. Join the Kickstarter launch for the best price.">
+    <meta name="description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable drop-stitch construction, fits almost any yard. Preorders open November 15.">
     <link rel="canonical" href="https://ptpools.us/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="TheraTank — Inflatable Aquatic Therapy Pool for Home Rehabilitation &amp; Exercise">
-    <meta property="og:description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable, fits almost any yard. Coming soon on Kickstarter.">
+    <meta property="og:description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable, fits almost any yard. Preorders open November 15.">
     <!-- TODO: swap render for real product photo once sample photos are ready — real photo converts significantly better on social shares -->
     <meta property="og:image" content="https://ptpools.us/assets/images/theratank-render.png">
     <meta property="og:url" content="https://ptpools.us/">
@@ -22,7 +23,7 @@
     <meta property="og:site_name" content="PT Pools">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TheraTank — Inflatable Aquatic Therapy Pool for Home Rehabilitation &amp; Exercise">
-    <meta name="twitter:description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable, fits almost any yard. Coming soon on Kickstarter.">
+    <meta name="twitter:description" content="The only home aquatic therapy pool with true therapeutic water depth. 54&quot; deep, inflatable, fits almost any yard. Preorders open November 15.">
     <!-- TODO: swap render for real product photo (same as og:image above) -->
     <meta name="twitter:image" content="https://ptpools.us/assets/images/theratank-render.png">
 
@@ -38,15 +39,7 @@
         "name": "PT Pools"
       },
       "image": "https://ptpools.us/assets/images/theratank-render.png",
-      "url": "https://ptpools.us/",
-      "offers": {
-        "@type": "Offer",
-        "price": "749.00",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/PreOrder",
-        "url": "https://ptpools.us/",
-        "priceValidUntil": "2026-12-31"
-      }
+      "url": "https://ptpools.us/"
     }
     </script>
     <script type="application/ld+json">
@@ -61,7 +54,7 @@
     </script>
 
     <!-- Preload hero image — biggest LCP win -->
-    <link rel="preload" as="image" href="assets/images/theratank-render.webp" type="image/webp">
+    <link rel="preload" as="image" href="assets/images/theratank-hero.webp?v=2" type="image/webp">
     <!-- Fonts load after render — no blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +66,7 @@
             --navy: #09244D;
             --navy-dark: #061830;
             --navy-mid: #0d2d5c;
-            --teal: #1F8A8C;
+            --teal: #2A9D9F;
             --orange: #FF6B35;
             --white: #ffffff;
             --text-muted: rgba(255,255,255,0.55);
@@ -103,13 +96,30 @@
         .logo img { height: 110px; width: auto; }
         .nav-tagline {
             font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             letter-spacing: 2.5px;
             text-transform: uppercase;
-            color: var(--teal);
-            opacity: 0.85;
+            color: #2A9D9F;
         }
+
+        .nav-right { position: relative; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .menu-btn { background: none; border: 0; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+        .menu-btn span { display: block; width: 26px; height: 2px; background: #2A9D9F; border-radius: 2px; transition: opacity .2s; }
+        .menu-btn:hover span { opacity: 1; }
+        .site-menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 10px; min-width: 240px; background: rgba(6,24,48,0.98); border: 1px solid rgba(38,192,205,0.25); border-radius: 12px; padding: 8px 0; box-shadow: 0 16px 40px rgba(0,0,0,0.4); z-index: 50; }
+        .site-menu.open { display: block; }
+        .site-menu a { display: block; padding: 12px 20px; color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: none; letter-spacing: 0.5px; }
+        .site-menu a:hover { color: var(--teal); background: rgba(38,192,205,0.06); }
+        @media (min-width: 761px) {
+            .nav-right { flex-direction: row-reverse; align-items: center; gap: 36px; }
+            .menu-btn { display: none; }
+            .site-menu { display: flex !important; position: static; margin: 0; min-width: 0; background: none; border: 0; padding: 0; box-shadow: none; gap: 28px; align-items: center; }
+            .site-menu a { display: inline; padding: 0; color: rgba(255,255,255,0.8); }
+            .site-menu a:hover { background: none; color: #fff; }
+            .site-menu a[aria-current="page"] { color: #fff; }
+        }
+        @media (min-width: 761px) and (max-width: 1100px) { .nav-tagline { display: none; } }
 
         /* ── HERO ── */
         .hero {
@@ -170,12 +180,12 @@
         }
 
         .hero-inner {
-            max-width: 1300px;
+            max-width: 1440px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 0.75fr 1.25fr;
             grid-template-rows: auto auto;
-            column-gap: 100px;
+            column-gap: 40px;
             row-gap: 40px;
         }
 
@@ -191,7 +201,8 @@
         .hero-right {
             grid-column: 2;
             grid-row: 1 / 3;
-            align-self: center;
+            align-self: start;
+            margin-top: 55px;
         }
 
         /* Email box — below text, above nothing, left col row 2 */
@@ -259,7 +270,6 @@
             color: var(--teal);
             margin-bottom: 12px;
             text-transform: none;
-            opacity: 0.88;
         }
 
         /* Subline */
@@ -312,18 +322,19 @@
             height: 2px;
             background: linear-gradient(90deg, var(--teal), transparent);
         }
-        .email-box h3 {
+        .email-box h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.7rem;
+            font-size: 2.2rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             color: var(--white);
             margin-bottom: 10px;
             text-transform: uppercase;
         }
+        .email-box p strong { color: #fff; }
         .email-box p {
             color: var(--text-muted);
-            font-size: 0.92rem;
+            font-size: 1.12rem;
             margin-bottom: 28px;
             line-height: 1.65;
         }
@@ -359,7 +370,7 @@
             width: 100%;
             padding: 16px 24px;
             background: var(--orange);
-            color: var(--white);
+            color: #0B2A55;
             border: none;
             border-radius: 12px;
             font-family: 'Oswald', sans-serif;
@@ -370,7 +381,7 @@
             cursor: pointer;
             transition: background 0.2s, transform 0.1s;
         }
-        .signup-form .btn-notify:hover { background: #e85c28; }
+        .signup-form .btn-notify:hover { background: #FF8455; }
         .signup-form .btn-notify:active { transform: scale(0.98); }
 
         .signup-form .form-fine {
@@ -401,7 +412,7 @@
 
         .specs-visual {
             width: 100%;
-            max-width: 460px;
+            max-width: 860px;
             position: relative;
         }
 
@@ -416,7 +427,7 @@
         }
         .product-mockup img {
             width: 100%;
-            max-width: 420px;
+            max-width: 100%;
             height: auto;
             filter: drop-shadow(0 20px 60px rgba(38, 192, 205, 0.25));
         }
@@ -485,15 +496,16 @@
             align-items: center;
             justify-content: center;
             flex: 1;
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.82);
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.88);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             line-height: 1.4;
         }
         .spec-card .spec-sub {
             display: block;
-            font-size: 0.6rem;
+            font-size: 1rem;
+            font-weight: 600;
             color: var(--orange);
             margin-top: 4px;
             letter-spacing: 0.5px;
@@ -514,69 +526,75 @@
 
 
         /* ── BENEFITS ACCORDION ── */
-        .benefits-accordion { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: start; }
-        @media (max-width: 768px) { .benefits-accordion { grid-template-columns: 1fr; } }
-        .benefit-item {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(31,138,140,0.2);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: border-color 0.2s, background 0.2s;
+        .ww-num { color: #2A9D9F; margin-right: 10px; font-size: 1.2rem; font-weight: 700; }
+        .uc-wrap.ww-three { grid-template-columns: 1fr 2fr 1fr; }
+        .ww-three.ww-flying .uc-panel.active { opacity: 0; }
+        .ww-three .uc-detail { transition: box-shadow .5s ease, border-color .5s ease; }
+        .ww-three .uc-detail.ww-glow { box-shadow: 0 0 0 1px rgba(38,192,205,.5), 0 0 40px rgba(38,192,205,.25); border-color: rgba(38,192,205,.6); }
+        .ww-ghost { position: fixed; z-index: 60; pointer-events: none; border-radius: 10px; background: rgba(31,138,140,0.55); border: 1px solid rgba(38,192,205,.8); box-shadow: 0 0 24px rgba(38,192,205,.6), 0 0 60px rgba(255,107,53,.25); transform-origin: 0 0; transition: transform .45s cubic-bezier(.6,.05,.25,1), opacity .45s ease; }
+        .ww-three .uc-panel.ww-in .uc-title { animation: wwTitle .5s cubic-bezier(.2,.8,.2,1) both; }
+        .ww-three .uc-panel.ww-in .uc-body { animation: wwBody .55s ease .15s both; }
+        @keyframes wwTitle { from { opacity: 0; transform: translateX(var(--ww-from, -40px)); letter-spacing: 4px; } to { opacity: 1; transform: none; } }
+        @keyframes wwBody { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+        @media (prefers-reduced-motion: reduce) { .ww-ghost { display: none; } .ww-three .uc-panel.ww-in .uc-title, .ww-three .uc-panel.ww-in .uc-body { animation: none; } }
+        @media (max-width: 1000px) { .uc-wrap.ww-three { grid-template-columns: 1fr; } .ww-three .uc-detail { order: 3; } }
+
+
+        /* Row 2: specs + email box, equal height */
+        .hero-specs { grid-column: 2; grid-row: 2; display: flex; flex-direction: column; }
+        .hero-specs .specs-grid { flex: 1; grid-auto-rows: 1fr; }
+        .hero-form { align-self: stretch !important; margin-bottom: 0 !important; display: flex; }
+        .hero-form .email-box { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .hero-right { grid-row: 1 !important; align-self: end !important; margin-top: 0 !important; }
+        @media (min-width: 1101px) { .hero-right { margin-bottom: 20px; } }
+        @media (max-width: 1100px) {
+            .hero-right { order: 2; }
+            .hero-specs { grid-column: 1; grid-row: auto; order: 3; }
+            .hero-form { order: 4; }
         }
-        .benefit-item[open] {
-            border-color: rgba(31,138,140,0.5);
-            background: rgba(31,138,140,0.05);
-        }
-        .benefit-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 24px;
-            cursor: pointer;
-            list-style: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        .benefit-header::-webkit-details-marker { display: none; }
-        .benefit-header:hover { background: rgba(31,138,140,0.06); }
-        .benefit-icon { font-size: 1.4rem; flex-shrink: 0; width: 28px; text-align: center; }
-        .benefit-info { flex: 1; min-width: 0; }
-        .benefit-title {
-            display: block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-        }
-        .benefit-blurb {
-            display: block;
-            font-size: 0.83rem;
-            color: rgba(255,255,255,0.48);
-            line-height: 1.4;
-        }
-        .benefit-chevron {
-            color: rgba(31,138,140,0.6);
-            font-size: 0.85rem;
-            transition: transform 0.22s ease;
-            flex-shrink: 0;
-            margin-left: 4px;
-        }
-        .benefit-item[open] .benefit-chevron { transform: rotate(180deg); }
-        .benefit-body {
-            padding: 4px 24px 22px 68px;
-            color: rgba(255,255,255,0.72);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.94rem;
-            line-height: 1.78;
-            border-top: 1px solid rgba(31,138,140,0.12);
-        }
-        @media (max-width: 576px) {
-            .benefit-badge { display: none; }
-            .benefit-body { padding: 12px 18px 20px; }
-        }
+
+        @media (max-width: 900px) { .ds-row { grid-template-columns: 1fr !important; } }
+
+
+        /* What's Included — light section */
+        .box-light .box-item { border-bottom-color: rgba(11,42,85,0.12); }
+        .box-light .box-title { color: #0B2A55; }
+        .box-light .box-text { color: rgba(11,42,85,0.78); }
+        .box-light .box-check { background: rgba(31,138,140,0.12); border-color: #2A9D9F; color: #136B6D; }
+        .box-light .box-img { background: transparent; box-shadow: none; padding: 0; }
+
+
+        /* Why Water — light teal section, navy controls */
+        .ww-light .uc-item { background: #0B2A55; border-color: #0B2A55; color: rgba(255,255,255,0.88); box-shadow: 0 4px 14px rgba(11,42,85,0.15); }
+        .ww-light .uc-item:hover { background: #12386e; border-color: #12386e; color: #fff; }
+        .ww-light .uc-item.active { background: #136B6D; border-color: #136B6D; border-left-color: #FF6B35; color: #fff; }
+        .ww-light .ww-num { color: #2A9D9F; }
+        .ww-light .uc-item.active .ww-num { color: #fff; }
+        .ww-light .uc-detail { background: #0B2A55; border-color: #0B2A55; box-shadow: 0 10px 30px rgba(11,42,85,0.2); }
+
+
+        /* Bottom CTA — email + button on one line */
+        .cta-light .signup-form input[type="email"] { background: #ffffff; border: 1px solid rgba(19,107,109,0.45); color: #0B2A55; }
+        .cta-light .signup-form input[type="email"]::placeholder { color: rgba(11,42,85,0.55); }
+        .cta-light .signup-form input[type="email"]:focus { border-color: #136B6D; background: #ffffff; }
+        .cta-light .signup-form .form-fine { color: rgba(11,42,85,0.7); }
+        .cta-light .signup-success { color: #0B2A55; }
+        .ks-badge .dot.dot-teal { background: #136B6D; animation: blinkTeal 2s infinite; }
+        @keyframes blinkTeal { 0%, 100% { opacity: 1; box-shadow: 0 0 8px #2A9D9F; } 50% { opacity: 0.3; box-shadow: none; } }
+        .signup-form.cta-inline { display: flex; flex-direction: row; flex-wrap: wrap; gap: 12px; align-items: stretch; }
+        .cta-inline .field-wrap { flex: 1 1 300px; margin: 0; }
+        .cta-inline .field-wrap input { width: 100%; margin: 0; }
+        .cta-inline .btn-notify { flex: 0 0 auto; width: auto; margin: 0; padding-left: 32px; padding-right: 32px; white-space: nowrap; }
+        .signup-form.cta-inline { position: relative; }
+        .cta-inline .form-fine { position: absolute; top: 100%; left: 0; margin-top: 10px; text-align: left; }
+        @media (max-width: 900px) { .cta-inline .form-fine { position: static; flex-basis: 100%; margin-top: 0; text-align: center; } }
+        @media (max-width: 576px) { .cta-inline .btn-notify { flex: 1 1 100%; } }
+        @media (max-width: 900px) { .cta-row { grid-template-columns: 1fr !important; text-align: center !important; gap: 28px !important; } .cta-row .signup-form { margin: 0 auto !important; } }
+
+        .skip-link { position: absolute; left: 16px; top: -60px; z-index: 100; background: #fff; color: #0B2A55; padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+        .skip-link:focus { top: 16px; }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
         /* ── FOOTER ── */
         .site-footer {
@@ -598,8 +616,8 @@
             display: inline-block;
         }
         .footer-copy {
-            color: rgba(255,255,255,0.2);
-            font-size: 0.72rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
         }
 
         /* ── RESPONSIVE ── */
@@ -611,7 +629,7 @@
                 column-gap: 0;
             }
             .hero-left  { grid-column: 1; grid-row: auto; order: 1; }
-            .hero-right { grid-column: 1; grid-row: auto; order: 2; }
+            .hero-right { grid-column: 1; grid-row: auto; order: 2; margin-top: 0; }
             .hero-form  { grid-column: 1; grid-row: auto; order: 3; }
             .specs-visual { max-width: 400px; }
             .hero-content { padding: 72px 40px; }
@@ -636,7 +654,7 @@
             .specs-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 12px; }
             .spec-card { padding: 22px 12px; }
             .spec-card .spec-val { font-size: 2.2rem; margin-bottom: 6px; display: inline-block; transform: scaleY(1.3); transform-origin: center; }
-            .spec-card .spec-sub { font-size: 0.62rem; }
+            .spec-card .spec-sub { font-size: 0.9rem; }
         }
         @media (max-width: 576px) {
             .site-header { padding: 18px 20px; }
@@ -666,28 +684,79 @@
             .product-label .model { font-size: 1.6rem; }
             .product-label { margin-bottom: 16px; padding-bottom: 16px; }
         }
+        /* ===== mobile pass ===== */
+        @media (max-width: 800px) {
+            .depth-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+        }
+        @media (max-width: 600px) {
+            .specs-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+            .spec-card { padding: 16px 10px !important; }
+            .spec-card .spec-val { font-size: 1.9rem !important; transform: none !important; }
+            .spec-card .spec-lbl { font-size: 0.75rem !important; letter-spacing: 1px !important; }
+            .spec-card .spec-sub { font-size: 0.85rem !important; }
+            .hero h1, .hero-left h1 { font-size: clamp(2.2rem, 10vw, 3rem) !important; }
+            .hero-left .accent { font-size: clamp(1.4rem, 6.5vw, 2rem) !important; white-space: normal !important; }
+            section { padding-left: 20px !important; padding-right: 20px !important; }
+            .ks-badge { letter-spacing: 1.2px !important; padding: 9px 16px !important; }
+            .spec-solo { display: block !important; }
+            .hero-form { margin-bottom: 30px !important; }
+        }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- HEADER -->
     <header class="site-header" role="banner" aria-label="PT Pools">
         <div class="logo">
             <img src="assets/images/logo-dark.png" alt="PT Pools home" />
         </div>
-        <div class="nav-tagline" aria-label="Physical Therapy. Pool Therapy. PT Pools."><span class="tagline-break">Physical Therapy.</span><span class="tagline-break">Pool Therapy.</span><span class="tagline-break">PT Pools.</span></div>
+        <div class="nav-right">
+            <div class="nav-tagline"><span class="tagline-break">Physical Therapy.</span><span class="tagline-break">Pool Therapy.</span><span class="tagline-break">PT Pools.</span></div>
+            <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
+            <nav class="site-menu" id="site-menu" aria-label="Site">
+                <a href="/" aria-current="page">Home</a>
+                <a href="/affiliates">Affiliates</a>
+                <a href="/clinicians">Clinicians</a>
+                <a href="mailto:hello@ptpools.us">Contact</a>
+            </nav>
+        </div>
     </header>
+    <script>
+    (function(){var b=document.getElementById('menu-btn'),m=document.getElementById('site-menu');
+    b.addEventListener('click',function(e){e.stopPropagation();var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!m.contains(e.target)){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});})();
+    </script>
 
 
     <!-- Header wave -->
     <div style="line-height:0; margin-top:-1px; background:rgba(6,24,48,0.97);">
         <svg viewBox="0 0 1440 30" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:30px;display:block;">
-            <path d="M0,15 C480,30 960,0 1440,15" stroke="rgba(38,192,205,0.3)" stroke-width="1.5" fill="none"/>
+            <path d="M0,15 C480,30 960,0 1440,15 L1440,30 L0,30 Z" fill="#2A9D9F"/>
+            <path d="M0,15 C480,30 960,0 1440,15" stroke="#2A9D9F" stroke-width="1.5" fill="none"/>
         </svg>
     </div>
 
-    <!-- HERO -->
     <main id="main-content">
+    <!-- USE CASE STRIP -->
+    <style>@media (max-width:1500px){.ucs>div{gap:12px !important}.ucs>div>span{letter-spacing:0.5px !important}}</style>
+    <section class="ucs" style="background:#2A9D9F;padding:22px 24px;">
+        <div style="max-width:1640px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+            <span style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Aqua Fitness Training</span>
+            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Rehabilitation</span>
+            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Injury Recovery</span>
+            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Arthritis Relief</span>
+            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Athletic Conditioning</span>
+            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Low Impact Fitness</span>
+        </div>
+    </section>
+
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-pattern"></div>
         <div class="hero-glow-top"></div>
@@ -701,26 +770,14 @@
 
                     <div class="ks-badge">
                         <span class="dot"></span>
-                        Coming Soon &nbsp;&rarr;&nbsp; Kickstarter
+                        Preorders Open November 15
                     </div>
 
                     <h1>
                         <span class="block">The TheraTank by PT Pools</span>
-                        Aquatic therapy<br>for every body —<br><span class="accent">and almost every yard.</span>
+                        Aquatic therapy<br>for every body —<br><span class="accent">and almost<span style="color:#FF6B35;font-style:normal;margin-left:0.12em;margin-right:0.2em;">*</span>every yard.</span>
                     </h1>
 
-                    <div class="teal-divider"></div>
-
-                    <p class="subline">
-                        <span style="white-space:nowrap">Deep Water Training</span> &nbsp;|&nbsp;
-                        <span style="white-space:nowrap">Rehabilitation</span> &nbsp;|&nbsp;
-                        <span style="white-space:nowrap">Injury Recovery</span> &nbsp;|&nbsp;
-                        <span style="white-space:nowrap">Arthritis Relief</span> &nbsp;|&nbsp;
-                        <span style="white-space:nowrap">Athletic Conditioning</span> &nbsp;|&nbsp;
-                        <span style="white-space:nowrap">Low Impact Fitness</span>
-                    </p>
-
-                    <p class="built-for">Built for pain-free movement.</p>
 
                 </div>
 
@@ -730,16 +787,16 @@
 
                         <div class="product-mockup">
                             <picture>
-                                <source srcset="assets/images/theratank-render.webp" type="image/webp">
-                                <img src="assets/images/theratank-render.png" alt="TheraTank by PT Pools" fetchpriority="high" loading="eager" />
+                                <source srcset="assets/images/theratank-hero.webp?v=2" type="image/webp">
+                                <img src="assets/images/theratank-hero.png?v=2" alt="TheraTank by PT Pools next to a 5 foot 10 inch man for scale" fetchpriority="high" loading="eager" />
                             </picture>
                         </div>
 
-                        <div class="product-label">
-                            <div class="model">TheraTank</div>
-                            <div class="brand">by PT Pools</div>
-                        </div>
+                    </div>
+                </div>
 
+                <!-- SPECS -->
+                <div class="hero-specs">
                         <div class="specs-grid">
                             <div class="spec-card">
                                 <span class="spec-val">59"</span>
@@ -752,9 +809,9 @@
                                 <span class="spec-sub">3M (9'10") footprint</span>
                             </div>
                             <div class="spec-card featured">
-                                <span class="spec-val">$749</span>
-                                <span class="spec-lbl">Early Bird<br>Launch Price</span>
-                                <span class="spec-sub">*first 50 backers</span>
+                                <span class="spec-val">~75%</span>
+                                <span class="spec-lbl">Body Weight<br>Offloaded</span>
+                                <span class="spec-sub">at chest depth</span>
                             </div>
                             <div class="spec-card spec-solo">
                                 <span class="spec-val">Inflatable</span>
@@ -762,17 +819,13 @@
                                 <span class="spec-sub">Sets up solo</span>
                             </div>
                         </div>
-
-                        <p class="industry-note">54" water depth. Drop stitch inflatable. Sets up solo. Fits almost any yard.</p>
-
-                    </div>
                 </div>
 
                 <!-- EMAIL FORM -->
                 <div class="hero-form">
                     <div class="email-box">
-                        <h3>Be First in Line</h3>
-                        <p>Early Kickstarter backers get the best price.<br>Get notified when we launch.</p>
+                        <h2>Be First in Line</h2>
+                        <p><strong>Planning for next swim season?</strong> Preorders get first spring delivery. Get notified the moment they open.</p>
                         <div class="ml-subscribe-form ml-subscribe-form-41259136">
                             <div class="row-form">
                                 <form class="signup-form" action="https://assets.mailerlite.com/jsonp/2345369/forms/187374732799116571/subscribe" method="post">
@@ -787,7 +840,7 @@
                                 </form>
                             </div>
                             <div class="row-success" style="display:none">
-                                <p class="signup-success">You're on the list! We'll reach out the moment we launch on Kickstarter.</p>
+                                <p class="signup-success">You're on the list! We'll reach out the moment preorders open.</p>
                             </div>
                         </div>
                     </div>
@@ -799,375 +852,340 @@
         <!-- Wave bottom -->
         <div class="hero-wave">
             <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:60px;">
-                <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1F8A8C"/>
+                <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#0B2A55"/>
+                <path d="M0,30 C360,60 1080,0 1440,30" stroke="rgba(38,192,205,0.55)" stroke-width="2" fill="none"/>
             </svg>
         </div>
     </section>
-    </main>
 
-    <!-- USE CASE STRIP -->
-    <section style="background:#1F8A8C;padding:28px 60px;">
-        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;">
-            <span style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Deep Water Training</span>
-            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
-            <span style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Rehabilitation</span>
-            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
-            <span style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Injury Recovery &amp; Prevention</span>
-            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
-            <span style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Arthritis Relief</span>
-            <span style="color:rgba(255,255,255,0.4);font-size:1.2rem;">|</span>
-            <span style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;white-space:nowrap;">Low Impact Fitness</span>
-        </div>
+    <!-- BUILT FOR BANNER -->
+    <section style="background:#0B2A55;padding:26px 40px 30px;text-align:center;position:relative;">
+        <p style="margin:0;font-family:'Oswald',sans-serif;font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#fff;">Built for <span style="color:#FF6B35;">pain-free</span> movement.</p>
     </section>
+    <div style="line-height:0;background:#E6F5F6;">
+        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:60px;display:block;">
+            <path d="M0,0 L1440,0 L1440,30 C1080,0 360,60 0,30 Z" fill="#0B2A55"/>
+            <path d="M0,30 C360,60 1080,0 1440,30" stroke="rgba(38,192,205,0.55)" stroke-width="2" fill="none"/>
+        </svg>
+    </div>
+
 
     <!-- PAIN CYCLE SECTION -->
-    <section style="padding:100px 60px;background:#061830;text-align:center;">
+    <section style="padding:100px 60px;background:linear-gradient(180deg,#E6F5F6 0%,#D3EEF0 100%);text-align:center;">
         <div style="max-width:760px;margin:0 auto;">
-            <p style="font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.35;color:#fff;margin-bottom:0;">The more you hurt, the less you <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">move</span>.<br>The less you move, the <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">more</span> you hurt.</p>
-            <p style="font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.35;color:#1F8A8C;margin:16px 0;">Water breaks the cycle.</p>
-            <p style="font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.35;color:#fff;">Water helps you <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">move more.</span></p>
+            <p style="font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.35;color:#0B2A55;margin-bottom:0;">The more you hurt, the less you <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">move</span>.<br>The less you move, the <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">more</span> you hurt.</p>
+            <p style="font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.35;color:#136B6D;margin:16px 0;">Water breaks the cycle.</p>
+            <p style="font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.35;color:#0B2A55;">Water helps you <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">move more.</span></p>
         </div>
     </section>
 
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#ffffff;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#D3EEF0"/></svg></div>
     <!-- WHAT IS IT -->
-    <section style="padding:100px 60px;background:#061830;">
-        <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-            <div style="background:rgba(255,255,255,0.04);border:2px dashed rgba(31,138,140,0.3);border-radius:20px;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;">
-                <p style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.3);font-size:13px;text-align:center;padding:24px;line-height:1.7;">[IMAGE: Person chest-deep in TheraTank]</p>
-            </div>
+    <section class="wi-sec" style="padding:100px 60px;background:#ffffff;">
+        <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center;" class="wi-grid">
+            <div class="vb" role="region" aria-roledescription="carousel" aria-label="TheraTank in different spaces"><div class="vb-track"><div class="vb-slide active" role="group" aria-roledescription="slide" aria-label="1 of 3: Backyard"><picture><source srcset="assets/images/vision-backyard.webp" type="image/webp"><img src="assets/images/vision-backyard.jpg" alt="TheraTank in a tropical backyard on a brick paver patio, with a man in a navy rash guard leaning against the pool wall, which comes up to his shoulders." style="object-position:center 55%;"></picture></div><div class="vb-slide" role="group" aria-roledescription="slide" aria-label="2 of 3: Garage" aria-hidden="true"><picture><source srcset="assets/images/vision-garage.webp?v=3" type="image/webp"><img src="assets/images/vision-garage.jpg?v=3" alt="TheraTank set up inside a two-car garage beside storage shelves, with a woman in a teal tank top and knee brace standing next to it; the pool wall reaches her shoulders." style="object-position:center 55%;" loading="lazy"></picture></div><div class="vb-slide" role="group" aria-roledescription="slide" aria-label="3 of 3: Inside the Pool" aria-hidden="true"><picture><source srcset="assets/images/vision-pool.webp?v=2" type="image/webp"><img src="assets/images/vision-pool.jpg?v=2" alt="Split above-and-below-water view inside TheraTank: an older Black woman with short grey hair stands chest-deep in tree pose, palms together, eyes closed, sunlight rippling across the teal liner." style="object-position:center center;" loading="lazy"></picture></div></div><button class="vb-nav vb-prev" type="button" aria-label="Previous image">&#8249;</button><button class="vb-nav vb-next" type="button" aria-label="Next image">&#8250;</button><div class="vb-bar"><button class="vb-pause" type="button" aria-label="Pause slideshow">&#10074;&#10074;</button><div class="vb-dots"><button type="button" class="vb-dot active" aria-label="Show image 1: Backyard" aria-current="true"></button><button type="button" class="vb-dot" aria-label="Show image 2: Garage"></button><button type="button" class="vb-dot" aria-label="Show image 3: Inside the Pool"></button></div></div></div>
             <div>
-                <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:24px;">What Is It</p>
-                <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.9;color:rgba(255,255,255,0.8);margin-bottom:20px;">Built to be accessible in every way, TheraTank is the first therapy pool of its kind — bringing actual chest-deep therapeutic water to your home at an accessible price.</p>
-                <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.9;color:rgba(255,255,255,0.8);margin-bottom:20px;">At under 10 feet round (9'8" / 3M) and nearly 5 feet deep (59" / 1.5M), it fits even the smallest backyard or a garage. Nothing at this footprint, this depth, and this price has ever been on the market.</p>
-                <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.9;color:rgba(255,255,255,0.8);margin-bottom:20px;">Our mission is to help bring aquatic therapy to everyone who needs it.</p>
-                <p style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#1F8A8C;">So let's look at who can benefit most from aquatic therapy...</p>
+                <p style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#136B6D;margin-bottom:24px;">What Is It</p>
+                <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.9;color:rgba(11,42,85,0.82);margin-bottom:20px;">Built to be accessible in every way, TheraTank is the first therapy pool of its kind — bringing actual chest-deep therapeutic water to your home at an accessible price.</p>
+                <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.9;color:rgba(11,42,85,0.82);margin-bottom:20px;">At under 10 feet round (9'8" / 3M) and nearly 5 feet deep (59" / 1.5M), it fits even the smallest backyard or a garage. Nothing at this footprint, this depth, and this price has ever been on the market.</p>
+                <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.9;color:rgba(11,42,85,0.82);margin-bottom:20px;">Our mission is to help bring aquatic therapy to everyone who needs it.</p>
+                
             </div>
         </div>
+    
+        <style>@media (max-width:900px){.ds-cards{grid-template-columns:repeat(2,1fr) !important}}@media (max-width:520px){.ds-cards{grid-template-columns:1fr !important}}</style>
+        <div style="max-width:1200px;margin:64px auto 0;"><div class="ds-cards wi-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+                <div style="background:#F4F9FA;border:1px solid rgba(19,107,109,0.22);border-radius:16px;padding:32px 24px;text-align:center;">
+                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#136B6D;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Rigid</div>
+                    <div style="font-size:1.05rem;color:rgba(11,42,85,0.82);line-height:1.55;">Walls that don't flex under water pressure — or anything else</div>
+                </div>
+                <div style="background:#F4F9FA;border:1px solid rgba(19,107,109,0.22);border-radius:16px;padding:32px 24px;text-align:center;">
+                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#136B6D;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Tough</div>
+                    <div style="font-size:1.05rem;color:rgba(11,42,85,0.82);line-height:1.55;">Marine-grade PVC, the same drop-stitch build used in special-ops boats. No rust, no corrosion, no bent rails.</div>
+                </div>
+                <div style="background:#F4F9FA;border:1px solid rgba(19,107,109,0.22);border-radius:16px;padding:32px 24px;text-align:center;">
+                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#136B6D;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Energy Efficient</div>
+                    <div style="font-size:1.05rem;color:rgba(11,42,85,0.82);line-height:1.55;">6" drop-stitch air chamber acts as insulation, keeping your water warmer longer so you spend less on heating.</div>
+                </div>
+                <div style="background:#F4F9FA;border:1px solid rgba(19,107,109,0.22);border-radius:16px;padding:32px 24px;text-align:center;">
+                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#136B6D;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Easy Setup</div>
+                    <div style="font-size:1.05rem;color:rgba(11,42,85,0.82);line-height:1.55;">Inflates with the included electric air pump — no tools, no crew needed</div>
+                </div>
+            </div></div>
+        
+    </section>
+    <style>
+        .vb { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 3/2; background: #0B2A55; box-shadow: 0 20px 50px rgba(11,42,85,0.18); }
+        .vb-track { position: absolute; inset: 0; }
+        .vb-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .9s ease; }
+        .vb-slide.active { opacity: 1; }
+        .vb-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .vb-slide .vb-cap { position: absolute; left: 16px; top: 16px; background: rgba(11,42,85,0.82); color: #fff; font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 12px; border-radius: 6px; }
+        .vb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,0.88); color: #0B2A55; font-size: 1.8rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; padding-bottom: 4px; transition: background .2s; }
+        .vb-nav:hover { background: #fff; }
+        .vb-prev { left: 12px; } .vb-next { right: 12px; }
+        .vb-bar { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .vb-dots { display: flex; gap: 2px; background: rgba(11,42,85,0.6); padding: 2px 6px; border-radius: 20px; }
+        .vb-dot { width: 24px; height: 24px; border: none; background: transparent; cursor: pointer; position: relative; padding: 0; }
+        .vb-dot::after { content: ''; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: rgba(255,255,255,0.6); transition: all .2s; }
+        .vb-dot.active::after { background: #FF6B35; transform: scale(1.3); }
+        .vb-pause { width: 28px; height: 28px; border: none; border-radius: 50%; background: rgba(11,42,85,0.6); color: #fff; font-size: 0.6rem; cursor: pointer; }
+        .vb button:focus-visible { outline: 3px solid #FF6B35; outline-offset: 2px; }
+        @media (max-width: 900px) { .wi-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .wi-sec { padding: 64px 20px !important; } .vb-nav { width: 34px; height: 34px; font-size: 1.4rem; } .vb-prev { left: 8px; } .vb-next { right: 8px; } .vb-slide .vb-cap { font-size: 0.7rem; padding: 4px 9px; left: 10px; top: 10px; } .vb-bar { bottom: 6px; } }
+    </style>
+    <script>
+    (function(){
+      var root=document.querySelector('.vb'); if(!root) return;
+      var slides=root.querySelectorAll('.vb-slide'), dots=root.querySelectorAll('.vb-dot'), pause=root.querySelector('.vb-pause');
+      var i=0, timer=null, hold=false, playing=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function show(n){ slides[i].classList.remove('active'); slides[i].setAttribute('aria-hidden','true'); dots[i].classList.remove('active'); dots[i].removeAttribute('aria-current');
+        i=(n+slides.length)%slides.length;
+        slides[i].classList.add('active'); slides[i].removeAttribute('aria-hidden'); dots[i].classList.add('active'); dots[i].setAttribute('aria-current','true'); }
+      function tick(){ clearInterval(timer); if(playing&&!hold) timer=setInterval(function(){show(i+1);},5000); }
+      function setPlay(p){ playing=p; pause.innerHTML=p?'&#10074;&#10074;':'&#9654;'; pause.setAttribute('aria-label',p?'Pause slideshow':'Play slideshow'); tick(); }
+      root.querySelector('.vb-prev').onclick=function(){show(i-1);tick();};
+      root.querySelector('.vb-next').onclick=function(){show(i+1);tick();};
+      dots.forEach(function(d,k){d.onclick=function(){show(k);tick();};});
+      pause.onclick=function(){setPlay(!playing);};
+      root.addEventListener('mouseenter',function(){hold=true;tick();}); root.addEventListener('mouseleave',function(){hold=false;tick();});
+      root.addEventListener('focusin',function(){hold=true;tick();}); root.addEventListener('focusout',function(){hold=false;tick();});
+      var sx=null; root.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+      root.addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){show(i+(dx<0?1:-1));tick();} sx=null; });
+      setPlay(playing);
+    })();
+    </script>
+
+
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#E6F5F6;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#ffffff"/></svg></div>
+    <!-- WHY DEPTH MATTERS -->
+    <section style="padding:100px 60px;background:linear-gradient(180deg,#E6F5F6 0%,#D3EEF0 100%);">
+        <div style="max-width:1200px;margin:0 auto;">
+            <div class="depth-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+                <div>
+                    <video class="play-on-view" src="assets/video/weight-offload.mp4" muted playsinline preload="auto" style="display:block;width:100%;height:auto;border-radius:20px;" aria-label="Animation: water offloads body weight at chest depth"></video>
+                </div>
+                <div>
+                    <p style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#136B6D;margin-bottom:16px;">Why Depth Is Everything</p>
+                    <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#0B2A55;margin-bottom:24px;"><span style="color:#136B6D;">The Difference Between</span><br>Waist Deep and <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">Chest Deep</span></h2>
+                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(11,42,85,0.82);margin-bottom:32px;">TheraTank is the only pool that offers actual chest-deep water — 59" walls, 54"+ of usable depth, so even at 6 feet tall you're still at therapeutic depth. At waist depth, you offload 50% of your body weight; your hips, spine, and core are still loading — and for someone with chronic pain or post-surgical joints, that other 50% is still the problem. At chest depth, that offload reaches 75%, your joints barely register the load, and movement that felt impossible becomes available again.</p>
+                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(11,42,85,0.82);margin-bottom:32px;">That depth also means your arms and legs move fully underwater, so you can work your whole body — suspension training and full-body workouts that used to require a lap pool or a clinic, now in your backyard.</p>
+                </div>
+            </div>
+        </div>
+        <div style="max-width:1200px;margin:48px auto 0;text-align:center;"><p style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#136B6D;margin:0;">So let's look at who can benefit most from aquatic therapy...</p></div>
     </section>
 
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#07192e;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#D3EEF0"/></svg></div>
     <!-- WHO IT'S FOR -->
     <section style="padding:100px 60px;background:linear-gradient(160deg,#07192e 0%,#09244D 100%);">
-        <div style="max-width:1200px;margin:0 auto;">
-            <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:16px;text-align:center;">Who It's For</p>
+        <div style="max-width:1480px;margin:0 auto;">
+            <p style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:16px;text-align:center;">Who It's For</p>
             <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,2.5vw,2.4rem);font-weight:700;text-transform:uppercase;line-height:1.15;color:#fff;text-align:center;margin-bottom:16px;">Built for the people who need it most.</h2>
-            <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.8;color:rgba(255,255,255,0.75);text-align:center;margin-bottom:56px;">The science is clear. Aquatic therapy works for <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">every body.</span></p>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px;">
-                    <h3 style="font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#1F8A8C;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid rgba(255,107,53,0.92);">Chronic Back Pain &amp; Spinal Conditions</h3>
-                    <p style="color:rgba(255,255,255,0.88);font-size:0.94rem;line-height:1.65;">Patients with chronic low back pain were 6.6x more likely to achieve meaningful pain relief with aquatic therapy than standard physical therapy — and results held at 12 months. Disability reduction: 46.4% vs. 7%.<br><span style="color:#FF6B35;font-size:0.82rem;margin-top:8px;display:block;">Peng et al. (2022), JAMA Network Open</span></p>
+            <p style="font-family:'Inter',sans-serif;font-size:1.1rem;line-height:1.8;color:rgba(255,255,255,0.75);text-align:center;margin-bottom:56px;">The science is clear. Aquatic therapy works for <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">every body.</span></p>
+            <div class="uc-wrap">
+                <div class="uc-list">
+                    <button class="uc-item active" data-uc="0">Chronic Back Pain &amp; Spinal Conditions</button>
+                    <button class="uc-item" data-uc="1">Obesity &amp; Weight-Bearing Limitations</button>
+                    <button class="uc-item" data-uc="2">Chronic Pain &amp; Fibromyalgia</button>
+                    <button class="uc-item" data-uc="3">Post-Surgical Recovery</button>
+                    <button class="uc-item" data-uc="4">Neurological Rehabilitation</button>
+                    <button class="uc-item" data-uc="5">Athletic Injury Recovery</button>
+                    <button class="uc-item" data-uc="6">Exercise Soreness &amp; Recovery</button>
+                    <button class="uc-item" data-uc="7">Balance &amp; Fall Prevention</button>
                 </div>
-
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px;">
-                    <h3 style="font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#1F8A8C;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid rgba(255,107,53,0.92);">Obesity &amp; Weight-Bearing Limitations</h3>
-                    <p style="color:rgba(255,255,255,0.88);font-size:0.94rem;line-height:1.65;">Submerged to chest depth, the body offloads approximately 75% of its weight — reducing joint load to a level that makes sustained cardiovascular exercise possible for patients who cannot tolerate land-based activity.<br><span style="color:#FF6B35;font-size:0.82rem;margin-top:8px;display:block;">ATRI / AEA Aquatic Therapy Clinical Guidelines</span></p>
-                </div>
-
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px;">
-                    <h3 style="font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#1F8A8C;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid rgba(255,107,53,0.92);">Chronic Pain &amp; Fibromyalgia</h3>
-                    <p style="color:rgba(255,255,255,0.88);font-size:0.94rem;line-height:1.65;">Fibromyalgia patients who completed aquatic therapy reported half the pain of those who did land-based therapy — even six weeks after treatment ended. Pain scores: 2.7 vs. 5.5.<br><span style="color:#FF6B35;font-size:0.82rem;margin-top:8px;display:block;">Rivas Neira et al. (2024), Physiotherapy</span></p>
-                </div>
-
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px;">
-                    <h3 style="font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#1F8A8C;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid rgba(255,107,53,0.92);">Post-Surgical Recovery</h3>
-                    <p style="color:rgba(255,255,255,0.88);font-size:0.94rem;line-height:1.65;">A study of 160 post-orthopedic surgery patients found water-based exercise produced significant improvements in pain, mood, and quality of life — concluded to be "an appropriate alternative strategy for post-orthopaedic surgical recovery."<br><span style="color:#FF6B35;font-size:0.82rem;margin-top:8px;display:block;">Maccarone et al. (2022), Int. J. Biometeorology</span></p>
-                </div>
-
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px;">
-                    <h3 style="font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#1F8A8C;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid rgba(255,107,53,0.92);">Neurological Rehabilitation</h3>
-                    <p style="color:rgba(255,255,255,0.88);font-size:0.94rem;line-height:1.65;">Aquatic therapy produced significantly better outcomes in pain, balance, and gait than dry-land therapy for chronic stroke patients — across multiple clinical measures.<br><span style="color:#FF6B35;font-size:0.82rem;margin-top:8px;display:block;">Pérez-de la Cruz (2020), Int. J. Environmental Research &amp; Public Health</span></p>
-                </div>
-
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px;">
-                    <h3 style="font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#1F8A8C;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid rgba(255,107,53,0.92);">Athletic Injury Recovery</h3>
-                    <p style="color:rgba(255,255,255,0.88);font-size:0.94rem;line-height:1.65;">Deep water training allows patients recovering from ACL tears, rotator cuff injuries, and stress fractures to maintain cardiovascular conditioning and muscle engagement while completely offloading healing tissue — zero ground impact.<br><span style="color:#FF6B35;font-size:0.82rem;margin-top:8px;display:block;">Established sports medicine protocol</span></p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY WATER WORKS DIFFERENTLY -->
-    <section style="padding:100px 60px;background:#071e3d;">
-        <div style="max-width:860px;margin:0 auto;">
-            <p style="font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:16px;text-align:center;">The Science</p>
-            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#fff;margin-bottom:16px;text-align:center;">Why Water Works <span style="color:#1F8A8C;">Differently</span></h2>
-            <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.55);margin:0 auto 48px;text-align:center;">10 physics-based effects exclusive to water — impossible to replicate on land.</p>
-
-            <div class="benefits-accordion">
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">🛟</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Gravitational Offloading (Buoyancy)</span>
-                            <span class="benefit-blurb">At chest depth, ~75% of body weight is removed from joints and spinal discs</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">At chest depth, buoyancy counteracts approximately 75% of your body weight — removing gravitational compression from joints, spinal discs, and connective tissue during exercise. This is what makes aquatic exercise possible for people who cannot exercise on land without pain. It is physically impossible to replicate outside of water.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">💧</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Continuous Lymphatic Pumping</span>
-                            <span class="benefit-blurb">Reduces swelling and inflammation continuously — in three dimensions</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Hydrostatic pressure acts like a full-body compression garment — actively squeezing interstitial fluids out of limbs to reduce swelling and inflammation. Unlike compression socks or sleeves, this effect is three-dimensional and continuous.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">❤️</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Enhanced Venous Return</span>
-                            <span class="benefit-blurb">Water pressure forces blood back to your heart more efficiently</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Water pressure forces pooled blood from your lower extremities back to the heart, increasing stroke volume and cardiovascular efficiency. Your heart works smarter, not harder.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">📉</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Lowered Training Heart Rate</span>
-                            <span class="benefit-blurb">Train harder for longer — your heart rate runs 10–15 BPM lower</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Because blood returns to the heart more efficiently in water, your heart rate runs 10–15 BPM lower than during the identical effort on land — letting you train harder for longer without overtaxing your cardiovascular system.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">💪</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Concentric-Only Training</span>
-                            <span class="benefit-blurb">No DOMS — fluid drag replaces gravity, eliminating the micro-tear phase</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Fluid drag replaces gravity as resistance. This eliminates eccentric (lengthening) muscle contractions — the phase responsible for micro-tears and delayed-onset muscle soreness (DOMS). Aquatic exercise lets you work hard and wake up ready.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">⚖️</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Balanced Agonist / Antagonist Work</span>
-                            <span class="benefit-blurb">Opposing muscle pairs engage simultaneously — more symmetrical strength</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Water pushes back in every direction. That means opposing muscle pairs — biceps and triceps, quads and hamstrings — are engaged simultaneously. The result is more symmetrical strength development than most land-based training allows.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">🔬</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Thicker Fiber Hypertrophy</span>
-                            <span class="benefit-blurb">Dense, functional strength gains with less recovery demand</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Concentric-focused resistance builds muscle volume by increasing fiber thickness (myofibrillar hypertrophy) rather than fiber length. This means functional, dense strength gains with less recovery demand.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">🫁</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Pulmonary Conditioning</span>
-                            <span class="benefit-blurb">Respiratory muscles work up to 60% harder — improving lung strength uniquely</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Hydrostatic pressure compresses the chest, forcing your respiratory muscles to work up to 60% harder just to expand your lungs. Regular aquatic exercise measurably improves respiratory muscle strength — a unique benefit unavailable on any treadmill.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">🌡️</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Accelerated Heat Dissipation</span>
-                            <span class="benefit-blurb">Water conducts heat 25× faster than air — safer training in heat</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">Water conducts heat 25× faster than air. Your core temperature stays lower during aquatic exercise, dramatically reducing sweat-induced dehydration and heat exhaustion risk — especially valuable for older adults and those with chronic illness.</div>
-                </details>
-
-                <details class="benefit-item">
-                    <summary class="benefit-header">
-                        <span class="benefit-icon">🔥</span>
-                        <span class="benefit-info">
-                            <span class="benefit-title">Thermodynamic Calorie Boost</span>
-                            <span class="benefit-blurb">Your metabolism burns more calories to maintain core temperature while exercising</span>
-                        </span>
-                        <span class="benefit-chevron">▼</span>
-                    </summary>
-                    <div class="benefit-body">When water temperature is slightly below body temperature, your metabolism works harder to maintain core heat while exercising. The result: more calories burned per session compared to the same effort performed on land.</div>
-                </details>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- WHY DEPTH MATTERS -->
-    <section style="padding:100px 60px;background:linear-gradient(160deg,#07192e 0%,#09244D 100%);">
-        <div style="max-width:1200px;margin:0 auto;">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-                <div>
-                    <!-- IMAGE PLACEHOLDER -->
-                    <div style="background:rgba(255,255,255,0.04);border:2px dashed rgba(31,138,140,0.3);border-radius:20px;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;">
-                        <p style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.3);font-size:13px;text-align:center;padding:24px;line-height:1.7;">[IMAGE: Person submerged chest-deep in TheraTank — water level visible at chest]</p>
-                    </div>
-                </div>
-                <div>
-                    <p style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:16px;">Why Depth Is Everything</p>
-                    <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#fff;margin-bottom:24px;"><span style="color:#1F8A8C;">The Difference Between</span><br>Waist Deep and <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">Chest Deep</span></h2>
-                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.7);margin-bottom:32px;">TheraTank is the only pool that offers actual chest-deep water — 59" walls, 54"+ of usable depth, so even at 6 feet tall you're still at therapeutic depth. At waist depth, you offload 50% of your body weight; your hips, spine, and core are still loading — and for someone with chronic pain or post-surgical joints, that other 50% is still the problem. At chest depth, that offload reaches 75%, your joints barely register the load, and movement that felt impossible becomes available again.</p>
-                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.7);margin-bottom:32px;">That depth also makes true deep water running and suspension training with a buoyancy belt possible at home — workouts that used to require a lap pool or a clinic are now in your backyard.</p>
+                <div class="uc-detail">
+                    <div class="uc-panel has-video active" data-uc="0"><video class="uc-video" src="assets/video/back-pain-relief.mp4" aria-label="Animated chart: chronic back pain patients were 6.6 times more likely to get meaningful relief with aquatic therapy than standard physical therapy. Source: Peng et al. 2022, JAMA Network Open." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Chronic Back Pain &amp; Spinal Conditions</h3><p class="uc-body">Patients with chronic low back pain were 6.6x more likely to achieve meaningful pain relief with aquatic therapy than standard physical therapy — and results held at 12 months. Disability reduction: 46.4% vs. 7%.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Peng et al. (2022), JAMA Network Open</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="1"><video class="uc-video" src="assets/video/weight-offload.mp4" aria-label="Animation: at chest depth, water offloads about 75 percent of body weight." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Obesity &amp; Weight-Bearing Limitations</h3><p class="uc-body">Submerged to chest depth, the body offloads approximately 75% of its weight — reducing joint load to a level that makes sustained cardiovascular exercise possible for patients who cannot tolerate land-based activity.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">ATRI / AEA Aquatic Therapy Clinical Guidelines</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="2"><video class="uc-video" src="assets/video/fibro-pain.mp4" aria-label="Animated pain scale: fibromyalgia pain scores six weeks after treatment were 2.7 with aquatic therapy versus 5.5 with land-based therapy, half the pain. Source: Rivas Neira et al. 2024, Physiotherapy." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Chronic Pain &amp; Fibromyalgia</h3><p class="uc-body">Fibromyalgia patients who completed aquatic therapy reported half the pain of those who did land-based therapy — even six weeks after treatment ended. Pain scores: 2.7 vs. 5.5.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Rivas Neira et al. (2024), Physiotherapy</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="3"><video class="uc-video" src="assets/video/post-surgical.mp4?v=2" aria-label="Animated text: Stronger, sooner. Water rehab built more strength after joint replacement than land-based rehab. Source: Alrashedi et al. 2026, Healthcare, a meta-analysis of 7 trials." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Post-Surgical Recovery</h3><p class="uc-body">Aquatic therapy provides a supportive and low-impact environment that can significantly aid in the recovery process, helping patients regain function and return to their daily activities.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Alrashedi et al. (2026), Healthcare</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="4"><video class="uc-video" src="assets/video/neuro-rehab.mp4?v=2" aria-label="Animated text: Move better after stroke. Better balance, faster walking, lower fall risk. 27 studies, 1,134 stroke patients. Source: Gento-Andres et al. 2025, Archives of Rehabilitation Research and Clinical Translation." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Neurological Rehabilitation</h3><p class="uc-body">A 2025 review of 27 studies and more than 1,100 stroke survivors found that aquatic therapy significantly improved balance, walking speed, and fall risk. Water supports the body while you practice standing, stepping, and shifting your weight, so you can work on the movements that matter without fear of falling.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Gento-Andres et al. (2025), Arch. Rehabil. Res. Clin. Transl.</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="5"><video class="uc-video" src="assets/video/cross-training.mp4?v=3" aria-label="Animated graphic: a man with a knee brace does a slow side kick, chest-deep in TheraTank. Stay in the game. Cross training, injury prevention, recovery, athletic conditioning." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Athletic Injury Recovery</h3><p class="uc-body">Deep water training allows patients recovering from ACL tears, rotator cuff injuries, and stress fractures to maintain cardiovascular conditioning and muscle engagement while completely offloading healing tissue — zero ground impact.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Established sports medicine protocol</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="6"><video class="uc-video" src="assets/video/no-doms.mp4" aria-label="Animated graphic: exercising in water largely removes the eccentric load behind delayed-onset muscle soreness." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Exercise Soreness &amp; Recovery</h3><p class="uc-body">If soreness keeps knocking you out of your routine, the problem may be the exercise, not you. On land, the lengthening (eccentric) phase of each movement causes the micro-tears behind delayed-onset muscle soreness. In water, drag replaces gravity as the resistance, which largely removes that eccentric load. You can work hard today and be ready for whatever tomorrow brings.</p></div></div>
+                    <div class="uc-panel has-video" data-uc="7"><video class="uc-video" src="assets/video/balance-fall.mp4?v=4" aria-label="Animated text: Balance training with no fear of falling. The gains carry over to land. Aquatic exercise provided greater improvement in physical health, hip strength, and quality of life among older adults versus those who trained on land. Source: Oh and Lee 2021, randomized trial, adults 65 and older." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Balance &amp; Fall Prevention</h3><p class="uc-body">If fear of falling keeps you from training balance, water takes the risk out. Its viscosity slows every movement and buoyancy catches you if you lose your footing. You can challenge your balance and proprioception (your body's sense of where it is in space) further than you safely could on land, building the stability that keeps you upright out of the pool.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Oh &amp; Lee (2021), J. Back &amp; Musculoskeletal Rehabilitation</span></p></div></div>
                 </div>
             </div>
         </div>
     </section>
+    <style>
+        .uc-wrap { display: grid; grid-template-columns: 1fr 3fr; gap: 32px; align-items: stretch; }
+        .uc-list { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
+        .uc-item { text-align: left; background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.15); border-left: 3px solid transparent; border-radius: 10px; padding: 14px 16px; color: rgba(255,255,255,0.75); font-family: 'Oswald', sans-serif; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all .2s; }
+        .uc-item:hover { color: #fff; background: rgba(31,138,140,0.2); border-color: rgba(31,138,140,0.4); }
+        .uc-item.active { color: #fff; background: rgba(31,138,140,0.35); border-color: rgba(31,138,140,0.6); border-left-color: rgba(255,107,53,0.92); }
+        .uc-detail { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.15); border-radius: 20px; padding: 28px; min-height: 320px; }
+        .uc-panel { display: none; }
+        .uc-panel.active { display: block; }
+        .uc-panel.has-video.active { display: grid; grid-template-columns: 3fr 1fr; gap: 28px; align-items: center; }
+        .uc-video { display: block; width: 100%; height: auto; border-radius: 14px; background: #061830; }
+        .uc-title { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,107,53,0.82); text-shadow: 0 2px 10px rgba(0,0,0,0.45); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #2A9D9F; display: inline-block; }
+        .uc-body { color: rgba(255,255,255,0.88); font-size: 1.12rem; line-height: 1.7; }
+        @media (max-width: 800px) { .uc-panel.has-video.active { grid-template-columns: 1fr; } .uc-wrap { grid-template-columns: 1fr; } .uc-list { flex-direction: row; overflow-x: auto; } .uc-item { white-space: nowrap; } }
+    </style>
+    <script>
+    (function(){
+        document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.uc-wrap').forEach(function(wrap){
+        var items=wrap.querySelectorAll('.uc-item'), panels=wrap.querySelectorAll('.uc-panel');
+        function show(i){
+            items.forEach(function(el){el.classList.toggle('active', el.dataset.uc==i);});
+            panels.forEach(function(el){
+                var on = el.dataset.uc==i; el.classList.toggle('active', on);
+                var v=el.querySelector('video'); if(v){ if(on){ v.currentTime=0; v.play().catch(function(){}); } else v.pause(); }
+            });
+        }
+        items.forEach(function(el){ el.addEventListener('click', function(){ show(el.dataset.uc); }); });
+        show('0');
+        });
+        });
+    })();
+    </script>
 
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#ffffff;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#08213f"/></svg></div>
     <!-- WHAT'S IN THE BOX -->
-    <section style="padding:100px 60px;background:linear-gradient(160deg,#07192e 0%,#09244D 100%);">
+    <section class="box-light" style="padding:100px 60px;background:#ffffff;">
         <div style="max-width:1200px;margin:0 auto;">
-            <p style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#1F8A8C;margin-bottom:16px;text-align:center;">What's Included</p>
-            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#fff;margin-bottom:16px;text-align:center;">Everything You Need to <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">Get Set Up in Under an Hour.</span></h2>
-            <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.6);max-width:520px;margin:0 auto 64px;text-align:center;">One box. One afternoon. Everything included to get in the water.</p>
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px 20px;text-align:center;">
-                    <div style="background:rgba(255,255,255,0.04);border:2px dashed rgba(31,138,140,0.25);border-radius:12px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-                        <p style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.25);font-size:11px;padding:10px;line-height:1.6;">[IMAGE: TheraTank pool]</p>
-                    </div>
-                    <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#fff;margin-bottom:8px;">TheraTank Pool</h4>
-                    <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;">Marine-grade drop-stitch PVC. 59" walls, 54" usable water depth. Rigid when inflated. 9'8" round — fits most backyards and garages.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#136B6D;margin-bottom:16px;text-align:center;">What's Included</p>
+            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#0B2A55;margin-bottom:16px;text-align:center;">Everything You Need to <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">Get Set Up in Under an Hour.</span></h2>
+            <p style="font-family:'Oswald',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.5;color:#136B6D;max-width:760px;margin:0 auto 64px;text-align:center;">One box. One afternoon. Everything included to get in the water.</p>
+            <div class="box-wrap">
+                <div class="box-list">
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">TheraTank Pool</h3><p class="box-text">Marine-grade drop-stitch PVC. 59" walls, 54" usable water depth. Rigid when inflated. 9'8" round — fits most backyards and garages.</p></div></div>
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">Electric Air Pump</h3><p class="box-text">High-pressure electric pump does all the inflating for you. One person. No tools. No help needed.</p></div></div>
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">2,300 GPH Sand Filter + Pump</h3><p class="box-text">With built-in skimmer. Most pool companies ship a small paper-cartridge filter that couldn&rsquo;t keep a kiddie pool clean, and you&rsquo;re tossing cartridges every few weeks. We refused to add to that waste, so we include a 2,300 GPH sand filter instead. No cartridge waste, no constant replacements. Sand lasts up to 5 years: fill it once, and there&rsquo;s nothing else to buy for years.</p></div></div>
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">Ladder + Cover</h3><p class="box-text">Sturdy step-over ladder with a 300 lb weight-rated top platform, plus a cover that keeps debris out and helps retain water temperature between sessions.</p></div></div>
                 </div>
-
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px 20px;text-align:center;">
-                    <div style="background:rgba(255,255,255,0.04);border:2px dashed rgba(31,138,140,0.25);border-radius:12px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-                        <p style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.25);font-size:11px;padding:10px;line-height:1.6;">[IMAGE: Electric air pump]</p>
-                    </div>
-                    <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#fff;margin-bottom:8px;">Electric Air Pump</h4>
-                    <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;">High-pressure pump inflates the pool in under 10 minutes. One person. No tools. No help needed.</p>
-                </div>
-
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px 20px;text-align:center;">
-                    <div style="background:rgba(255,255,255,0.04);border:2px dashed rgba(31,138,140,0.25);border-radius:12px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-                        <p style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.25);font-size:11px;padding:10px;line-height:1.6;">[IMAGE: Filter + chlorinator]</p>
-                    </div>
-                    <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#fff;margin-bottom:8px;">Filter + Chlorinator</h4>
-                    <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;">800 GPH filter with built-in chlorine tablet dispenser. Keeps water clean between sessions. Standard tablets, any hardware store.</p>
-                </div>
-
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.15);border-radius:20px;padding:28px 20px;text-align:center;">
-                    <div style="background:rgba(255,255,255,0.04);border:2px dashed rgba(31,138,140,0.25);border-radius:12px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-                        <p style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.25);font-size:11px;padding:10px;line-height:1.6;">[IMAGE: Ladder + Cover]</p>
-                    </div>
-                    <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#fff;margin-bottom:8px;">Ladder + Cover</h4>
-                    <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;">Sturdy step-over ladder with a 300 lb weight-rated top platform, plus a cover that keeps debris out and helps retain water temperature between sessions.</p>
-                </div>
-
+                <div class="box-img"><img src="assets/images/theratank-kit.jpg?v=8" alt="TheraTank kit: pool, electric air pump, cover, ladder, sand filter pump and repair kit" loading="lazy"></div>
             </div>
+            <style>
+                .box-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; max-width: 1240px; margin: 0 auto; }
+                .box-list { display: flex; flex-direction: column; gap: 26px; }
+                .box-item { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; padding-bottom: 22px; border-bottom: 1px solid rgba(38,192,205,0.18); }
+                .box-item:last-child { border-bottom: none; padding-bottom: 0; }
+                .box-check { width: 34px; height: 34px; border-radius: 50%; background: rgba(31,138,140,0.25); border: 1px solid rgba(38,192,205,0.6); color: #26C0CD; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; }
+                .box-title { font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; margin: 4px 0 6px; }
+                .box-text { font-family: 'Inter', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 1.7; margin: 0; }
+                .box-img { background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+                .box-img img { display: block; width: 100%; height: auto; }
+                @media (max-width: 900px) { .box-wrap { grid-template-columns: 1fr; } .box-img { order: -1; } }
+            </style>
         </div>
     </section>
 
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#061830;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#ffffff"/></svg></div>
     <!-- DROP STITCH SECTION -->
     <section style="padding:100px 60px;background:#061830;">
-        <div style="max-width:1200px;margin:0 auto;">
+        <div style="max-width:1480px;margin:0 auto;">
 
-            <!-- Top: text + circle image side by side -->
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:64px;">
+            <!-- Top: text (1/4) + image (3/4) side by side -->
+            <div class="ds-row" style="display:grid;grid-template-columns:1fr 3fr;gap:48px;align-items:center;margin-bottom:56px;">
                 <div>
-                    <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:16px;">How It's Made</p>
-                    <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#fff;margin-bottom:24px;"><span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">Drop Stitch Technology.</span><br><span style="color:#1F8A8C;">Built Tough.</span></h2>
-                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.7);margin-bottom:20px;">TheraTank is built from rugged, marine-grade PVC — the same material trusted in inflatable boats and whitewater gear. Drop stitch construction creates thick, rigid walls that don't flex, bow, or give under pressure. When inflated, it feels solid. Because it is.</p>
-                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.7);">That air chamber inside each wall does more than add strength — it acts as insulation, helping your water hold its temperature longer than a thin steel frame ever could. Less heat loss means <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;">less heating cost</span>, and more time in the water.</p>
+                    <p style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:16px;">How It's Made</p>
+                    <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#fff;margin-bottom:24px;"><span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">Drop Stitch Technology.</span><br><span style="color:#2A9D9F;">Built Tough.</span></h2>
+                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.7);margin-bottom:20px;">TheraTank is built with marine-grade PVC drop-stitch construction, the same material and technology used in special-ops raiding boats and whitewater gear. So you <em>know</em> it's built tough! Drop stitch construction creates thick, rigid walls that don't flex, bow, or give under pressure. When inflated, it feels solid. Because it is.</p>
+                    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.7);">That air chamber inside each wall does more than add strength — it acts as insulation, helping your water hold its temperature longer than a thin steel frame ever could. Less heat loss means <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">less heating cost</span>, and more time in the water.</p>
                 </div>
-                <div style="display:flex;align-items:center;justify-content:center;">
-                    <div style="width:340px;height:340px;border-radius:50%;overflow:hidden;border:3px solid rgba(31,138,140,0.4);box-shadow:0 0 40px rgba(31,138,140,0.15);background-image:url('assets/dropstitch-tech.jpg');background-size:170%;background-position:55% 42%;background-repeat:no-repeat;" role="img" aria-label="Drop stitch PVC construction — 15cm walls, 1.2mm PVC layer thickness"></div>
-                </div>
+                <img src="assets/images/dropstitch-explained.png" alt="Cutaway of the TheraTank wall: teal interior layer, thousands of drop-stitch threads, 1.2 mm charcoal PVC outer layer, and a 6 inch insulating air chamber" loading="lazy" style="display:block;width:100%;height:auto;border-radius:20px;margin:0;box-shadow:0 20px 60px rgba(0,0,0,0.35);">
             </div>
 
-            <!-- Bottom: 4 cards full width -->
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.2);border-radius:16px;padding:32px 24px;text-align:center;">
-                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#1F8A8C;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Rigid</div>
-                    <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.5;">Walls that don't flex under water pressure — or anything else</div>
+
+
+        </div>
+    </section>
+
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#E6F5F6;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#061830"/></svg></div>
+    <!-- WHY WATER WORKS DIFFERENTLY -->
+    <section class="ww-light" style="padding:100px 60px;background:linear-gradient(180deg,#E6F5F6 0%,#D3EEF0 100%);">
+        <div style="max-width:1480px;margin:0 auto;">
+            <p style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#136B6D;margin-bottom:16px;text-align:center;">The Science</p>
+            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#0B2A55;margin-bottom:16px;text-align:center;">Why Water Works <span style="color:#136B6D;">Differently</span></h2>
+            <p style="font-family:'Inter',sans-serif;font-size:clamp(1.1rem,1.6vw,1.4rem);line-height:1.7;color:rgba(11,42,85,0.78);margin:0 auto 56px;text-align:center;">10 physics-based effects exclusive to water — <span style="color:#0B2A55;font-weight:700;text-decoration:underline;text-decoration-color:#FF6B35;text-decoration-thickness:3px;text-underline-offset:7px;">impossible to replicate on land.</span></p>
+
+            <div class="uc-wrap ww-three">
+                <div class="uc-list">
+                    <button class="uc-item active" data-uc="0"><span class="ww-num">01</span>Continuous Lymphatic Pumping</button>
+                    <button class="uc-item" data-uc="1"><span class="ww-num">02</span>Gravitational Offloading (Buoyancy)</button>
+                    <button class="uc-item" data-uc="2"><span class="ww-num">03</span>Enhanced Venous Return</button>
+                    <button class="uc-item" data-uc="3"><span class="ww-num">04</span>Concentric-Only Training</button>
+                    <button class="uc-item" data-uc="4"><span class="ww-num">05</span>Balanced Agonist / Antagonist Work</button>
                 </div>
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.2);border-radius:16px;padding:32px 24px;text-align:center;">
-                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#1F8A8C;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Tough</div>
-                    <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.5;">No rust, no corrosion, no bent rails — built to handle years of use</div>
+                <div class="uc-detail">
+                    <div class="uc-panel active" data-uc="0"><div class="uc-text"><h3 class="uc-title">Continuous Lymphatic Pumping</h3><p class="uc-body">Hydrostatic pressure acts like a full-body compression garment — actively squeezing interstitial fluids out of limbs to reduce swelling and inflammation. Unlike compression socks or sleeves, this effect is three-dimensional and continuous.</p></div></div>
+                    <div class="uc-panel" data-uc="1"><div class="uc-text"><h3 class="uc-title">Gravitational Offloading (Buoyancy)</h3><p class="uc-body">At chest depth, buoyancy counteracts approximately 75% of your body weight — removing gravitational compression from joints, spinal discs, and connective tissue during exercise. This is what makes aquatic exercise possible for people who cannot exercise on land without pain. It is physically impossible to replicate outside of water.</p></div></div>
+                    <div class="uc-panel" data-uc="2"><div class="uc-text"><h3 class="uc-title">Enhanced Venous Return</h3><p class="uc-body">Water pressure forces pooled blood from your lower extremities back to the heart, increasing stroke volume and cardiovascular efficiency. Your heart works smarter, not harder.</p></div></div>
+                    <div class="uc-panel" data-uc="3"><div class="uc-text"><h3 class="uc-title">Concentric-Only Training</h3><p class="uc-body">Fluid drag replaces gravity as resistance. This eliminates eccentric (lengthening) muscle contractions — the phase responsible for micro-tears and delayed-onset muscle soreness (DOMS). Aquatic exercise lets you work hard and wake up ready.</p></div></div>
+                    <div class="uc-panel" data-uc="4"><div class="uc-text"><h3 class="uc-title">Balanced Agonist / Antagonist Work</h3><p class="uc-body">Water pushes back in every direction. That means opposing muscle pairs — biceps and triceps, quads and hamstrings — are engaged simultaneously. The result is more symmetrical strength development than most land-based training allows.</p></div></div>
+                    <div class="uc-panel" data-uc="5"><div class="uc-text"><h3 class="uc-title">Thicker Fiber Hypertrophy</h3><p class="uc-body">Concentric-focused resistance builds muscle volume by increasing fiber thickness (myofibrillar hypertrophy) rather than fiber length. This means functional, dense strength gains with less recovery demand.</p></div></div>
+                    <div class="uc-panel" data-uc="6"><div class="uc-text"><h3 class="uc-title">Pulmonary Conditioning</h3><p class="uc-body">Hydrostatic pressure compresses the chest, forcing your respiratory muscles to work up to 60% harder just to expand your lungs. Regular aquatic exercise measurably improves respiratory muscle strength — a unique benefit unavailable on any treadmill.</p></div></div>
+                    <div class="uc-panel" data-uc="7"><div class="uc-text"><h3 class="uc-title">Accelerated Heat Dissipation</h3><p class="uc-body">Water conducts heat 25× faster than air. Your core temperature stays lower during aquatic exercise, dramatically reducing sweat-induced dehydration and heat exhaustion risk — especially valuable for older adults and those with chronic illness.</p></div></div>
+                    <div class="uc-panel" data-uc="8"><div class="uc-text"><h3 class="uc-title">Thermodynamic Calorie Boost</h3><p class="uc-body">When water temperature is slightly below body temperature, your metabolism works harder to maintain core heat while exercising. The result: more calories burned per session compared to the same effort performed on land.</p></div></div>
+                    <div class="uc-panel" data-uc="9"><div class="uc-text"><h3 class="uc-title">Proprioceptive Training</h3><p class="uc-body">Water presses on every inch of submerged skin and shifts with every move you make. That constant pressure and turbulence feeds a steady stream of sensory input to the receptors in your skin, muscles, and joints, while your stabilizing muscles make continuous micro-corrections to keep you upright. The result is sharper body awareness and coordination — the foundation of balance.</p></div></div>
                 </div>
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.2);border-radius:16px;padding:32px 24px;text-align:center;">
-                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#1F8A8C;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Energy Efficient</div>
-                    <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.5;">Thick insulated walls retain water temperature longer, so you spend less on heating.</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(31,138,140,0.2);border-radius:16px;padding:32px 24px;text-align:center;">
-                    <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:#1F8A8C;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid rgba(255,107,53,0.92);display:inline-block;">Easy Setup</div>
-                    <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.5;">Inflates with the included electric air pump — no tools, no crew needed</div>
+                <div class="uc-list">
+                    <button class="uc-item" data-uc="5"><span class="ww-num">06</span>Thicker Fiber Hypertrophy</button>
+                    <button class="uc-item" data-uc="6"><span class="ww-num">07</span>Pulmonary Conditioning</button>
+                    <button class="uc-item" data-uc="7"><span class="ww-num">08</span>Accelerated Heat Dissipation</button>
+                    <button class="uc-item" data-uc="8"><span class="ww-num">09</span>Thermodynamic Calorie Boost</button>
+                    <button class="uc-item" data-uc="9"><span class="ww-num">10</span>Proprioceptive Training</button>
                 </div>
             </div>
 
         </div>
     </section>
+    <script>
+    (function(){
+        var wrap=document.querySelector('.ww-three'); if(!wrap) return;
+        var detail=wrap.querySelector('.uc-detail');
+        var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var busy=null;
+        wrap.querySelectorAll('.uc-item').forEach(function(btn){
+            btn.addEventListener('click',function(){
+                if(btn.classList.contains('active')) return;
+                var fromLeft = btn.parentElement === wrap.querySelector('.uc-list');
+                var b=btn.getBoundingClientRect();
+                wrap.classList.add('ww-flying');
+                requestAnimationFrame(function(){
+                    var panel=wrap.querySelector('.uc-panel.active'); if(!panel){wrap.classList.remove('ww-flying');return;}
+                    var title=panel.querySelector('.uc-title');
+                    function land(){
+                        wrap.classList.remove('ww-flying');
+                        panel.style.setProperty('--ww-from', fromLeft ? '-40px' : '40px');
+                        panel.classList.remove('ww-in'); void panel.offsetWidth; panel.classList.add('ww-in');
+                        detail.classList.add('ww-glow'); setTimeout(function(){detail.classList.remove('ww-glow');},500);
+                    }
+                    if(reduce){ land(); return; }
+                    if(busy){ busy.remove(); }
+                    var t=title.getBoundingClientRect();
+                    var g=document.createElement('div'); g.className='ww-ghost'; busy=g;
+                    g.style.left=b.left+'px'; g.style.top=b.top+'px'; g.style.width=b.width+'px'; g.style.height=b.height+'px';
+                    document.body.appendChild(g);
+                    void g.offsetWidth;
+                    g.style.transform='translate('+(t.left-b.left)+'px,'+(t.top-b.top)+'px) scale('+(t.width/b.width)+','+(t.height/b.height)+')';
+                    g.style.opacity='0.15';
+                    setTimeout(function(){ g.remove(); if(busy===g) busy=null; land(); },430);
+                });
+            });
+        });
+    })();
+    </script>
 
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#ffffff;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#D3EEF0"/></svg></div>
     <!-- BOTTOM CTA -->
-    <section style="padding:100px 60px;background:linear-gradient(160deg,#07192e 0%,#061830 100%);text-align:center;border-top:1px solid rgba(31,138,140,0.2);">
-        <div style="max-width:680px;margin:0 auto;">
-            <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#1F8A8C;margin-bottom:20px;">Kickstarter Launch Price</p>
-            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;text-transform:uppercase;line-height:1.6;color:#fff;margin-bottom:20px;">Kickstarter Backers<br><span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);padding:0 3px;white-space:nowrap;">Get the Best Price.</span></h2>
-            <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:48px;">The earlier you're in, the less you pay. Each tier fills and that price is gone. Backing the Kickstarter is the only way to get TheraTank below retail price.</p>
+    <section class="cta-light" id="notify" style="padding:90px 60px;background:#ffffff;text-align:center;">
+        <div class="cta-row" style="max-width:1150px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:end;text-align:left;">
+            <div>
+            <div class="ks-badge" style="font-family:'Inter',sans-serif;font-size:14px;color:#0B2A55;background:rgba(255,107,53,0.12);border-color:rgba(255,107,53,0.55);margin-bottom:24px;"><span class="dot"></span>Preorders Open November 15</div>
+            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;text-transform:uppercase;line-height:1.15;color:#0B2A55;margin:0;">Be First <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;white-space:nowrap;">in Line.</span></h2>
 
-            <!-- Price tiers -->
-            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:48px;">
-                <div style="background:rgba(31,138,140,0.12);border:2px solid rgba(31,138,140,0.6);border-radius:16px;padding:28px 32px;position:relative;">
-                    <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#FF6B35;color:#fff;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap;">First 50</div>
-                    <div style="font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;color:#1F8A8C;margin-bottom:6px;">$749</div>
-                    <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Tier 1</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px 32px;position:relative;">
-                    <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap;">50–100</div>
-                    <div style="font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:6px;">$799</div>
-                    <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;">Tier 2</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px 32px;position:relative;">
-                    <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap;">100–250</div>
-                    <div style="font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:6px;">$849</div>
-                    <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;">Tier 3</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px 32px;position:relative;">
-                    <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap;">250+</div>
-                    <div style="font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:6px;">$899</div>
-                    <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;">Tier 4 Presale</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:28px 32px;">
-                    <div style="font-family:'Oswald',sans-serif;font-size:2.4rem;font-weight:700;color:rgba(255,255,255,0.45);text-decoration:line-through;margin-bottom:6px;">$999</div>
-                    <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;">Retail</div>
-                </div>
             </div>
 
             <!-- Email form -->
             <div class="ml-subscribe-form ml-subscribe-form-41259136">
                 <div class="row-form">
-                    <form class="signup-form" action="https://assets.mailerlite.com/jsonp/2345369/forms/187374732799116571/subscribe" method="post" style="max-width:460px;margin:0 auto;">
+                    <form class="signup-form cta-inline" action="https://assets.mailerlite.com/jsonp/2345369/forms/187374732799116571/subscribe" method="post" style="max-width:620px;margin:0;">
                         <div class="field-wrap">
                             <input type="email" name="fields[email]" placeholder="your@email.com" required autocomplete="email" aria-label="Email address" />
                         </div>
-                        <button type="submit" class="btn-notify">Get Notified at Launch</button>
+                        <button type="submit" class="btn-notify">Get Notified</button>
                         <p class="form-fine">No spam. Unsubscribe anytime.</p>
                         <input type="hidden" name="ml-submit" value="1">
                         <input type="hidden" name="anticsrf" value="true">
@@ -1175,11 +1193,14 @@
                     </form>
                 </div>
                 <div class="row-success" style="display:none">
-                    <p class="signup-success">You're on the list! We'll reach out the moment we launch on Kickstarter.</p>
+                    <p class="signup-success">You're on the list! We'll reach out the moment preorders open.</p>
                 </div>
             </div>
         </div>
     </section>
+    <div class="wave-div" aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:var(--navy-dark);"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#ffffff"/></svg></div>
+
+    </main>
 
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -1189,28 +1210,29 @@
         <div class="footer-right">
             <!-- SOCIAL ICONS — unhide when profiles have content -->
             <div style="display:none;gap:16px;margin-bottom:16px;align-items:center;">
-                <a href="https://facebook.com/theratank" target="_blank" rel="noreferrer" title="Facebook" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#1F8A8C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+                <a href="https://facebook.com/theratank" target="_blank" rel="noreferrer" title="Facebook" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#2A9D9F'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
-                <a href="https://instagram.com/ptpools.us" target="_blank" rel="noreferrer" title="Instagram" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#1F8A8C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+                <a href="https://instagram.com/ptpools.us" target="_blank" rel="noreferrer" title="Instagram" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#2A9D9F'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </a>
-                <a href="https://youtube.com/@ptpools" target="_blank" rel="noreferrer" title="YouTube" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#1F8A8C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+                <a href="https://youtube.com/@ptpools" target="_blank" rel="noreferrer" title="YouTube" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#2A9D9F'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#061830"/></svg>
                 </a>
-                <a href="https://pinterest.com/ptpools" target="_blank" rel="noreferrer" title="Pinterest" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#1F8A8C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+                <a href="https://pinterest.com/ptpools" target="_blank" rel="noreferrer" title="Pinterest" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#2A9D9F'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
                 </a>
-                <a href="https://tiktok.com/@theratank" target="_blank" rel="noreferrer" title="TikTok" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#1F8A8C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+                <a href="https://tiktok.com/@theratank" target="_blank" rel="noreferrer" title="TikTok" style="color:rgba(255,255,255,0.45);transition:color 0.2s;" onmouseover="this.style.color='#2A9D9F'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
                 </a>
             </div>
             <div style="display:flex;gap:24px;margin-bottom:8px;">
                 <a href="/affiliates" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">Affiliate Program</a>
                 <a href="/clinicians" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">Clinician Referral Program</a>
+                <a href="/research.html" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">The Science</a>
                 <a href="mailto:hello@ptpools.us" style="color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;letter-spacing:0.5px;">hello@ptpools.us</a>
             </div>
-            <div class="footer-copy">&copy; 2026 PT Pools. TheraTank is a trademark of PT Pools.</div>
+            <div class="footer-copy">&copy; 2026 PT Pools.</div>
         </div>
     </footer>
 
@@ -1259,5 +1281,121 @@
     </script>
     <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35484c46d781b" type="text/javascript" defer></script>
     <script>fetch("https://assets.mailerlite.com/jsonp/2345369/forms/187374732799116571/takel")</script>
+<style>
+.vid-wrap{position:relative;display:block;}
+.vid-replay{position:absolute;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(38,192,205,.7);background:rgba(7,25,46,.75);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s, background .2s, transform .2s;backdrop-filter:blur(4px);}
+.vid-wrap.ended .vid-replay{opacity:1;pointer-events:auto;}
+.vid-replay:hover{background:rgba(31,138,140,.9);transform:rotate(-30deg);}
+</style>
+<script>
+(function(){
+  document.querySelectorAll('video.uc-video, video.play-on-view').forEach(function(v){
+    var w=document.createElement('span'); w.className='vid-wrap';
+    v.parentNode.insertBefore(w,v); w.appendChild(v);
+    var b=document.createElement('button'); b.className='vid-replay'; b.type='button'; b.setAttribute('aria-label','Replay'); b.innerHTML='&#8635;';
+    w.appendChild(b);
+    v.addEventListener('ended',function(){w.classList.add('ended');});
+    v.addEventListener('play',function(){w.classList.remove('ended');});
+    b.addEventListener('click',function(e){e.stopPropagation();v.currentTime=0;v.play().catch(function(){});});
+  });
+})();
+</script>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.play().catch(function(){});io.unobserve(e.target);}});},{threshold:0.5});
+  document.querySelectorAll('video.play-on-view').forEach(function(v){io.observe(v);});
+})();
+</script>
+<script>
+/* Screen-reader text track for the silent animated clips: announces each on-screen text change as it appears. */
+(function(){
+  var CUES={
+    'back-pain-relief.mp4':[[0,'Chronic back pain? Get in the water.'],[2.2,'Bar chart comparing standard physical therapy with aquatic therapy.'],[4.3,'Aquatic therapy: 6.6 times.'],[5.4,'6.6 times better results than traditional PT. More relief. Faster. Source: Peng et al. 2022, JAMA Network Open.']],
+    'post-surgical.mp4':[[0.1,'Stronger, sooner.'],[1.3,'Water rehab built more strength after joint replacement than land-based rehab. Source: Alrashedi et al. 2026, Healthcare, meta-analysis of 7 trials.']],
+    'neuro-rehab.mp4':[[0.1,'Move better after stroke.'],[1.8,'Better balance.'],[2.8,'Faster walking.'],[3.8,'Lower fall risk.'],[5.0,'27 studies. 1,134 stroke patients. Source: Gento-Andres et al. 2025.']],
+    'balance-fall.mp4':[[0.1,'Balance training with no fear of falling.'],[2.7,'The gains carry over to land.'],[4.3,'Aquatic exercise provided greater improvement in physical health, hip strength, and quality of life among older adults versus those who trained on land. Source: Oh and Lee 2021, randomized trial, adults 65 and older.']],
+    'fibro-pain.mp4':[[0.2,'Half the pain of land-based therapy.'],[1.5,'Pain level scale, 0 to 10.'],[2.4,'Land-based therapy: 5.5.'],[3.4,'Aquatic therapy: drops to 2.7.'],[6.0,'Six weeks after treatment ended. Source: Rivas Neira et al. 2024, Physiotherapy.']],
+    'weight-offload.mp4':[[2.0,'At waist deep, you are still bearing 50 percent of your body’s impact and joint stress.'],[5.0,'75 percent of your bodyweight is offloaded at chest depth. For low impact and pain-free movement.']],
+    'cross-training.mp4':[[0.1,'Stay in the game.'],[1.5,'Cross training.'],[2.7,'Injury prevention.'],[3.8,'Recovery.'],[5.0,'Athletic conditioning.']],
+    'no-doms.mp4':[[0.3,'Traditional exercise tears muscle fibers. That’s the soreness you feel for days.'],[4.7,'No next day soreness. Water is unique in that it uses only concentric movement. So there’s no tearing, no soreness, letting you get back to life and stay more consistent.']]
+  };
+  document.querySelectorAll('video').forEach(function(v){
+    var f=(v.getAttribute('src')||'').split('?')[0].split('/').pop(); var cues=CUES[f]; if(!cues) return;
+    var live=document.createElement('div'); live.className='sr-only'; live.setAttribute('aria-live','polite'); live.setAttribute('aria-atomic','true');
+    v.parentNode.insertBefore(live, v.nextSibling);
+    var idx=-1;
+    function reset(){ idx=-1; }
+    v.addEventListener('play', function(){ if(v.currentTime<0.3) reset(); });
+    v.addEventListener('seeked', reset);
+    v.addEventListener('timeupdate', function(){
+      var t=v.currentTime, n=idx;
+      while(n+1<cues.length && t>=cues[n+1][0]) n++;
+      if(n>idx){ idx=n; live.textContent=cues[n][1]; }
+    });
+  });
+})();
+</script>
+<style>
+@media (max-width: 800px) {
+  .uc-wrap.uc-acc { display: block !important; }
+  .uc-acc .uc-list { flex-direction: column !important; overflow: visible !important; gap: 10px; }
+  .uc-acc .uc-item { white-space: normal !important; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 1rem; padding: 16px 18px; }
+  .uc-acc .uc-item { justify-content: flex-start !important; text-align: left !important; }
+  .uc-acc .uc-item::after { content: '+'; font-size: 1.4rem; line-height: 1; color: #FF6B35; flex-shrink: 0; margin-left: auto; padding-left: 10px; }
+  .uc-acc .uc-item.active::after { content: '\2212'; }
+  .uc-acc .uc-detail { display: none !important; }
+  .uc-acc .uc-panel.active { display: block !important; background: #0B2A55; border: 1px solid rgba(42,157,159,0.35); border-radius: 14px; padding: 16px; margin: -4px 0 6px; }
+  .uc-acc .uc-panel .uc-video { margin-bottom: 14px; }
+  .uc-acc .uc-panel .uc-title { display: none; }
+  .uc-acc.ww-three .uc-list { margin-bottom: 10px; }
+  .uc-acc .ww-ghost { display: none !important; }
+  .uc-acc .uc-panel.active .uc-title, .uc-acc .uc-panel.active .uc-body { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+</style>
+<script>
+(function(){
+  var mq = window.matchMedia('(max-width: 800px)');
+  function init(){
+    document.querySelectorAll('.uc-wrap').forEach(function(wrap){
+      if (wrap.dataset.accInit) return; wrap.dataset.accInit = 1;
+      var list = wrap.querySelector('.uc-list'), detail = wrap.querySelector('.uc-detail');
+      var items = [].slice.call(wrap.querySelectorAll('.uc-item'));
+      var panels = [].slice.call(wrap.querySelectorAll('.uc-panel'));
+      function panelFor(it){ for (var i=0;i<panels.length;i++) if (panels[i].dataset.uc == it.dataset.uc) return panels[i]; }
+      items.forEach(function(it){ var p = panelFor(it); if (p){ if(!p.id) p.id = 'uc-panel-' + Math.random().toString(36).slice(2,8); it.setAttribute('aria-controls', p.id); } });
+      function closeAll(){ items.forEach(function(it){ it.classList.remove('active'); it.setAttribute('aria-expanded','false'); }); panels.forEach(function(p){ p.classList.remove('active'); var v=p.querySelector('video'); if(v) v.pause(); }); }
+      function apply(){
+        if (mq.matches){
+          items.forEach(function(it){ var p = panelFor(it); if (p) it.after(p); });
+          wrap.classList.add('uc-acc');
+          closeAll();
+        } else {
+          panels.forEach(function(p){ detail.appendChild(p); });
+          wrap.classList.remove('uc-acc');
+          items.forEach(function(it){ it.removeAttribute('aria-expanded'); });
+          items[0].click();
+        }
+      }
+      items.forEach(function(it){
+        it.addEventListener('click', function(e){
+          if (!wrap.classList.contains('uc-acc')) return;
+          e.stopImmediatePropagation(); e.preventDefault();
+          var wasOpen = it.classList.contains('active');
+          closeAll();
+          if (wasOpen) return;
+          var p = panelFor(it);
+          it.classList.add('active'); it.setAttribute('aria-expanded','true');
+          if (p){ p.classList.add('active'); var v=p.querySelector('video'); if(v){ v.currentTime=0; v.play().catch(function(){}); } }
+          setTimeout(function(){ it.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 30);
+        }, true);
+      });
+      apply();
+      mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init, 0); }); else setTimeout(init, 0);
+})();
+</script>
 </body>
 </html>

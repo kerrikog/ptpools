@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDSPLBG7K4"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WDSPLBG7K4');</script>
@@ -16,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --navy: #09244D; --navy-dark: #061830; --teal: #1F8A8C; --orange: #FF6B35; --white: #ffffff; --muted: rgba(255,255,255,0.55); }
+    :root { --navy: #09244D; --navy-dark: #061830; --teal: #2A9D9F; --orange: #FF6B35; --white: #ffffff; --muted: rgba(255,255,255,0.82); }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
 
@@ -25,7 +26,7 @@
     nav { display: flex; align-items: center; gap: 28px; flex: 1; }
     nav a { color: rgba(255,255,255,0.65); font-size: 14px; text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
     nav a:hover { color: #fff; }
-    .nav-cta { margin-left: auto; padding: 9px 20px; background: var(--orange); color: #fff !important; border-radius: 8px; font-weight: 600; font-size: 13px; }
+    .nav-cta { margin-left: auto; padding: 9px 20px; background: var(--orange); color: #0B2A55 !important; border-radius: 8px; font-weight: 600; font-size: 13px; }
 
     .hero {
       position: relative;
@@ -40,22 +41,26 @@
     .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; text-transform: uppercase; line-height: 1.05; letter-spacing: 1px; margin-bottom: 24px; }
     .hero h1 span { color: var(--teal); }
     .hero-sub { font-size: 1.1rem; color: var(--muted); line-height: 1.85; max-width: 640px; margin: 0 auto 48px; }
-    .btn-primary { padding: 16px 40px; background: var(--teal); color: #fff; text-decoration: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; display: inline-block; cursor: pointer; border: none; }
-    .btn-primary:hover { background: #1a7678; }
+    .hero-grid { position: relative; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: center; text-align: left; }
+    .hero-grid .hero-sub { margin-left: 0; margin-right: 0; }
+    .hero-photo img { display: block; width: 100%; height: auto; max-height: 640px; object-fit: cover; object-position: center top; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; } .hero-grid .hero-sub { margin-left: auto; margin-right: auto; } .hero-photo { max-width: 420px; margin: 0 auto; order: -1; } .hero { padding-top: 40px !important; } }
+    .btn-primary { padding: 16px 40px; background: var(--orange); color: #0B2A55; text-decoration: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; display: inline-block; cursor: pointer; border: none; }
+    .btn-primary:hover { background: #FF8455; }
 
-    .stats-strip { background: var(--teal); padding: 28px 60px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .stats-strip { background: #2A9D9F; padding: 28px 60px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
     .stat-item { text-align: center; }
     .stat-item .val { font-family: 'Oswald', sans-serif; font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1; }
-    .stat-item .lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-top: 5px; }
+    .stat-item .lbl { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-top: 5px; }
     .strip-divider { width: 1px; height: 44px; background: rgba(255,255,255,0.25); }
 
-    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+    .section-tag { font-size: 16px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
     .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
     .section-title span { color: var(--teal); }
     .section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 600px; margin-bottom: 56px; }
 
     /* CLINICAL CASES */
-    .clinical-section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+    .clinical-section { padding: 100px 60px; max-width: 1520px; margin: 0 auto; }
     .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .case-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(31,138,140,0.15); border-radius: 20px; padding: 36px 28px; transition: border-color 0.2s, transform 0.2s; }
     .case-card:hover { border-color: rgba(31,138,140,0.4); transform: translateY(-3px); }
@@ -65,13 +70,13 @@
     .case-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
 
     /* HOW IT WORKS */
-    .how-section { padding: 100px 60px; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(31,138,140,0.08); }
+    .how-section { padding: 100px 60px; background: #061830; }
     .how-inner { max-width: 1200px; margin: 0 auto; }
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; position: relative; }
     .steps::before { content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(31,138,140,0.4), transparent); pointer-events: none; }
     .step { text-align: center; padding: 0 12px; }
     .step-num { width: 72px; height: 72px; background: rgba(31,138,140,0.1); border: 2px solid rgba(31,138,140,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--teal); }
-    .step h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .step h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
     .step p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
 
     /* WHAT PATIENTS RECEIVE */
@@ -97,6 +102,53 @@
     .earn-label { font-size: 13px; color: rgba(255,255,255,0.45); }
     .earn-val { font-size: 14px; font-weight: 600; color: #fff; }
 
+    .earn-light .section-tag { color: #136B6D; }
+    .earn-light .section-title { color: #0B2A55; }
+    .earn-light .section-title span { color: #136B6D; }
+    .earn-light .earn-card { background: #ffffff; border-color: rgba(19,107,109,0.25); box-shadow: 0 10px 30px rgba(11,42,85,0.08); }
+    .earn-light .earn-row { border-bottom-color: rgba(11,42,85,0.1); }
+    .clin-light .section-tag { color: #136B6D; }
+    .clin-light .section-title { color: #0B2A55; }
+    .clin-light .section-title span { color: #136B6D; }
+    .clin-light .section-sub { color: rgba(11,42,85,0.8); }
+    .clin-light .uc-item { background: #0B2A55; border-color: #0B2A55; color: rgba(255,255,255,0.88); box-shadow: 0 4px 14px rgba(11,42,85,0.15); }
+    .clin-light .uc-item:hover { background: #12386e; border-color: #12386e; color: #fff; }
+    .clin-light .uc-item.active { background: #136B6D; border-color: #136B6D; border-left-color: #FF6B35; color: #fff; }
+    .clin-light .uc-detail { background: #0B2A55; border-color: #0B2A55; box-shadow: 0 10px 30px rgba(11,42,85,0.2); }
+    .site-footer p { color: rgba(255,255,255,0.6) !important; }
+    .form-light .section-tag { color: #136B6D; }
+    .form-light .section-title { color: #0B2A55; }
+    .form-light .section-title span { color: #136B6D; }
+    .form-light .section-sub { color: rgba(11,42,85,0.8); }
+    .form-light .form-card { background: #F4F9FA; border-color: rgba(19,107,109,0.25); box-shadow: 0 10px 30px rgba(11,42,85,0.08); }
+    .form-light .form-card::before { background: linear-gradient(90deg, #136B6D, transparent); }
+    .form-light .form-group-title { color: #136B6D; border-bottom-color: rgba(19,107,109,0.2); }
+    .form-light .field label { color: #0B2A55; }
+    .form-light .field input, .form-light .field select, .form-light .field textarea { background: #ffffff; border-color: rgba(19,107,109,0.4); color: #0B2A55; }
+    .form-light .field input::placeholder, .form-light .field textarea::placeholder { color: rgba(11,42,85,0.5); }
+    .form-light .field input:focus, .form-light .field select:focus, .form-light .field textarea:focus { border-color: #136B6D; background: #ffffff; }
+    .form-light .field select option { background: #ffffff; color: #0B2A55; }
+    .form-light .note, .form-light .form-note, .form-light .form-note p, .form-light .field p { color: rgba(11,42,85,0.7) !important; }
+    .form-light .success-msg h3 { color: #136B6D; }
+    .form-light .success-msg p { color: rgba(11,42,85,0.8); }
+    .step-num { color: #ffffff !important; background: rgba(42,157,159,0.22) !important; border-color: #2A9D9F !important; }
+    .step p { font-size: 0.95rem !important; }
+    .hero-badge { font-size: 13px !important; color: #4FC3C5 !important; border-color: rgba(42,157,159,0.6) !important; }
+    .hero-sub { color: rgba(255,255,255,0.86) !important; }
+    .uc-title { color: #FF6B35 !important; }
+    .uc-body span[style*="color:#FF6B35"] { font-size: 0.95rem !important; }
+    .site-footer p { color: rgba(255,255,255,0.75) !important; font-size: 14px !important; }
+    .earn-light .earn-row span { font-size: 14px !important; }
+    .stat-item .lbl { color: #061830 !important; font-weight: 700 !important; margin-top: 10px !important; }
+    .stat-item .val { line-height: 1.1 !important; }
+    .skip-link { position: absolute; left: -9999px; top: 8px; z-index: 1000; background: #FF6B35; color: #0B2A55; padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .skip-link:focus { left: 16px; }
+    .earn-row span:first-child { font-size: 16px !important; }
+    .earn-row span:last-child { font-size: 14px !important; }
+    .earn-card p { font-size: 15px !important; }
+    .earn-row span:only-child { font-size: 16px !important; }
+    .earn-row { gap: 14px; }
+    .earn-row span:last-child:not(:only-child) { text-align: right; flex-shrink: 0; max-width: 45%; }
     /* FORM */
     .form-section { padding: 100px 60px; }
     .form-inner { max-width: 760px; margin: 0 auto; }
@@ -122,8 +174,8 @@
     .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal); background: rgba(31,138,140,0.07); }
     .field select option { background: #09244D; }
     .field textarea { resize: vertical; min-height: 90px; }
-    .submit-btn { width: 100%; padding: 18px; background: var(--teal); color: #fff; border: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
-    .submit-btn:hover { background: #1a7678; }
+    .submit-btn { width: 100%; padding: 18px; background: var(--orange); color: #0B2A55; border: none; border-radius: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+    .submit-btn:hover { background: #FF8455; }
     .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
     .form-note { text-align: center; margin-top: 16px; }
     .error-msg { color: #FF6B35; font-size: 13px; margin-top: 10px; display: none; }
@@ -153,22 +205,34 @@
       .site-footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
     }
   </style>
+<style>
+        .box-light .box-item { border-bottom-color: rgba(11,42,85,0.12); }
+        .box-light .box-title { color: #0B2A55; }
+        .box-light .box-text { color: rgba(11,42,85,0.78); }
+        .box-light .box-check { background: rgba(31,138,140,0.12); border-color: #2A9D9F; color: #136B6D; }
+        .box-light .box-img { background: transparent; box-shadow: none; padding: 0; }
+    @media (max-width: 700px) { .site-header { flex-wrap: wrap; gap: 12px; padding: 14px 20px !important; } .site-header img { height: 44px; } nav { flex-wrap: wrap; gap: 12px 18px; } .nav-cta { margin-left: 0 !important; } }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header class="site-header">
     <a href="/"><img src="/assets/images/logo-dark.png" alt="PT Pools"></a>
-    <nav>
+    <button class="sub-menu-btn" id="sub-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sub-nav"><span></span><span></span><span></span></button>
+    <nav id="sub-nav">
       <a href="/">Home</a>
-      <a href="/blog">Blog</a>
       <a href="/affiliates">Affiliates</a>
       <a href="/clinicians" style="color:#fff">Clinicians</a>
-      <a href="/#notify" class="nav-cta">Get Notified</a>
+      <a href="mailto:hello@ptpools.us">Contact</a>
     </nav>
   </header>
 
+  <main id="main-content">
   <section class="hero">
     <div class="hero-pattern"></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
     <div class="hero-badge">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       Clinician Referral Program
@@ -176,11 +240,15 @@
     <h1>Help Your Patients<br><span>Break the Pain Cycle</span></h1>
     <p class="hero-sub">You know how it goes. Pain stops movement. Less movement means more pain. More pain means less compliance. And patients who stop moving between visits don't get better — they come back to you worse.<br><br>Aquatic therapy breaks that cycle. Chest-deep water offloads up to 75% of body weight, giving patients a place to move that doesn't hurt — between visits, every day, at home. What you start in the clinic keeps going. TheraTank ships directly to their door. Setup takes under 30 minutes. Your protocol doesn't stop when they leave your office.</p>
     <a href="#register" class="btn-primary">Register as a Referring Clinician</a>
+      </div>
+      <div class="hero-photo"><picture><source srcset="/assets/images/clinician-hero.webp" type="image/webp"><img src="/assets/images/clinician-hero.jpg" alt="A woman in her mid-50s wearing a hinged knee brace stands relaxed and smiling, recovering after knee surgery." width="780" height="1200"></picture></div>
+    </div>
   </section>
 
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#2A9D9F;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#071e3d"/></svg></div>
   <div class="stats-strip">
     <div class="stat-item">
-      <div class="val">$75</div>
+      <div class="val">$100</div>
       <div class="lbl">Flat Referral Fee</div>
     </div>
     <div class="strip-divider"></div>
@@ -195,56 +263,100 @@
     </div>
   </div>
 
-  <section class="clinical-section">
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#E6F5F6;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#2A9D9F"/></svg></div>
+  <div class="clin-light" style="background:#E6F5F6;"><section class="clinical-section">
     <p class="section-tag">Clinical Applications</p>
     <h2 class="section-title">Patients Who <span>Benefit Most</span></h2>
     <p class="section-sub">The science is clear. Here are just some of the research-backed benefits of aquatic therapy across the conditions you see every day.</p>
-    <div class="case-grid">
-      <div class="case-card">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-        </div>
-        <h3>Chronic Back Pain & Spinal Conditions</h3>
-        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Patients with chronic low back pain were 6.6x more likely to achieve meaningful pain relief with aquatic therapy than standard physical therapy — and results held at 12 months. Disability reduction: 46.4% vs. 7%.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Peng et al. (2022), JAMA Network Open</span></p>
-      </div>
-      <div class="case-card">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <h3>Obesity & Weight-Bearing Limitations</h3>
-        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Submerged to chest depth, the body offloads approximately 75% of its weight — reducing joint load to a level that makes sustained cardiovascular exercise possible for patients who cannot tolerate land-based activity.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">ATRI / AEA Aquatic Therapy Clinical Guidelines</span></p>
-      </div>
-      <div class="case-card">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        </div>
-        <h3>Chronic Pain & Fibromyalgia</h3>
-        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Fibromyalgia patients who completed aquatic therapy reported half the pain of those who did land-based therapy — even six weeks after treatment ended. Pain scores: 2.7 vs. 5.5.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Rivas Neira et al. (2024), Physiotherapy</span></p>
-      </div>
-      <div class="case-card">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Post-Surgical Recovery</h3>
-        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">A study of 160 post-orthopedic surgery patients found water-based exercise produced significant improvements in pain, mood, and quality of life — researchers concluded it is "an appropriate alternative strategy for post-orthopaedic surgical recovery."<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Maccarone et al. (2022), Int. J. Biometeorology</span></p>
-      </div>
-      <div class="case-card">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3>Neurological Rehabilitation</h3>
-        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Aquatic therapy produced significantly better outcomes in pain, balance, and gait than dry-land therapy for chronic stroke patients — across multiple clinical measures.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Pérez-de la Cruz (2020), Int. J. Environmental Research & Public Health</span></p>
-      </div>
-      <div class="case-card">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <h3>Athletic Injury Recovery</h3>
-        <p style="color:var(--teal);font-size:0.88rem;line-height:1.65;">Deep water training allows patients recovering from ACL tears, rotator cuff injuries, and stress fractures to maintain cardiovascular conditioning and muscle engagement while completely offloading healing tissue — zero ground impact.<br><span style="color:rgba(255,255,255,0.3);font-size:0.75rem;margin-top:8px;display:block;">Established sports medicine protocol</span></p>
-      </div>
-    </div>
-  </section>
+    <div class="uc-wrap">
+                <div class="uc-list">
+                    <button class="uc-item active" data-uc="0">Chronic Back Pain &amp; Spinal Conditions</button>
+                    <button class="uc-item" data-uc="1">Obesity &amp; Weight-Bearing Limitations</button>
+                    <button class="uc-item" data-uc="2">Chronic Pain &amp; Fibromyalgia</button>
+                    <button class="uc-item" data-uc="3">Post-Surgical Recovery</button>
+                    <button class="uc-item" data-uc="4">Neurological Rehabilitation</button>
+                    <button class="uc-item" data-uc="5">Athletic Injury Recovery</button>
+                    <button class="uc-item" data-uc="6">Exercise Soreness &amp; Recovery</button>
+                    <button class="uc-item" data-uc="7">Balance &amp; Fall Prevention</button>
+                </div>
+                <div class="uc-detail">
+                    <div class="uc-panel has-video active" data-uc="0"><video class="uc-video" src="/assets/video/back-pain-relief.mp4" aria-label="Animated chart: chronic back pain patients were 6.6 times more likely to get meaningful relief with aquatic therapy than standard physical therapy. Source: Peng et al. 2022, JAMA Network Open." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Chronic Back Pain &amp; Spinal Conditions</h3><p class="uc-body">Patients with chronic low back pain were 6.6x more likely to achieve meaningful pain relief with aquatic therapy than standard physical therapy — and results held at 12 months. Disability reduction: 46.4% vs. 7%.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Peng et al. (2022), JAMA Network Open</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="1"><video class="uc-video" src="/assets/video/weight-offload.mp4" aria-label="Animation: at chest depth, water offloads about 75 percent of body weight." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Obesity &amp; Weight-Bearing Limitations</h3><p class="uc-body">Submerged to chest depth, the body offloads approximately 75% of its weight — reducing joint load to a level that makes sustained cardiovascular exercise possible for patients who cannot tolerate land-based activity.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">ATRI / AEA Aquatic Therapy Clinical Guidelines</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="2"><video class="uc-video" src="/assets/video/fibro-pain.mp4" aria-label="Animated pain scale: fibromyalgia pain scores six weeks after treatment were 2.7 with aquatic therapy versus 5.5 with land-based therapy, half the pain. Source: Rivas Neira et al. 2024, Physiotherapy." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Chronic Pain &amp; Fibromyalgia</h3><p class="uc-body">Fibromyalgia patients who completed aquatic therapy reported half the pain of those who did land-based therapy — even six weeks after treatment ended. Pain scores: 2.7 vs. 5.5.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Rivas Neira et al. (2024), Physiotherapy</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="3"><video class="uc-video" src="/assets/video/post-surgical.mp4?v=2" aria-label="Animated text: Stronger, sooner. Water rehab built more strength after joint replacement than land-based rehab. Source: Alrashedi et al. 2026, Healthcare, a meta-analysis of 7 trials." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Post-Surgical Recovery</h3><p class="uc-body">Aquatic therapy provides a supportive and low-impact environment that can significantly aid in the recovery process, helping patients regain function and return to their daily activities.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Alrashedi et al. (2026), Healthcare</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="4"><video class="uc-video" src="/assets/video/neuro-rehab.mp4?v=2" aria-label="Animated text: Move better after stroke. Better balance, faster walking, lower fall risk. 27 studies, 1,134 stroke patients. Source: Gento-Andres et al. 2025, Archives of Rehabilitation Research and Clinical Translation." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Neurological Rehabilitation</h3><p class="uc-body">A 2025 review of 27 studies and more than 1,100 stroke survivors found that aquatic therapy significantly improved balance, walking speed, and fall risk. Water supports the body while you practice standing, stepping, and shifting your weight, so you can work on the movements that matter without fear of falling.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Gento-Andres et al. (2025), Arch. Rehabil. Res. Clin. Transl.</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="5"><video class="uc-video" src="/assets/video/cross-training.mp4?v=3" aria-label="Animated graphic: a man with a knee brace does a slow side kick, chest-deep in TheraTank. Stay in the game. Cross training, injury prevention, recovery, athletic conditioning." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Athletic Injury Recovery</h3><p class="uc-body">Deep water training allows patients recovering from ACL tears, rotator cuff injuries, and stress fractures to maintain cardiovascular conditioning and muscle engagement while completely offloading healing tissue — zero ground impact.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Established sports medicine protocol</span></p></div></div>
+                    <div class="uc-panel has-video" data-uc="6"><video class="uc-video" src="/assets/video/no-doms.mp4" aria-label="Animated graphic: exercising in water largely removes the eccentric load behind delayed-onset muscle soreness." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Exercise Soreness &amp; Recovery</h3><p class="uc-body">If soreness keeps knocking you out of your routine, the problem may be the exercise, not you. On land, the lengthening (eccentric) phase of each movement causes the micro-tears behind delayed-onset muscle soreness. In water, drag replaces gravity as the resistance, which largely removes that eccentric load. You can work hard today and be ready for whatever tomorrow brings.</p></div></div>
+                    <div class="uc-panel has-video" data-uc="7"><video class="uc-video" src="/assets/video/balance-fall.mp4?v=4" aria-label="Animated text: Balance training with no fear of falling. The gains carry over to land. Aquatic exercise provided greater improvement in physical health, hip strength, and quality of life among older adults versus those who trained on land. Source: Oh and Lee 2021, randomized trial, adults 65 and older." muted playsinline preload="metadata"></video><div class="uc-text"><h3 class="uc-title">Balance &amp; Fall Prevention</h3><p class="uc-body">If fear of falling keeps you from training balance, water takes the risk out. Its viscosity slows every movement and buoyancy catches you if you lose your footing. You can challenge your balance and proprioception (your body's sense of where it is in space) further than you safely could on land, building the stability that keeps you upright out of the pool.<br><span style="color:#FF6B35;font-size:0.9rem;margin-top:8px;display:block;">Oh &amp; Lee (2021), J. Back &amp; Musculoskeletal Rehabilitation</span></p></div></div>
+                </div>
+            </div>
+    <style>
+        .uc-wrap { display: grid; grid-template-columns: 1fr 3fr; gap: 32px; align-items: stretch; }
+        .uc-list { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
+        .uc-item { text-align: left; background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.15); border-left: 3px solid transparent; border-radius: 10px; padding: 14px 16px; color: rgba(255,255,255,0.75); font-family: 'Oswald', sans-serif; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all .2s; }
+        .uc-item:hover { color: #fff; background: rgba(31,138,140,0.2); border-color: rgba(31,138,140,0.4); }
+        .uc-item.active { color: #fff; background: rgba(31,138,140,0.35); border-color: rgba(31,138,140,0.6); border-left-color: rgba(255,107,53,0.92); }
+        .uc-detail { background: rgba(255,255,255,0.03); border: 1px solid rgba(31,138,140,0.15); border-radius: 20px; padding: 28px; min-height: 320px; }
+        .uc-panel { display: none; }
+        .uc-panel.active { display: block; }
+        .uc-panel.has-video.active { display: grid; grid-template-columns: 3fr 1fr; gap: 28px; align-items: center; }
+        .uc-video { display: block; width: 100%; height: auto; border-radius: 14px; background: #061830; }
+        .uc-title { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,107,53,0.82); text-shadow: 0 2px 10px rgba(0,0,0,0.45); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #2A9D9F; display: inline-block; }
+        .uc-body { color: rgba(255,255,255,0.88); font-size: 1.12rem; line-height: 1.7; }
+        @media (max-width: 800px) { .uc-panel.has-video.active { grid-template-columns: 1fr; } .uc-wrap { grid-template-columns: 1fr; } .uc-list { flex-direction: row; overflow-x: auto; } .uc-item { white-space: nowrap; } }
+    </style>
+    <script>
+    (function(){
+        document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.uc-wrap').forEach(function(wrap){
+        var items=wrap.querySelectorAll('.uc-item'), panels=wrap.querySelectorAll('.uc-panel');
+        function show(i){
+            items.forEach(function(el){el.classList.toggle('active', el.dataset.uc==i);});
+            panels.forEach(function(el){
+                var on = el.dataset.uc==i; el.classList.toggle('active', on);
+                var v=el.querySelector('video'); if(v){ if(on){ v.currentTime=0; v.play().catch(function(){}); } else v.pause(); }
+            });
+        }
+        items.forEach(function(el){ el.addEventListener('click', function(){ show(el.dataset.uc); }); });
+        show('0');
+        });
+        });
+    })();
+    </script>
+  </section></div>
 
+  
+
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#ffffff;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#E6F5F6"/></svg></div>
+  <section class="box-light" style="padding:100px 60px;background:#ffffff;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <p style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#136B6D;margin-bottom:16px;text-align:center;">What's Included</p>
+            <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;text-transform:uppercase;line-height:1.1;color:#0B2A55;margin-bottom:16px;text-align:center;">Everything You Need to <span style="background:linear-gradient(transparent 10%, rgba(255,107,53,0.92) 10%, rgba(255,107,53,0.92) 88%, transparent 88%);color:#0B2A55;padding:0 3px;">Get Set Up in Under an Hour.</span></h2>
+            <p style="font-family:'Oswald',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.5;color:#136B6D;max-width:760px;margin:0 auto 64px;text-align:center;">One box. One afternoon. Everything included to get in the water.</p>
+            <div class="box-wrap">
+                <div class="box-list">
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">TheraTank Pool</h3><p class="box-text">Marine-grade drop-stitch PVC. 59" walls, 54" usable water depth. Rigid when inflated. 9'8" round — fits most backyards and garages.</p></div></div>
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">Electric Air Pump</h3><p class="box-text">High-pressure electric pump does all the inflating for you. One person. No tools. No help needed.</p></div></div>
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">2,300 GPH Sand Filter + Pump</h3><p class="box-text">With built-in skimmer. Most pool companies ship a small paper-cartridge filter that couldn&rsquo;t keep a kiddie pool clean, and you&rsquo;re tossing cartridges every few weeks. We refused to add to that waste, so we include a 2,300 GPH sand filter instead. No cartridge waste, no constant replacements. Sand lasts up to 5 years: fill it once, and there&rsquo;s nothing else to buy for years.</p></div></div>
+                    <div class="box-item"><span class="box-check">&#10003;</span><div><h3 class="box-title">Ladder + Cover</h3><p class="box-text">Sturdy step-over ladder with a 300 lb weight-rated top platform, plus a cover that keeps debris out and helps retain water temperature between sessions.</p></div></div>
+                </div>
+                <div class="box-img"><img src="/assets/images/theratank-kit.jpg?v=8" alt="TheraTank kit: pool, electric air pump, cover, ladder, sand filter pump and repair kit" loading="lazy"></div>
+            </div>
+            <style>
+                .box-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; max-width: 1240px; margin: 0 auto; }
+                .box-list { display: flex; flex-direction: column; gap: 26px; }
+                .box-item { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; padding-bottom: 22px; border-bottom: 1px solid rgba(38,192,205,0.18); }
+                .box-item:last-child { border-bottom: none; padding-bottom: 0; }
+                .box-check { width: 34px; height: 34px; border-radius: 50%; background: rgba(31,138,140,0.25); border: 1px solid rgba(38,192,205,0.6); color: #26C0CD; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; }
+                .box-title { font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; margin: 4px 0 6px; }
+                .box-text { font-family: 'Inter', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 1.7; margin: 0; }
+                .box-img { background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+                .box-img img { display: block; width: 100%; height: auto; }
+                @media (max-width: 900px) { .box-wrap { grid-template-columns: 1fr; } .box-img { order: -1; } }
+            </style>
+        </div>
+    </section>
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#061830;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#ffffff"/></svg></div>
   <section class="how-section">
     <div class="how-inner">
       <p class="section-tag">Referral Process</p>
@@ -253,112 +365,67 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h4>You Register</h4>
+          <h3 class="step-h">You Register</h3>
           <p>Complete the clinician registration below. We'll add you to our referring provider directory and send you patient-facing resources.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h4>You Refer</h4>
+          <h3 class="step-h">You Refer</h3>
           <p>Share your referral link or a printed card with patients who would benefit from continued aquatic therapy at home.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h4>Patient Orders</h4>
+          <h3 class="step-h">Patient Orders</h3>
           <p>The patient purchases TheraTank through your referral link. Ships directly to their home.</p>
         </div>
         <div class="step">
           <div class="step-num">4</div>
-          <h4>They Start at Home</h4>
+          <h3 class="step-h">They Start at Home</h3>
           <p>TheraTank ships directly to the patient. Setup takes under 30 minutes. They continue their protocol between clinic visits, from home.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="receive-section">
-    <div class="receive-inner">
-      <div>
-        <p class="section-tag">What Patients Receive</p>
-        <h2 class="section-title">The Complete <span>TheraTank Kit</span></h2>
-        <p class="section-sub" style="margin-bottom:0">Everything they need in one box. No additional purchases required to get started.</p>
-        <div class="receive-list">
-          <div class="receive-item">
-            <div class="receive-dot"></div>
-            <div>
-              <h4>TheraTank Inflatable Pool</h4>
-              <p>Marine-grade drop stitch PVC — the same construction used in inflatable boats. 59" walls are rigid enough for wall work and resistance exercises. No liner, no flex.</p>
-            </div>
-          </div>
-          <div class="receive-item">
-            <div class="receive-dot"></div>
-            <div>
-              <h4>High-Pressure Electric Air Pump</h4>
-              <p>Inflates in under 10 minutes. Patients operate it independently without assistance.</p>
-            </div>
-          </div>
-          <div class="receive-item">
-            <div class="receive-dot"></div>
-            <div>
-              <h4>800 GPH Filter with Built-In Chlorinator</h4>
-              <p>Integrated filter and chlorine tablet dispenser keeps water clean between sessions. No professional maintenance, no service contracts — standard tablets from any hardware store.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="specs-card">
-          <div class="spec-card-title">Clinical Specifications</div>
-          <div class="spec-row"><span class="spec-label">Wall Height</span><span class="spec-val">59" (1.5M)</span></div>
-          <div class="spec-row"><span class="spec-label">Water Depth</span><span class="spec-val">54"</span></div>
-          <div class="spec-row"><span class="spec-label">Diameter</span><span class="spec-val">3M (~10 ft)</span></div>
-          <div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">~2,600 gallons</span></div>
-          <div class="spec-row"><span class="spec-label">Construction</span><span class="spec-val">Marine-grade drop stitch PVC</span></div>
-          <div class="spec-row"><span class="spec-label">Setup Time</span><span class="spec-val">Under 30 minutes</span></div>
 
-          <div class="spec-row"><span class="spec-label">Setup</span><span class="spec-val">Solo, no contractor needed</span></div>
-          <div class="spec-row"><span class="spec-label">Starting Price</span><span class="spec-val">$749</span></div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="earn-section">
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#E6F5F6;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,22 C1080,56 360,4 0,34 Z" fill="#061830"/></svg></div>
+  <div style="background:#E6F5F6;"><section class="earn-section earn-light">
     <div class="earn-inner">
       <div class="earn-text">
         <p class="section-tag">We Make It Easy</p>
         <h2 class="section-title">Refer in<br><span>Under a Minute</span></h2>
-        <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:500px">After you register, your clinician portal has three done-for-you assets — each one pre-populated with your clinic name and referral code. Refer to one patient after a visit, or blast it to your entire clientele in a pre-prepared newsletter blast. Your patients get a one-of-a-kind therapy tool that works at home. And you get a healthier patient.</p>
+        <p style="color:rgba(11,42,85,0.78);font-size:1.05rem;line-height:1.8;max-width:500px">After you register, your clinician portal has three done-for-you assets — each one pre-populated with your clinic name and referral code. Refer to one patient after a visit, or blast it to your entire clientele in a pre-prepared newsletter blast. Your patients get a one-of-a-kind therapy tool that works at home. And you get a healthier patient.</p>
       </div>
       <div class="earn-card">
-        <div class="spec-card-title" style="font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--teal);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(31,138,140,0.15);">What you get when you register</div>
+        <div class="spec-card-title" style="font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#136B6D;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(31,138,140,0.15);">What you get when you register</div>
         <div class="earn-row">
-          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;One-off referral email</span>
-          <span style="color:var(--muted);font-size:12px;">Copy, paste, send</span>
+          <span style="color:#0B2A55;font-size:14px;font-weight:500;">✦ &nbsp;One-off referral email</span>
+          <span style="color:rgba(11,42,85,0.78);font-size:12px;">Copy, paste, send</span>
         </div>
         <div class="earn-row">
-          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;Newsletter blast</span>
-          <span style="color:var(--muted);font-size:12px;">Ready for your patient list</span>
+          <span style="color:#0B2A55;font-size:14px;font-weight:500;">✦ &nbsp;Newsletter blast</span>
+          <span style="color:rgba(11,42,85,0.78);font-size:12px;">Ready for your patient list</span>
         </div>
         <div class="earn-row">
-          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;Full blog article</span>
-          <span style="color:var(--muted);font-size:12px;">Publish on your site</span>
+          <span style="color:#0B2A55;font-size:14px;font-weight:500;">✦ &nbsp;Full blog article</span>
+          <span style="color:rgba(11,42,85,0.78);font-size:12px;">Publish on your site</span>
         </div>
         <div class="earn-row" style="border-bottom:none;">
-          <span style="color:#fff;font-size:14px;font-weight:500;">✦ &nbsp;$75 per referral, paid to PayPal</span>
-          <span style="color:var(--muted);font-size:12px;">No cap, no minimum</span>
+          <span style="color:#0B2A55;font-size:14px;font-weight:500;">✦ &nbsp;$100 per referral, paid to PayPal</span>
         </div>
-        <p style="color:#fff;font-size:13px;margin-top:20px;line-height:1.6;border-top:1px solid rgba(31,138,140,0.2);padding-top:20px;">All assets pre-populated with your clinic name and referral code. <strong>Nothing to write.</strong></p>
+        <p style="color:#0B2A55;font-size:13px;margin-top:20px;line-height:1.6;border-top:1px solid rgba(31,138,140,0.2);padding-top:20px;">All assets pre-populated with your clinic name and referral code. <strong>Nothing to write.</strong></p>
       </div>
     </div>
-  </section>
+  </section></div>
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#ffffff;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#E6F5F6"/></svg></div>
+  
 
-  <section class="form-section" id="register">
+  
+  <section class="form-section form-light" id="register" style="background:#ffffff;">
     <div class="form-inner">
       <p class="section-tag">Clinician Registration</p>
       <h2 class="section-title">Join the <span>Referral Network</span></h2>
-      <p class="section-sub" style="margin-bottom:48px">We make it easy for you to refer in under a minute. No quotas, no ongoing commitment. Finally a product you can refer where you don't have to do anything but send an email.</p>
+      <p class="section-sub" style="margin-bottom:48px">We make it easy. All you need to do is send an email.</p>
 
       <div class="form-card">
         <div id="form-body">
@@ -366,11 +433,11 @@
             <div class="form-group-title">About You</div>
             <div class="two-col">
               <div class="field">
-                <label>Full Name *</label>
+                <label for="name">Full Name *</label>
                 <input type="text" id="name" placeholder="Dr. Jane Smith">
               </div>
               <div class="field">
-                <label>Credentials *</label>
+                <label for="credentials">Credentials *</label>
                 <select id="credentials" onchange="toggleOther('credentials', 'credentials-other')">
                   <option value="">Select credentials</option>
                   <option>DPT / PT</option>
@@ -389,7 +456,7 @@
               </div>
             </div>
             <div class="field">
-                <label>Specialty *</label>
+                <label for="specialty">Specialty *</label>
                 <select id="specialty" onchange="toggleOther('specialty', 'specialty-other')">
                   <option value="">Select specialty</option>
                   <option>Physical Therapy</option>
@@ -410,19 +477,19 @@
           <div class="form-group">
             <div class="form-group-title">Your Practice</div>
             <div class="field">
-              <label>Practice / Clinic Name *</label>
+              <label for="practice_name">Practice / Clinic Name *</label>
               <input type="text" id="practice_name" placeholder="Smith Physical Therapy & Rehab">
             </div>
             <div class="field">
-              <label>Email Address *</label>
+              <label for="email">Email Address *</label>
               <input type="email" id="email" placeholder="you@yourpractice.com">
             </div>
             <div class="field">
-              <label>PayPal Email <span class="note">(for referral fee payouts)</span></label>
+              <label for="paypal_email">PayPal Email <span class="note">(for referral fee payouts)</span></label>
               <input type="email" id="paypal_email" placeholder="paypal@youremail.com">
             </div>
             <div class="field">
-              <label>Preferred Vanity Handle <span class="note">(optional)</span></label>
+              <label for="requested_code">Preferred Vanity Handle <span class="note">(optional)</span></label>
               <span class="note">This becomes ptpools.us/ref/yourhandle. Leave blank and we'll suggest one on approval.</span>
               <input type="text" id="requested_code" placeholder="e.g. smithpt" autocomplete="off">
               <span id="code_status" style="font-size: 13px; min-height: 18px;"></span>
@@ -432,12 +499,12 @@
           <div class="form-group">
             <div class="form-group-title">Additional Context</div>
             <div class="field">
-              <label>Patient Population <span class="note">(optional)</span></label>
+              <label for="patient_focus">Patient Population <span class="note">(optional)</span></label>
               <span class="note" style="margin-bottom:6px">Describe the patients you typically work with — helps us send you relevant materials.</span>
               <textarea id="patient_focus" placeholder="e.g. Primarily post-surgical orthopedic patients, outpatient setting, 50–75 age range"></textarea>
             </div>
             <div class="field">
-              <label>How did you hear about TheraTank?</label>
+              <label for="referral_source">How did you hear about TheraTank?</label>
               <select id="referral_source" onchange="toggleOther('referral_source', 'referral_source-other')">
                 <option value="">Select one</option>
                 <option>Colleague referral</option>
@@ -464,6 +531,10 @@
       </div>
     </div>
   </section>
+  <div aria-hidden="true" style="line-height:0;margin:-2px 0;position:relative;z-index:1;background:#061830;"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,-4 L1440,-4 L1440,34 C1080,4 360,56 0,22 Z" fill="#ffffff"/></svg></div>
+  
+
+  </main>
 
   <footer class="site-footer">
     <img src="/assets/images/logo-dark.png" alt="PT Pools">
@@ -604,5 +675,139 @@
     }
   </script>
 
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}.clinical-section .uc-wrap{max-width:1480px;margin:0 auto;text-align:left;}</style>
+<style>
+.vid-wrap{position:relative;display:block;}
+.vid-replay{position:absolute;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(38,192,205,.7);background:rgba(7,25,46,.75);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s, background .2s, transform .2s;backdrop-filter:blur(4px);}
+.vid-wrap.ended .vid-replay{opacity:1;pointer-events:auto;}
+.vid-replay:hover{background:rgba(31,138,140,.9);transform:rotate(-30deg);}
+</style>
+<script>
+(function(){
+  document.querySelectorAll('video.uc-video, video.play-on-view').forEach(function(v){
+    var w=document.createElement('span'); w.className='vid-wrap';
+    v.parentNode.insertBefore(w,v); w.appendChild(v);
+    var b=document.createElement('button'); b.className='vid-replay'; b.type='button'; b.setAttribute('aria-label','Replay'); b.innerHTML='&#8635;';
+    w.appendChild(b);
+    v.addEventListener('ended',function(){w.classList.add('ended');});
+    v.addEventListener('play',function(){w.classList.remove('ended');});
+    b.addEventListener('click',function(e){e.stopPropagation();v.currentTime=0;v.play().catch(function(){});});
+  });
+})();
+</script>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.play().catch(function(){});io.unobserve(e.target);}});},{threshold:0.5});
+  document.querySelectorAll('video.play-on-view').forEach(function(v){io.observe(v);});
+})();
+</script>
+<script>
+/* Screen-reader text track for the silent animated clips: announces each on-screen text change as it appears. */
+(function(){
+  var CUES={
+    'back-pain-relief.mp4':[[0,'Chronic back pain? Get in the water.'],[2.2,'Bar chart comparing standard physical therapy with aquatic therapy.'],[4.3,'Aquatic therapy: 6.6 times.'],[5.4,'6.6 times better results than traditional PT. More relief. Faster. Source: Peng et al. 2022, JAMA Network Open.']],
+    'post-surgical.mp4':[[0.1,'Stronger, sooner.'],[1.3,'Water rehab built more strength after joint replacement than land-based rehab. Source: Alrashedi et al. 2026, Healthcare, meta-analysis of 7 trials.']],
+    'neuro-rehab.mp4':[[0.1,'Move better after stroke.'],[1.8,'Better balance.'],[2.8,'Faster walking.'],[3.8,'Lower fall risk.'],[5.0,'27 studies. 1,134 stroke patients. Source: Gento-Andres et al. 2025.']],
+    'balance-fall.mp4':[[0.1,'Balance training with no fear of falling.'],[2.7,'The gains carry over to land.'],[4.3,'Aquatic exercise provided greater improvement in physical health, hip strength, and quality of life among older adults versus those who trained on land. Source: Oh and Lee 2021, randomized trial, adults 65 and older.']],
+    'fibro-pain.mp4':[[0.2,'Half the pain of land-based therapy.'],[1.5,'Pain level scale, 0 to 10.'],[2.4,'Land-based therapy: 5.5.'],[3.4,'Aquatic therapy: drops to 2.7.'],[6.0,'Six weeks after treatment ended. Source: Rivas Neira et al. 2024, Physiotherapy.']],
+    'weight-offload.mp4':[[2.0,'At waist deep, you are still bearing 50 percent of your body’s impact and joint stress.'],[5.0,'75 percent of your bodyweight is offloaded at chest depth. For low impact and pain-free movement.']],
+    'cross-training.mp4':[[0.1,'Stay in the game.'],[1.5,'Cross training.'],[2.7,'Injury prevention.'],[3.8,'Recovery.'],[5.0,'Athletic conditioning.']],
+    'no-doms.mp4':[[0.3,'Traditional exercise tears muscle fibers. That’s the soreness you feel for days.'],[4.7,'No next day soreness. Water is unique in that it uses only concentric movement. So there’s no tearing, no soreness, letting you get back to life and stay more consistent.']]
+  };
+  document.querySelectorAll('video').forEach(function(v){
+    var f=(v.getAttribute('src')||'').split('?')[0].split('/').pop(); var cues=CUES[f]; if(!cues) return;
+    var live=document.createElement('div'); live.className='sr-only'; live.setAttribute('aria-live','polite'); live.setAttribute('aria-atomic','true');
+    v.parentNode.insertBefore(live, v.nextSibling);
+    var idx=-1;
+    function reset(){ idx=-1; }
+    v.addEventListener('play', function(){ if(v.currentTime<0.3) reset(); });
+    v.addEventListener('seeked', reset);
+    v.addEventListener('timeupdate', function(){
+      var t=v.currentTime, n=idx;
+      while(n+1<cues.length && t>=cues[n+1][0]) n++;
+      if(n>idx){ idx=n; live.textContent=cues[n][1]; }
+    });
+  });
+})();
+</script>
+<style>
+@media (max-width: 800px) {
+  .uc-wrap.uc-acc { display: block !important; }
+  .uc-acc .uc-list { flex-direction: column !important; overflow: visible !important; gap: 10px; }
+  .uc-acc .uc-item { white-space: normal !important; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 1rem; padding: 16px 18px; }
+  .uc-acc .uc-item { justify-content: flex-start !important; text-align: left !important; }
+  .uc-acc .uc-item::after { content: '+'; font-size: 1.4rem; line-height: 1; color: #FF6B35; flex-shrink: 0; margin-left: auto; padding-left: 10px; }
+  .uc-acc .uc-item.active::after { content: '\2212'; }
+  .uc-acc .uc-detail { display: none !important; }
+  .uc-acc .uc-panel.active { display: block !important; background: #0B2A55; border: 1px solid rgba(42,157,159,0.35); border-radius: 14px; padding: 16px; margin: -4px 0 6px; }
+  .uc-acc .uc-panel .uc-video { margin-bottom: 14px; }
+  .uc-acc .uc-panel .uc-title { display: none; }
+  .uc-acc.ww-three .uc-list { margin-bottom: 10px; }
+  .uc-acc .ww-ghost { display: none !important; }
+  .uc-acc .uc-panel.active .uc-title, .uc-acc .uc-panel.active .uc-body { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+</style>
+<script>
+(function(){
+  var mq = window.matchMedia('(max-width: 800px)');
+  function init(){
+    document.querySelectorAll('.uc-wrap').forEach(function(wrap){
+      if (wrap.dataset.accInit) return; wrap.dataset.accInit = 1;
+      var list = wrap.querySelector('.uc-list'), detail = wrap.querySelector('.uc-detail');
+      var items = [].slice.call(wrap.querySelectorAll('.uc-item'));
+      var panels = [].slice.call(wrap.querySelectorAll('.uc-panel'));
+      function panelFor(it){ for (var i=0;i<panels.length;i++) if (panels[i].dataset.uc == it.dataset.uc) return panels[i]; }
+      items.forEach(function(it){ var p = panelFor(it); if (p){ if(!p.id) p.id = 'uc-panel-' + Math.random().toString(36).slice(2,8); it.setAttribute('aria-controls', p.id); } });
+      function closeAll(){ items.forEach(function(it){ it.classList.remove('active'); it.setAttribute('aria-expanded','false'); }); panels.forEach(function(p){ p.classList.remove('active'); var v=p.querySelector('video'); if(v) v.pause(); }); }
+      function apply(){
+        if (mq.matches){
+          items.forEach(function(it){ var p = panelFor(it); if (p) it.after(p); });
+          wrap.classList.add('uc-acc');
+          closeAll();
+        } else {
+          panels.forEach(function(p){ detail.appendChild(p); });
+          wrap.classList.remove('uc-acc');
+          items.forEach(function(it){ it.removeAttribute('aria-expanded'); });
+          items[0].click();
+        }
+      }
+      items.forEach(function(it){
+        it.addEventListener('click', function(e){
+          if (!wrap.classList.contains('uc-acc')) return;
+          e.stopImmediatePropagation(); e.preventDefault();
+          var wasOpen = it.classList.contains('active');
+          closeAll();
+          if (wasOpen) return;
+          var p = panelFor(it);
+          it.classList.add('active'); it.setAttribute('aria-expanded','true');
+          if (p){ p.classList.add('active'); var v=p.querySelector('video'); if(v){ v.currentTime=0; v.play().catch(function(){}); } }
+          setTimeout(function(){ it.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 30);
+        }, true);
+      });
+      apply();
+      mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(init, 0); }); else setTimeout(init, 0);
+})();
+</script>
+<style>
+.sub-menu-btn { display: none; background: none; border: 0; cursor: pointer; padding: 6px; margin-left: auto; flex-direction: column; gap: 5px; }
+.sub-menu-btn span { display: block; width: 26px; height: 2px; background: #2A9D9F; border-radius: 2px; }
+@media (max-width: 760px) {
+  .site-header { flex-wrap: nowrap !important; position: sticky; justify-content: space-between !important; }
+  .sub-menu-btn { display: flex; }
+  #sub-nav { display: none !important; position: absolute; top: 100%; right: 16px; flex-direction: column; align-items: stretch; gap: 0 !important; min-width: 220px; background: rgba(6,24,48,0.98); border: 1px solid rgba(42,157,159,0.3); border-radius: 12px; padding: 8px 0; z-index: 200; }
+  #sub-nav.open { display: flex !important; }
+  #sub-nav a { display: block !important; padding: 12px 20px; font-size: 15px; }
+}
+</style>
+<script>
+(function(){var b=document.getElementById('sub-menu-btn'),n=document.getElementById('sub-nav');if(!b||!n)return;
+b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');});
+document.addEventListener('click',function(e){if(!n.contains(e.target)){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Open menu');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.focus();}});})();
+</script>
 </body>
 </html>
