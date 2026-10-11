@@ -48,8 +48,8 @@
 - Cut to: Underwater shot TheraTank — full body, chest deep, buoyant
 - Cut to: Underwater shot with buoy belt on — feet clearly off the floor
 
-**VO:** *"Most therapy pools give you waist-deep water. TheraTank gives you 59-inch walls providing 54 inches of actual chest-deep water. At chest depth your body offloads 75% of its weight. That's the difference between a workout and actual therapy."*
-**On screen:** "59" walls. 54"+ usable depth." / "75% weight offloaded."
+**VO:** *"Most therapy pools give you waist-deep water. TheraTank gives you 60-inch walls providing 54 inches of actual chest-deep water. At chest depth your body offloads 75% of its weight. That's the difference between a workout and actual therapy."*
+**On screen:** "60" walls. 54"+ usable depth." / "75% weight offloaded."
 
 ---
 
@@ -80,7 +80,7 @@
 ### END CARD (0:56–1:00)
 **Shot:** TheraTank logo on dark background
 **On screen:**
-- "59" walls. 54"+ depth."
+- "60" walls. 54"+ depth."
 - "Now on Kickstarter — $749 to the first 50 backers."
 - ptpools.com
 
@@ -94,7 +94,7 @@
 
 *Under 10 feet round. Backyard. Garage. Wherever it fits, it fits.*
 
-*Most therapy pools give you waist-deep water. TheraTank gives you 59-inch walls providing 54 inches of actual chest-deep water. At chest depth, your body offloads 75% of its weight. That's the difference between a workout and actual therapy.*
+*Most therapy pools give you waist-deep water. TheraTank gives you 60-inch walls providing 54 inches of actual chest-deep water. At chest depth, your body offloads 75% of its weight. That's the difference between a workout and actual therapy.*
 
 *No membership fees. No shared lanes. No schedule. No audience. You don't even have to shave your legs. It's yours — on your time, in your space.*
 
